@@ -1,0 +1,181 @@
+\documentclass[a4paper, 10pt, notitlepage]{article}
+
+\usepackage{moreverb} %para importar codigo
+
+\usepackage{pepotina} %paquete personal para la caratula del DC
+
+\usepackage[spanish,activeacute]{babel}
+\usepackage{babel} %paquete de idioma
+
+\usepackage[latin1]{inputenc}
+
+\usepackage{color}
+
+\usepackage{caeycaeING}
+
+\usepackage{fancyhdr} %linea sup con comentarios
+
+%\usepackage{listings}
+
+\usepackage{lscape} %para hoja apaisada
+
+\usepackage{framed} %para crear cajas de texto
+
+\usepackage{lastpage} %ultima pagina
+
+\usepackage{pstricks}
+\usepackage{uml} %UML
+
+
+\addtolength{\topmargin}{-50pt} 
+\addtolength{\textwidth}{105pt}
+\addtolength{\textheight}{120pt}
+\addtolength{\oddsidemargin}{-50pt}
+
+%\newcommand{\minix}{\textsl{minix }}
+
+%%% Encabezado y pie de p'agina
+\pagestyle{fancy}
+\fancyhead[LO]{Ingenieria del Software I}
+\fancyhead[C]{}
+\fancyhead[RO]{P\'agina \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+\newcommand{\falta}{ \begin{framed}	\begin{center} \hspace{1cm} \Large FALTA \normalsize \hspace{1cm} \end{center} \end{framed}}
+
+\begin{document}
+
+\universidad{Universidad de Buenos Aires}
+\facultad{Facultad de ciencias exactas y naturales}
+\departamento{Departamento de Computacion}
+\materia{Ingenieria del Software I}
+\resumen{En este trabajo...}
+\keys{UML, Objetivos}
+\titulo{Trabajo Practico}
+\subtitulo{Grupo Nº 2}
+\fecha{1er Cuatrimeste 2008}
+\footspace{1cm}
+\integrante{Aquino, Isis}{caeycae@gmail.com}
+\integrante{Alvarez, Maria}{caeycae@gmail.com}
+\integrante{Garcia, Ana Daniela}{caeycae@gmail.com}
+\integrante{Engler, Christian Alejandro}{caeycae@gmail.com}
+
+%caratula
+%\maketitle{} %OK
+
+%\tableofcontents
+%\newpage
+
+\newcommand{\pj}{{\bf posible jugador }}
+
+\begin{cu}{Comprando fichas}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como el \pj interactua con el sistema con el fin de comprar fichas}
+		\actor{\pj}
+		%\actorsec{}
+		\pre{true}
+		\post{el \pj dispone de las fichas que quiso comprar}
+	\begin{cursoe}{}
+	
+		\paso{1 El \pj ingresa al (sistema) pagina web del casino}
+		{}
+		
+		\paso{2 El \pj ingresa su nombre y numero de documento}
+		{}
+		
+		\paso{3 \pj ingresa el numero de su cuenta corriente}
+		{2.1 El sistema rechaza al \pj por ser menor de edad. Ir a fin de caso de uso}
+		
+		\paso{4 \pj ingresa el numero de su cuenta corriente}
+		{}
+		
+		\paso{5 El sistema verificará la cuanta corriente ingresada. \incl{Verificando cuenta} }
+		{}
+		
+		\paso{6 Si el \pj deseea jugar podra seleccionar el juego que desee \exti{Jugando juegos} }
+		{5.1 En caso de que la verificacion sea erronea ir a fin de caso de uso}
+		
+		\paso{7 Fin de caso de uso}{}
+		
+	\end{cursoe}
+	
+	\paragraph{Preguntas:}
+		\begin{flushleft}
+		¿Debe ser mayor de ciarta edad para jugar?\\
+		¿Ir a Vendiendo fichas? \\
+		¿Extiende o Incluye caso de uso Vendiendo fichas?
+		\end{flushleft}
+	
+\end{cu}
+
+
+\newpage
+
+
+\newcommand{\jj}{{\bf jugador de juegos }}
+
+\begin{cu}{Jugando juegos}
+	\descripxizq=1cm
+		\defln{Este caso explica como un jugador de juegos selecciona el juego que desea jugar}
+		\actor{\jj}
+		\pre{true}
+		\post{el \jj selecciona el juego que desea jugar}
+	\begin{cursoe}{}
+			
+		\paso{1 Fin de caso de uso}{}
+		
+	\end{cursoe}
+	
+	\paragraph{Preguntas:}
+		\begin{flushleft}
+		¿precondicion true?\\
+		¿Debe seleccionar algun juego en particular o la cancelacion en una excepcion?
+		\end{flushleft}
+	
+\end{cu}
+
+
+
+
+
+
+
+
+
+
+
+%\begin{cu}{Vendiendo pasajes}
+%\defln{Este caso de uso expilica la interaccion 
+%del vendedor con nuestro sistemas de ventas}
+%\actor{vendedor de pasajes}
+%\actorsec{vendedor de pasajes secundario}
+%\actorsec{sistema online}
+%\pre{precondicion}
+%\post{postcondicion}
+%\begin{cursoe}{}
+%\paso{a}{b}
+%\end{cursoe}
+%\end{cu}
+%
+%De esta manera escribiremos en caso de uso:
+%
+%\begin{verbatim}
+%\begin{cu}{Vendiendo pasajes}
+%\defln{Este caso de uso expilica la interaccion 
+%del vendedor con nuestro sistemas de ventas}
+%\actor{vendedor de pasajes}
+%\actorsec{vendedor de pasajes secundario}
+%\actorsec{sistema online}
+%\pre{precondicion}
+%\post{postcondicion}
+%\begin{cursoe}{}
+%\paso{a}{b}
+%\end{cursoe}
+%\end{cu}
+%\end{verbatim}
+
+\end{document}
+
+
+

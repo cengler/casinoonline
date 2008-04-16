@@ -57,9 +57,9 @@
 \fecha{1er Cuatrimeste 2008}
 \footspace{1cm}
 \integrante{Aquino, Isis}{caeycae@gmail.com}
-\integrante{Alvarez, Maria}{caeycae@gmail.com}
+\integrante{Alvarez, Maria de los Angeles}{mdelosaalvarez@gmail.com}%264/05
 \integrante{Garcia, Ana Daniela}{caeycae@gmail.com}
-\integrante{Engler, Christian Alejandro}{caeycae@gmail.com}
+\integrante{Engler, Christian Alejandro}{caeycae@gmail.com}%314/05
 
 %caratula
 %\maketitle{} %OK
@@ -67,44 +67,46 @@
 %\tableofcontents
 %\newpage
 
-\newcommand{\pj}{{\bf posible jugador }}
+\newcommand{\pc}{{\bf posible cliente }}
 
-\begin{cu}{Comprando fichas}
+\begin{cu}{Dando de alta cliente}
 	\descripxizq=1cm
-		\defln{Este caso de uso explica como el \pj interactua con el sistema con el fin de comprar fichas}
-		\actor{\pj}
+		\defln{Este caso de uso explica como el \pc interactua con el sistema con el fin de crear una cuenta de usuario que le permita acceder en el casino}
+		\actor{\pc}
 		%\actorsec{}
 		\pre{true}
-		\post{el \pj dispone de las fichas que quiso comprar}
+		\post{el \pc dispone de una cuenta de usuario que le permita acceder en el casino}
+	
 	\begin{cursoe}{}
 	
-		\paso{1 El \pj ingresa al (sistema) pagina web del casino}
+		\paso{1 El \pc ingresa al (sistema) pagina web del casino}
 		{}
 		
-		\paso{2 El \pj ingresa su nombre y numero de documento}
+		\paso{2 El \pc ingresa su nombre, numero de documento, nick y password}
 		{}
 		
-		\paso{3 \pj ingresa el numero de su cuenta corriente}
-		{2.1 El sistema rechaza al \pj por ser menor de edad. Ir a fin de caso de uso}
+		\paso{3 \pc ingresa el numero de su cuenta corriente}
+		{3.1 El sistema rechaza al \pc por ser menor de edad. Ir a paso 6}
 		
-		\paso{4 \pj ingresa el numero de su cuenta corriente}
+		\pasoa{3.2 El sistema rechaza al \pc porque hay un usuario con el mismo nick. Ir a paso 2}
+		
+		\pasoa{3.3 El sistema rechaza la creacion del \pc porque hay un usuario con el mismo numero de documento. Ir a paso 6}
+		
+		\pasoa{3.4 El sistema rechaza la creacion del \pc porque el password no cumple con las normas de seguridad requeridas. Ir a paso 2}
+		
+		\paso{4 El sistema verificará la existencia de la cuenta corriente ingresada. \incl{Verificando cuenta} }
 		{}
 		
-		\paso{5 El sistema verificará la cuanta corriente ingresada. \incl{Verificando cuenta} }
-		{}
+		\paso{5 Si el \pc lo deseea, ingresa al casino online \exti{Ingresando a casino} }
+		{5.1 En caso de que la verificacion sea erronea ir a paso 6}
 		
-		\paso{6 Si el \pj deseea jugar podra seleccionar el juego que desee \exti{Jugando juegos} }
-		{5.1 En caso de que la verificacion sea erronea ir a fin de caso de uso}
-		
-		\paso{7 Fin de caso de uso}{}
+		\paso{6 Fin de caso de uso}{}
 		
 	\end{cursoe}
 	
 	\paragraph{Preguntas:}
 		\begin{flushleft}
 		¿Debe ser mayor de ciarta edad para jugar?\\
-		¿Ir a Vendiendo fichas? \\
-		¿Extiende o Incluye caso de uso Vendiendo fichas?
 		\end{flushleft}
 	
 \end{cu}
@@ -113,32 +115,87 @@
 \newpage
 
 
-\newcommand{\jj}{{\bf jugador de juegos }}
+\newcommand{\cucf}{{\bf Comprando fichas }}
+\newcommand{\cf}{{\bf Comprador de fichas }}
+\newcommand{\scc}{{\bf Sistema de cuentas corrientes }}
+\newcommand{\caja}{Caja de fichas}
 
-\begin{cu}{Jugando juegos}
-	\descripxizq=1cm
-		\defln{Este caso explica como un jugador de juegos selecciona el juego que desea jugar}
-		\actor{\jj}
-		\pre{true}
-		\post{el \jj selecciona el juego que desea jugar}
+\begin{cu}{\cucf}
+	\descripxizq=3cm
+		\defln{Este caso de uso explica como un cliente loggeado interactúa con el sistema con el fin de comprar fichas que le permitirán jugar en el casino}
+		\actor{\cf}
+		\actorsec{\scc}
+		\pre{el \cf esta loggeado en el sistema }
+		\post{las fichas compradas por el \cf son agregaddas a su \caja}
+
 	\begin{cursoe}{}
+	
+		\paso{1 El \cf selecciona cuántas fichas de cada tipo desea comprar.}{}
 			
-		\paso{1 Fin de caso de uso}{}
+		\paso{2 El sistema establece conexión con el \scc.}{}
+		
+		\paso{3 El sistema transfiere el monto total de la compra desde la cuenta corriente del \cf a la cuenta del casino.}
+		{3.1 No se puede establecer la conexión con el \scc. Ir a paso 6.}
+		
+		\paso{4 El sistema agrega a la \caja del \cf las fichas compradas.}
+		{4.1 Los fondos de la cuenta corriente del \cf son insuficientes para realizar la operación. Ir a paso 6}
+				
+		\paso{5 El sistema notifica al \cf que la operación de compra se realizó exitosamente.}{}
+
+		\paso{6 Fin de caso de uso.}{}
 		
 	\end{cursoe}
+%	
+%	\paragraph{Preguntas:}
+%		\begin{flushleft}
+%		¿Debe ser mayor de cierta edad para jugar?
+%		\end{flushleft}
+%	
+\end{cu}
+
+
+\newpage
+
+\newcommand{\cujj}{{\bf Jugando juegos }}
+\newcommand{\jj}{{\bf Jugandor de juegos }}
+
+\newcommand{\cuic}{{\bf Ingresando a casino }}
+\newcommand{\cl}{{\bf Cliente }}
+
+\begin{cu}{\cuic}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \cl interactua con el sistama para loggerase en el casino }
+		\actor{\cl}
+		\pre{true }
+		\post{El \cl ingresó al casino online}
+
+	\begin{cursoe}{}
 	
-	\paragraph{Preguntas:}
+		\paso{1 El \cl ingresa nick y password }{}
+			
+		\paso{2 El sistema verifica los datos ingresados}{}
+		
+		\paso{3 El cliente ingresó al casino}{3.1 Si el nick no existe ir a paso 1}
+		
+		\pasoa{3.2 Si el password no corresponde al nick seleccionado ir a paso 4}
+		
+		\paso{4 Fin de caso de uso}{}
+		
+	\end{cursoe}
+
+		\paragraph{Observaciones:}
 		\begin{flushleft}
-		¿precondicion true?\\
-		¿Debe seleccionar algun juego en particular o la cancelacion en una excepcion?
+		El cliente puede cancelar en todo momento
 		\end{flushleft}
 	
 \end{cu}
 
+\paragraph{Glosario}
 
-
-
-
+\begin{itemize}
+	\item \textbf{Casino: } Sistema online del casino
+	\item \textbf{Casino Online: } Sistema online del casino
+\end{itemize}
 
 
 

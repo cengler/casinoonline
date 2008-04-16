@@ -99,21 +99,23 @@
 \vskip0.5cm
 \begin{tabular}{|p{6.5cm}|p{6.5cm}|}
 \hline%
-#1 & #2 \\\hline
+#1 & #2 
 }
 
-\def\paso#1#2{
+\def\paso#1#2{\\ \hline
 %\setcounter{numerocursoea}{1}
 %\refstepcounter{numerocursoe}
 %\cursoecntr 
 #1 &  
 %\cursoecntr\cursoeacntr 
-#2 \\ \hline}
+#2 }
+
+\def\pasoa#1{\\  & #1 }
 
 %\def\pasoa#1{\refstepcounter{numerocursoe} \cursoecntr #1 & \\ \hline}
 %\def\pasob#1{ & \cursoecntr\cursoeacntr #1 \\ \hline}
 
-\def\cursoefin{\end{tabular}\vskip0.5cm}
+\def\cursoefin{\\\hline\end{tabular}\vskip0.5cm}
 
 \newenvironment{cursoe}[1]{\cursoecom{\bf Curso normal }{\bf Alternativas}}{\cursoefin}
 

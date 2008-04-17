@@ -86,21 +86,24 @@
 		{}
 		
 		\paso{3 \pc ingresa el numero de su cuenta corriente}
-		{3.1 El sistema rechaza al \pc por ser menor de edad. Ir a paso 6}
+		{3.1 El sistema rechaza al \pc por ser menor de edad. Ir a paso 7}
 		
 		\pasoa{3.2 El sistema rechaza al \pc porque hay un usuario con el mismo nick. Ir a paso 2}
 		
-		\pasoa{3.3 El sistema rechaza la creacion del \pc porque hay un usuario con el mismo numero de documento. Ir a paso 6}
+		\pasoa{3.3 El sistema rechaza la creacion del \pc porque hay un usuario con el mismo numero de documento. Ir a paso 7}
 		
 		\pasoa{3.4 El sistema rechaza la creacion del \pc porque el password no cumple con las normas de seguridad requeridas. Ir a paso 2}
 		
 		\paso{4 El sistema verificará la existencia de la cuenta corriente ingresada. \incl{Verificando cuenta} }
 		{}
 		
-		\paso{5 Si el \pc lo deseea, ingresa al casino online \exti{Ingresando a casino} }
-		{5.1 En caso de que la verificacion sea erronea ir a paso 6}
+		\paso{5 El sistema almacena la información del nuevo \pc.}
+		{5.1 En caso de que la verificacion sea erronea ir a paso 7}
 		
-		\paso{6 Fin de caso de uso}{}
+		\paso{6 Si el \pc lo deseea, ingresa al casino online \exti{Ingresando a casino}}
+		{}
+		
+		\paso{7 Fin de caso de uso}{}
 		
 	\end{cursoe}
 	
@@ -126,7 +129,7 @@
 		\actor{\cf}
 		\actorsec{\scc}
 		\pre{el \cf esta loggeado en el sistema }
-		\post{las fichas compradas por el \cf son agregaddas a su \caja}
+		\post{las fichas compradas por el \cf son agregadas a su \caja}
 
 	\begin{cursoe}{}
 	

@@ -1,0 +1,142 @@
+
+\newcommand{\depto}{{\bf DPTO: }}
+
+\section{Requerimientos específicos}
+
+\subsection{Lista de Requerimientos}
+
+\subsection{Registracion y Ingreso al casino online y modificacion de saldo}
+
+\subsubsection{Registracion}
+Segun lo acordado, la registracion de los usuarios de hace por fuera del sistema informatico del casino online. Explicaremos como esperamos que interactuen los agentes externos para que el sistema posea la lista actualizada de usuarios registrados. Para ello usaremos el Diagrama de Activdades\footnote{Diagrama de Actividades: Grafico que representa el flujo de actividades. Las cajas representan actividades y las flechas repersentan secuencialidad y los rombos representan decisiones} ``Registracion''. Ver Figura: \ref{fig:daReg}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{img/daRegistracion.png}
+	\caption{Diagrama de actividades Registracion\label{fig:daReg}}
+\end{figure}
+
+\textcolor{red}{falta nombre de responsables}
+
+Cabe aclarar que el cliente podra comenzar a jugar en el casino recien cuando el casino se vuelva a abrir
+
+\subsubsection{Modificacion de saldo}
+
+Una vez registrado un cliente puede ingresar y retirar dinero real, dicha operacion solo podra realizarse mistras el casino permanece cerrado.
+Explicaremos esta operatoria con un diagrama de actividades. Ver Figura: \ref{fig:modSaldo}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{img/clienteModSaldo.png}
+	\caption{Diagrama de actividades Modificacion de Saldo\label{fig:modSaldo}}
+\end{figure}
+
+\textcolor{red}{falta nombre de responsables}
+
+\subsubsection{Ingreso y egreso del casino}
+
+La forma en que un cliente ingresa o egresa del casino esta explicado en los casos de uso: \textcolor{red}{nombres de CU y referencia}
+
+\subsection{Administracion del Casino}
+
+\subsubsection{Apertura del casino}
+
+En el momento de la apertura del casino es podible realizar configuraciones distintos aspectos:
+\begin{itemize}
+	\item Configuracion de valores de fichas
+	\item Asignacion de probablilidades
+	\item valores minimos para la entrega de premios
+\end{itemize}
+
+Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+
+\subsubsection{Clausura del casino}
+
+La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad. No es posible cerrar el casino si hay jugadores dentro del casino
+
+Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) Mostramos que nos comprometemos a que un administrador podrá cerrar el casino solo si no hay ningun cliente en el mismo.
+
+\textcolor{red}{ver orden de las imagenes}
+
+\paragraph{FSM: Administrador}
+\includegraphics[scale=0.5]{img/admin.png}
+
+\paragraph{FSM: Jugador$_i$}
+\includegraphics[scale=0.5]{img/jugador.png}
+
+\end{framed}
+
+\subsection{Modo Dirigido}
+
+\subsubsection{Inicio de Modo Dirigido}
+
+Cuando se ingresa en este modo, los resultados de las jugadas no seran al azar sino que el manipulador decidira los mismos.
+
+Esos resultados ingresados se respetaran para todas las jugadas de todas las mesas habilitadas de ese juego mientras no se vuelva a modo normal.
+
+Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) Mostramos que en modo dirigido se pueden lanzar jugadas de forma manual, dicha funcionalidad no esta permitida en modo normal.
+Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido. 
+
+\textcolor{red}{ver orden de las imagenes}
+
+\paragraph{FSM: Administrador}
+\includegraphics[scale=0.5]{img/manipulador.png}
+
+\end{framed}
+
+\subsubsection{Seteo de Jugadas Feliz y Todos Ponen}
+
+El manipulador puede iniciar una Jugada Feliz, al hacerlo debe seleccionar una unica jugada que se verá afectada por la Jugada Feliz.
+
+Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+
+Por otro lado, si el manipulador inicia una Jugada Todos Ponen, al hacerlo puede seleccionar varias jugadas las cuales se veran afectadas (todas) por la jugada de este tipo.
+
+Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+
+\subsubsection{Finalización de Modo Dirigido}
+
+En el momento que el manipulador decida abandoanar el modo dirigido, debera desactivarlo.
+Y asi volver al modo normal. Ver caso de uso: \textcolor{red}{falta nombre CU y referencia}
+                                            
+ %asi como la ocurrencia de la jugada feliz y todosponen.
+
+\subsection{}
+
+
+
+%
+%\subsection{Lista de Requerimientos}
+%%\input{lr.tex}
+%
+%\subsection{Diagrama de contexto}
+%
+%Ilustraremos los fenomenos esenciales entre los distintos \agentes involucrados, el \dominio de todo el \sistema y el \alcance del software a desarrollar.
+%
+%\begin{figure}[htp]
+%	\centering
+%		\includegraphics[scale=0.5]{dc.png}
+%	\caption{Diagrama de contexto \label{fig:dc}}
+%\end{figure}
+%
+%\paragraph{Nota:}
+%Como vemos en la figura: \ref{fig:dc} el manejo de registracion y administracion del dinero real queda fuera del alcanze del software, este solamente recibira un archivo por parte del administrador y trabajará sobre dicha informacion.
+%
+%\subsection{Diagrama de Objetivos}
+%
+%\begin{figure}[htp]
+%	\centering
+%		\includegraphics[scale=0.3, angle=90]{do.png}
+%	\caption{Diagrama de Objetivos \label{fig:do}}
+%\end{figure}
+%
+%\subsection{Casos de Uso}
+%\input{cu.tex}  %FALTA poco

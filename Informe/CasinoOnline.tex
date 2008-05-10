@@ -1,0 +1,129 @@
+\documentclass[a4paper, 10pt, notitlepage]{article}
+
+\usepackage{moreverb} %para importar codigo
+
+\usepackage{pepotina} %paquete personal para la caratula del DC
+
+\usepackage[spanish,activeacute]{babel}
+\usepackage{babel} %paquete de idioma
+
+\usepackage[latin1]{inputenc}
+
+\usepackage{color}
+
+\usepackage{hyperref}
+%\usepackage[all]{hypcap}
+
+\usepackage{caeycaeING}
+
+\usepackage{fancyhdr} %linea sup con comentarios
+
+%\usepackage{listings}
+
+\usepackage{lscape} %para hoja apaisada
+
+\usepackage{framed} %para crear cajas de texto
+
+\usepackage{lastpage} %ultima pagina
+
+\usepackage{pstricks}
+%\usepackage{uml} %UML
+
+
+\addtolength{\topmargin}{-50pt} 
+\addtolength{\textwidth}{105pt}
+\addtolength{\textheight}{120pt}
+\addtolength{\oddsidemargin}{-50pt}
+
+%\newcommand{\minix}{\textsl{minix }}
+
+%%% Encabezado y pie de p'agina
+\pagestyle{fancy}
+\fancyhead[LO]{Ingenieria del Software I}
+\fancyhead[C]{}
+\fancyhead[RO]{P\'agina \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+\newcommand{\falta}{ \begin{framed}	\begin{center} \hspace{1cm} \Large FALTA \normalsize \hspace{1cm} \end{center} \end{framed}}
+
+\begin{document}
+
+\universidad{Universidad de Buenos Aires}
+\facultad{Facultad de ciencias exactas y naturales}
+\departamento{Departamento de Computacion}
+\materia{Ingenieria del Software I}
+\resumen{En este trabajo...}
+\keys{UML, Objetivos}
+\titulo{Proyecto: Casino Online}
+\subtitulo{Informe 1: Analisis de Requerimientos y especificación}
+\grupo{Numero de grupo: 2}
+\fecha{1er Cuatrimeste 2008}
+\footspace{1cm}
+\integrante{Aquino, Isis}{313/05}{isisaquino@yahoo.com.ar}
+\integrante{Alvarez, Maria de los Angeles}{264/05}{mdelosaalvarez@hotmail.com}
+\integrante{Engler, Christian Alejandro}{314/05}{caeycae@gmail.com}
+
+%caratula
+%\maketitle{} %OK
+%
+%\tableofcontents
+%
+%
+%\newpage
+
+
+\input{todo.tex}
+
+%\section{Introducción}
+%	\subsection{Objetivo del documento}
+%El objetivo de este documento es aportar criterios de validacion y verificacion de la especificación propuesta, que podran ser usados en las distintas actividades de desarrollo, ampliación, o modificación, del softwarwe del casino online.
+%
+%Este sera el documento base para la puesta en comun de los compromisos del software y los distintos agentes involucrados, da tal manera que pueda ser usado en el desarrollo, diseño, implementacion y testing para verificar el cumplimiento del proposito para el cual el software del casino online fue desarrollado.
+%
+%Tambien permitirá sentar las bases del alcance y los compromisos a cumplir y o negociar.
+%
+%	\subsection{Convenciones de notación}
+%	
+%\newcommand{\agente}{{\bf agente$_G$ }}
+%\newcommand{\agentes}{{\bf agentes$_G$ }}
+%\newcommand{\sistema}{{\bf sistema$_G$ }}
+%\newcommand{\dominio}{{\bf dominio$_G$ }}
+%\newcommand{\alcance}{{\bf alcance$_G$ }}
+%	
+%	\subsection{Destinatarios del documento}
+%Grupo timablistas
+%Departamento de calidad de software del grupo timbalistas
+%	
+%	\subsection{Descripción del problema}
+%	
+%	\subsection{Documentos relacionados}
+%	
+%	\subsection{Organización del informe}
+%
+%\newpage
+%\section{Descripción General}
+%	\subsection{Perspectiva del producto}
+%	\subsection{Funciones principales del producto}
+%El casino online permitirá principalmente jugar a tragamonedas y craps, permitiendo hacer apuestas sobre ellos.
+%	\subsection{Características de los usuarios}
+%Los usuario del casino online deberan tener conección a internet o acceso a una computadora con internet.
+%	\subsection{Restricciones}
+%	\subsection{Supuestos y dependencias}
+%
+%\newpage
+%
+%
+%\newpage
+%\section{Glosario}
+%
+%\newpage
+%\section{Anexo I - Conclusiones del TP}
+
+%
+%\newpage
+
+
+
+
+\end{document}

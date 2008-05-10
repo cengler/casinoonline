@@ -32,6 +32,7 @@
 \def\keys#1{\def\Keys{#1}}
 \def\titulo#1{\def\Titulo{#1}}
 \def\subtitulo#1{\def\Subtitulo{#1}}
+\def\grupo#1{\def\Grupo{#1}}
 \def\fecha#1{\def\Fecha{#1}}
 \def\footspace#1{\def\Footspace{#1}}
 
@@ -41,8 +42,8 @@
 
 % ----- Comando para que el usuario agregue integrantes --------------------
 
-\def\integrante#1#2{\intlist=\expandafter{\the\intlist
-    \rule{0pt}{1.2em}#1&\tt #2\\[0.2em]}}
+\def\integrante#1#2#3{\intlist=\expandafter{\the\intlist
+    \rule{0pt}{1.2em}#1&\tt #2&\tt #3\\[0.2em]}}
 
 % ----- Macro para generar la tabla de integrantes -------------------------
 
@@ -103,11 +104,14 @@
 				\textbf{\Large \Materia}
 			\end{center}
 			\begin{center}
-				\textbf{\huge \Titulo}\\
-				\textbf{\LARGE \Subtitulo}
+				\textbf{\huge \Titulo}
+				\vskip0.2cm 
+				\textbf{\Large \Subtitulo}
+				\vskip0.2cm 
+				\textbf{\large \Grupo}
 			\end{center}
 			
-			\vskip1.0cm 
+			\vskip0.8cm 
 				
 		    \begin{center}
 		    	\textbf{Autores}

@@ -1,0 +1,126 @@
+%ACTORES
+\newcommand{\pc}{{\bf Cliente del casino }}
+\newcommand{\adm}{{\bf Administrador }}
+%\newcommand{\ptra}{{\bf Potencial jugador de tragamonedas }}
+\newcommand{\jutra}{{\bf Jugador de Tragamonedas }}
+\newcommand{\pjc}{{\bf Potencial jugador de Craps }}
+\newcommand{\jc}{{\bf Jugador de Craps }}
+\newcommand{\jac}{{\bf Apostador de Craps }}
+\newcommand{\emc}{{\bf Empleado Contable }}
+\newcommand{\emk}{{\bf Empleado de Marketing }}
+%CASOS DE USO
+\newcommand{\ic}{{\bf Ingresando a casino }}
+\newcommand{\salc}{{\bf Saliendo del casino }}
+\newcommand{\atra}{{\bf Abriendo Mesa Tragamonedas }}
+\newcommand{\jtra}{{\bf Jugando Tragamonedas }}
+\newcommand{\actm}{{\bf Activando Modo Dirigido }}
+\newcommand{\desm}{{\bf Desactivando Modo Dirigido }}
+\newcommand{\jugf}{{\bf Jugada Feliz }}
+\newcommand{\jugtp}{{\bf Jugada Todos Ponen }}
+\newcommand{\ac}{{\bf Abriendo Casino }}
+\newcommand{\cc}{{\bf Cerando Casino }}
+
+
+
+%----------------------------------------------------------
+% CASO DE USO INGRESANDO A CASINO
+%----------------------------------------------------------
+\begin{cu}{\ic}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \pc ingresa en el casino }
+		\actor{\pc}
+		\pre{El casino debe estar abierto y el jugador debe estar fuera del casino}
+		\post{El \pc ha ingresado al casino }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \pc ingresa su nombre de usuario}{}
+		
+		\paso{2 El sistema verifica si el nombre corresponde a un usuario valido}{}
+		
+		\paso{3 El sistema ingresa al \pc al casino}{}
+		
+		\paso{4 El sistema informa que el \pc ha ingresado al casino satisfactoriamente}{4.1 El sistema informa que el usuario es invalido. Ir a paso 5}
+		
+		\paso{5 Fin C.U.}{}	
+		
+	\end{cursoe}
+	
+\end{cu}
+
+%----------------------------------------------------------
+% CASO DE USO SALIENDO A CASINO
+%----------------------------------------------------------
+
+\begin{cu}{\salc}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \pc sale del casino }
+		\actor{\pc}
+		\pre{El casino debe estar abierto y el \pc debe estar dentro del casino}
+		\post{El \pc ha salido del casino }
+
+	\begin{cursoe}{}
+		
+		\paso{1 Si el \pc no esta jugando ir a paso 4}{}
+		
+		\paso{2 El sistema informa que de continuar, perderá todas las apuestas activas}{}
+	
+		\paso{3 El sistema cancela todas las apuestas del \pc, y lo retira de la mesa correspondiente}{3.1 El \pc cancela la operacion ir a paso 6}
+		
+		\paso{4 El sistema retira al \pc del casino}{}
+		
+		\paso{5 El sistema informa que el \pc ha salido del casino}{}
+		
+		\paso{6 Fin C.U.}{}
+		
+	\end{cursoe}
+	
+\end{cu}
+
+%----------------------------------------------------------
+% CASO DE USO SALIENDO A CASINO
+%----------------------------------------------------------
+
+\begin{cu}{\jtra}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \jutra que ha ingresado en el casino puede jugar y apostar en una mesa de tragamonedas}
+		\actor{\jutra}
+		\pre{El \jutra debe estar dentro del casino y no estar jugando en ninguna otra mesa}
+		\post{El \jutra ha jugado al tragamonedas }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \jutra selecciona el valor de la ficha de la nueva mesa de tragamonedas}{}
+		
+		\paso{2 El sistema crea una nueva mesa para el \jutra}{}
+			
+		\paso{3 El sistema informa que el jugador ha ingresado a una mesa de tragamonedas}{}
+		
+		\paso{4 El \jutra selecciona la cantidad de fichas a apostar (entre las permitidas) }{}
+		
+		\paso{5 Si el \jutra no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
+			
+		\paso{6 Si el saldo es sufiente el sistema valida la apuesta, sino el sistema informa que no tiene saldo suficiente para realizar esta apuesta. Ir a Fin C.U.}{}
+				
+		\paso{7 El sistema incrementa el pozo "Premio Gordo Progresivo" }{}
+		
+		\paso{8 El sistema informa si la jugada es normal, feliz o todos ponen}{}
+		
+	  \paso{9 El sistema da comienzo al juego }{}		
+	  
+	  \paso{10 El sistema muestra el resultado del juego }{}
+	  
+	  \paso{11 Si el resultado es ganador el sistema acredita el premio correspondiente }{}
+	  
+% hacer CU apost trag
+		
+		\paso{12 Fin C.U.}{}
+		
+
+	\end{cursoe}
+
+
+%\paragraph{Comentario: }
+%\begin{flushleft}
+%\end{flushleft}
+\end{cu}

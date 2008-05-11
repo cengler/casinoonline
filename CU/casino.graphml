@@ -5,20 +5,20 @@
   <key for="edge" id="d2" yfiles.type="edgegraphics"/>
   <key attr.name="description" attr.type="string" for="edge" id="d3"/>
   <key for="graphml" id="d4" yfiles.type="resources"/>
-  <graph edgedefault="directed" id="G" parse.edges="17" parse.nodes="23" parse.order="free">
+  <graph edgedefault="directed" id="G" parse.edges="17" parse.nodes="24" parse.order="free">
     <node id="n0" yfiles.foldertype="group">
       <data key="d0">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="926.0" width="634.2824773413897" x="183.96827794561938" y="11.0"/>
+              <y:Geometry height="950.0" width="634.2824773413897" x="183.96827794561938" y="11.0"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="node_width" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="634.2824773413897" x="0.0" y="0.0">Sistema</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" left="15" right="15" top="15"/>
-              <y:BorderInsets bottom="57" left="0" right="0" top="7"/>
+              <y:BorderInsets bottom="81" left="0" right="0" top="7"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="437.0" width="587.5" x="189.75075528700916" y="11.0"/>
@@ -64,10 +64,10 @@ tragamonedas</y:NodeLabel>
         <node id="n0::n2">
           <data key="d0">
             <y:ShapeNode>
-              <y:Geometry height="50.0" width="142.02396166134187" x="405.63454484908743" y="743.6706948640485"/>
+              <y:Geometry height="50.0" width="142.02396166134187" x="208.98801916932905" y="735.0"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="87.0" x="27.51198083067095" y="15.036865234375">Tirando Dados</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="90.0" x="26.01198083067095" y="15.036865234375">Jugando Craps</y:NodeLabel>
               <y:Shape type="ellipse"/>
             </y:ShapeNode>
           </data>
@@ -214,7 +214,7 @@ Ranking de jugadores</y:NodeLabel>
         <node id="n0::n14">
           <data key="d0">
             <y:ShapeNode>
-              <y:Geometry height="50.0" width="138.0" x="237.74018126888222" y="665.237160120846"/>
+              <y:Geometry height="50.0" width="138.0" x="211.0" y="655.0"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="114.0" x="12.0" y="7.07373046875">Ingresando a mesa
@@ -286,7 +286,7 @@ casino</y:NodeLabel>
     <node id="n5">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="50.0" width="128.5447284345048" x="261.1551282298775" y="858.132930513595"/>
+          <y:Geometry height="50.0" width="128.5447284345048" x="215.7276357827476" y="815.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="66.0" x="31.272364217252402" y="7.07373046875">Apostando
@@ -323,6 +323,19 @@ craps</y:NodeLabel>
             <y:SVGContent refid="1"/>
           </y:SVGModel>
         </y:SVGNode>
+      </data>
+      <data key="d1"/>
+    </node>
+    <node id="n8">
+      <data key="d0">
+        <y:ShapeNode>
+          <y:Geometry height="50.0" width="128.5447284345048" x="215.7276357827476" y="895.0"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="108.0" x="10.272364217252402" y="7.07373046875">Saliendo de mesa
+ de craps</y:NodeLabel>
+          <y:Shape type="ellipse"/>
+        </y:ShapeNode>
       </data>
       <data key="d1"/>
     </node>
@@ -459,19 +472,7 @@ craps</y:NodeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e12" source="n0::n2" target="n0::n14">
-      <data key="d2">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="78.0" x="-19.635112493479028" y="-28.688528562240208">&lt;&lt;extiende&gt;&gt;</y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-      <data key="d3"/>
-    </edge>
-    <edge id="e13" source="n7" target="n0::n14">
+    <edge id="e12" source="n7" target="n0::n14">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -482,7 +483,7 @@ craps</y:NodeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e14" source="n6" target="n0::n1">
+    <edge id="e13" source="n6" target="n0::n1">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -493,25 +494,34 @@ craps</y:NodeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e15" source="n5" target="n0::n2">
+    <edge id="e14" source="n7" target="n0::n2">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="78.0" x="60.58641702967793" y="-44.34580694008446">&lt;&lt;extiende&gt;&gt;</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e16" source="n5" target="n0::n14">
+    <edge id="e15" source="n7" target="n5">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="78.0" x="-4.0175624553886" y="-80.81617538590444">&lt;&lt;extiende&gt;&gt;</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e16" source="n7" target="n8">
+      <data key="d2">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

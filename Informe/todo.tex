@@ -161,6 +161,76 @@ Y asi volver al modo normal. Ver caso de uso: \textcolor{red}{falta nombre CU y 
                                             
  %asi como la ocurrencia de la jugada feliz y todosponen.
 
+
+\newpage
+\subsection{Modelo Conceptual}
+
+Identificamos y explicamos los conceptos funadamentales y las propiedades definitorias de ellos, y los estructuramos en un Modelo Conceptual\footnote{Casa caja representa una agrupacion de objetos reconocidos del dominio del problema que se caracterizan por tener propiedades similares, las lineas son asociaciones estre estos conceptos que indica alguna vinculacion significativa entre ellos}
+
+\begin{center}
+		\includegraphics[scale=0.3]{img/dclCasino.png}
+\end{center}
+
+\begin{framed}
+\depto Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema.
+
+\subsubsection{Invariantes relacionados con el estado general del sistema}
+
+\subsubsection{Invariantes relacionados con el juego tragamonedas}
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+--Si un jugador tiene apuestas activas de tragamonedas,
+--esta participando de una mesa de tragamonedas
+context Jugador
+inv ApuestasActivasEntoncesParticipaEnMesa:
+self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
+    implies not(self.participaEn = <undefined>)
+
+--Si un jugador esta participando de una mesa, 
+--dicha mesa debe estar abierta
+context Jugador
+inv ParticipandoEnMesaEntoncesMesaActiva:
+self.participaEn.estadoMesa = EstadoMesa::Abierta
+
+--si una mesa esta abierta tiene un jugador participando 
+--y si esta cerrada no debe poseer ningun jugador participando
+context Mesa
+inv AbiertaEntoncesJugadorParticipando:
+(self.estadoMesa = EstadoMesa::Abierta) implies 
+    not(self.jugadorParticipando = <undefined>) and
+(self.estadoMesa = EstadoMesa::Cerrada) implies 
+    self.jugadorParticipando = <undefined>
+
+--las apuestas activas de un jugador deben estar relacionadas 
+--con la mesa en la que esta jugando dicho jugador
+context Jugador
+inv ApuestasActivasEnMesaEnLaQueEstoyJugando:
+self.ApuestasTragamonedas->
+    forAll(a | a.estado = EstadoAp::Activa implies 
+    a.JugadaTragamonedas.mesaTragamonedas = self.participaEn)
+
+
+--si una mesa esta cerrada no debe poseer ninguna apuesta activa
+context Mesa
+(self.estado = EstadoMesa::Cerrada) implies 
+((self.jugadaTragamonedas->
+    forAll(j | j.apuestaTragamonedas.estado = EstadoAp::Ganada or 
+
+j.apuestaTragamonedas.estado = EstadoAp::Perdida)
+
+
+--todas las apuestas de un jugador corresponden a 
+--una mesa en la que participo
+context Jugador
+self.apuestasTragamonedas->forAll(a | self.participoEn->
+    includes(a.jugadaTragamonedas.mesa) )
+\end{lstlisting}
+
+\subsubsection{Invariantes relacionados con el juego craps}
+\end{framed}
+
+
 \subsection{Pago de jugadas y premios}
 
 Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)\\

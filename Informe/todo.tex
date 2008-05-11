@@ -270,18 +270,19 @@ not(self.participaTragaEn.oclIsUndefined())
 context Jugador
 inv ApuestasActivasEntoncesParticipaEnMesa:
 self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
-    implies not(self.participaEn.oclIsUndefined())
+    implies not(self.participaTragaEn.oclIsUndefined())
 
 --Si un jugador esta participando de una mesa, 
 --dicha mesa debe estar abierta
 context Jugador
 inv ParticipandoEnMesaEntoncesMesaActiva:
-self.participaEn.estadoMesa = EstadoMesa::Abierta
+not(self.participaTragaEn.oclIsUndefined()) implies
+    self.participaTragaEn.estado = EstadoMesa::Abierta
 
 --si una mesa esta abierta tiene un jugador participando 
 --y si esta cerrada no debe poseer ningun jugador participando
-context Mesa
-inv AbiertaEntoncesJugadorParticipando:
+context MesaTragamonedas
+inv AbiertaTragaEntoncesJugadorParticipando:
 (self.estadoMesa = EstadoMesa::Abierta) implies 
     not(self.jugadorParticipando.oclIsUndefined()) and
 (self.estadoMesa = EstadoMesa::Cerrada) implies 
@@ -293,10 +294,11 @@ context Jugador
 inv ApuestasActivasEnMesaEnLaQueEstoyJugando:
 self.ApuestasTragamonedas->
     forAll(a | a.estado = EstadoAp::Activa implies 
-    a.JugadaTragamonedas.mesaTragamonedas = self.participaEn)
+    a.JugadaTragamonedas.mesaTragamonedas = self.participaTragaEn)
 
 --si una mesa esta cerrada no debe poseer ninguna apuesta activa
-context Mesa
+context MesaTragamonedas
+inv MesaTragaCerradaSinApuestasActivas:
 (self.estado = EstadoMesa::Cerrada) implies 
 ((self.jugadaTragamonedas->
     forAll(j | j.apuestaTragamonedas.estado = EstadoAp::Ganada or 
@@ -311,16 +313,60 @@ self.apuestasTragamonedas->forAll(a | self.participoEn->
 
 \subsubsection{Invariantes relacionados con el juego craps}
 
-
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
---Si un jugador tiene apuestas activas de tragamonedas,
---esta participando de una mesa de tragamonedas
+-- Si un jugador tiene apuestas activas de craps,
+-- esta participando de una mesa de craps
 context Jugador
-inv ApuestasActivasEntoncesParticipaEnMesa:
-self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
-    implies not(self.participaEn.oclIsUndefined())
+inv ApuestasActivasCrapsEntoncesParticipaEnMesaCraps:
+self.ApuestasCraps->exists(a | a.estado = EstadoAp::Activa)
+    implies not(self.participaCrapsEn.oclIsUndefined())
+    
+    
+--Si un jugador esta participando de una mesa, 
+--dicha mesa debe estar abierta
+context Jugador
+inv ParticipandoEnMesaCrapsEntoncesMesaActiva:
+not(self.participaTragaEn.oclIsUndefined()) implies
+    self.participaTragaEn.estado = EstadoMesa::Abierta
+
+-- si una mesa esta abierta tiene un jugador 
+-- participando y un jugador tirando
+--
+-- y si esta cerrada no debe poseer ningun jugador 
+-- participando ni tirando
+context MesaCraps
+inv AbiertaCrapsEntoncesJugadorParticipando:
+(self.estadoMesa = EstadoMesa::Abierta) implies 
+    (not(self.jugadorParticipando.oclIsUndefined()) and
+    not(self.tirador.oclIsUndefined())) and
+(self.estadoMesa = EstadoMesa::Cerrada) implies 
+    (self.jugadorParticipando.oclIsUndefined() and
+    self.tirador.oclIsUndefined())
+    
+--las apuestas activas de un jugador deben estar relacionadas 
+--con la mesa en la que esta jugando dicho jugador
+context Jugador
+inv ApuestasActivasCrapsEnMesaEnLaQueEstoyJugando:
+self.apuestasCraps->
+    forAll(a | a.estado = EstadoAp::Activa implies 
+self.participaCrapsEn ->including(a.hechaEn.mesaCraps)
+
+--si una mesa esta cerrada no debe poseer ninguna apuesta activa
+context MesaCraps
+inv MesaCrapsCerradaSinApuestasActivas:
+(self.estado = EstadoMesa::Cerrada) implies 
+((self.apuestaCraps->
+    forAll(a | a.estado = EstadoAp::Ganada or 
+               a.estado = EstadoAp::Perdida)
+
+--todas las apuestas de un jugador corresponden a 
+--una mesa en la que participo
+context Jugador
+self.apuestasCraps->forAll(a | self.participoEn->
+    includes(a.hechaEn) )
+
 \end{lstlisting}
 
 
@@ -343,7 +389,12 @@ Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo 
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
-context: pagarJugadaTraga(j:JugadaTragamonedas):void
+
+-- esta operacion paga la apuesta de una jugada de tragamonedas
+-- dicha apuesta tiene que estar activa (de otro modo ya ha sido 
+-- pagada) 
+-- Se paga la jugada y se cobran los premios correspondientes
+pagarJugadaTraga(j:JugadaTragamonedas):void
 pre: j.estado = EstadoAp:activa
 post: 
   -- pago resultado jugada y pago pozo progresivo 
@@ -422,7 +473,8 @@ post:
 -- devuelve el valor del premio correspondiente a la jugada
 damePremioTraga(j:JugadaTagamonesas):Numero
 pre:  
-post:  let conjRes:Collection  = select(  r |   r.res1 = j.res1 and
+post:  let conjRes:Collection  = 
+ResultadoPosibleTagamonedas.allInstances()->select(  r |   r.res1 = j.res1 and
             r.res2 = j.res2 and
             r.res3 = j.res2 and
             r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
@@ -440,7 +492,8 @@ post:  let conjRes:Collection  = select(  r |   r.res1 = j.res1 and
 -- correspondiente a la jugada
 damePremioProgesivo(j:JugadaTagamonesas):Numero
 pre:  true
-post:  let conjRes:Collection  = select(r | r.res1 = j.res1 and
+post:  let conjRes:Collection  = 
+ResultadoPosibleTagamonedas.allInstances()->select(r | r.res1 = j.res1 and
             r.res2 = j.res2 and
             r.res3 = j.res2 and
             r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 

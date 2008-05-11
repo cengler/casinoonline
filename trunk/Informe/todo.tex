@@ -3,7 +3,62 @@
 
 \section{Requerimientos específicos}
 
+\subsection{Analisis de Objetivos}
+
+Para lograr tener uns visión intencional del sistema, tanto en su parte funcional como en la no funcional, presentamos los objetivos que identificamos organizandolos en un Diagrama de Objetivos\footnote{Objetivos organizados en uno o mas arboles, donde tenemos que casa objetivos se logra gracias al cumplimiento de los objetivos dependientes (hijos inmediatos)}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.25]{img/doCasino.png}
+	\caption{Diagrama de Objetivos \label{fig:doCasino}}
+\end{figure}
+
+\begin{framed}
+
+\depto Con este Diagrama de Objetivos intentamos dar el primer paso en la definicion del alcance del sistema y la justificacion de los requerimientos encontrados.
+Tambien sera de utilidad para el analisis de los supuestos sobre los que se basará el sistema.
+
+\end{framed}
+
+\subsection{Analisis de agentes involucrados}
+
+%Identificamos a todos estos agentes 
+%
+%departamente de marqueting
+%administradores del sistema
+%secretaria
+%clientes 
+%software
+%departamento contable
+
+Para comprender mejor la manera en que deberan relacionarse los distintos sujetos del mundo con el sistema a construir y sus interacciones, estucturamos el mundo con un Diagrama de contexto\footnote{Diagrama de contexto: Diagrama donde las cajas son agentes activos del sistema y las flechas son las interacciones basicas}
+
+Este diagrama tambien nos da otra mirada del alcance y expectativas del software a construir.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.38]{img/dcCasino.png}
+	\caption{Diagrama de Objetivos \label{fig:doCasino}}
+\end{figure}
+
+\begin{framed}
+
+\depto Todas las interacciones de los agentes con el sistema han sido asignadas a uno o mas Casos de Uso que explicaran de forma mas detallada dichas interacciones. De esta manera podemos garantizar que las interacciones mas relevantes del sistema seran correctamente detalladas
+
+\end{framed}
+
+
+
+
+
+
+
+
+
 \subsection{Lista de Requerimientos}
+
+\input{lr.tex}
+
 
 \subsection{Registracion y Ingreso al casino online y modificacion de saldo}
 
@@ -62,11 +117,16 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{re
 
 \textcolor{red}{ver orden de las imagenes}
 
-\paragraph{FSM: Administrador}
+{\large FSM: Administrador}
+\begin{center}
 \includegraphics[scale=0.5]{img/admin.png}
+\end{center}
 
-\paragraph{FSM: Jugador$_i$}
+
+{\large FSM: Jugador$_i$}
+\begin{center}
 \includegraphics[scale=0.5]{img/jugador.png}
+\end{center}
 
 \end{framed}
 

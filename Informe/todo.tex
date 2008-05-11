@@ -175,17 +175,102 @@ Identificamos y explicamos los conceptos funadamentales y las propiedades defini
 \depto Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema.
 
 \subsubsection{Invariantes relacionados con el estado general del sistema}
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+
+-----------------------
+-- POZOS
+-----------------------
+-- hay un unico pozo progresivo
+context PozoProgresivo
+inv UnicoPozoProgresivo:
+PozoProgresivo.allInstances()->size() = 1
+
+-- hay un unico pozo feliz
+context PozoFeliz
+inv PozoFeliz:
+PozoFeliz.allInstances()->size() = 1
+
+-- el monto del pozo progresivo es mayor a 0
+context PozoProgresivo
+inv PozoProgresivoNoNegativo:
+PozoProgresivo.allInstances()->asSecuence().first().monto > 0
+
+-- el monto del pozo feliz es mayor a 0
+context PozoFeliz
+inv PozoFelizNoNegativo:
+PozoFeliz.allInstances()->asSecuence().first().monto > 0
+
+-----------------------
+-- RESULTADOS POSIBLES
+-----------------------
+-- hay como maximo un resultado posible por cada combinacion 
+-- del juego tragamonedas
+context ResultadoPosibleTragamonedas
+inv UnResultadoPorPremioTraga:
+ResultadoPosibleTragamonedas.allInstances()->
+   forAll(r | r <> self -> r.res1 <> self.res1 or
+                           r.res2 <> self.res2 or
+                           r.res3 <> self.res3 )
+
+-- hay como maximo un resultado posible por cada combinacion 
+-- del juego craps
+context ResultadoPosibleCraps
+inv UnResultadoPorPremioCraps:
+ResultadoPosibleCraps.allInstances()->
+   forAll(r | r <> self -> r.tipo <> self.tipo or
+                           r.numero.oclIsUndefined() or
+   not(r.numero.oclIsUndefined()) implies r.numero <> self.numero or
+                           r.res3 <> self.res3 )
+
+-----------------------
+-- JUGADOR
+-----------------------
+
+-- un jugador comun no puede tener saldo 
+-- negativo a menos que sea VIP
+context Jugador
+inv JugadorComunNoPuedePoseerSaldoNegativo:
+not(self.oclInstanceOf(JugadorVIP)) implies self.saldo >= 0
+
+-- un jugador no puede participar en mas de un juego
+cantext Jugador
+inv NoParticiparEnMasDeUnJuego:
+not(self.participaCrapsEn.oclIsUndefined()) implies 
+   self.participaTragaEn.oclIsUndefined() and
+not(self.participaTragaEn.oclIsUndefined()) 
+   implies self.participaCrapsEn.oclIsUndefined()
+
+-- un jugador no logeado no puede estar participando de un juego
+context Jugador
+inv NoLogeadoEntoncesNoJugando
+self.estado = EstadoJugador::NoLogeado implies 
+  ( self.participaTragaEn.oclIsUndefined() and 
+    self.participaCrapsEn.oclIsUndefined() )
+
+-- un jugador no puede participar en una mesa cerrada
+cantext Jugador
+inv NoParticiparEnMesaCerrada:
+not(self.participaCrapsEn.oclIsUndefined()) implies 
+   self.participaTragaEn.estado = EstadoMesa:Abierta and
+not(self.participaTragaEn.oclIsUndefined()) 
+   implies self.participaCrapsEn.estado = EstadoMesa:Abierta
+   
+\end{lstlisting}
+
 
 \subsubsection{Invariantes relacionados con el juego tragamonedas}
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
+
 --Si un jugador tiene apuestas activas de tragamonedas,
 --esta participando de una mesa de tragamonedas
 context Jugador
 inv ApuestasActivasEntoncesParticipaEnMesa:
 self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
-    implies not(self.participaEn = <undefined>)
+    implies not(self.participaEn.oclIsUndefined())
 
 --Si un jugador esta participando de una mesa, 
 --dicha mesa debe estar abierta
@@ -198,9 +283,9 @@ self.participaEn.estadoMesa = EstadoMesa::Abierta
 context Mesa
 inv AbiertaEntoncesJugadorParticipando:
 (self.estadoMesa = EstadoMesa::Abierta) implies 
-    not(self.jugadorParticipando = <undefined>) and
+    not(self.jugadorParticipando.oclIsUndefined()) and
 (self.estadoMesa = EstadoMesa::Cerrada) implies 
-    self.jugadorParticipando = <undefined>
+    self.jugadorParticipando.oclIsUndefined()
 
 --las apuestas activas de un jugador deben estar relacionadas 
 --con la mesa en la que esta jugando dicho jugador
@@ -210,15 +295,12 @@ self.ApuestasTragamonedas->
     forAll(a | a.estado = EstadoAp::Activa implies 
     a.JugadaTragamonedas.mesaTragamonedas = self.participaEn)
 
-
 --si una mesa esta cerrada no debe poseer ninguna apuesta activa
 context Mesa
 (self.estado = EstadoMesa::Cerrada) implies 
 ((self.jugadaTragamonedas->
     forAll(j | j.apuestaTragamonedas.estado = EstadoAp::Ganada or 
-
-j.apuestaTragamonedas.estado = EstadoAp::Perdida)
-
+               j.apuestaTragamonedas.estado = EstadoAp::Perdida)
 
 --todas las apuestas de un jugador corresponden a 
 --una mesa en la que participo
@@ -228,6 +310,21 @@ self.apuestasTragamonedas->forAll(a | self.participoEn->
 \end{lstlisting}
 
 \subsubsection{Invariantes relacionados con el juego craps}
+
+
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+--Si un jugador tiene apuestas activas de tragamonedas,
+--esta participando de una mesa de tragamonedas
+context Jugador
+inv ApuestasActivasEntoncesParticipaEnMesa:
+self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
+    implies not(self.participaEn.oclIsUndefined())
+\end{lstlisting}
+
+
+
 \end{framed}
 
 
@@ -242,119 +339,129 @@ Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo 
 
 \depto Notese que una jugada tragamonedas solo tiene una apuesta que resolver.
 
-\begin{verbatim}
 
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
 context: pagarJugadaTraga(j:JugadaTragamonedas):void
 pre: j.estado = EstadoAp:activa
 post: 
-    -- pago resultado jugada y pago pozo progresivo y reseteo pozo progresivo
-    pagarJugadaTragaBasica(j)
-    -- cobro porcentaje jugada todos ponen
-    cobrarJugadaToposPonen(j)
-    -- pago jugada feliz y reseteo pozo feliz
-    pagarJugadaFeliz(j)
+  -- pago resultado jugada y pago pozo progresivo 
+  --y reseteo pozo progresivo
+  pagarJugadaTragaBasica(j)
+  -- cobro porcentaje jugada todos ponen
+  cobrarJugadaToposPonen(j)
+  -- pago jugada feliz y reseteo pozo feliz
+  pagarJugadaFeliz(j)
+  
+  if damePremioTraga(j) <> 0
+  then 
+    j.estado = EstadoAp:Ganada
+  else
+    j.estado = EstadoAp:Perdida
     
-    if damePremioTraga(j) <> 0
-    then 
-        j.estado = EstadoAp:Ganada
-    else
-        j.estado = EstadoAp:Perdida
-        
-    j.apuestaTragamonedas.retribucion = j.hechaPor.saldo - j.hechaPor.saldo@pre
+  j.apuestaTragamonedas.retribucion = 
+      j.hechaPor.saldo - j.hechaPor.saldo@pre
 
 
--- si la jugada es todos ponen decremento saldo jugador e incremento pozo feliz
+-- si la jugada es todos ponen decremento saldo jugador e 
+-- incremento pozo feliz
 pagarJugadaFeliz(j:JugadaTragamonedas):void
-pre:    j.estado = EstadoAp:activa
+pre:  j.estado = EstadoAp:activa
 post:   let tipoJugada = j.tipoDeJugada
 
-    if tipoJugada.oclisTypeOf(Feliz)
-        j.hechaPor.saldo = j.hechaPor.saldo@pre + oclAsType(Feliz).pozoFeliz.monto
-        oclAsType(Feliz).pozoFeliz.monto = 0
-    endif
+  if tipoJugada.oclisTypeOf(Feliz)
+    j.hechaPor.saldo = j.hechaPor.saldo@pre + 
+        oclAsType(Feliz).pozoFeliz.monto
+    oclAsType(Feliz).pozoFeliz.monto = 0
+  endif
 
 
--- si la jugada es todos ponen decremento saldo jugador e incremento pozo feliz
+-- si la jugada es todos ponen decremento saldo 
+-- jugador e incremento pozo feliz
 cobrarJugadaToposPonen(j:JugadaTragamonedas):void
-pre:    j.estado = EstadoAp:activa
-post:    let tipoJugada = j.tipoDeJugada
+pre:  j.estado = EstadoAp:activa
+post:  let tipoJugada = j.tipoDeJugada
 
-    if tipoJugada.oclisTypeOf(TodosPonen)
-    then 
-        j.hechaPor.saldo = 
+  if tipoJugada.oclisTypeOf(TodosPonen)
+  then 
+    j.hechaPor.saldo = 
 
-            j.hechaPor.saldo@pre +
-            (damePremioTraga(j) + damePremioProgesivo(j)) * 
-            100 / oclAsType(TodosPonen).porcentaje
-        
-        oclAsType(TodosPonen).pozoFeliz.monto = 
+      j.hechaPor.saldo@pre +
+      (damePremioTraga(j) + damePremioProgesivo(j)) * 
+      100 / oclAsType(TodosPonen).porcentaje
+    
+    oclAsType(TodosPonen).pozoFeliz.monto = 
 
-            oclAsType(TodosPonen).pozoFeliz.monto@pre + 
-            ((damePremioTraga(j) + damePremioProgesivo(j)) * 
-            100 / oclAsType(TodosPonen).porcentaje)
-            
-    endif
+      oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      ((damePremioTraga(j) + damePremioProgesivo(j)) * 
+      100 / oclAsType(TodosPonen).porcentaje)
+      
+  endif
 
 
 
--- incremento saldo jugados de jugada y pozo progresivo (si corresponde)
+-- incremento saldo jugados de jugada y pozo progresivo 
+-- (si corresponde)
 -- decremento saldo casino
 -- decremento pozo (si corresponde)
 pagarJugadaTragaBasica(j:JugadaTragamonedas):void
-pre:    j.estado = EstadoAp:activa
-post:    
-    let jornada = Jornada.allInstances->asSecuence->first()
+pre:  j.estado = EstadoAp:activa
+post:  
+  let jornada = Jornada.allInstances->asSecuence->first()
 
-    j.hechaPor.saldo = j.hechaPor.saldo@pre + (damePremioTraga(j) +
-             damePremioProgesivo(j))
-    jornada.saldo = jornada.saldo@pre - cualEsElPrepmio(j)
-    if damePremioProgesivo(j) <> 0
-    then
-        PozoProgresivo.allInstances()->asSecuence()->first().monto = 0
-    endif
+  j.hechaPor.saldo = j.hechaPor.saldo@pre + 
+       (damePremioTraga(j) + damePremioProgesivo(j))
+  jornada.saldo = jornada.saldo@pre - cualEsElPrepmio(j)
+  if damePremioProgesivo(j) <> 0
+  then
+    PozoProgresivo.allInstances()->asSecuence()->first().monto = 0
+  endif
 
 
 -- devuelve el valor del premio correspondiente a la jugada
 damePremioTraga(j:JugadaTagamonesas):Numero
-pre:    
-post:    let conjRes:Collection  = select(    r |     r.res1 = j.res1 and
-                        r.res2 = j.res2 and
-                        r.res3 = j.res2 and
-                        r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
-    let precioFicha = j.mesaTragamonedas.valorFicha
+pre:  
+post:  let conjRes:Collection  = select(  r |   r.res1 = j.res1 and
+            r.res2 = j.res2 and
+            r.res3 = j.res2 and
+            r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
+  let precioFicha = j.mesaTragamonedas.valorFicha
 
-    if not(conjRes->isEmpty()) then
-        result = conjRes->asSecuence()->first().ganMonedas * precioFicha 
-    else
-        result = 0
+  if not(conjRes->isEmpty()) then
+    result = conjRes->asSecuence()->first().ganMonedas * precioFicha 
+  else
+    result = 0
 
-    endif 
+  endif 
 
 
--- devuelve el valor del premio progresivo correspondiente a la jugada
+-- devuelve el valor del premio progresivo 
+-- correspondiente a la jugada
 damePremioProgesivo(j:JugadaTagamonesas):Numero
-pre:    true
-post:    let conjRes:Collection  = select(    r |     r.res1 = j.res1 and
-                        r.res2 = j.res2 and
-                        r.res3 = j.res2 and
-                        r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
-    let precioFicha = j.mesaTragamonedas.valorFicha
+pre:  true
+post:  let conjRes:Collection  = select(r | r.res1 = j.res1 and
+            r.res2 = j.res2 and
+            r.res3 = j.res2 and
+            r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
+  let precioFicha = j.mesaTragamonedas.valorFicha
 
-    if not(conjRes->isEmpty()) then
-        if     j.res1 = Fruta::Dinosaurio and
-            j.res2 = Fruta::Dinosaurio and
-            j.res3 = Fruta::Dinosaurio and
-            j.mesaTragamonedas.CantPalancasMax = 3
-        then
-            result = j.mesaTragamonedas.pozoProgresivo.monto * precioFicha 
-        else
-            result = 0
-        endif
+  if not(conjRes->isEmpty()) then
+    if   j.res1 = Fruta::Dinosaurio and
+      j.res2 = Fruta::Dinosaurio and
+      j.res3 = Fruta::Dinosaurio and
+      j.mesaTragamonedas.CantPalancasMax = 3
+    then
+      result = 
+          j.mesaTragamonedas.pozoProgresivo.monto * precioFicha 
     else
-        result = 0
-    endif 
-    
-\end{verbatim}
+      result = 0
+    endif
+  else
+    result = 0
+  endif 
+  
+\end{lstlisting}
 
 \end{framed}
 

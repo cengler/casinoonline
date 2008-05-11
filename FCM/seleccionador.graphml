@@ -5,7 +5,7 @@
   <key for="edge" id="d2" yfiles.type="edgegraphics"/>
   <key attr.name="description" attr.type="string" for="edge" id="d3"/>
   <key for="graphml" id="d4" yfiles.type="resources"/>
-  <graph edgedefault="directed" id="G" parse.edges="8" parse.nodes="6" parse.order="free">
+  <graph edgedefault="directed" id="G" parse.edges="8" parse.nodes="7" parse.order="free">
     <node id="n0">
       <data key="d0">
         <y:ShapeNode>
@@ -78,6 +78,23 @@
       </data>
       <data key="d1"/>
     </node>
+    <node id="n6">
+      <data key="d0">
+        <y:ShapeNode>
+          <y:Geometry height="46.55092592592598" width="30.0" x="429.60648148148147" y="297.6388888888889"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle hasColor="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="7.0" x="11.5" y="-15.47746672453701">.
+.
+.
+.
+.
+</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+      <data key="d1"/>
+    </node>
     <edge id="e0" source="n0" target="n1">
       <data key="d2">
         <y:ArcEdge>
@@ -114,7 +131,8 @@
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="76.0" x="81.82061767578125" y="-35.122711181640625">tiraJugador1!</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="115.0" x="96.52178955078125" y="-42.473297119140625">tiraJugador1!
+[cantJugadores  &gt; 0]</y:EdgeLabel>
           <y:Arc height="60.0" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
@@ -128,7 +146,8 @@
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="154.0" x="81.82061767578125" y="16.421539306640625">tiraJugadorCantJugadores!</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="154.0" x="96.52178955078125" y="9.070953369140625">tiraJugadorCantJugadores!
+[cantJugadores &gt; 0]</y:EdgeLabel>
           <y:Arc height="-60.0" ratio="-1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>

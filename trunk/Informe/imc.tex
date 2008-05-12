@@ -195,6 +195,16 @@ context Jugador
 self.apuestasCraps->forAll(a | self.participoEn->
     includes(a.hechaEn) )
 
+Queries:
+
+Query
+
+context: Mesa Craps::CuantosJugadores : numero
+body: self.Jugador.allInstances->select(x 
+					| x.participaCrapsEn = self)->sum() 
+
+
+
 \end{lstlisting}
 \end{framed}
 

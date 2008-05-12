@@ -328,3 +328,447 @@ ResultadoPosibleTagamonedas.allInstances()->select(r | r.res1 = j.res1 and
 \end{lstlisting}
 
 \end{framed}
+
+\subsubsection{Pago de una jugada craps}
+
+\begin{framed}
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+
+pagoApuestaPaseDelinea(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Pase and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post:
+
+	if (j.resultado = 7 or j.resultado = 11) then
+		ap.estado = EstadoAp:ganada
+
+		//jugada todos ponen
+		if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+		jug.saldo = jug.saldo@pre + (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+		
+		oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      		(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		jorn.saldo = jorn.saldo@pre - (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		
+		else
+		//jugada normal
+		jug.saldo = jug.saldo@pre + ap.retribucion
+		jorn.saldo = jorn.saldo@pre - ap.retribucion
+
+		endif
+	else 
+		if (j.resultado = 2 or j.resultado = 3 or j.resultado = 12) then
+			ap.estado = EstadoAp:perdida
+			jug.saldo = jug.saldo@pre - ap.apuesta.
+			jorn.saldo = jorn.saldo@pre + ap.apuesta
+	
+		end if
+	endif
+
+
+----------------------------------------------------------------		
+pagoApuestaNoPase(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:NoPase and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post:
+
+	if (j.resultado = 2 or j.resultado = 3) then
+		ap.estado = EstadoAp:ganada
+
+		//jugada todosponen
+		if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+		jug.saldo = jug.saldo@pre + (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+		
+		oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      		(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		jorn.saldo = jorn.saldo@pre - (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		else
+
+		//jugada normal
+		jug.saldo = jug.saldo@pre + ap.retribucion
+		jorn.saldo = jorn.saldo@pre - ap.retribucion
+
+		endif
+
+	else 
+		if (j.resultado = 7 or j.resultado = 11 )then
+			ap.estado = EstadoAp:perdida
+			jug.saldo = jug.saldo@pre - ap.apuesta.
+			jorn.saldo = jorn.saldo@pre + ap.apuesta
+		endif
+	
+	endif
+
+-----------------------------------------------------------------
+pagoApuestaVenir(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Venir and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post:
+
+	if (j.resultado = 7 or j.resultado = 11) then
+		ap.estado = EstadoAp:ganada
+
+		//jugada todosponen
+		if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+		jug.saldo = jug.saldo@pre + (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+		
+		oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      		(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		jorn.saldo = jorn.saldo@pre - (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		else
+
+		//jugada normal
+
+
+		jug.saldo = jug.saldo@pre + ap.retribucion
+		jorn.saldo = jorn.saldo@pre - ap.retribucion
+
+	else 
+		if (j.resultado = 2 or j.resultado = 3 or j.resultado = 12 )then
+			ap.estado = EstadoAp:perdida
+			jug.saldo = jug.saldo@pre - ap.apuesta.
+			jorn.saldo = jorn.saldo@pre + ap.apuesta
+		endif
+	
+	endif
+
+--------------------------------------------------------------------
+pagoApuestaNoVenir(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn:Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:NoVenir and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post:
+
+	if (j.resultado = 2 or j.resultado = 3) then
+		ap.estado = EstadoAp:ganada
+		
+		//jugada todosponen
+		if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+		jug.saldo = jug.saldo@pre + (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+		
+		oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      		(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		jorn.saldo = jorn.saldo@pre - (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+		else
+
+		//jugada normal
+
+
+		jug.saldo = jug.saldo@pre + ap.retribucion
+		jorn.saldo = jorn.saldo@pre - ap.retribucion
+
+	else 
+		if (j.resultado = 7 or j.resultado = 11) then
+			ap.estado = EstadoAp:perdida
+			jug.saldo = jug.saldo@pre - ap.apuesta.
+			jorn.saldo = jorn.saldo@pre + ap.apuesta
+		endif
+	
+	endif
+
+----------------------------------------------------------------------
+pagoApuestaDeCampo(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Campo and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post:
+	let loqAposto = ap.valor
+	let ganancia =  ap.retribucion
+
+	if(loqAposto = j.resultado) then
+
+		if (loqAposto = 3 or loqAposto = 4 or loqAposto = 9 or loqAposto = 10 or loqAposto = 11)
+
+			ap.estado = EstadoAp:ganada
+			
+			ganancia = ap.retribucion
+		else
+			if (loqAposto = 2 or loqAposto = 12) then
+			
+				ap.estado = EstadoAp:ganada
+				
+				ganacia = ap.retribucion * 2
+				
+			endif
+		endif
+			//jugada todosponen
+			if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+			jug.saldo = jug.saldo@pre + (ganancia *  100 / oclAsType(TodosPonen).porcentaje)
+		
+			oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      			(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+			jorn.saldo = jorn.saldo@pre - (ganancia *  100 / oclAsType(TodosPonen).porcentaje)
+
+			else
+
+			//jugada normal
+
+
+			jug.saldo = jug.saldo@pre + ganancia
+			jorn.saldo = jorn.saldo@pre - ganancia	
+
+
+	else 
+		
+		ap.estado = EstadoAp:perdida
+		jug.saldo = jug.saldo@pre - ap.apuesta.
+		jorn.saldo = jorn.saldo@pre + ap.apuesta
+		
+	
+	endif
+
+-------------------------------------------------------------------------
+pagoApuestaDeSitio(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Sitio and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post: let loqAposto = ap.valor
+
+	if (j.resultado = 4 or j.resultado = 5 or j.resultado = 6 or j.resultado = 8 or j.resultado = 9 or j.resultado = 10) then
+
+		if ( j.resultado = ap.valor) then
+			
+ 			ap.estado = EstadoAp:ganada
+			//jugada todosponen
+			if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+			jug.saldo = jug.saldo@pre + (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+		
+			oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      			(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+			jorn.saldo = jorn.saldo@pre - (ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+			else
+
+			//jugada normal
+
+
+			jug.saldo = jug.saldo@pre + ap.retribucion
+			jorn.saldo = jorn.saldo@pre - ap.retribucion
+
+ 
+		else
+			
+			ap.estado = EstadoAp:perdida
+			jug.saldo = jug.saldo@pre - ap.apuesta.
+			jorn.saldo = jorn.saldo@pre + ap.apuesta
+
+		endif
+
+
+	endif
+
+--------------------------------------------------------------------------
+
+
+pagoApuestaGanar(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Ganar and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post: let loqAposto = ap.valor
+	let cantFichasApost = ap.
+	let ganancia = ap.retribucion
+
+	if (j.resultado = 7) then
+
+			ap.estado = EstadoAp:perdida
+			jug.saldo = jug.saldo@pre - ap.apuesta.
+			jorn.saldo = jorn.saldo@pre + ap.apuesta
+
+	else
+
+	 if (j.resultado = 4 or j.resultado = 5 or j.resultado = 6 or j.resultado = 8 or j.resultado = 9 or j.resultado = 10) then
+
+
+	          if (j.resultado = loqAposto and loqAposto = 4)
+
+			ap.estado = EstadoAp:ganada
+			if ( ap.apuesta mod 5 = 0) then
+			ganancia = ap.retribucion + 9* ap.retribucion
+			
+			else
+			
+			ganancia = ap.retribucion 
+			
+		   if (j.resultado = loqAposto and loqAposto = 5)
+
+			ap.estado = EstadoAp:ganada
+			if ( ap.apuesta mod 5 = 0) then
+			
+			ganancia = ap.retribucion + 8 * ap.retribucion
+			
+			else
+			ganancia = ap.retribucion 
+				
+
+		    if (j.resultado = loqAposto and loqAposto = 6)
+
+			ap.estado = EstadoAp:ganada
+			if ( ap.apuesta mod 6 = 0) then
+			ganancia = ap.retribucion + 7 * ap.retribucion
+			
+			
+			else
+			ganancia = ap.retribucion 
+			
+
+		     if (j.resultado = loqAposto and loqAposto = 8)
+
+			ap.estado = EstadoAp:ganada
+			if ( ap.apuesta mod 6 = 0) then
+			ganancia = ap.retribucion + 7 * ap.retribucion
+			
+
+			else
+			ganancia = ap.retribucion 
+			
+
+                      if (j.resultado = loqAposto and loqAposto = 9)
+
+			ap.estado = EstadoAp:ganada
+			if ( ap.apuesta mod 5 = 0) then
+			ganancia =  ap.retribucion + 7 * ap.retribucion
+			
+
+			else
+			ganancia + ap.retribucion 
+			
+
+
+		      if (j.resultado = loqAposto and loqAposto = 10)
+
+			ap.estado = EstadoAp:ganada
+			if ( ap.apuesta mod 5 = 0) then
+			ganancia = ap.retribucion + 9 * ap.retribucion
+			
+
+			else
+			ganancia = + ap.retribucion 
+		
+
+		      //jugada todosponen
+			if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+			jug.saldo = jug.saldo@pre + (ganancia *  100 / oclAsType(TodosPonen).porcentaje)
+		
+			oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      			(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+			jorn.saldo = jorn.saldo@pre - (ganancia *  100 / oclAsType(TodosPonen).porcentaje)
+
+			else
+
+			//jugada normal
+
+
+			jug.saldo = jug.saldo@pre + ganancia
+			jorn.saldo = jorn.saldo@pre - ganancia	
+   	 
+	
+
+
+	 endif
+
+------------------------------------------------------------------------
+pagoApuestaenContra(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
+pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Contra and jug.participaEn.JugadaCraps->exist( y | y = j) 
+     and ap.hechaEn.JugadaCraps->exist(t | t = ap)
+post: let loqAposto = ap.valor
+	
+
+	if (j.resultado = 7) then
+
+			ap.estado = EstadoAp:ganada
+			
+	
+	          if (loqAposto = 4)
+
+			
+			if ( ap.apuesta mod 11 = 0) then
+			ganancia =  ap.retribucion + 5* ap.retribucion
+			
+			else
+			
+			ganancia = ap.retribucion 
+			
+		 if (loqAposto = 5)
+
+			if ( ap.apuesta mod 8 = 0) then
+			ganancia = ap.retribucion + 5* ap.retribucion
+			
+			else
+			
+			ganancia = ap.retribucion 
+			
+
+		 if (loqAposto = 6)
+
+
+                        if ( ap.apuesta mod 5 = 0) then
+			ganancia = ap.retribucion + 4* ap.retribucion
+			
+			else
+			
+			ganancia = ap.retribucion 
+			
+                 if (loqAposto = 9)
+
+                         if ( ap.apuesta mod 8 = 0) then
+			ganancia = ap.retribucion + 5* ap.retribucion
+			
+			else
+			
+			ganancia = ap.retribucion 
+			
+		 if (loqAposto = 10)
+
+                        if ( ap.apuesta mod 11 = 0) then
+			ganancia = ap.retribucion + 5* ap.retribucion
+			
+			else
+			
+			ganancia = ap.retribucion 
+			
+		//jugada todosponen
+			if ( tipoJugada.oclisTypeOf(TodosPonen)) then 
+		
+			jug.saldo = jug.saldo@pre + (ganancia *  100 / oclAsType(TodosPonen).porcentaje)
+		
+			oclAsType(TodosPonen).pozoFeliz.monto = oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      			(ap.retribucion *  100 / oclAsType(TodosPonen).porcentaje)
+
+			jorn.saldo = jorn.saldo@pre - (ganancia *  100 / oclAsType(TodosPonen).porcentaje)
+
+			else
+
+			//jugada normal
+
+
+			jug.saldo = jug.saldo@pre + ganancia
+			jorn.saldo = jorn.saldo@pre - ganancia	
+	
+
+	else
+
+		ap.estado = EstadoAp:perdida
+		jug.saldo = jug.saldo@pre - ap.apuesta.
+		jorn.saldo = jorn.saldo@pre + ap.apuesta.
+
+
+	endif
+\end{lstlisting}	
+	
+\end{framed}

@@ -428,16 +428,20 @@ Nota al Dpto de Sistemas: asumimos que el ingreso de los resultados de las jugad
 
 \begin{cu}{\infomovjug}
 	\descripxizq=1cm
-		\defln{ Este caso de uso explica la generacion del reporte Movimientos por Jugador }
+		\defln{ Este caso de uso explica la generacion de los  reportes Movimientos por Jugador, Estado Actual y Ranking de Jugadores }
 		\actor{\empmark}
 		\pre{ El casino debe estar abierto }
-		\post{ El sistema generara el reporte Movimientos por Jugador}
+		\post{ El sistema generara el reporte solicitado}
 
 \begin{cursoe}{}
 	
-		\paso{1 El \empmark solicita el reporte "Movimientos Por Jugador" }{}
-		\paso{2 El sistema devuelve tal reporte}{}
-		\paso{ Fin C.U.}{}
+		\paso{1 Si el \empmark solicita el reporte ``Movimientos Por Jugador'' }{}
+		\paso{2 El sistema devuelve tal reporte. Ir a  5}{}
+		\paso{3 Si el \empmark solicita el reporte ``Estado Actual''}{} 
+		\paso{4 El sistema devuelve tal reporte. Ir a 5}{}
+		\paso{3 Si el \empmark solicita el reporte ``Ranking de Jugadores''}{} 
+		\paso{4 El sistema devuelve tal reporte. Ir a 5}{}
+		\paso{5 Fin C.U.}{}
 		
 
 	\end{cursoe}

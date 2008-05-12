@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------
+--este operacion devuelve dado un jugador una tupla con su nombre y su ganancia
+dameNombreGanancia(j:Jugador):TupleType(nombre:String , ganancia: Numero))
+pre:	true
+post:	result Tuple{nombre:String = j.nombre, ganancia:Numero = (j.saldo - j.saldoInicial)}
+
+-------------------------------------------------------------------------
+--genera el reporte de ganancia por jugador
+--
+--busco el jugador que mas gano
+--y selecciono todos los jugadores que hayan ganado tanto como el que mas gano
+--luego los transforno en tuplas
+--
+reporteRanking():Collection(TupleType(nombre:String , ganancia: Numero))
+pre:	true
+post:	
+	let jugadores:Collection(Jugador) = Jugador.allInstances()
+	let primerJugador = jugadores->orderedBy(j | j.saldo - j.saldoInicial)->first()
+
+if not(jugadores->empty())
+then
+	return jugadores->select(j | (j.saldo - j.saldoInicial) = 
+		(primerJugador.saldo - primerJugador.saldoInicial) )->
+		iterate(j;res=set{};res->including(dameNombreGanancia(j))
+else
+	return Set()
+
+--////////////////////////////////////////////////////////////////
+--////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+--este operacion devuelve dado un jugador una tupla con su nombre y su saldo
+dameNombreSaldo(j:Jugador):TupleType(nombre:String , ganancia: Numero))
+pre:	true
+post:	result Tuple{nombre:String = j.nombre, saldo:Numero = j.saldo}
+
+
+--------------------------------------------------------------------------
+estadoActual(): Collection(TupleType(nombre:String , saldo: Numero))
+pre:	true
+post:	
+	let jugadores:Collection(Jugador) = Jugador.allInstances() 
+	let casino:Jornada = Jornada.allInstances()->asSecuence->first()
+
+	result jugadores->iterate(j;res=set{};res->including(dameNombreGanancia(j))
+		->including(Tuple{nombre:String = casino.nombre, saldo:Numero = casino.saldo})
+--------------------------------------------------------------------------
+
+
+--////////////////////////////////////////////////////////////////
+--////////////////////////////////////////////////////////////////
+
+detalleMoviminetosPorJugador(): Collection(TupleType(nombre:String , saldo: Numero))

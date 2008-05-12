@@ -1,9 +1,3 @@
-
-\subsection{Pago de jugadas y premios}
-
-Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)\\
-\textbf{NOTA: } Esta seccion esta dirigida a solo a lectores con conocimientos de modelo de clases conceptuales y OCL. 
-
 \newpage
 
 \subsection{Registracion y Ingreso al casino online y modificacion de saldo}
@@ -36,7 +30,8 @@ Explicaremos esta operatoria con un diagrama de actividades. Ver Figura: \ref{fi
 
 \subsubsection{Ingreso y egreso del casino}
 
-La forma en que un cliente ingresa o egresa del casino esta explicado en los casos de uso: \textcolor{red}{nombres de CU y referencia}
+La forma en que un cliente ingresa o egresa del casino esta explicado en los casos de uso: \\
+CU \ic \ref{lic} y CU \salc \ref{lsalc}.
 
 \subsection{Administracion del Casino}
 
@@ -49,19 +44,18 @@ En el momento de la apertura del casino es podible realizar configuraciones dist
 	\item valores minimos para la entrega de premios
 \end{itemize}
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \ac \ref{lac}
 
 \subsubsection{Clausura del casino}
 
 La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad. No es posible cerrar el casino si hay jugadores dentro del casino
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \ccas \ref{lccas}
 
 \begin{framed}
 
 \depto Con esta maquina de estados finitos (FSM) Mostramos que nos comprometemos a que un administrador podrá cerrar el casino solo si no hay ningun cliente en el mismo.
 
-\textcolor{red}{ver orden de las imagenes}
 
 {\large FSM: Administrador}
 \begin{center}
@@ -84,14 +78,11 @@ Cuando se ingresa en este modo, los resultados de las jugadas no seran al azar s
 
 Esos resultados ingresados se respetaran para todas las jugadas de todas las mesas habilitadas de ese juego mientras no se vuelva a modo normal.
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
-
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \actm \ref{lactm}
 \begin{framed}
 
 \depto Con esta maquina de estados finitos (FSM) Mostramos que en modo dirigido se pueden lanzar jugadas de forma manual, dicha funcionalidad no esta permitida en modo normal.
 Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido. 
-
-\textcolor{red}{ver orden de las imagenes}
 
 \paragraph{FSM: Administrador}
 \begin{center}
@@ -104,19 +95,99 @@ Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido.
 
 El manipulador puede iniciar una Jugada Feliz, al hacerlo debe seleccionar una unica jugada que se verá afectada por la Jugada Feliz.
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref{ljugf}
 
 Por otro lado, si el manipulador inicia una Jugada Todos Ponen, al hacerlo puede seleccionar varias jugadas las cuales se veran afectadas (todas) por la jugada de este tipo.
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: \textcolor{red}{falta nombre CU y referencia}
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugtp \ref{ljugtp}
 
 \subsubsection{Finalización de Modo Dirigido}
 
 En el momento que el manipulador decida abandoanar el modo dirigido, debera desactivarlo.
-Y asi volver al modo normal. Ver caso de uso: \textcolor{red}{falta nombre CU y referencia}
+Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
                                             
- %asi como la ocurrencia de la jugada feliz y todosponen.
+\subsection{Juego Tragamonedas}
 
+Las máquinas tragamonedas juegan con un único valor de ficha (Cuando se inicia el jugador elige dicho valor, entre los valores de fichas disponibles del casino). 
+
+En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de tragamonedas.
+
+\begin{center}
+\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
+\end{center}
+
+Cada una de estas actividades se explican con mas detalle en los casos de uso: CU \jtra \ref{ljtra} y CU \apotra \ref{lapotra}
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) mostramos el desarrollo del juego tragamonedas, modelando solo la parte de cobrar o no.
+
+{\large FSM: JugadorTragamonedas}
+\begin{center}
+\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
+\end{center}
+
+\end{framed}
+
+\subsection{Juego Craps}
+
+Otro de los juegos elegidos por los socios es el \textbf{Craps}. En este juego un tirador lanza un par de dados para establecer un PUNTO y las apuestas girarán en base a las posibilidades de que dicho tirador repita el mismo punto antes de lanzar un 7.
+Cuando un jugador Craps decida jugar debe seleccionar una mesa existente o abrir una nueva. Luego durante el juego podra tirar los dados y/o apostar.
+
+En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de craps.
+
+\textcolor{red}{DADADADADADADADADA imagen repe}
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
+	\caption{Diagrama de actividades Jugador Tragamonedas\label{fig:JugadorCraps}}
+\end{figure}
+
+Cada una de estas actividades se explican con mas detalle en los casos de uso: \\
+CU \incr \ref{lincr}, CU \jcr \ref{ljcr}, \textcolor{red}{ referencia apo} y CU \scr \ref{lscr}
+
+
+
+
+\begin{framed}
+
+\depto Con estas maquinas de estados finitos (FSM) mostramos el desarrollo del juego craps. Incluyendo entre ellas un seleccionador, un tirador y cada una de las apuestas. 
+
+{\large FSM: Seleccionador}
+\begin{center}
+\includegraphics[scale=0.4]{img/seleccionador.png}
+\end{center}
+
+{\large FSM: Tirador}
+\begin{center}
+\includegraphics[scale=0.5]{img/tirador.png}
+\end{center}
+
+{\large FSM: Desarrollo Craps}
+\begin{center}
+\includegraphics[scale=0.25]{img/desarrolloCraps.png}
+\end{center}
+
+\end{framed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Pago de jugadas y premios}
+
+Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)\\
+\textbf{NOTA: } Esta seccion esta dirigida a solo a lectores con conocimientos de modelo de clases conceptuales y OCL. 
 
 \subsubsection{Pago de una jugada tragamonedas}
 
@@ -257,178 +328,3 @@ ResultadoPosibleTagamonedas.allInstances()->select(r | r.res1 = j.res1 and
 \end{lstlisting}
 
 \end{framed}
-
-
-
-\subsection{JUEGOS: Craps y Tragamonedas}
-
-\subsubsection{Juego Tragamonedas}
-
-Uno de los juegos elegidos por los socios es el \textbf{Tragamonedas}. Las máquinas tragamonedas juegan con un único valor de ficha. Al iniciarse una jugada, el jugador debe abrir una mesa nueva. Al hacerlo debe seleccionar el tipo de ficha con la que se jugara en esa máquina. La ficha seleccionada debe ser valida; es decir que debe estar entre los valores de ficha del casino.  
-
-En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de tragamonedas.
-
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
-	\caption{Diagrama de actividades Jugador Tragamonedas\label{fig:JugadorTragamonedas}}
-\end{figure}
-
-Cada una de estas actividades se explican con mas detalle en los casos de uso: \textbf{Jugando Tragamonedas} y \textbf{Apostando en tragamonedas}. 
-\textcolor{red}{ referencia}
-
-
-\begin{framed}
-
-\depto Con esta maquina de estados finitos (FSM) mostramos el desarrollo del juego tragamonedas, modelando solo la parte de cobrar o no.
-
-\textcolor{red}{ver orden de las imagenes}
-
-{\large FSM: JugadorTragamonedas}
-\begin{center}
-\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
-\end{center}
-
-\end{framed}
-
-Por otro lado, este juego tambien se explica en el modelo conceptual (ver \textcolor{red}{falta referencia} ) con las clases \textcolor{red}{falta poner nombre de las clases}
-
-
-\subsubsection{CRAPS}
-
-Otro de los juegos elegidos por los socios es el \textbf{Craps}. En este juego un tirador lanza un par de dados para establecer un PUNTO y las apuestas girarán en base a las posibilidades de que dicho tirador repita el mismo punto antes de lanzar un 7.
-Cuando un jugador Craps decida jugar debe seleccionar una mesa existente o abrir una nueva. Luego durante el juego podra tirar los dados y/o apostar.
-
-En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de craps.
-
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
-	\caption{Diagrama de actividades Jugador Tragamonedas\label{fig:JugadorCraps}}
-\end{figure}
-
-Cada una de estas actividades se explican con mas detalle en los casos de uso: \textbf{Ingresando a mesa de craps}, \textbf{jugando craps}, apostando craps y \textbf{saliendo mesa craps}. 
-\textcolor{red}{ referencia}
-
-
-\begin{framed}
-
-\depto Con estas maquinas de estados finitos (FSM) mostramos el desarrollo del juego craps. Incluyendo entre ellas un seleccionador, un tirador y cada una de las apuestas. 
-
-\textcolor{red}{ver orden de las imagenes}
-
-{\large FSM: Seleccionador}
-\begin{center}
-\includegraphics[scale=0.5]{img/seleccionador.png}
-\end{center}
-
-{\large FSM: Tirador}
-\begin{center}
-\includegraphics[scale=0.5]{img/tirador.png}
-\end{center}
-
-{\large FSM: Desarrollo Craps}
-\begin{center}
-\includegraphics[scale=0.5]{img/desarrolloCraps.png}
-\end{center}
-
-Apuestas.
-
-{\large FSM: Linea de Pase}
-\begin{center}
-\includegraphics[scale=0.5]{img/linesDePase.png}
-\end{center}
-
-{\large FSM: Barra No Pase}
-\begin{center}
-\includegraphics[scale=0.5]{img/barraNoPase.png}
-\end{center}
-
-
-
-{\large FSM: Apuesta Venir }
-\begin{center}
-\includegraphics[scale=0.5]{img/ApuestaVenir.png}
-\end{center}
-
-
-{\large FSM: Apuesta No Venir}
-\begin{center}
-\includegraphics[scale=0.5]{img/apuestaNoVenir.png}
-\end{center}
-
-
-{\large FSM: Apuesta De Campo}
-\begin{center}
-\includegraphics[scale=0.5]{img/apuestaDeCampo.png}
-\end{center}
-
-{\large FSM: Apuesta En Sitio}
-\begin{center}
-\includegraphics[scale=0.5]{img/apuestaEnSitio.png}
-\end{center}
-
-
-{\large FSM: Apuesta a Ganar}
-\begin{center}
-\includegraphics[scale=0.5]{img/apuestaAGanar.png}
-\end{center}
-
-
-{\large FSM: Apuesta En Contra}
-\begin{center}
-\includegraphics[scale=0.5]{img/apuestaEnContra.png}
-\end{center}
-
-\end{framed}
-
-Por otro lado, este juego tambien se explica en el modelo conceptual (ver \textcolor{red}{falta referencia} ) con las clases \textcolor{red}{falta poner nombre de las clases}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%
-%\subsection{Lista de Requerimientos}
-%%\input{lr.tex}
-%
-%\subsection{Diagrama de contexto}
-%
-%Ilustraremos los fenomenos esenciales entre los distintos \agentes involucrados, el \dominio de todo el \sistema y el \alcance del software a desarrollar.
-%
-%\begin{figure}[htp]
-%    \centering
-%		\includegraphics[scale=0.5]{dc.png}
-%	\caption{Diagrama de contexto \label{fig:dc}}
-%\end{figure}
-%
-%\paragraph{Nota:}
-%Como vemos en la figura: \ref{fig:dc} el manejo de registracion y administracion del dinero real queda fuera del alcanze del software, este solamente recibira un archivo por parte del administrador y trabajará sobre dicha informacion.
-%
-%\subsection{Diagrama de Objetivos}
-%
-%\begin{figure}[htp]
-%	\centering
-%		\includegraphics[scale=0.3, angle=90]{do.png}
-%	\caption{Diagrama de Objetivos \label{fig:do}}
-%\end{figure}
-%
-%\subsection{Casos de Uso}
-%\input{cu.tex}  %FALTA poco

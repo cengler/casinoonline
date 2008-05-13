@@ -2,7 +2,7 @@
 \begin{framed}
 \depto Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema.
 
-\subsubsection{Invariantes relacionados con el estado general del sistema}
+\subsection{Invariantes relacionados con el estado general del sistema}
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
@@ -88,7 +88,7 @@ not(self.participaTragaEn.oclIsUndefined())
 \end{lstlisting}
 
 
-\subsubsection{Invariantes relacionados con el juego tragamonedas}
+\subsection{Invariantes relacionados con el juego tragamonedas}
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
@@ -139,7 +139,7 @@ self.apuestasTragamonedas->forAll(a | self.participoEn->
     includes(a.jugadaTragamonedas.mesa) )
 \end{lstlisting}
 
-\subsubsection{Invariantes relacionados con el juego craps}
+\subsection{Invariantes relacionados con el juego craps}
 
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}

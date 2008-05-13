@@ -1,32 +1,40 @@
+\newcommand{\ii}{{\bf Importante }}
+\newcommand{\ff}{{\bf Funcional }}
+\newcommand{\dd}{{\bf Deseable }}
+\newcommand{\nf}{{\bf No funcional }}
+\newcommand{\ee}{{\bf Esencial }}
+
 \begin{enumerate}
-\item Mostrar en todo momento el monto de los posos
-\item Generar informe electrónico: Ranking de jugadores
-\item Generar informe electronico: Estado Actual
-\item Generar informe electronico: Destalle de movimientos por jugador
-\item El sistema debe funcionar en red
-\item Generar jugada feliz automáticamente
-\item Generar jugada todos ponen automáticamente
-\item El sistema deberá contar con un modo dirigido
-\item El sistema deberá permitir generar jugada feliz manualmente
-\item El sistema deberá permitir generar jugada todos ponen manualmente
-\item Permitir la configuración estática del monto mínimo de los posos
-\item Proveer jugo tragamonedas
-\item Proveer juego craps
-\item El juego tragamonedas debe contar con un premio gordo progresivo
-\item No se debe permitir el solapamiento de jugadas todos ponen (¿felices?)
-\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo
-\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de \item marketing (por el archivo proveído por...)
-\item Los clientes VIP podrán apostar ilimitadamente
-\item Los clientes podrán abrir mesas
-\item Los clientes podrán unirse a mesas (sí el juego lo permite)
-\item Las mesas vaciás se cerraran automáticamente
-\item El casino no se podrá cerrar mientras haya gente jugando
-\item No debe haber limite de mesas abiertas
-\item Se deberá modificar la el saldo del cliente en cada apuesta
-\item Las apuestas se harán por medio de fichas
-\item Las fichas serán ilimitadas
-\item Las pantallas mostraran la información necesaria para el desarrollo del juego
-\item Las pantallas mostraran la información necesaria del estado del juego
-\item Las pantallas mostraran el estado de la cuenta del jugador
-\item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas, configurables por el administrador
+\item Mostrar en todo momento el monto de los pozos: En todo momento se mostrara el monto actualizado de todos los pozos del casino, y se actualizará inmediatamente a medida que varie. \ff - \ii
+\item Generar informe electrónico: Ranking de jugadores: Se generará un informe con los jugadores que más dinero ganaron en el día desde que abrio el casino, como también los que más dinero perdieron. \ff - \ii
+\item Generar informe electronico: Estado Actual: Se generará un informe con el estado del casino y su saldo y también el de los clientes. \ff - \ii
+\item Generar informe electronico: Detalle de movimientos por jugador: Se generará un informe con todas las apuestas, premios ganados, y montos ganados por cada jugador que haya ingresado al casino. \ff - \ii
+\item El sistema debe funcionar en red.  \ff - \ee
+\item Generar jugada feliz automáticamente: La jugada feliz se generara en base a probabilidades.  \ff - \ee
+\item Generar jugada todos ponen automáticamente: La jugada todos ponen tambien se generara en base a probabilidades.  \ff - \ee
+\item El sistema deberá contar con un modo dirigido: Se podra poner en modo dirigido a cada uno de los juegos y todas sus respectivas mesas tendrán como resultado el definido por el manipulador de modos.  \ff - \ii
+\item El sistema deberá permitir generar jugada feliz manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas felices mientras no se solapen simultaneamente en los juegos del casino.  \ff - \ii
+\item El sistema deberá permitir generar jugada todos ponen manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas todos ponen mientras no se solapen en la misma jugada. \ff - \ii
+\item Permitir la configuración estática del monto mínimo de los pozos: Se podrá permitir configurar el monto minimo que debe superar un pozo antes de poder entregarlo.  \nf - \dd
+\item Proveer juego Tragamonedas: Se proveera el juego del Tragamonedas respetando las reglas provistas por los clientes.  \ff - \ee
+\item Proveer juego Craps: Se proveera el juego de Craps respetando las reglas provistas por los clientes. \ff - \ee
+\item El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas. \ff - \ee
+\item No se debe permitir el solapamiento de jugadas felices en el mismo instante: Si ha ocurrido una, entonces no podra ocurrir otra hasta que se pague la jugada existente y se supere el monto minimo, aunque pueden ocurrir en cualquiera de las mesas del casino pero no simultaneamente.  \nf - \ii
+\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego.  \nf - \dd
+\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo.  \ff - \ii
+\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado.  \ff - \dd
+\item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos.  \ff - \dd
+\item Los clientes podrán unirse a mesas (sí el juego lo permite): El tragamonedas no permite unirse a una mesa, pero en el Craps el jugador podrá elegir a cual de las mesas habilitadas se unirá.  \ff - \ii
+\item Las mesas vacias se cerraran automáticamente: Cuando un jugador salga de un juego el sitema automáticamente cerrara la mesa a menos que haya otros jugadores en ella.  \ff - \dd
+\item El casino no se podrá cerrar mientras haya gente jugando: El casino solo podrá cerrar cuando todos los jugadores hayan salido del mismo.  \ff - \ii
+\item No debe haber limite de mesas abiertas: Los clientes podrán ingresar a las mesas de los juegos y no habra un limite de ellas.  \ff - \dd
+\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo.  \ff - \ii
+\item Las apuestas se harán por medio de fichas: En todos los juegos el jugador podrá elegir el monto a apostar seleccionando de entre los valores establecidos de las fichas.  \nf - \ii
+\item Las fichas serán ilimitadas: No habra una cantidad fija de fichas sino que se dispondrá de ellas en un numero ilimitado.  \ff - \ii
+\item Las pantallas mostraran la información necesaria para el desarrollo del juego: Las pantallas mostrarán la interfaz del juego asi como tambien todas las opciones disponibles dentro del juego.  \ff - \ii
+\item Las pantallas mostraran la información necesaria del estado del juego: Las pantallas mostraran el tipo de jugada, estado actual del juego y resultados, y será inmediatamente actualizada ante cualquier cambio o variación.  \ff - \ii
+\item Las pantallas mostraran el estado de la cuenta del jugador: Por pantalla se podrá ver si un jugador esta dentro del casino y dentro de algun juego y si es así en que mesa, si ha resultado ganador o no, y su correspondiente saldo.  \ff - \dd
+\item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas: Se podrá elegir una mesa de maquina tragamonedas de distintos valores entre los definidos. Una vez elegido el valor de la ficha para el tragamonedas este no se podrá cambiar hasta salir del juego.  \ff - \dd
+\item El valor de las fichas debe poder configurarse por el administrador: Cada vez que el casino abre al administrador configurara los valores posibles de las fichas.  \nf - \ii
+
 \end{enumerate}

@@ -124,10 +124,10 @@ estado: estadoMesa</y:AttributeLabel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="95.0" x="27.5" y="26.701171875">Apuesta Craps</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
-            <y:AttributeLabel>apuesta: Numero
+            <y:AttributeLabel>apuestaA:ValorDados
 estado: EstadoAp
 tipo: TipoApCraps
-valor: ValorDados
+monto: Dinero
 fecha: Fecha
 retribucion: Numero</y:AttributeLabel>
             <y:MethodLabel/>
@@ -304,7 +304,7 @@ perdida</y:AttributeLabel>
             <y:AttributeLabel>puck: Puck
 punto: ValorDados
 estado: EstadoMesa</y:AttributeLabel>
-            <y:MethodLabel>cuantosJugadores</y:MethodLabel>
+            <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -352,8 +352,9 @@ retribucion: Numero</y:AttributeLabel>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="158.0" x="25.071938927800645" y="26.701171875">Resultado Posible Craps</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
             <y:AttributeLabel>tipo: TipoApCraps
-numero: valorDados
-ganancia: Numero</y:AttributeLabel>
+numeroApost: valorDados
+ganancia: Ganancia
+accionPara: valorDados</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>

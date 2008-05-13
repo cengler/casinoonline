@@ -3,13 +3,13 @@
 \newcommand{\adm}{{\bf Administrador }}
 %\newcommand{\ptra}{{\bf Potencial jugador de tragamonedas }}
 \newcommand{\jutra}{{\bf Jugador de Tragamonedas }}
-\newcommand{\pjc}{{\bf Potencial jugador de Craps }}
 \newcommand{\jc}{{\bf Jugador de Craps }}
 \newcommand{\jac}{{\bf Apostador de Craps }}
 \newcommand{\emc}{{\bf Empleado Contable }}
 \newcommand{\emk}{{\bf Empleado de Marketing }}
 \newcommand{\aptra}{{\bf Apostador de Tragamonedas }}
-\newcommand{\jucr}{{\bf Jugador de Craps }}
+\newcommand{\apocr}{{\bf Apostador de Craps }}
+\newcommand{\jucr}{{\bf Potencial Jugador de Craps }}
 %CASOS DE USO
 \newcommand{\ic}{{\bf Ingresando a casino }}
 \newcommand{\salc}{{\bf Saliendo del casino }}
@@ -29,7 +29,7 @@
 \newcommand{\admin}{{\bf administrador}}
 \newcommand{\ccas}{{\bf Cerrando Casino}}
 \newcommand{\empmark}{{\bf Empleado de Marketing}}
-\newcommand{\infomovjug}{{\bf informe Movimientos Por jugador}}
+\newcommand{\infomovjug}{{\bf Pidiendo informes}}
 \newcommand{\infoestact}{{\bf informe Estado Actual}}
 \newcommand{\inforankjug}{{\bf informe Ranking de Jugadores}}
 \newcommand{\infdmj}{{\bf Pidiendo informe Detalles de movimientos por jugador}}
@@ -393,11 +393,42 @@ Nota al Dpto de Sistemas: asumimos que el ingreso de los resultados de las jugad
 	
 \end{cu}
 
-%----------------------------------------------------------
-% CASO DE USO APOSTANDO CRAPS
-%----------------------------------------------------------
-\textcolor{red}{ CU apostando}
+\newpage
+%-------------------------------
+%CASO DE USO APOSTANDO EN CRAPS
+%--------------------------------
+\label{lapcr}
 
+\begin{cu}{\apcr}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \apocr apuesta en una mesa de Craps }
+		\actor{\apocr}
+		\pre{El \apocr debe haber ingresado a una mesa Craps}
+		\post{El \apocr ha apostado en el Craps, y su saldo ha sido modificado }
+
+	\begin{cursoe}{}
+    \paso{1 El \apocr un tipo de apuesta }{}
+    
+    \paso{2 El sistema valida el tipo de apuesta }{2.1 Error, el tipo de apuesta no es válido para este tiro. Ir a paso 1}
+%Con esto quiero decir que si no se ha fijado ya el punto entonces ciertos tipos de apuestas no serán válidos para esta jugada
+    
+    \paso{3 El \apocr un monto a apostar}{}
+		
+		\paso{4 Si el \apocr no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
+			
+		\paso{5 El sistema valida la apuesta y descuenta el monto del saldo del jugador}{5.1 Error: El sistema informa que no tiene saldo suficiente para realizar esta apuesta. Ir a Fin C.U.}
+				
+		\paso{6 Si el jugador desea realizar otra apuesta ir a paso 1 }{}
+		
+		\paso{5 Fin C.U.}{}	
+		
+	\end{cursoe}
+	
+%\paragraph{Comentario: }
+%\begin{flushleft}
+%\end{flushleft}
+\end{cu}
+		
 %----------------------------------------------------------
 % CASO DE USO Jugando Craps
 %----------------------------------------------------------
@@ -421,8 +452,7 @@ Nota al Dpto de Sistemas: asumimos que el ingreso de los resultados de las jugad
 	\end{cursoe}
 \end{cu}
 
-	
-\textcolor{red}{ CU ver aca para abajo los CU}
+\newpage
 	
 %--------------------------------------------------------------------------------	
 
@@ -447,60 +477,5 @@ Nota al Dpto de Sistemas: asumimos que el ingreso de los resultados de las jugad
 	\end{cursoe}
 \end{cu}
 
-\begin{cu}{\infoestact}
-	\descripxizq=1cm
-		\defln{ Este caso de uso explica la generacion del reporte Estado Actual }
-		\actor{\empmark}
-		\pre{ El casino debe estar abierto }
-		\post{ El sistema generara el reporte Estado Actual}
-
-\begin{cursoe}{}
-	
-		\paso{1 El \empmark solicita el reporte "Estado Actual" }{}
-		\paso{2 El sistema devuelve tal reporte}{}
-		\paso{ Fin C.U.}{}
 		
 
-	\end{cursoe}
-\end{cu}
-
-\begin{cu}{\inforankjug}
-	\descripxizq=1cm
-		\defln{ Este caso de uso explica la generacion del reporte Ranking de Jugadores }
-		\actor{\empmark}
-		\pre{ El casino debe estar abierto }
-		\post{ El sistema generara el reporte Ranking de Jugadores}
-
-\begin{cursoe}{}
-	
-		\paso{1 El \empmark solicita el reporte "Ranking de Jugadores" }{}
-		\paso{2 El sistema devuelve tal reporte}{}
-		\paso{ Fin C.U.}{}
-		
-
-	\end{cursoe}
-\end{cu}
-
-
-%
-\begin{cu}{\infdmj}
-	\descripxizq=1cm
-		\defln{ Este caso de uso explica como el emk solicita informe de detalles de movimientos por jugador }
-		\actor{\adm}
-		\pre{  }
-		\post{ El sistema ha generado el informe }
-
-	\begin{cursoe}{}
-	
-		\paso{1 El \emk solicita informe "Detalles de movimientos por jugador" }{}
-		
-		\paso{2 El sistema genera el informe de "Detalles de movimientos por jugador" }{}
-		
-		\paso{3 Fin C.U.}{}
-		
-
-	\end{cursoe}
-%\paragraph{Comentario: }
-%\begin{flushleft}
-%\end{flushleft}
-\end{cu}

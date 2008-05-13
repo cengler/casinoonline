@@ -1,0 +1,210 @@
+
+\begin{framed}
+\depto Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema.
+
+\subsection{Invariantes relacionados con el estado general del sistema}
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+
+-----------------------
+-- POZOS
+-----------------------
+-- hay un unico pozo progresivo
+context PozoProgresivo
+inv UnicoPozoProgresivo:
+PozoProgresivo.allInstances()->size() = 1
+
+-- hay un unico pozo feliz
+context PozoFeliz
+inv PozoFeliz:
+PozoFeliz.allInstances()->size() = 1
+
+-- el monto del pozo progresivo es mayor a 0
+context PozoProgresivo
+inv PozoProgresivoNoNegativo:
+PozoProgresivo.allInstances()->asSecuence().first().monto > 0
+
+-- el monto del pozo feliz es mayor a 0
+context PozoFeliz
+inv PozoFelizNoNegativo:
+PozoFeliz.allInstances()->asSecuence().first().monto > 0
+
+-----------------------
+-- RESULTADOS POSIBLES
+-----------------------
+-- hay como maximo un resultado posible por cada combinacion 
+-- del juego tragamonedas
+context ResultadoPosibleTragamonedas
+inv UnResultadoPorPremioTraga:
+ResultadoPosibleTragamonedas.allInstances()->
+   forAll(r | r <> self -> r.res1 <> self.res1 or
+                           r.res2 <> self.res2 or
+                           r.res3 <> self.res3 )
+
+-- hay como maximo un resultado posible por cada combinacion 
+-- del juego craps
+context ResultadoPosibleCraps
+inv UnResultadoPorPremioCraps:
+ResultadoPosibleCraps.allInstances()->
+   forAll(r | r <> self -> r.tipo <> self.tipo or
+                           r.numero.oclIsUndefined() or
+   not(r.numero.oclIsUndefined()) implies r.numero <> self.numero or
+                           r.res3 <> self.res3 )
+
+-----------------------
+-- JUGADOR
+-----------------------
+
+-- un jugador comun no puede tener saldo 
+-- negativo a menos que sea VIP
+context Jugador
+inv JugadorComunNoPuedePoseerSaldoNegativo:
+not(self.oclInstanceOf(JugadorVIP)) implies self.saldo >= 0
+
+-- un jugador no puede participar en mas de un juego
+cantext Jugador
+inv NoParticiparEnMasDeUnJuego:
+not(self.participaCrapsEn.oclIsUndefined()) implies 
+   self.participaTragaEn.oclIsUndefined() and
+not(self.participaTragaEn.oclIsUndefined()) 
+   implies self.participaCrapsEn.oclIsUndefined()
+
+-- un jugador no logeado no puede estar participando de un juego
+context Jugador
+inv NoLogeadoEntoncesNoJugando
+self.estado = EstadoJugador::NoLogeado implies 
+  ( self.participaTragaEn.oclIsUndefined() and 
+    self.participaCrapsEn.oclIsUndefined() )
+
+-- un jugador no puede participar en una mesa cerrada
+cantext Jugador
+inv NoParticiparEnMesaCerrada:
+not(self.participaCrapsEn.oclIsUndefined()) implies 
+   self.participaTragaEn.estado = EstadoMesa:Abierta and
+not(self.participaTragaEn.oclIsUndefined()) 
+   implies self.participaCrapsEn.estado = EstadoMesa:Abierta
+   
+\end{lstlisting}
+
+
+\subsection{Invariantes relacionados con el juego tragamonedas}
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+
+--Si un jugador tiene apuestas activas de tragamonedas,
+--esta participando de una mesa de tragamonedas
+context Jugador
+inv ApuestasActivasEntoncesParticipaEnMesa:
+self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
+    implies not(self.participaTragaEn.oclIsUndefined())
+
+--Si un jugador esta participando de una mesa, 
+--dicha mesa debe estar abierta
+context Jugador
+inv ParticipandoEnMesaEntoncesMesaActiva:
+not(self.participaTragaEn.oclIsUndefined()) implies
+    self.participaTragaEn.estado = EstadoMesa::Abierta
+
+--si una mesa esta abierta tiene un jugador participando 
+--y si esta cerrada no debe poseer ningun jugador participando
+context MesaTragamonedas
+inv AbiertaTragaEntoncesJugadorParticipando:
+(self.estadoMesa = EstadoMesa::Abierta) implies 
+    not(self.jugadorParticipando.oclIsUndefined()) and
+(self.estadoMesa = EstadoMesa::Cerrada) implies 
+    self.jugadorParticipando.oclIsUndefined()
+
+--las apuestas activas de un jugador deben estar relacionadas 
+--con la mesa en la que esta jugando dicho jugador
+context Jugador
+inv ApuestasActivasEnMesaEnLaQueEstoyJugando:
+self.ApuestasTragamonedas->
+    forAll(a | a.estado = EstadoAp::Activa implies 
+    a.JugadaTragamonedas.mesaTragamonedas = self.participaTragaEn)
+
+--si una mesa esta cerrada no debe poseer ninguna apuesta activa
+context MesaTragamonedas
+inv MesaTragaCerradaSinApuestasActivas:
+(self.estado = EstadoMesa::Cerrada) implies 
+((self.jugadaTragamonedas->
+    forAll(j | j.apuestaTragamonedas.estado = EstadoAp::Ganada or 
+               j.apuestaTragamonedas.estado = EstadoAp::Perdida)
+
+--todas las apuestas de un jugador corresponden a 
+--una mesa en la que participo
+context Jugador
+self.apuestasTragamonedas->forAll(a | self.participoEn->
+    includes(a.jugadaTragamonedas.mesa) )
+\end{lstlisting}
+
+\subsection{Invariantes relacionados con el juego craps}
+
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+-- Si un jugador tiene apuestas activas de craps,
+-- esta participando de una mesa de craps
+context Jugador
+inv ApuestasActivasCrapsEntoncesParticipaEnMesaCraps:
+self.ApuestasCraps->exists(a | a.estado = EstadoAp::Activa)
+    implies not(self.participaCrapsEn.oclIsUndefined())
+    
+    
+--Si un jugador esta participando de una mesa, 
+--dicha mesa debe estar abierta
+context Jugador
+inv ParticipandoEnMesaCrapsEntoncesMesaActiva:
+not(self.participaTragaEn.oclIsUndefined()) implies
+    self.participaTragaEn.estado = EstadoMesa::Abierta
+
+-- si una mesa esta abierta tiene un jugador 
+-- participando y un jugador tirando
+--
+-- y si esta cerrada no debe poseer ningun jugador 
+-- participando ni tirando
+context MesaCraps
+inv AbiertaCrapsEntoncesJugadorParticipando:
+(self.estadoMesa = EstadoMesa::Abierta) implies 
+    (not(self.jugadorParticipando.oclIsUndefined()) and
+    not(self.tirador.oclIsUndefined())) and
+(self.estadoMesa = EstadoMesa::Cerrada) implies 
+    (self.jugadorParticipando.oclIsUndefined() and
+    self.tirador.oclIsUndefined())
+    
+--las apuestas activas de un jugador deben estar relacionadas 
+--con la mesa en la que esta jugando dicho jugador
+context Jugador
+inv ApuestasActivasCrapsEnMesaEnLaQueEstoyJugando:
+self.apuestasCraps->
+    forAll(a | a.estado = EstadoAp::Activa implies 
+self.participaCrapsEn ->including(a.hechaEn.mesaCraps)
+
+--si una mesa esta cerrada no debe poseer ninguna apuesta activa
+context MesaCraps
+inv MesaCrapsCerradaSinApuestasActivas:
+(self.estado = EstadoMesa::Cerrada) implies 
+((self.apuestaCraps->
+    forAll(a | a.estado = EstadoAp::Ganada or 
+               a.estado = EstadoAp::Perdida)
+
+--todas las apuestas de un jugador corresponden a 
+--una mesa en la que participo
+context Jugador
+self.apuestasCraps->forAll(a | self.participoEn->
+    includes(a.hechaEn) )
+
+Queries:
+
+Query
+
+context: Mesa Craps::CuantosJugadores : numero
+body: self.Jugador.allInstances->select(x 
+					| x.participaCrapsEn = self)->sum() 
+
+
+
+\end{lstlisting}
+\end{framed}
+

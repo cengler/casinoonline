@@ -1,0 +1,139 @@
+
+\begin{framed}
+
+\depto Notese que una jugada tragamonedas solo tiene una apuesta que resolver.
+
+
+\lstset{language=ocl}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl]{}
+
+-- esta operacion paga la apuesta de una jugada de tragamonedas
+-- dicha apuesta tiene que estar activa (de otro modo ya ha sido 
+-- pagada) 
+-- Se paga la jugada y se cobran los premios correspondientes
+pagarJugadaTraga(j:JugadaTragamonedas):void
+pre: j.estado = EstadoAp:activa
+post: 
+  -- pago resultado jugada y pago pozo progresivo 
+  --y reseteo pozo progresivo
+  pagarJugadaTragaBasica(j)
+  -- cobro porcentaje jugada todos ponen
+  cobrarJugadaToposPonen(j)
+  -- pago jugada feliz y reseteo pozo feliz
+  pagarJugadaFeliz(j)
+  
+  if damePremioTraga(j) <> 0
+  then 
+    j.estado = EstadoAp:Ganada
+  else
+    j.estado = EstadoAp:Perdida
+    
+  j.apuestaTragamonedas.retribucion = 
+      j.hechaPor.saldo - j.hechaPor.saldo@pre
+
+
+-- si la jugada es todos ponen decremento saldo jugador e 
+-- incremento pozo feliz
+pagarJugadaFeliz(j:JugadaTragamonedas):void
+pre:  j.estado = EstadoAp:activa
+post:   let tipoJugada = j.tipoDeJugada
+
+  if tipoJugada.oclisTypeOf(Feliz)
+    j.hechaPor.saldo = j.hechaPor.saldo@pre + 
+        oclAsType(Feliz).pozoFeliz.monto
+    oclAsType(Feliz).pozoFeliz.monto = 0
+  endif
+
+
+-- si la jugada es todos ponen decremento saldo 
+-- jugador e incremento pozo feliz
+cobrarJugadaToposPonen(j:JugadaTragamonedas):void
+pre:  j.estado = EstadoAp:activa
+post:  let tipoJugada = j.tipoDeJugada
+
+  if tipoJugada.oclisTypeOf(TodosPonen)
+  then 
+    j.hechaPor.saldo = 
+
+      j.hechaPor.saldo@pre +
+      (damePremioTraga(j) + damePremioProgesivo(j)) * 
+      100 / oclAsType(TodosPonen).porcentaje
+    
+    oclAsType(TodosPonen).pozoFeliz.monto = 
+
+      oclAsType(TodosPonen).pozoFeliz.monto@pre + 
+      ((damePremioTraga(j) + damePremioProgesivo(j)) * 
+      100 / oclAsType(TodosPonen).porcentaje)
+      
+  endif
+
+
+
+-- incremento saldo jugados de jugada y pozo progresivo 
+-- (si corresponde)
+-- decremento saldo casino
+-- decremento pozo (si corresponde)
+pagarJugadaTragaBasica(j:JugadaTragamonedas):void
+pre:  j.estado = EstadoAp:activa
+post:  
+  let jornada = Jornada.allInstances->asSecuence->first()
+
+  j.hechaPor.saldo = j.hechaPor.saldo@pre + 
+       (damePremioTraga(j) + damePremioProgesivo(j))
+  jornada.saldo = jornada.saldo@pre - cualEsElPrepmio(j)
+  if damePremioProgesivo(j) <> 0
+  then
+    PozoProgresivo.allInstances()->asSecuence()->first().monto = 0
+  endif
+
+
+-- devuelve el valor del premio correspondiente a la jugada
+damePremioTraga(j:JugadaTagamonesas):Numero
+pre:  
+post:  let conjRes:Collection  = 
+ResultadoPosibleTagamonedas.allInstances()->select(  r |   
+            r.res1 = j.res1 and
+            r.res2 = j.res2 and
+            r.res3 = j.res2 and
+            r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
+  let precioFicha = j.mesaTragamonedas.valorFicha
+
+  if not(conjRes->isEmpty()) then
+    result = conjRes->asSecuence()->first().ganMonedas * precioFicha 
+  else
+    result = 0
+
+  endif 
+
+
+-- devuelve el valor del premio progresivo 
+-- correspondiente a la jugada
+damePremioProgesivo(j:JugadaTagamonesas):Numero
+pre:  true
+post:  let conjRes:Collection  = 
+ResultadoPosibleTagamonedas.allInstances()->
+	select(r | r.res1 = j.res1 and
+            r.res2 = j.res2 and
+            r.res3 = j.res2 and
+            r.cantMonedas = j.apuestaTragamonesas.cantMonedas) 
+  let precioFicha = j.mesaTragamonedas.valorFicha
+
+  if not(conjRes->isEmpty()) then
+    if   j.res1 = Fruta::Dinosaurio and
+      j.res2 = Fruta::Dinosaurio and
+      j.res3 = Fruta::Dinosaurio and
+      j.mesaTragamonedas.CantPalancasMax = 3
+    then
+      result = 
+          j.mesaTragamonedas.pozoProgresivo.monto * precioFicha 
+    else
+      result = 0
+    endif
+  else
+    result = 0
+  endif 
+  
+\end{lstlisting}
+
+\end{framed}

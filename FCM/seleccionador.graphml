@@ -69,7 +69,7 @@
     <node id="n5">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="369.1397849462365" x="1015.4301075268818" y="185.0"/>
+          <y:Geometry height="30.0" width="369.1397849462365" x="200.2835277223216" y="142.65472312703582"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="160.0" x="104.56989247311822" y="5.6494140625">Var CantJugadores: int [1..N]</y:NodeLabel>

@@ -8,27 +8,23 @@
 \begin{lstlisting}[frame=trbl]{}
 
 -----------------------
--- POZOS
+-- JORNADA
 -----------------------
--- hay un unico pozo progresivo
-context PozoProgresivo
-inv UnicoPozoProgresivo:
-PozoProgresivo.allInstances()->size() = 1
 
--- hay un unico pozo feliz
-context PozoFeliz
-inv PozoFeliz:
-PozoFeliz.allInstances()->size() = 1
+-- hay una unica jornada
+context Jornada
+inv UnicaJornada:
+Jornada.allInstances()->size() = 1
 
--- el monto del pozo progresivo es mayor a 0
-context PozoProgresivo
+-- el monto del pozo progresivo es mayor o igual a 0
+context Jornada
 inv PozoProgresivoNoNegativo:
-PozoProgresivo.allInstances()->asSecuence().first().monto > 0
+self.montoPozoProgresivo => 0
 
--- el monto del pozo feliz es mayor a 0
-context PozoFeliz
+-- el monto del pozo feliz es mayor o igual a 0
+context Jornada
 inv PozoFelizNoNegativo:
-PozoFeliz.allInstances()->asSecuence().first().monto > 0
+self.montoPozoFeliz => 0
 
 -----------------------
 -- RESULTADOS POSIBLES
@@ -40,7 +36,8 @@ inv UnResultadoPorPremioTraga:
 ResultadoPosibleTragamonedas.allInstances()->
    forAll(r | r <> self -> r.res1 <> self.res1 or
                            r.res2 <> self.res2 or
-                           r.res3 <> self.res3 )
+                           r.res3 <> self.res3 or
+                           r.cantMonedas <> self.cantMonedas)
 
 -- hay como maximo un resultado posible por cada combinacion 
 -- del juego craps
@@ -48,9 +45,10 @@ context ResultadoPosibleCraps
 inv UnResultadoPorPremioCraps:
 ResultadoPosibleCraps.allInstances()->
    forAll(r | r <> self -> r.tipo <> self.tipo or
-                           r.numero.oclIsUndefined() or
-   not(r.numero.oclIsUndefined()) implies r.numero <> self.numero or
-                           r.res3 <> self.res3 )
+                           r.numeroApost.oclIsUndefined() or
+                ( not(r.numeroApost.oclIsUndefined()) implies
+                     r.numeroApost <> self.numeroApost )  or
+                           r.accionPara <> self.accionPara )
 
 -----------------------
 -- JUGADOR

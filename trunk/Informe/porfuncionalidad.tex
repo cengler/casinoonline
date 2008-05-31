@@ -62,6 +62,9 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \ccas \ref
 \includegraphics[scale=0.5]{img/jugador.png}
 \end{center}
 
+\textbf{Nota}: la interaccion que tiene un jugador con cada uno de los juegos se puede observar en los apartados `JUEGO TRAGAMONEDAS' y `JUEGO CRAPS'. 
+
+
 \end{framed}
 
 \subsection{Modo Dirigido}
@@ -114,12 +117,27 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso: C
 
 \begin{framed}
 
-\depto Con esta maquina de estados finitos (FSM) mostramos el desarrollo del juego tragamonedas, modelando solo la parte de cobrar o no.
+\depto Con esta maquina de estados finitos (FSM) mostramos el desarrollo del juego tragamonedas, modelando solo la parte de cobrar o no. 
 
 {\large FSM: JugadaTragamonedas}
 \begin{center}
-\includegraphics[scale=0.5]{img/JugadorTragamonedas.png}
+\includegraphics[scale=0.5]{img/JugadaTragamonedas.png}
 \end{center}
+
+{\large FSM: MaquinaTragamonedas}
+\begin{center}
+\includegraphics[scale=0.5]{img/MaquinaTragamonedas.png}
+\end{center}
+
+\textit{\textsl{Aclaraciones}}: 
+\begin{itemize}
+	\item{Dado que al abrir el casino se determina con que fichas se jugará,\textit{\textbf{elegirValorFicha}} refiere a una de esas 	fichas. Es decir, que al abrir una mesa se debe elegir una ficha dentro de las posibles. }
+	\item{Abuso de la notacion al referimos a los posibles resultado.}
+	\item{Hay tantas FSM maquina tragamonedas como mesas se abran. Cuando
+	el jugador sale de la mesa, esta queda inhabilitada para una proxima jugada}
+	\item{De haber varias jugadas con posibilidad de ganar el premio progresivo, 	este será otorgado solo a una de ellas. 	En la FSM \textit{\textbf{JugadaTragamonedas}} se ve la flecha \textit{\textbf{nopremioProgresivo}} donde la apuesta es maxima, la cual refleja lo explicado previamente}
+	\item{Si la apuesta es maxima la cantidad de apuestas de 3 fichas volverá a cero, tanto si gana el premio progresivo 	  o no lo gane}
+\end{itemize}
 
 \end{framed}
 

@@ -5,11 +5,11 @@
   <key for="edge" id="d2" yfiles.type="edgegraphics"/>
   <key attr.name="description" attr.type="string" for="edge" id="d3"/>
   <key for="graphml" id="d4" yfiles.type="resources"/>
-  <graph edgedefault="directed" id="G" parse.edges="21" parse.nodes="21" parse.order="free">
+  <graph edgedefault="directed" id="G" parse.edges="21" parse.nodes="15" parse.order="free">
     <node id="n0">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="102.0" width="120.0" x="500.0" y="789.0"/>
+          <y:Geometry height="102.0" width="120.0" x="380.0" y="709.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="101.0" x="9.5" y="26.701171875">Jugada Normal</y:NodeLabel>
@@ -24,32 +24,14 @@
     <node id="n1">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="146.27197562817776" width="143.60447494789628" x="728.1977625260519" y="86.86401218591112"/>
+          <y:Geometry height="160.0" width="138.48943270300333" x="1210.7552836484983" y="80.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="56.0" x="43.80223747394814" y="26.701171875">Jugador</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="132.0" x="3.2447163515016655" y="26.701171875">Mesa tragamonedas</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
-            <y:AttributeLabel>Nombre: Nombre
-SaldoInicial: Numero
-saldo: Numero
-logeado: EstadoJugador
-vip: Bool</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n2">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="160.0" width="160.0" x="1320.0" y="80.0"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="132.0" x="14.0" y="26.701171875">Mesa tragamonedas</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
-            <y:AttributeLabel>valorFicha: Numero
-cantPalancasMax: Numero
+            <y:AttributeLabel>id: Numero
+valorFicha: Numero
+cantApMax: Numero
 estado: estadoMesa</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
@@ -57,7 +39,7 @@ estado: estadoMesa</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n3">
+    <node id="n2">
       <data key="d0">
         <y:UMLClassNode>
           <y:Geometry height="102.0" width="156.73571016166284" x="281.6321449191686" y="309.0"/>
@@ -72,10 +54,10 @@ estado: estadoMesa</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n4">
+    <node id="n3">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="102.0" width="120.0" x="700.0" y="589.0"/>
+          <y:Geometry height="102.0" width="120.0" x="580.0" y="549.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="103.0" x="8.5" y="26.701171875">Tipo de Jugada</y:NodeLabel>
@@ -87,7 +69,7 @@ estado: estadoMesa</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n5">
+    <node id="n4">
       <data key="d0">
         <y:UMLClassNode>
           <y:Geometry height="179.30296197796042" width="150.0" x="285.0" y="-169.6514809889802"/>
@@ -107,13 +89,13 @@ retribucion: Numero</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n6">
+    <node id="n5">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="160.84346760437825" width="160.0" x="1320.0" y="319.5782661978109"/>
+          <y:Geometry height="160.84346760437825" width="164.06896551724117" x="1197.9655172413795" y="319.5782661978109"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="150.0" x="5.0" y="26.701171875">Jugada Tragamonedas</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="150.0" x="7.034482758620584" y="26.701171875">Jugada Tragamonedas</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
             <y:AttributeLabel>res1: Fruta
 res2: Fruta
@@ -124,26 +106,10 @@ res3: Fruta</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n7">
+    <node id="n6">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="86.35301669060482" width="91.0" x="585.1062355658198" y="1137.6202583983463"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="83.0" x="4.0" y="26.701171875">Estado Mesa</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
-            <y:AttributeLabel>abierta
-cerrada</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n8">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="102.0" width="155.65006996699674" x="682.1749650165016" y="789.0"/>
+          <y:Geometry height="102.0" width="155.65006996699674" x="562.1749650165016" y="709.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="134.0" x="10.82503498349837" y="26.701171875">Jugada TodosPonen</y:NodeLabel>
@@ -155,10 +121,10 @@ cerrada</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n9">
+    <node id="n7">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="102.0" width="120.0" x="900.0" y="789.0"/>
+          <y:Geometry height="102.0" width="120.0" x="780.0" y="709.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="86.0" x="17.0" y="26.701171875">Jugada Feliz</y:NodeLabel>
@@ -170,10 +136,10 @@ cerrada</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n10">
+    <node id="n8">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="145.4996739553109" width="203.96393079045595" x="83.35661188051353" y="1060.1376164328126"/>
+          <y:Geometry height="145.4996739553109" width="203.96393079045595" x="98.01803460477203" y="527.2501630223446"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="56.0" x="73.98196539522797" y="26.701171875">Jornada</y:NodeLabel>
@@ -188,70 +154,7 @@ montoPozoFeliz: Numero</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n11">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="147.46937704918025" width="91.0" x="345.1062355658198" y="1107.0620782190585"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="37.0" x="27.0" y="26.701171875">Fruta</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
-            <y:AttributeLabel>Dinosaurio
-Cereza
-BAR Triple
-BAR Doble
-BAR Simple
-Espacio
-</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n12">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="100.83011638848996" width="91.0" x="845.8279445727483" y="1112.350530720305"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="63.0" x="14.0" y="26.701171875">EstadoAp</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
-            <y:AttributeLabel>activa
-ganada
-perdida</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n13">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="219.34032786885257" width="91.0" x="965.8279445727483" y="1053.0954249801234"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="81.0" x="5.0" y="26.701171875">Valor Dados</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
-            <y:AttributeLabel>2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n14">
+    <node id="n9">
       <data key="d0">
         <y:UMLClassNode>
           <y:Geometry height="149.35810753076413" width="140.9619915407855" x="289.5190042296073" y="85.32094623461794"/>
@@ -259,7 +162,8 @@ perdida</y:AttributeLabel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="77.0" x="31.980995770392752" y="26.701171875">Mesa Craps</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
-            <y:AttributeLabel>puck: Puck
+            <y:AttributeLabel>id: Numero
+puck: Puck
 punto: ValorDados
 estado: EstadoMesa</y:AttributeLabel>
             <y:MethodLabel/>
@@ -268,13 +172,13 @@ estado: EstadoMesa</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n15">
+    <node id="n10">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="134.3209667673716" width="187.0123112277746" x="826.4938443861126" y="412.8395166163142"/>
+          <y:Geometry height="134.3209667673716" width="187.0123112277746" x="986.4938443861126" y="412.8395166163142"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="154.0" x="16.5061556138873" y="26.701171875">Apuesta Tragamonedas</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="154.0" x="16.5061556138873" y="26.701171875">Apuesta Tragamonedas</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
             <y:AttributeLabel>cantMonedas: Numero
 estado: EstadoAp
@@ -286,10 +190,10 @@ retribucion: Numero</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n16">
+    <node id="n11">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="131.75709969788517" width="166.34682242834955" x="36.82658878582522" y="-145.87854984894258"/>
+          <y:Geometry height="131.75709969788517" width="166.34682242834955" x="76.82658878582522" y="-145.87854984894258"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="118.0" x="24.173411214174777" y="26.701171875">Resultado Posible
@@ -305,10 +209,10 @@ accionPara: valorDados</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n17">
+    <node id="n12">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="162.85698422444415" width="160.09537901033548" x="1079.9523104948323" y="398.5715078877779"/>
+          <y:Geometry height="162.85698422444415" width="160.09537901033548" x="759.9523104948323" y="398.5715078877779"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="118.0" x="21.04768950516774" y="26.701171875">Resultado Posible
@@ -325,48 +229,10 @@ ganMonedas: Numero</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <node id="n18">
+    <node id="n13">
       <data key="d0">
         <y:UMLClassNode>
-          <y:Geometry height="86.35301669060482" width="91.0" x="465.1062355658198" y="1137.6202583983463"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="35.0" x="28.0" y="26.701171875">Puck</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
-            <y:AttributeLabel>encendido
-apagado</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n19">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="172.10152879264" width="91.0" x="725.8279445727483" y="1076.7148245182298"/>
-          <y:Fill hasColor="false" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="85.0" x="3.0" y="26.701171875">TipoApCraps</y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
-            <y:AttributeLabel>Pase
-NoPase
-Venir
-NoVenir
-Campo
-Sitio
-Ganar
-EnContra</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-      <data key="d1"/>
-    </node>
-    <node id="n20">
-      <data key="d0">
-        <y:UMLClassNode>
-          <y:Geometry height="102.0" width="151.0" x="724.5" y="-331.0"/>
+          <y:Geometry height="102.0" width="151.0" x="724.5" y="-251.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="55.0" x="48.0" y="26.701171875">Invitado</y:NodeLabel>
@@ -378,7 +244,26 @@ EnContra</y:AttributeLabel>
       </data>
       <data key="d1"/>
     </node>
-    <edge id="e0" source="n8" target="n4">
+    <node id="n14">
+      <data key="d0">
+        <y:UMLClassNode>
+          <y:Geometry height="146.27197562817776" width="143.60447494789628" x="728.1977625260519" y="86.86401218591112"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="56.0" x="43.80223747394814" y="26.701171875">Jugador</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
+            <y:AttributeLabel>Nombre: Nombre
+SaldoInicial: Numero
+saldo: Numero
+logeado: EstadoJu
+vip: Vip</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+      <data key="d1"/>
+    </node>
+    <edge id="e0" source="n6" target="n3">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -389,12 +274,12 @@ EnContra</y:AttributeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e1" source="n9" target="n4">
+    <edge id="e1" source="n7" target="n3">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="960.0" y="760.0"/>
-            <y:Point x="760.0" y="760.0"/>
+            <y:Point x="840.0" y="680.0"/>
+            <y:Point x="640.0" y="680.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
@@ -403,7 +288,7 @@ EnContra</y:AttributeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e2" source="n14" target="n1">
+    <edge id="e2" source="n9" target="n14">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="59.9765625" sy="-40.0" tx="-57.885069609851485" ty="-40.0"/>
@@ -411,30 +296,30 @@ EnContra</y:AttributeLabel>
           <y:Arrows source="none" target="none"/>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="39.0" x="248.59681037761436" y="2.0">tirador</y:EdgeLabel>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="263.59681037761436" y="-20.701171875">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="36.0" x="10.13004362195528" y="-20.701171875">tiraEn</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="70.0" x="10.13004362195528" y="-20.701171875">tiraCrapsEn</y:EdgeLabel>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="10.13004362195528" y="2.0">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e3" source="n1" target="n2">
+    <edge id="e3" source="n14" target="n1">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="57.82221798780495" sy="-40.0" tx="-80.03125" ty="-40.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="429.0902099609375" y="-20.701171875">*</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="98.0" x="340.0902099609375" y="2.0">participoTragaEn</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="10.14244743488564" y="-20.701171875">1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="222.1163286979115" y="2.0"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="149.0" x="10.14244743488564" y="2.0">jugadoresQueParticiparon</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="318.15496826171875" y="-20.701171875">*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="98.0" x="229.15496826171875" y="2.0">participoTragaEn</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="10.11345573566689" y="-20.701171875">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="166.63421199869276" y="2.0"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="149.0" x="10.11345573566689" y="2.0">jugadoresQueParticiparon</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e4" source="n14" target="n5">
+    <edge id="e4" source="n9" target="n4">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-74.70005645358066" tx="0.0" ty="0.0"/>
@@ -450,7 +335,7 @@ EnContra</y:AttributeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e5" source="n3" target="n14">
+    <edge id="e5" source="n2" target="n9">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -464,12 +349,12 @@ EnContra</y:AttributeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e6" source="n0" target="n4">
+    <edge id="e6" source="n0" target="n3">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="560.0" y="760.0"/>
-            <y:Point x="760.0" y="760.0"/>
+            <y:Point x="440.0" y="680.0"/>
+            <y:Point x="640.0" y="680.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
@@ -478,24 +363,24 @@ EnContra</y:AttributeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e7" source="n4" target="n3">
+    <edge id="e7" source="n3" target="n2">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="360.0" y="640.0"/>
+            <y:Point x="360.0" y="600.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-21.115234375" y="-20.701171875">1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="-34.115234375" y="2.0">tipo</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-176.552734375" y="2.0"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-350.990234375" y="-218.875">*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-21.1396484375" y="-20.701171875">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="-34.1396484375" y="2.0">tipo</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-116.5771484375" y="2.0"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-231.0146484375" y="-178.875">*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e8" source="n5" target="n1">
+    <edge id="e8" source="n4" target="n14">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="74.9765625" sy="0.0" tx="0.0" ty="73.1358938974846">
@@ -513,7 +398,7 @@ por</y:EdgeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e9" source="n1" target="n14">
+    <edge id="e9" source="n14" target="n9">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="-57.885069609851485" sy="40.0" tx="70.45755827039284" ty="40.0"/>
@@ -529,23 +414,23 @@ por</y:EdgeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e10" source="n6" target="n4">
+    <edge id="e10" source="n5" target="n3">
       <data key="d2">
         <y:PolyLineEdge>
-          <y:Path sx="-40.0" sy="80.39559073495002" tx="0.0" ty="0.0">
-            <y:Point x="1360.0" y="640.0"/>
+          <y:Path sx="0.0" sy="80.39559073495002" tx="0.0" ty="0.0">
+            <y:Point x="1280.0" y="600.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-529.875" y="138.8642578125">1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-11.0" y="10.112163489689124">*</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="-529.875" y="161.5654296875">tipo</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-569.875" y="98.8740234375">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-11.0" y="10.121929114689124">*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="-569.875" y="121.5751953125">tipo</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e11" source="n6" target="n2">
+    <edge id="e11" source="n5" target="n1">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -559,22 +444,22 @@ por</y:EdgeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e12" source="n1" target="n2">
+    <edge id="e12" source="n14" target="n1">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="57.82221798780495" sy="40.0" tx="-80.03125" ty="40.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="98.0" x="340.0902099609375" y="2.0">participaTragaEn</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="414.0902099609375" y="-20.701171875">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="10.14244743488564" y="-20.701171875">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="115.0" x="10.14244743488564" y="2.0">jugadorParticipando</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="98.0" x="229.15496826171875" y="2.0">participaTragaEn</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="303.15496826171875" y="-20.701171875">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="24.0" x="10.11345573566689" y="-20.701171875">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="115.0" x="10.11345573566689" y="2.0">jugadorParticipando</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e13" source="n6" target="n1">
+    <edge id="e13" source="n5" target="n14">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="-80.03125" sy="-40.0" tx="40.0" ty="73.1358938974846">
@@ -582,29 +467,31 @@ por</y:EdgeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-19.09375" y="-20.701171875">*</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-246.53125" y="2.0"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="57.0" x="-477.96875" y="-116.73901218591112">hechaPor</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-492.96875" y="-116.73901218591112">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-19.15081576643297" y="-20.701171875">*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-185.57107438712274" y="2.0"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="57.0" x="-355.9913330078125" y="-116.73901218591112">hechaPor</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-370.9913330078125" y="-116.73901218591112">1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e14" source="n15" target="n6">
+    <edge id="e14" source="n10" target="n5">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-80.03125" ty="-40.0">
-            <y:Point x="920.0" y="360.0"/>
+            <y:Point x="1080.0" y="360.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="none"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="74.0" x="33.84051724137953" y="-50.822265625">jugadaTraga</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="81.0" x="-83.0" y="-28.8089208836858">apuestaTraga</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e15" source="n1" target="n14">
+    <edge id="e15" source="n14" target="n9">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -619,7 +506,7 @@ por</y:EdgeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e16" source="n17" target="n15">
+    <edge id="e16" source="n12" target="n10">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -630,62 +517,61 @@ por</y:EdgeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e17" source="n1" target="n3">
-      <data key="d2">
-        <y:PolyLineEdge>
-          <y:Path sx="-40.0" sy="73.1358938974846" tx="0.0" ty="0.0">
-            <y:Point x="760.0" y="360.0"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="54.0" x="-56.0" y="10.094117696901378">tiradaPor</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="2.0" y="10.094117696901378">1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-158.25357245958435" y="128.8331298828125"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="36.0" x="-311.5071449191686" y="128.8331298828125">tiroEn</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-311.5071449191686" y="106.1319580078125">*</y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-      <data key="d3"/>
-    </edge>
-    <edge id="e18" source="n20" target="n14">
+    <edge id="e17" source="n14" target="n2">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="0.0" y="-280.0"/>
-            <y:Point x="0.0" y="160.0"/>
-            <y:Point x="0.0" y="160.0"/>
+            <y:Point x="800.0" y="360.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="78.0" x="-523.0688863953927" y="442.0">miraCrapsEn</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-456.0688863953927" y="419.298828125">1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-368.775390625" y="2.0"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-19.087890625" y="2.0">*</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="74.0" x="-84.087890625" y="-20.701171875">esMiradaPor</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="54.0" x="-56.0" y="10.165284689088878">tiradaPor</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="2.0" y="10.165284689088878">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-178.25357245958435" y="128.904296875"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="70.0" x="-351.5071449191686" y="128.904296875">tiroCrapsEn</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-351.5071449191686" y="106.203125">*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e19" source="n20" target="n2">
+    <edge id="e18" source="n13" target="n9">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="1400.0" y="-280.0"/>
+            <y:Point x="40.0" y="-200.0"/>
+            <y:Point x="40.0" y="160.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.0" x="10.14892578125" y="-20.701171875">esMradaPor</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="10.14892578125" y="2.0">*</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="76.0" x="526.52392578125" y="331.173828125">miraTragaEn</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="511.52392578125" y="331.173828125">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="78.0" x="-523.1348043641427" y="362.0">miraCrapsEn</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="-456.1348043641427" y="339.298828125">1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-348.84130859375" y="2.0"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="-19.15380859375" y="2.0">*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="74.0" x="-84.15380859375" y="-20.701171875">esMiradaPor</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e20" source="n5" target="n16">
+    <edge id="e19" source="n13" target="n1">
+      <data key="d2">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="1280.0" y="-200.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.0" x="10.126953125" y="-20.701171875">esMradaPor</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="9.0" x="10.126953125" y="2.0">*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="76.0" x="406.501953125" y="251.173828125">miraTragaEn</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="11.0" x="391.501953125" y="251.173828125">1</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+      <data key="d3"/>
+    </edge>
+    <edge id="e20" source="n4" target="n11">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

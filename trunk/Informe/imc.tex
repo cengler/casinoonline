@@ -54,12 +54,6 @@ ResultadoPosibleCraps.allInstances()->
 -- JUGADOR
 -----------------------
 
--- un jugador comun no puede tener saldo 
--- negativo a menos que sea VIP
-context Jugador
-inv JugadorComunNoPuedePoseerSaldoNegativo:
-not(self.oclInstanceOf(JugadorVIP)) implies self.saldo >= 0
-
 -- un jugador no puede participar en mas de un juego
 cantext Jugador
 inv NoParticiparEnMasDeUnJuego:
@@ -82,9 +76,18 @@ not(self.participaCrapsEn.oclIsUndefined()) implies
    self.participaTragaEn.estado = EstadoMesa:Abierta and
 not(self.participaTragaEn.oclIsUndefined()) 
    implies self.participaCrapsEn.estado = EstadoMesa:Abierta
-   
-\end{lstlisting}
+      
+//////////////////////// REV
+-- un jugador comun no puede tener saldo 
+-- negativo a menos que sea VIP
+context Jugador
+inv JugadorComunNoPuedePoseerSaldoNegativo:
+not(self.oclInstanceOf(JugadorVIP)) implies self.saldo >= 0
+//////////////////////// REV
 
+//////////////////////// CERRAR APUESTAS CON SALDO
+
+\end{lstlisting}
 
 \subsection{Invariantes relacionados con el juego tragamonedas}
 \lstset{language=ocl}
@@ -97,13 +100,6 @@ context Jugador
 inv ApuestasActivasEntoncesParticipaEnMesa:
 self.ApuestasTragamonedas->exists(a | a.estado = EstadoAp::Activa)
     implies not(self.participaTragaEn.oclIsUndefined())
-
---Si un jugador esta participando de una mesa, 
---dicha mesa debe estar abierta
-context Jugador
-inv ParticipandoEnMesaEntoncesMesaActiva:
-not(self.participaTragaEn.oclIsUndefined()) implies
-    self.participaTragaEn.estado = EstadoMesa::Abierta
 
 --si una mesa esta abierta tiene un jugador participando 
 --y si esta cerrada no debe poseer ningun jugador participando
@@ -149,14 +145,6 @@ inv ApuestasActivasCrapsEntoncesParticipaEnMesaCraps:
 self.ApuestasCraps->exists(a | a.estado = EstadoAp::Activa)
     implies not(self.participaCrapsEn.oclIsUndefined())
     
-    
---Si un jugador esta participando de una mesa, 
---dicha mesa debe estar abierta
-context Jugador
-inv ParticipandoEnMesaCrapsEntoncesMesaActiva:
-not(self.participaTragaEn.oclIsUndefined()) implies
-    self.participaTragaEn.estado = EstadoMesa::Abierta
-
 -- si una mesa esta abierta tiene un jugador 
 -- participando y un jugador tirando
 --
@@ -189,19 +177,8 @@ inv MesaCrapsCerradaSinApuestasActivas:
 
 --todas las apuestas de un jugador corresponden a 
 --una mesa en la que participo
-context Jugador
-self.apuestasCraps->forAll(a | self.participoEn->
-    includes(a.hechaEn) )
-
-Queries:
-
-Query
-
-context: Mesa Craps::CuantosJugadores : numero
-body: self.Jugador.allInstances->select(x 
-					| x.participaCrapsEn = self)->sum() 
-
-
+context ApuestaCraps
+self.hechaEn.jugadoresQueParticiparon->includes(self.hechaPor)
 
 \end{lstlisting}
 \end{framed}

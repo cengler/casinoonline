@@ -121,12 +121,12 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso: C
 \\
 {\large FSM: JugadaTragamonedas}
 \begin{center}
-\includegraphics[scale=0.5]{img/JugadaTragamonedas.png}
+%\includegraphics[scale=0.5]{img/JugadaTragamonedas.png}
 \end{center}
 
 {\large FSM: MaquinaTragamonedas}
 \begin{center}
-\includegraphics[scale=0.5]{img/MaquinaTragamonedas.png}
+%\includegraphics[scale=0.5]{img/MaquinaTragamonedas.png}
 \end{center}
 
 \textit{\textsl{Aclaraciones}}: 
@@ -167,7 +167,7 @@ Con esta FSM modelamos la eleccion del tirador.
 
 {\large FSM: Cupier}
 \begin{center}
-\includegraphics[scale=0.5]{img/coupier.png}
+%\includegraphics[scale=0.5]{img/coupier.png}
 \end{center}
 
 
@@ -241,10 +241,95 @@ post:
 
 \subsubsection{Generacion de reporte: Detalle de movimientos por jugador}
 
+Aqui explicamos como se obtiene la info de los movimientos de cada jugador. Por un lado explicamos como obtener la informacion de tragamonedas y por otro la informacion de craps.
+
+La info que obtenemos con este informe es una lista de apuestas finalizadas de un jugador.
+Dicha lista contiene la siguiente informacion:
+
+\begin{itemize}
+	\item nombre del jugador
+	\item juego (Tragamonedas o Craps)
+	\item montoApostado
+	\item retribucion		
+	\item fecha de realizacion de la apuesta		
+\end{itemize}
+
+
 \begin{framed}
+\begin{lstlisting}[breaklines=true]
 
-\textbf{TINTERO: } No hemos podido llegar a terminar la operacion de ``Detalle de movimientos por jugador'', pero segun nuestro estudio nuestro modelo conceptual soporta la generacion de este reporte. 
+--este operacion devuelve dado un jugador y una apuesta 
+--tragamonedas, una tupla con su nombre, juego, mesa, 
+--montoApostado y retribucion
 
+dameInfoApuestaTraga(j:Jugador, a:ApuestaTraga):
+    TupleType(nombre:String, juego:String, mesa:Numero, 
+    monto:Numero, ganancia: Numero, fecha:Fecha)
+    
+pre:	a.estado == EstadoAp::ganada or ju.estado == EstadoAp::perdida
+
+post:	
+       let mesa = a.jugadaTraga.mesaTragamonedas
+       let valorApuesta = a.cantmonedas * mesa.valorFicha
+       let valorRetribucion = a.retribucion
+
+result Tuple{nombre:String = j.nombre, ''Juego Tragamonedas'', 
+    mesa.numeroMesa, valorApuesta, valorRetribucion, a.fecha}
+
+--busco las apuestas terminadas de tragamonedas y 
+--obtengo la info necesaria
+
+dameInfoApuestasTraga(j:Jugador):
+    Collection(TupleType(nombre:String, juego:String, 
+    mesa:Numero, monto:Numero, ganancia: Numero, fecha:Fecha))
+    
+pre:	true
+
+post:	
+       let apuestas:Collection(ApuestaTragamonedas) = j.apuestaTraga
+       let apuestasTerminadas = 
+           apuestas.select(a| a.estado != EstadoAp:activa)
+       let apuestasOrdenadas = 
+           apuestasTerminadas->orderedBy(a | a.fecha)
+	
+	result apuestasOrgenadas->
+	   iterate(a;res=orderedSet();res->including(dameInfoApuestaTraga(j,a))
+
+--este operacion devuelve dado un jugador y una apuesta 
+--craps, una tupla con su nombre, juego, mesa, 
+--montoApostado y retribucion
+
+dameInfoApuestaCraps(j:Jugador, a:ApuestaCraps):
+    TupleType(nombre:String, juego:String, mesa:Numero, 
+    monto:Numero, ganancia: Numero, fecha:Fecha)
+    
+pre:	a.estado == EstadoAp::ganada or ju.estado == EstadoAp::perdida
+
+post:	
+
+result Tuple{nombre:String = j.nombre, ''Juego Craps'', 
+    a.hechaEn.numeroMesa, a.monto, a.retribucion, a.fecha}
+
+--busco las apuestas terminadas de craps y 
+--obtengo la info necesaria
+
+dameInfoApuestasCraps(j:Jugador):
+    Collection(TupleType(nombre:String, juego:String, 
+    mesa:Numero, monto:Numero, ganancia: Numero, fecha:Fecha))
+    
+pre:	true
+
+post:	
+       let apuestas:Collection(ApuestaCraps) = j.apuestaCraps
+       let apuestasTerminadas = 
+           apuestas.select(a| a.estado != EstadoAp:activa)
+       let apuestasOrdenadas = 
+           apuestasTerminadas->orderedBy(a | a.fecha)
+	
+	result apuestasOrgenadas->
+	   iterate(a;res=orderedSet();res->including(dameInfoApuestaCraps(j,a))
+
+\end{lstlisting}
 \end{framed}
 
 \subsection{Pago de jugadas y premios}

@@ -9,7 +9,7 @@
     <node id="n0">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="-27.372739916550785" y="-120.80250347705152"/>
+          <y:Geometry height="30.0" width="30.0" x="40.82753824756605" y="-16.00695410292076"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">1</y:NodeLabel>
@@ -33,7 +33,7 @@
     <node id="n2">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="412.6272600834493" y="-120.80250347705152"/>
+          <y:Geometry height="30.0" width="30.0" x="301.1780250347706" y="-115.81223922114054"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">4</y:NodeLabel>
@@ -45,7 +45,7 @@
     <node id="n3">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="532.6272600834495" y="-120.80250347705152"/>
+          <y:Geometry height="30.0" width="30.0" x="479.39777468706563" y="-112.48539638386654"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">5</y:NodeLabel>
@@ -57,7 +57,7 @@
     <node id="n4">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="674.2795549374134" y="-125.44228094575806"/>
+          <y:Geometry height="30.0" width="30.0" x="604.4158553546596" y="-112.13490959666206"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">6</y:NodeLabel>
@@ -69,7 +69,7 @@
     <node id="n5">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="831.3977746870656" y="-120.80250347705152"/>
+          <y:Geometry height="30.0" width="30.0" x="826.4075104311547" y="-130.78303198887352"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">7</y:NodeLabel>
@@ -81,7 +81,7 @@
     <node id="n6">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="64.02503477051462" width="472.18749999999983" x="-88.46648991655067" y="-280.8025034770516"/>
+          <y:Geometry height="64.02503477051462" width="472.18749999999983" x="29.63643080667606" y="-305.7538247566065"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="183.0" x="144.59374999999991" y="7.960759572757297">Var CantFichasApost :  [1..3][1..n]
@@ -95,7 +95,7 @@ Var k: int [1..maximo]</y:NodeLabel>
     <node id="n7">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="962.4353268428375" y="-117.70931849791381"/>
+          <y:Geometry height="30.0" width="30.0" x="440.121001390821" y="176.7162726008345"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">9</y:NodeLabel>
@@ -107,7 +107,7 @@ Var k: int [1..maximo]</y:NodeLabel>
     <node id="n8">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="1056.6587853500234" y="-119.25591098748271"/>
+          <y:Geometry height="30.0" width="30.0" x="594.2276309689387" y="77.02781641168275"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="18.0" x="6.0" y="5.6494140625">10</y:NodeLabel>
@@ -120,12 +120,12 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="67.62725830078125" y="-145.80250549316406"/>
+            <y:Point x="56.813941955566406" y="-92.7484130859375"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="127.0" x="-48.50586022162804" y="-32.520994841239656">jugarTrgamonedas_i?</y:EdgeLabel>
-          <y:Arc height="40.0" ratio="1.0" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="127.0" x="-54.40997663483812" y="-100.69256727226822">jugarTrgamonedas_i?</y:EdgeLabel>
+          <y:Arc height="59.708828" ratio="1.7143269" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -134,13 +134,13 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-14.984375">
-            <y:Point x="283.88116455078125" y="-183.29469299316406"/>
+            <y:Point x="229.40411376953125" y="-152.937255859375"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="111.0" x="35.8536922893573" y="-56.70440573022498">elegirValorFicha1_i
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="111.0" x="10.771580921529846" y="-61.24821032253317">elegirValorFicha1_i
 {MaxApuesta[i] &lt;- 0}</y:EdgeLabel>
-          <y:Arc height="70.10017" ratio="1.0" type="fixedRatio"/>
+          <y:Arc height="42.211704" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -149,13 +149,13 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="-14.984375" ty="0.0">
-            <y:Point x="280.13507080078125" y="-44.43791198730469"/>
+            <y:Point x="223.2549591064453" y="-67.74893951416016"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="112.0" x="93.34881080518733" y="21.21085570687633">elegirValorFicha k_i
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="112.0" x="17.620346593046094" y="-3.3799807123779146">elegirValorFicha k_i
 {MaxApuesta[i] &lt;- 0}</y:EdgeLabel>
-          <y:Arc height="-61.364594" ratio="-0.9262034" type="fixedRatio"/>
+          <y:Arc height="-35.577206" ratio="-0.9262034" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -164,12 +164,12 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="67.62725830078125" y="-65.80250549316406"/>
+            <y:Point x="127.9262924194336" y="-30.454797744750977"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="126.0" x="-120.49413977362347" y="12.819824235595547">salirTragamonedas_i!</y:EdgeLabel>
-          <y:Arc height="40.0" ratio="1.0" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="126.0" x="-104.16866361722447" y="35.21317425121953">salirTragamonedas_i!</y:EdgeLabel>
+          <y:Arc height="34.82931" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -178,14 +178,14 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="487.62725830078125" y="-135.80250549316406"/>
+            <y:Point x="406.11962890625" y="-143.70375061035156"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="139.0" x="-28.515625079309245" y="-62.21362305681356">aposto1Ficha_i
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="139.0" x="-27.483453771041184" y="-61.04446770282715">aposto1Ficha_i
 {CantFichasApost[i] &lt;- 1}
 {MaxApuesta[i] &lt;- 0}</y:EdgeLabel>
-          <y:Arc height="30.0" ratio="1.0" type="fixedRatio"/>
+          <y:Arc height="44.562695" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -194,14 +194,14 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="487.62725830078125" y="86.06094360351562"/>
+            <y:Point x="401.99444580078125" y="77.28253173828125"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="136.0" x="-48.510026497606475" y="59.52195552191611">aposto2Fichas_i
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="136.0" x="67.42739468222157" y="93.7705351259836">aposto2Fichas_i
 {CantFichasApos[i] &lt;- 2}
 {MaxApuesta[i] &lt;- 0}</y:EdgeLabel>
-          <y:Arc height="-191.86345" ratio="-6.395448" type="fixedRatio"/>
+          <y:Arc height="-176.4621" ratio="-3.9598613" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -212,7 +212,7 @@ Var k: int [1..maximo]</y:NodeLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="139.0" x="-24.499998217331836" y="2.0000020161125462">aposto3Fichas_i
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="six_pos" modelPosition="stail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="139.0" x="4.612484821855617" y="4.68082442578627">aposto3Fichas_i
 {CantFichasApost[i] &lt;- 3}
 {MaxApuesta[i] ++}</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
@@ -226,9 +226,9 @@ Var k: int [1..maximo]</y:NodeLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="133.0" x="-10.665794149724775" y="2.349358733717253">3Dinosaurios_i?
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="133.0" x="-18.99089005726239" y="2.3196231302186305">3Dinosaurios_i?
 [CantFichasApost[i] = 3]</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="53.834205850275225" y="0.23668101790545393"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="45.50910994273761" y="2.138798103518724"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -240,7 +240,7 @@ Var k: int [1..maximo]</y:NodeLabel>
           <y:Path sx="0.0" sy="0.0" tx="14.9765625" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="121.0" x="3.0645559255208354" y="5.344852461808358">premioProgresivo_i?
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="121.0" x="35.54205398665715" y="-0.7969679649026205">premioProgresivo_i?
 [MaxApuesta[i] = max]
 {MaxApuesta[i] &lt;- 0}</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
@@ -252,41 +252,41 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="769.8179321289062" y="-175.1482696533203"/>
+            <y:Point x="725.0467529296875" y="-170.32418823242188"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="134.0" x="-26.962961844613005" y="-55.20571176743954">noPremioProgresivo_i?</y:EdgeLabel>
-          <y:Arc height="67.05509" ratio="1.7063807" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="134.0" x="-0.012503302890877421" y="-52.154971092120206">noPremioProgresivo_i?</y:EdgeLabel>
+          <y:Arc height="64.09016" ratio="1.1507677" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
     </edge>
     <edge id="e10" source="n5" target="n7">
       <data key="d2">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="955.1984237366715" y="-105.78094575799727"/>
+        <y:ArcEdge>
+          <y:Path sx="0.0" sy="14.984375" tx="0.0" ty="0.0">
+            <y:Point x="709.7710571289062" y="126.68284606933594"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="49.0" x="26.01878465167033" y="-20.696017878126696">cobrar_i</y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="49.0" x="-109.89352360007979" y="150.5095712293006">cobrar_i</y:EdgeLabel>
+          <y:Arc height="101.884384" ratio="0.8410755" type="fixedRatio"/>
+        </y:ArcEdge>
       </data>
       <data key="d3"/>
     </edge>
     <edge id="e11" source="n8" target="n7">
       <data key="d2">
-        <y:PolyLineEdge>
+        <y:ArcEdge>
           <y:Path sx="14.9765625" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="1008.0631103515625" y="-106.34116079147404"/>
+            <y:Point x="531.7781372070312" y="128.49908447265625"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="66.0" x="-61.87354921951953" y="2.1095134978988312">noCobrar_i</y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="shead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="66.0" x="-129.17118777934513" y="8.670580480767185">noCobrar_i</y:EdgeLabel>
+          <y:Arc height="-15.524188" ratio="-0.31636375" type="fixedRatio"/>
+        </y:ArcEdge>
       </data>
       <data key="d3"/>
     </edge>
@@ -294,18 +294,18 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="697.0125122070312" y="-280.0852966308594"/>
+            <y:Point x="657.4328002929688" y="-305.19244384765625"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="100.0" x="56.30846527409403" y="-228.980784309368">unaCereza_i?
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="100.0" x="112.42659480176735" y="-226.8526669024788">unaCereza_i?
 dosCerezas_i?
 tresBar_i?
 tresBarSimple_i?
 tresBarDoble_i?
 tresBarTriple_i?
 tresCerezas_i?</y:EdgeLabel>
-          <y:Arc height="174.28279" ratio="2.3333333" type="fixedRatio"/>
+          <y:Arc height="198.83408" ratio="2.2887912" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -314,12 +314,12 @@ tresCerezas_i?</y:EdgeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="810.0297241210938" y="-236.03709411621094"/>
+            <y:Point x="552.7958374023438" y="-3.324479579925537"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="116.0" x="268.73513256359706" y="-149.24060006526872">otraCombinacion_i?</y:EdgeLabel>
-          <y:Arc height="131.00845" ratio="1.0" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="116.0" x="41.077956815523976" y="123.57294580004333">otraCombinacion_i?</y:EdgeLabel>
+          <y:Arc height="1.1495044" ratio="0.020750318" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -328,12 +328,12 @@ tresCerezas_i?</y:EdgeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="701.561767578125" y="68.06766510009766"/>
+            <y:Point x="293.96380615234375" y="89.0002212524414"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="83.0" x="-145.44779045343932" y="72.60823860717078">volverAJugar_i</y:EdgeLabel>
-          <y:Arc height="172.32631" ratio="1.2536999" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="83.0" x="-160.47304149264522" y="-67.41763079189906">volverAJugar_i</y:EdgeLabel>
+          <y:Arc height="101.50231" ratio="1.2536999" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -342,12 +342,12 @@ tresCerezas_i?</y:EdgeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="481.44866943359375" y="242.1768798828125"/>
+            <y:Point x="188.02114868164062" y="235.10736083984375"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="126.0" x="-235.67503657374675" y="159.44305704593964">salirTragamonedas_i!</y:EdgeLabel>
-          <y:Arc height="346.4345" ratio="1.4" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="126.0" x="-72.71732730507392" y="7.529513805566182">salirTragamonedas_i!</y:EdgeLabel>
+          <y:Arc height="155.1797" ratio="1.4" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -356,12 +356,12 @@ tresCerezas_i?</y:EdgeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="287.62725830078125" y="109.57720947265625"/>
+            <y:Point x="229.26260375976562" y="-14.137680053710938"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="68.0" x="-151.45863273273773" y="167.3722823226567">salirMesa_i</y:EdgeLabel>
-          <y:Arc height="215.37971" ratio="3.076853" type="fixedRatio"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="68.0" x="-141.20141392898373" y="60.3564513489175">salirMesa_i</y:EdgeLabel>
+          <y:Arc height="89.20877" ratio="2.1161501" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>
@@ -370,14 +370,14 @@ tresCerezas_i?</y:EdgeLabel>
       <data key="d2">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="764.0352783203125" y="20.671600341796875"/>
+            <y:Point x="741.1777954101562" y="21.70367431640625"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="134.0" x="-48.23339057990188" y="49.828180829353855">noPremioProgresivo_i?
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="134.0" x="-20.91754275155256" y="46.66048916014006">noPremioProgresivo_i?
 [MaxApuesta[i] = max]
 {MaxApuesta[i] &lt;- 0}</y:EdgeLabel>
-          <y:Arc height="-128.85013" ratio="-3.2789063" type="fixedRatio"/>
+          <y:Arc height="-128.61404" ratio="-2.309323" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
       <data key="d3"/>

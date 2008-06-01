@@ -1,6 +1,6 @@
 \subsection{Relevamiento de requerimientos Generales}
 
-\subsection{Objetivos y requerimientos a cumplir}
+\subsubsection{Objetivos y requerimientos a cumplir}
 
 Para lograr tener uns visión intencional del sistema, tanto en su parte funcional como en la no funcional, presentamos los objetivos que identificamos organizandolos en un Diagrama de Objetivos\footnote{Objetivos organizados en uno o mas arboles, donde tenemos que casa objetivos se logra gracias al cumplimiento de los objetivos dependientes (hijos inmediatos)}
 
@@ -47,15 +47,20 @@ Este diagrama tambien nos da otra mirada del alcance y expectativas del software
 
 \input{cu.tex}
 
-\subsection{Conceptos fundamentales, y sus relaciones - Modelo Conceptual}
+\subsection{Conceptos fundamentales, y sus relaciones}
 
-Identificamos y explicamos los conceptos funadamentales y las propiedades definitorias de ellos, y los estructuramos en un Modelo Conceptual\footnote{Casa caja representa una agrupacion de objetos reconocidos del dominio del problema que se caracterizan por tener propiedades similares, las lineas son asociaciones estre estos conceptos que indica alguna vinculacion significativa entre ellos}
+\subsubsection{Conceptos fundamentales}
+\input{explDClases.tex}
+
+\subsubsection{Modelo Conceptual}
 
 \begin{center}
-		\includegraphics[scale=0.38]{img/dclCasino.png}
+		\includegraphics[scale=0.45]{img/dclCasino.png}
 \end{center}
 
-Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema. Ver Anexo \ref{an2}
+Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema. 
+
+\input{imc.tex}
 
 \subsection{Lista de Requerimientos}
 
@@ -512,6 +517,7 @@ Cuando un jugador Craps decida jugar debe seleccionar una mesa existente o abrir
 Cada una de estas actividades se explican con mas detalle en los casos de uso: \\
 CU \incr \ref{lincr}, CU \jcr \ref{ljcr}, CU \apcr \ref{lapcr} y CU \scr \ref{lscr}
 
+\vskip2cm
 %----------------------------------------------------------
 % CASO DE USO Ingresando a la mesa de craps
 %----------------------------------------------------------
@@ -825,7 +831,20 @@ Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo 
 
 \textbf{NOTA: } Esta seccion esta dirigida a solo a lectores con conocimientos de modelo de clases conceptuales y OCL. 
 
-\begin{itemize}
-	\item Pago de una jugada tragamonedas. Ver Anexo \ref{an4}
-	\item Pago de una jugada craps. Ver Anexo \ref{an5}
-\end{itemize}
+\subsubsection{Pago jugada Tragamonedas}
+
+\input{an4.tex}
+
+\subsubsection{Pago jugada Craps}
+
+\vskip1cm
+\textsc{Explicacion de Apuestas juego Craps}
+\vskip1cm
+
+\input{fsmAp.tex}
+
+\vskip1cm
+\textsc{Especificacion de Apuestas juego Craps}
+\vskip1cm
+
+\input{an5.tex}

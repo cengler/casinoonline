@@ -12,7 +12,6 @@ sacar del saliendo del casino la parte de cancelar apuestas (ISIS)
 
 agregar invitado a Diagrama de Contexto (falta asociarlo con los cu correspondientes)
 
-agregar invitado a DO
 
 agregar algo del invitado en los requerimientos.
 
@@ -24,21 +23,6 @@ los CU q mande ISIS (ver domingo)
 
 mandar FSM Jugada craps a tutor para que la vea.
 mandar FSM coupiet a tutor para q la vea.
------------------------------------------------------------------
-
-Notas FSM - JugadaTrgamonedas
-
--Esta FSM compono con Jugador
--elegirValor ficha refiere a los posibles valores de ficha que exista en el casino.
--abuso de notacion 
--cuando saca premio progresivo vuelve contar
--hay tantas FSM maquina trgamonedas como mesas se abran. Recordar que cuando
-el jugador salga de la mesa, esta queda inhabilitada para una proxima jugada.
-
-- Vale aclarar que de haber varias jugadas con posibilidad de ganar el premio progresivo,
-este se le otorgara solo a una de ellas. 
-En la FSM Jugada Tragamonedas se ve una flecha que dice nopremioProgresivo donde la apuesta max
-esto refleja lo anterior dicho.
 
 -----------------------------------------
 

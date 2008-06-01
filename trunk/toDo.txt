@@ -1,7 +1,5 @@
 Ver CU -> preg ISIS
 
-ver modo invitado (resta verlo en las FSM, si hace falta VER)
-
 Agrupar requerimientos(ISIS)
 
 trazabilidad entre CU y requerimientos.(ISIS)

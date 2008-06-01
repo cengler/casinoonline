@@ -12,7 +12,7 @@
           <y:Geometry height="144.22951053082647" width="90.0" x="195.0" y="0.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="37.0" x="26.5" y="26.701171875">Fruta</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="57.0" x="16.5" y="26.701171875">Simbolo</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enum" use3DEffect="false">
             <y:AttributeLabel>Dinosaurio
 Cereza

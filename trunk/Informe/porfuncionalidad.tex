@@ -40,7 +40,7 @@ Este diagrama tambien nos da otra mirada del alcance y expectativas del software
 \includegraphics[scale=0.38]{img/casosDeUso.png}
 \end{center}
 
-{\large Casos de Uso \label{fig:herencia}}
+{\large Casos de Uso - Herencia \label{fig:herencia}}
 \begin{center}
 \includegraphics[scale=0.38]{img/herencia.png}
 \end{center}
@@ -64,7 +64,7 @@ Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes par
 \subsection{Registracion y Ingreso al casino online y modificacion de saldo}
 
 \subsubsection{Registracion}
-Segun lo acordado, la registracion de los usuarios de hace por fuera del sistema informatico del casino online. Explicaremos como esperamos que interactuen los agentes externos para que el sistema posea la lista actualizada de usuarios registrados. Para ello usaremos el Diagrama de Activdades\footnote{Diagrama de Actividades: Grafico que representa el flujo de actividades. Las cajas representan actividades y las flechas repersentan secuencialidad y los rombos representan decisiones} ``Registracion''. Ver Figura: \ref{fig:daReg}
+Segun lo acordado, la registracion de los usuarios se hace por fuera del sistema informatico del casino online. Explicaremos como esperamos que interactuen los agentes externos para que el sistema posea la lista actualizada de usuarios registrados. Para ello usaremos el Diagrama de Activdades\footnote{Diagrama de Actividades: Grafico que representa el flujo de actividades. Las cajas representan actividades y las flechas repersentan secuencialidad y los rombos representan decisiones} ``Registracion''. Ver Figura: \ref{fig:daReg}
 
 {\large Diagrama de actividades Registracion\label{fig:daReg}}
 \begin{center}
@@ -151,14 +151,19 @@ CU \ic \ref{lic} y CU \salc \ref{lsalc}.
 
 \subsubsection{Apertura del casino}
 
-En el momento de la apertura del casino es podible realizar configuraciones distintos aspectos:
+El administrador puede realizar configuraciones de distintos aspectos:
 \begin{itemize}
 	\item Configuracion de valores de fichas
 	\item Asignacion de probablilidades
 	\item valores minimos para la entrega de premios
 \end{itemize}
+Al realizarse la apertura del casino, el sistema carga automaticamente un archivo donde se encuentran establecidas las configuracion efectuadas por el administrador. 
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: CU \ac \ref{lac}
+\begin{center}
+\includegraphics[scale=0.38]{img/configuraciones.png}
+\end{center}
+
+Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema. 
 
 %----------------------------------------------------------
 % CASO DE USO ABRIENDO CASINO
@@ -234,6 +239,18 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \ccas \ref
 
 
 \end{framed}
+
+\subsection{Invitado}
+El casino brinda una modalidad para entrar a los juegos como invitado. Bajo este modalidad aquella persona que ingrese al casino podra observar el desarrollo de los juegos pero sin participar
+La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\textit{faltan los cu})
+
+%\begin{center}
+%\includegraphics[scale=0.5]{img/invitado.png}
+%\end{center}
+
+
+En el siguiente Diagrama de actividades se puede observar lo que puede hacer un invitado dentro del casino.
+
 
 \subsection{Modo Dirigido}
 
@@ -649,6 +666,7 @@ Con esta FSM modelamos la eleccion del tirador.
 Con esta FSM explicamos una jugada de manera general, es decir sin las apuestas. Estas ultimas se explican en el anexo III. Cabe aclarar que cada una de las apuestas se explican con FSMs distintas; una para cada una de ellas.
 
 \end{framed}
+
 
 \subsection{Generacion de reportes}
 

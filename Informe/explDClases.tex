@@ -1,27 +1,34 @@
-Jornada: \textsc{Contiene} la nformacion general del casino
+Identificamos y explicamos los conceptos funadamentales y las propiedades definitorias de ellos, y los estructuramos en un Modelo Conceptual\footnote{Casa caja representa una agrupacion de objetos reconocidos del dominio del problema que se caracterizan por tener propiedades similares, las lineas son asociaciones estre estos conceptos que indica alguna vinculacion significativa entre ellos}.\\
+Explicamos brevemente que representa cada uno de estos conceptos.
 
-ResultadoPosibleCraps: Representa todas los resultados a una jugada, que finalizan una apuesta particular. (representa a la accion concreta de perder o ganar para una apuesta, los resultados que no definen la apuesta, no aparecen)
+\begin{itemize}
 
-Jugador: Repesenta a un jugador del casino.
+	\item Jornada: Contiene la informacion general del casino
 
-MesaTragamonedas: repesenta todas las mesas de tragamonedas que se abrieron desde que se abrio el casino (Cada mesa que es o fue usada por un jugadr del casino). Dicha mesa no se reabre.
+	\item ResultadoPosibleCraps: Representa todas los resultados a una jugada, que finalizan una apuesta particular. (representa a la accion concreta de perder o ganar para una apuesta, los resultados que no definen la apuesta, no aparecen)
 
-ResutadoPosibleTragamonedas: Representa todas los resultados a una jugada, que finalizan una apuesta particular. (representa a la accion concreta de perder o ganar para una apuesta, los resultados que no definen la apuesta, no aparecen)
+	\item Jugador: Repesenta a un jugador del casino.
 
-JugadaTragamonedas: Repesenta al conjunto de jugadas de todas las mesas de tragamonedas.
+	\item MesaTragamonedas: repesenta todas las mesas de tragamonedas que se abrieron desde que se abrio el casino (Cada mesa que es o fue usada por un jugadr del casino). Dicha mesa no se reabre.
 
-ApuestaTragamonedas: Repesenta al conjunto de las asociacion entre una jugada de tragamonedas y el jugador que esta jugando (En el tragamonedas es imposible jugar sin apostar, y cada jugada teniene asociada una apuesta articular).
+	\item ResutadoPosibleTragamonedas: Representa todas los resultados a una jugada, que finalizan una apuesta particular. (representa a la accion concreta de perder o ganar para una apuesta, los resultados que no definen la apuesta, no aparecen)
 
-TipoDeJugada: Repesta el tipo de jugada que esta asociado a toda jugada del casino, tanto sea de craps como tragamonedas.
+	\item JugadaTragamonedas: Repesenta al conjunto de jugadas de todas las mesas de tragamonedas.
 
-JugadaFeliz: Representan al tipo de jugada que tiene asociado el pago del premio ``Pozo Feliz''.
+	\item ApuestaTragamonedas: Repesenta al conjunto de las asociacion entre una jugada de tragamonedas y el jugador que esta jugando (En el tragamonedas es imposible jugar sin apostar, y cada jugada teniene asociada una apuesta articular).
 
-JugadaTodosPonen: Representa al tipo de jugada que tiene asociado el cobre de porcentajes para el incremento del pozo feliz.
+	\item TipoDeJugada: Repesta el tipo de jugada que esta asociado a toda jugada del casino, tanto sea de craps como tragamonedas.
 
-JugadaNormal: Repesenta al tipo de jugada normal, es decir una jugada con el comportamiento comun.
+	\item JugadaFeliz: Representan al tipo de jugada que tiene asociado el pago del premio ``Pozo Feliz''.
 
-ApuestasCraps: Representa todas las apuestas que se hacen en cada jugada de cada mesa de craps.
+	\item JugadaTodosPonen: Representa al tipo de jugada que tiene asociado el cobre de porcentajes para el incremento del pozo feliz.
 
-MesaCraps: repesenta todas las mesas de craps que se abrieron desde que se abrio el casino (Cada mesa que es o fue usada por un jugadr del casino). Dicha mesa no se reabre.
+	\item JugadaNormal: Repesenta al tipo de jugada normal, es decir una jugada con el comportamiento comun.
 
-JugadaCraps: Representa cada uno de los tiros de dados que se hacen en ua mesa de craps.
+	\item ApuestasCraps: Representa todas las apuestas que se hacen en cada jugada de cada mesa de craps.
+
+	\item MesaCraps: repesenta todas las mesas de craps que se abrieron desde que se abrio el casino (Cada mesa que es o fue usada por un jugadr del casino). Dicha mesa no se reabre.
+
+	\item JugadaCraps: Representa cada uno de los tiros de dados que se hacen en ua mesa de craps.
+
+\end{itemize}

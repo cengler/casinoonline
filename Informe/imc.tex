@@ -2,7 +2,7 @@
 \begin{framed}
 \depto Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema.
 
-\subsection{Invariantes relacionados con el estado general del sistema}
+\subsubsection{Invariantes relacionados con el estado general del sistema}
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
@@ -113,7 +113,7 @@ MesaTraga.allInstances()->forAll(a | a <> self implies a.id <> self.id)
 
 \end{lstlisting}
 
-\subsection{Invariantes relacionados con el juego tragamonedas}
+\subsubsection{Invariantes relacionados con el juego tragamonedas}
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}
 \begin{lstlisting}[frame=trbl]{}
@@ -157,7 +157,7 @@ self.apuestasTragamonedas->forAll(a | self.participoEn->
     includes(a.jugadaTragamonedas.mesa) )
 \end{lstlisting}
 
-\subsection{Invariantes relacionados con el juego craps}
+\subsubsection{Invariantes relacionados con el juego craps}
 
 \lstset{language=ocl}
 \lstset{commentstyle=\textit}

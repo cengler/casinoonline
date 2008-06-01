@@ -10,7 +10,7 @@ pagina 22 ojo ver ABRIENDO CASINO (isis)
 
 sacar del saliendo del casino la parte de cancelar apuestas (ISIS)
 
-agregar invitado a Diagrama de Contexto
+agregar invitado a Diagrama de Contexto (falta asociarlo con los cu correspondientes)
 
 agregar invitado a DO
 
@@ -18,7 +18,7 @@ agregar algo del invitado en los requerimientos.
 
 DA con cu de invitado
 
-DA con configuracion del sistema.
+nota: sacar referncias a los CU en el informe.
 
 ver tema de dibujo de los CU y la herencia de los actores, agregando 
 los CU q mande ISIS (ver domingo)

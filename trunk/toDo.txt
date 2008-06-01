@@ -16,7 +16,6 @@ agregar invitado a DO
 
 agregar algo del invitado en los requerimientos.
 
-DA con cu de invitado
 
 nota: sacar referncias a los CU en el informe.
 

@@ -77,15 +77,39 @@ not(self.participaCrapsEn.oclIsUndefined()) implies
 not(self.participaTragaEn.oclIsUndefined()) 
    implies self.participaCrapsEn.estado = EstadoMesa:Abierta
       
-//////////////////////// REV
 -- un jugador comun no puede tener saldo 
 -- negativo a menos que sea VIP
 context Jugador
 inv JugadorComunNoPuedePoseerSaldoNegativo:
-not(self.oclInstanceOf(JugadorVIP)) implies self.saldo >= 0
-//////////////////////// REV
+self.vip == Vip:noEsVip implies self.saldo >= 0
 
-//////////////////////// CERRAR APUESTAS CON SALDO
+--cerrar movimientos con saldos del jugador
+--
+context Jugador
+inv SaldoInicialMasMovimientosIgualSaldo
+
+    let gastosTraga = self.apuestTraga.gasto->sum()
+    let retribucionTraga = self.apuestaTraga.retribucion->sum()
+    let gastosCraps = self.apuestCraps.monto->sum()
+    let retribucionCraps = self.apuestaCraps.retribucion->sum()
+    let movimientos = gastosTraga + retribucionTraga
+                      + gastosCraps + retribucionCraps
+    
+self.saldoInicial + movimientos == self.saldo
+
+-----------------------
+-- MESA
+-----------------------
+
+--no hay dos mesas de craps con el mismo id
+inv MesasCrapsConDistintoId
+context MesaCraps
+MesaCraps.allInstances()->forAll(a | a <> self implies a.id <> self.id)
+
+--no hay dos mesas de tragamonedas con el mismo id
+inv MesasTragaConDistintoId
+context MesaTraga
+MesaTraga.allInstances()->forAll(a | a <> self implies a.id <> self.id)
 
 \end{lstlisting}
 

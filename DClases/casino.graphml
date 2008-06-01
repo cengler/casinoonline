@@ -97,9 +97,9 @@ retribucion: Numero</y:AttributeLabel>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="150.0" x="7.034482758620584" y="26.701171875">Jugada Tragamonedas</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
-            <y:AttributeLabel>res1: Fruta
-res2: Fruta
-res3: Fruta</y:AttributeLabel>
+            <y:AttributeLabel>res1: Simbolo
+res2: Simbolo
+res3: Simbolo</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -218,9 +218,9 @@ accionPara: valorDados</y:AttributeLabel>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="118.0" x="21.04768950516774" y="26.701171875">Resultado Posible
 Tragamonedas</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="clase conceptual" use3DEffect="false">
-            <y:AttributeLabel>res1: Fruta
-res2: Fruta
-res3: Fruta
+            <y:AttributeLabel>res1: Simbolo
+res2: Simbolo
+res3: Simbolo
 cantMonedas: Numero
 ganMonedas: Numero</y:AttributeLabel>
             <y:MethodLabel/>

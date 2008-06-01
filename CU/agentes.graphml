@@ -156,11 +156,12 @@ Jugador Craps</y:NodeLabel>
     <node id="n12">
       <data key="d0">
         <y:SVGNode>
-          <y:Geometry height="47.0" width="42.0" x="259.0" y="56.5"/>
+          <y:Geometry height="50.0" width="30.0" x="265.0" y="55.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="eight_pos" modelPosition="n" textColor="#000000" visible="true" width="90.0" x="-24.0" y="-39.8525390625">Apostador de
- tragamonedas</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.77880859375" modelName="eight_pos" modelPosition="n" textColor="#000000" visible="true" width="86.0" x="-28.0" y="-55.77880859375">&lt;&lt;abstract&gt;&gt;
+Apostador de
+tragamonedas</y:NodeLabel>
           <y:SVGModel svgBoundsPolicy="0">
             <y:SVGContent refid="7"/>
           </y:SVGModel>

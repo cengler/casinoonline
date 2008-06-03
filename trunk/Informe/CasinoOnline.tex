@@ -85,7 +85,7 @@
 
 \section{Introducción}
 	\subsection{Objetivo del documento}
-El objetivo de este documento es aportar criterios de validacion y verificacion de la especificación propuesta, que podran ser usados en las distintas actividades de desarrollo, ampliación, o modificación, del softwarwe del casino online.
+El objetivo de este documento es aportar criterios de validacion y verificacion de la especificación propuesta, que podran ser usados en las distintas actividades de desarrollo, ampliación, o modificación, del software del casino online.
 
 Este sera el documento base para la puesta en comun de los compromisos del software y los distintos agentes involucrados, da tal manera que pueda ser usado en el desarrollo, diseño, implementacion y testing para verificar el cumplimiento del proposito para el cual el software del casino online fue desarrollado.
 
@@ -151,8 +151,35 @@ El casino puede entrar en un ``modo dirigido'' si así lo requiriera o deseara el
 \end{itemize}
 
 	\subsection{Organización del informe}
-	
-	El informe esta dirigido a varios destinatarios con propositos diferentes, por lo que al leerlo, el lector debe solo segir las referencias si desea saber mas sobre el tema y tiene el background necesario para entenderlo.
+
+\textbf{1. Introducción:} Descripcion general al problema que se intenta resolver y el background con el que se cuenta o se asume para los lectores del documento.
+
+\textbf{2. Descripción General:} Descripcion del escenario sobre el cual se construye el producto, sus ventajas y limitaciones.
+
+\textbf{3. Análisis por funcionalidad:}
+
+En la primera parte de la seccion 3, se estudia el proyecto casino online
+
+\begin{itemize}
+	\item \textbf{Relevamiento de requerimientos Generales}
+	\item \textbf{Analisis de agentes involucrados en el sistema:}
+	\item \textbf{Interacciones de agentes externos con el sistema}
+	\item \textbf{Conceptos fundamentales, y sus relaciones}  Breve descripcion de cada concepto que aparece en el modelo conceptual, modelo conceptual e invariantes 
+	\item \textbf{Lista de Requerimientos}
+\end{itemize}
+
+El la segunda parte se agruparon los temas por funcionalidad...
+
+\begin{itemize}
+	\item Registracion y Ingreso al casino online y modificacion de saldo: Temas \textsl{Registracion, Modificacion de saldo, Ingreso y egreso del casino}
+	\item Administracion del Casino: Temas \textsl{Apertura del casino, Clausura del casino}
+	\item Invitado
+	\item Modo Dirigido Temas \textsl{Inicio de Modo Dirigido, Seteo de Jugadas Feliz y Todos Ponen, Finalización de Modo Dirigido}
+	\item Juego Tragamonedas
+	\item Juego Craps
+	\item Generacion de reportes: Temas \textsl{Generacion de reportes; Ranking de Jugadores, Estado Actual, Detalle de movimientos por jugador}
+	\item Pago de jugadas y premios: Temas \textsl{Pago jugada Tragamonedas, Pago jugada Craps}
+\end{itemize}
 
 \section{Descripción General}
 	\subsection{Perspectiva del producto}
@@ -185,7 +212,7 @@ Las funciones principales del producto serán las siguientes:
 	Los usuarios de este software serán personas registradas en el sistema como mayores de edad, ya que eso es lo que la ley dictamina. Luego de la presentación de la documentación se los catalogará como Clientes VIP o comunes.\\
 Estos tiene computadora y acceso a la red. Se entiende que serán por lo menos aficionados o simpatizantes de los juegos de azar y tiene algo de experiencia en el consumo virtual.\\
 Sugerimos un estudio de campo sobre  la tendencia consumista de estos clientes para lograr captar un mayor numero de ellos.\\
-Los usuario del casino online deberan tener conección a internet o acceso a una computadora con internet.
+%Los usuario del casino online deberan tener conección a internet o acceso a una computadora con internet.
 
 	\subsection{Restricciones}
 	

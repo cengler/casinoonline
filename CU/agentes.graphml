@@ -5,7 +5,7 @@
   <key for="edge" id="d2" yfiles.type="edgegraphics"/>
   <key attr.name="description" attr.type="string" for="edge" id="d3"/>
   <key for="graphml" id="d4" yfiles.type="resources"/>
-  <graph edgedefault="directed" id="G" parse.edges="11" parse.nodes="13" parse.order="free">
+  <graph edgedefault="directed" id="G" parse.edges="11" parse.nodes="14" parse.order="free">
     <node id="n0">
       <data key="d0">
         <y:ImageNode>
@@ -155,17 +155,25 @@ Jugador Craps</y:NodeLabel>
     </node>
     <node id="n12">
       <data key="d0">
-        <y:SVGNode>
-          <y:Geometry height="50.0" width="30.0" x="265.0" y="55.0"/>
+        <y:ImageNode>
+          <y:Geometry height="48.0" width="48.0" x="96.0" y="-104.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.77880859375" modelName="eight_pos" modelPosition="n" textColor="#000000" visible="true" width="86.0" x="-28.0" y="-55.77880859375">&lt;&lt;abstract&gt;&gt;
-Apostador de
-tragamonedas</y:NodeLabel>
-          <y:SVGModel svgBoundsPolicy="0">
-            <y:SVGContent refid="7"/>
-          </y:SVGModel>
-        </y:SVGNode>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="false" width="18.0" x="15.0" y="14.036865234375">14</y:NodeLabel>
+          <y:Image refid="7"/>
+        </y:ImageNode>
+      </data>
+      <data key="d1"/>
+    </node>
+    <node id="n13">
+      <data key="d0">
+        <y:ShapeNode>
+          <y:Geometry height="30.0" width="140.0" x="50.0" y="-135.0"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle hasColor="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="46.0" x="47.0" y="5.6494140625">Invitado</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
       </data>
       <data key="d1"/>
     </node>
@@ -279,7 +287,7 @@ tragamonedas</y:NodeLabel>
       </data>
       <data key="d3"/>
     </edge>
-    <edge id="e10" source="n5" target="n12">
+    <edge id="e10" source="n3" target="n12">
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -676,102 +684,68 @@ eJXxuLnMEh8aTTYymPiaGEz9TA2mU00NVaZWMchr3JIf8xn6BtvyOA2kXOpEm3nHv5bPXit5zeX6&#13
 LXaJeE9Gc/1e0Qs96BvpqXxNLypLRg/do76MWezZ+fyOeD6aL+WT87KnqMYwVtvjJfq9oDn6Hbnx&#13;
 eqTtdNL19ePkS7/NaKRHp6Z+6HhHT7eQ+JBhrW/C2utop2yo3QNtof9Cr5G+RaijZ9j4Vf7xh9Hf&#13;
 YKyLq/JfMP0byb/jua5/A4isM8L9oyZwAAAAAElFTkSuQmCC</y:Resource>
-      <y:Resource id="7" type="java.lang.String">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;!-- Created with Inkscape (http://www.inkscape.org/) --&gt;
-&lt;svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="41"
-   height="68.997391"
-   id="svg2"
-   sodipodi:version="0.32"
-   inkscape:version="0.45.1"
-   sodipodi:docbase="C:\Daten\alberts\projects\yfx"
-   sodipodi:docname="uml_actor.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   version="1.0"&gt;
-  &lt;defs
-     id="defs4" /&gt;
-  &lt;sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="2.934351"
-     inkscape:cx="144.21983"
-     inkscape:cy="28.533711"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="968"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
-     width="48px"
-     height="48px"
-     showborder="false"
-     inkscape:showpageshadow="false" /&gt;
-  &lt;metadata
-     id="metadata7"&gt;
-    &lt;rdf:RDF&gt;
-      &lt;cc:Work
-         rdf:about=""&gt;
-        &lt;dc:format&gt;image/svg+xml&lt;/dc:format&gt;
-        &lt;dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /&gt;
-      &lt;/cc:Work&gt;
-    &lt;/rdf:RDF&gt;
-  &lt;/metadata&gt;
-  &lt;g
-     inkscape:label="Ebene 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-29.5,-42.959476)"&gt;
-    &lt;a
-       id="a3142"
-       transform="matrix(1.0873906,0,0,1,-4.4741999,0)"&gt;
-      &lt;path
-         transform="translate(11.586889,5.2908993)"
-         d="M 47.02914 47.36993 A 8.5197716 9.2013531 0 1 1  29.989597,47.36993 A 8.5197716 9.2013531 0 1 1  47.02914 47.36993 z"
-         sodipodi:ry="9.2013531"
-         sodipodi:rx="8.5197716"
-         sodipodi:cy="47.36993"
-         sodipodi:cx="38.509369"
-         id="path2160"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         sodipodi:type="arc" /&gt;
-    &lt;/a&gt;
-    &lt;path
-       sodipodi:type="arc"
-       style="fill:none"
-       id="path3134"
-       sodipodi:cx="43.962021"
-       sodipodi:cy="48.392303"
-       sodipodi:rx="3.7486994"
-       sodipodi:ry="0"
-       d="M 47.71072 48.392303 A 3.7486994 0 0 1 1  40.213321,48.392303 A 3.7486994 0 0 1 1  47.71072 48.392303 z" /&gt;
-    &lt;path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.24319649px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 50,61.33709 C 50,91.363211 50,92.247838 50,92.247838"
-       id="path3136" /&gt;
-    &lt;path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 69.760668,72.362183 C 69.760668,72.362183 69.760668,72.362183 50.239332,72.362183 C 30.239332,72.362183 30.239332,72.362183 30.239332,72.362183 L 30.239332,72.362183"
-       id="path3138" /&gt;
-    &lt;path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 30,111.45687 C 30,111.45687 30,111.45687 50,92.013532 C 70,111.45687 70,111.45687 70,111.45687"
-       id="path3140" /&gt;
-  &lt;/g&gt;
-&lt;/svg&gt;
-</y:Resource>
+      <y:Resource id="7" type="java.awt.image.BufferedImage">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&#13;
+rkJggg==</y:Resource>
     </y:Resources>
   </data>
 </graphml>

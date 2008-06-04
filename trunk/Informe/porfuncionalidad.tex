@@ -62,7 +62,7 @@ Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes par
 
 \input{imc.tex}
 
-\subsection{Lista de Requerimientos}
+\subsection{Requerimientos}
 
 \input{lr.tex}
 
@@ -293,7 +293,7 @@ La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\t
 \paragraph{\req }
 \begin{flushleft}
 \begin{itemize}
-	\item Un cliente podrá entrar al casino como invitado
+	\item Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en el \label{1c}
 \end{itemize}
 \end{flushleft}	
 
@@ -572,11 +572,7 @@ En el siguiente Diagrama de actividades se puede observar a grandes rasgos las a
 \paragraph{\req }
 \begin{flushleft}
 \begin{itemize}
-\item Proveer juego Tragamonedas
-\item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas
-\item Los clientes podrán abrir mesas
-\item No debe haber limite de mesas abiertas
-\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo
+\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a1}
 \end{itemize}
 \end{flushleft}	
 
@@ -617,6 +613,14 @@ En el siguiente Diagrama de actividades se puede observar a grandes rasgos las a
 		\paso{10 Fin C.U.}{}
 		
   \end{cursoe}
+  
+ \paragraph{\req }
+\begin{itemize}
+	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a2}
+	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b2}
+	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d2}
+\end{itemize}
+
 \end{cu}
 %------------------------------------------------------
 % CASO DE USO Saliendo de mesa de trgamonedas
@@ -713,18 +717,9 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 		
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
-	\item Proveer juego Craps	
-	\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo
-	\item Los clientes podrán abrir mesas
-	\item Los clientes podrán unirse a mesas, si el juego lo permite
-	\item No debe haber limite de mesas abiertas
-	\item Las pantallas mostraran la información necesaria para el desarrollo del juego
-	\item Las pantallas mostraran la información necesaria del estado del juego
-	\item Las pantallas mostraran el estado de la cuenta del jugador
+	\item \item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a2}
 \end{itemize}
-\end{flushleft}	
 
 \end{cu}
 %------------------------------------------------------
@@ -768,14 +763,6 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 \begin{flushleft}
 \begin{itemize}	
 	\item Proveer juego Craps
-	\item Mostrar en todo momento el monto de los pozos
-	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing
-	\item Los clientes VIP podrán apostar ilimitadamente
-	\item Generar jugada feliz automáticamente
-	\item Generar jugada todos ponen automáticamente	
-	\item Las pantallas mostraran la información necesaria para el desarrollo del juego
-	\item Las pantallas mostraran la información necesaria del estado del juego
-	\item Las pantallas mostraran el estado de la cuenta del jugador
 \end{itemize}
 \end{flushleft}
 \end{cu}	
@@ -806,19 +793,13 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 		
 	\end{cursoe}
 	
-\paragraph{\req }
-\begin{flushleft}
+ \paragraph{\req }
 \begin{itemize}
-	\item Proveer juego Craps	
-	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing
-	\item Los clientes VIP podrán apostar ilimitadamente
-	\item Se deberá modificar el saldo del cliente en cada apuesta
-	\item Las apuestas se harán por medio de fichas
-	\item Las pantallas mostraran la información necesaria para el desarrollo del juego
-	\item Las pantallas mostraran la información necesaria del estado del juego
-	\item Las pantallas mostraran el estado de la cuenta del jugador
+	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a1}
+	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b1}
+	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d1}
 \end{itemize}
-\end{flushleft}
+
 \end{cu}
 		
 %----------------------------------------------------------

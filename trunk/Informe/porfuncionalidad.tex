@@ -735,29 +735,33 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 %
 %\end{flushleft}
 \begin{cu}{\jugcr}
-	\descripxizq=1cm
+	\descripxizq=3cm
 		\defln{Este caso de uso explica como un jugador juega en una nueva mesa de craps }
 		\actor{\jucr}
+		\actorsec{\apcr}
 		\pre{El \jucr debe estar dentro del casino y haber ingresado en una mesa de Craps}
 		\post{El \jucr ha jugado Craps }
 
 	\begin{cursoe}{}
 		
-		\paso{1 Si el \jucr desea apuesta. \exti{\apocr} }{}
+		\paso{1 Si el \jucr lo desea, apuesta. \exti{\apcr} }{}
 		
-		\paso{2 Si es su turno el sistema pregunta si desea tirar los dados. Sino ir a 5}{2.1 Error: La apuesta no es valida por falta de saldo. Ir a 4}%lo mande a ese paso xq si era el unico jugador
-		%y no tiene saldo el sistema va a mostrar un resultado "nulo" hasta q se aburra
-		\paso{3 Si el jugador desea tirar los dados entonces tira los dados}{3.1 Si el jugador no desea tirar los dados y no hay otro jugador en la mesa Error: El \jucr debe tirar los dados porque no hay otro jugador en la mesa. Ir a 2}
+		\paso{2 El jugador tira los dados }{}
 		
-		\paso{4 El sistema informa si la jugada es normal, feliz o todos ponen}{}
+		\paso{3 El sistema informa tanto al \jucr como a los \apcr si la jugada es normal, feliz o todos ponen}{}
 					
-		\paso{5 El sistema muestra los resultados del tiro}{}
+				
+		\paso{4 El sistema muestra tanto al \jucr como a los \apcr los resultados del tiro}{}
 		
-	  \paso{6 Si el \jucr ha ganado alguna apuesta el sistema acredita el premio correspondiente}{}
+	  \paso{5 El sistema acredita todas las apuestas de los \apcr que resultaron ganadoras y cierra todas aquellas que resultaron perdedoras.}{}
 	  
-	  \paso{7 El sistema modifica el saldo del \jucr si corresponde}{}
+	  \paso{6 El sistema modifica el saldo de los \apcr }{}
 	  
-	  \paso{8 Fin C.U.}{}
+	  \paso{7 Si el \jucr ha establecido el punto ir a paso 1}{}
+	  \paso{8 Si el \jucr gano y desea volver a tirar ir a paso 1. Sino ir a paso 10}{}
+	  \paso{9 El sistema informa al \jucr que debe pasar los dados obligatoriamente pues a 	perdido. }{}
+	  \paso{10 El sistema selecciona entre los \apcr al proximo tirador de dados.}{ }
+	  \paso{11 Fin C.U.}{}
 		
 	\end{cursoe}
 \paragraph{\req }
@@ -786,22 +790,19 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 		\post{El \apcr ha apostado en el Craps, y su saldo ha sido modificado }
 
 	\begin{cursoe}{}
-    \paso{1 El \apcr elige un tipo de apuesta }{}
+    \paso{1 El \apcr elige un tipo de apuesta entre las habilitadas para el tiro corriente.}{}
     
-    \paso{2 El sistema valida el tipo de apuesta }{2.1 Error, el tipo de apuesta no es válido para este tiro. Ir a paso 1}
-%Con esto quiero decir que si no se ha fijado ya el punto entonces ciertos tipos de apuestas no serán válidos para esta jugada
-    
-    \paso{3 El \apcr selecciona de entre sus fichas disponibles un monto a apostar}{}
+    \paso{2 El \apcr selecciona un monto a apostar}{}
 		
-		\paso{4 Si el \apcr no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
+		\paso{3 Si el \apcr no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
 			
-		\paso{5 El sistema valida la apuesta y descuenta el monto del saldo del jugador}{5.1 Error: El sistema informa que no tiene saldo suficiente para realizar esta apuesta. Ir a 8}
+		\paso{4 El sistema valida la apuesta y descuenta el monto del saldo del jugador}{4.1 Error: El sistema informa que no tiene saldo suficiente para realizar esta apuesta. Ir a 7}
 				
-		\paso{6 Si el jugador desea realizar otra apuesta ir a paso 1 }{}
+		\paso{5 Si el jugador desea realizar otra apuesta ir a paso 1 }{}
 		
-		\paso{7 El sitema actualiza y muestra el estado de cuenta del jugador }{}	
+		\paso{6 El sitema actualiza y muestra el estado de cuenta del jugador }{}	
 		
-		\paso{8 Fin C.U.}{}	
+		\paso{7 Fin C.U.}{}	
 		
 	\end{cursoe}
 	

@@ -537,7 +537,7 @@ Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
 \end{cu}                                            
 \subsection{Juego Tragamonedas}
 
-Las máquinas tragamonedas juegan con un único valor de ficha (Cuando se inicia el jugador elige dicho valor, entre los valores de fichas disponibles del casino). 
+Las máquinas tragamonedas juegan con un único valor de ficha (Cuando se inicia el jugador elige dicho valor, entre los valores de fichas disponibles del casino).  
 
 En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de tragamonedas.
 
@@ -545,6 +545,11 @@ En el siguiente Diagrama de actividades se puede observar a grandes rasgos las a
 \includegraphics[scale=0.5]{img/JugadorTragamonedasDA.png}
 \end{center}
 
+Se ven reflejados los requerimientos:
+\begin{itemize}
+\item Proveer juego Tragamonedas: Se proveera el juego del Tragamonedas respetando las reglas provistas por los clientes.  \label{9a}.
+\item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas: Se podrá elegir una mesa de maquina tragamonedas de distintos valores entre los definidos. Una vez elegido el valor de la ficha para el tragamonedas este no se podrá cambiar hasta salir del juego. \label{9b}
+\end{itemize}
 %Cada una de estas actividades se explican con mas detalle en los casos de uso: CU \jtra \ref{ljtra} y CU \apotra \ref{lapotra}
 
 %-------------------------------------------------------
@@ -619,6 +624,8 @@ En el siguiente Diagrama de actividades se puede observar a grandes rasgos las a
 	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a2}
 	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b2}
 	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d2}
+	\item El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas.\label{9c} 
+
 \end{itemize}
 
 \end{cu}
@@ -671,25 +678,29 @@ En el siguiente Diagrama de actividades se puede observar a grandes rasgos las a
 
 \textbf{Notese Abuso de la notacion: } En las transiciones de los resultados que pueden salir, simplificamos todas las transiciones un una.
 
+
+Aqui se refleja el siguiente requerimiento: El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas.
+
 \vskip2cm
 
 \textit{\textsl{Aclaraciones}}: 
 \begin{itemize}
-	\item{Dado que al abrir el casino se determina con que fichas se jugará,\textit{\textbf{elegirValorFicha}} refiere a una de esas 	fichas. Es decir, que al abrir una mesa se debe elegir una ficha dentro de las posibles. }
-	\item{Hay tantas FSM maquina tragamonedas como mesas se abran. Cuando
-	el jugador sale de la mesa, esta queda inhabilitada para una proxima jugada}
-	\item{Si la apuesta es maxima la cantidad de apuestas de 3 fichas volverá a cero, tanto si gana el premio progresivo 	  o no lo gane}
+	\item Dado que al abrir el casino se determina con que fichas se jugará,\textit{\textbf{elegirValorFicha}} refiere a una de esas 	fichas. Es decir, que al abrir una mesa se debe elegir una ficha dentro de las posibles.
+	\item Hay tantas FSM maquina tragamonedas como mesas se abran. Cuando
+	el jugador sale de la mesa, esta queda inhabilitada para una proxima jugada
+	\item Si la apuesta es maxima la cantidad de apuestas de 3 fichas volverá a cero, tanto si gana el premio progresivo o no lo gane
 \end{itemize}
+
 
 \end{framed}
 
 \subsection{Juego Craps}
 
-Otro de los juegos elegidos por los socios es el \textbf{Craps}. En este juego un tirador lanza un par de dados para establecer un PUNTO y las apuestas girarán en base a las posibilidades de que dicho tirador repita el mismo punto antes de lanzar un 7.
+Otro de los juegos elegidos por los socios es el \textbf{Craps}. Esto satisface el requerimiento \textbf{Proveer juego Craps: Se proveera el juego de Craps respetando las reglas provistas por los clientes.} \label{10a}\\
+En este juego un tirador lanza un par de dados para establecer un PUNTO y las apuestas girarán en base a las posibilidades de que dicho tirador repita el mismo punto antes de lanzar un 7.
 Cuando un jugador Craps decida jugar debe seleccionar una mesa existente o abrir una nueva. Luego durante el juego podra tirar los dados y/o apostar.
 
-Cada una de estas actividades se explican con mas detalle en los casos de uso:
-%CU \incr \ref{lincr}, CU \jcr \ref{ljcr}, CU \apcr \ref{lapcr} y CU \scr \ref{lscr}
+Cada una de estas actividades se explican con mas detalle en los siguientes casos de uso:
 
 \vskip2cm
 %-------------------------------------------------------

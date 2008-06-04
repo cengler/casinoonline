@@ -1,67 +1,75 @@
+%%%%%%%ACTORES
+%%%%%%\newcommand{\pc}{{\bf Cliente del casino }}
+%%%%%%\newcommand{\adm}{{\bf Administrador }}
+%%%%%%%\newcommand{\ptra}{{\bf Potencial jugador de tragamonedas }}
+%%%%%%\newcommand{\jutra}{{\bf Jugador de Tragamonedas }}
+%%%%%%\newcommand{\jc}{{\bf Jugador de Craps }}
+%%%%%%\newcommand{\jac}{{\bf Apostador de Craps }}
+%%%%%%\newcommand{\emc}{{\bf Empleado Contable }}
+%%%%%%\newcommand{\emk}{{\bf Empleado de Marketing }}
+%%%%%%\newcommand{\aptra}{{\bf Apostador de Tragamonedas }}
+%%%%%%\newcommand{\apocr}{{\bf Apostador de Craps }}
+%%%%%%\newcommand{\jucr}{{\bf Potencial Jugador de Craps }}
+%%%%%%%CASOS DE USO
+%%%%%%\newcommand{\ic}{{\bf Ingresando a casino }}
+%%%%%%\newcommand{\salc}{{\bf Saliendo del casino }}
+%%%%%%\newcommand{\atra}{{\bf Abriendo Mesa Tragamonedas }}
+%%%%%%\newcommand{\jtra}{{\bf Jugando Tragamonedas }}
+%%%%%%\newcommand{\actm}{{\bf Activando Modo Dirigido }}
+%%%%%%\newcommand{\desm}{{\bf Desactivando Modo Dirigido }}
+%%%%%%\newcommand{\jugf}{{\bf Jugada Feliz }}
+%%%%%%\newcommand{\jugtp}{{\bf Jugada Todos Ponen }}
+%%%%%%\newcommand{\ac}{{\bf Abriendo Casino }}
+%%%%%%\newcommand{\cc}{{\bf Cerando Casino }}
+%%%%%%\newcommand{\apotra}{{\bf Apostando en Tragamonedas }}
+%%%%%%\newcommand{\incr}{{\bf Ingresando a mesa de Craps }}
+%%%%%%\newcommand{\scr}{{\bf Saliendo de mesa de Craps }}
+%%%%%%\newcommand{\jcr}{{\bf Jugando Craps }}
+%%%%%%\newcommand{\apcr}{{\bf Apostando Craps }}
+%%%%%%\newcommand{\admin}{{\bf administrador}}
+%%%%%%\newcommand{\ccas}{{\bf Cerrando Casino}}
+%%%%%%\newcommand{\empmark}{{\bf Empleado de Marketing}}
+%%%%%%\newcommand{\infomovjug}{{\bf Pidiendo informes}}
+%%%%%%\newcommand{\infoestact}{{\bf informe Estado Actual}}
+%%%%%%\newcommand{\inforankjug}{{\bf informe Ranking de Jugadores}}
+%%%%%%\newcommand{\infdmj}{{\bf Pidiendo informe Detalles de movimientos por jugador}}
+%%%%%%\newcommand{\infea}{{\bf Pidiendo informe Estado Actual}}
+%%%%%%\newcommand{\infrj}{{\bf Pidiendo informe Ranking de Jugadores}}
+
+
+\newcommand{\req}{{\bf Requerimientos satisfechos por este Caso de Uso: }}
 %ACTORES
 \newcommand{\pc}{{\bf Cliente del casino }}
 \newcommand{\adm}{{\bf Administrador }}
+\newcommand{\invi}{{\bf Invitado }}
 %\newcommand{\ptra}{{\bf Potencial jugador de tragamonedas }}
 \newcommand{\jutra}{{\bf Jugador de Tragamonedas }}
+\newcommand{\pjc}{{\bf Potencial jugador de Craps }}
 \newcommand{\jc}{{\bf Jugador de Craps }}
-\newcommand{\jac}{{\bf Apostador de Craps }}
+\newcommand{\apcr}{{\bf Apostador de Craps }}
 \newcommand{\emc}{{\bf Empleado Contable }}
 \newcommand{\emk}{{\bf Empleado de Marketing }}
-\newcommand{\aptra}{{\bf Apostador de Tragamonedas }}
-\newcommand{\apocr}{{\bf Apostador de Craps }}
-\newcommand{\jucr}{{\bf Potencial Jugador de Craps }}
+\newcommand{\jucr}{{\bf Jugador de Craps }}
+\newcommand{\mani}{{\bf Manipulador }}
 %CASOS DE USO
-\newcommand{\ic}{{\bf Ingresando a casino }}
+\newcommand{\ic}{{\bf Ingresando al casino }}
 \newcommand{\salc}{{\bf Saliendo del casino }}
-\newcommand{\atra}{{\bf Abriendo Mesa Tragamonedas }}
+\newcommand{\inginvi}{{\bf Ingresando al casino como invitado}}
+\newcommand{\salinvi}{{\bf Saliendo del casino como invitado }}
+\newcommand{\obser}{{\bf Observando Juego }}
+\newcommand{\intr}{{\bf Ingresando a mesa de Tragamonedas }}
 \newcommand{\jtra}{{\bf Jugando Tragamonedas }}
+\newcommand{\satr}{{\bf Saliendo a mesa de Tragamonedas }}
+\newcommand{\incr}{{\bf Ingresando a mesa de Craps }}
+\newcommand{\jugcr}{{\bf Jugando Craps }}
+\newcommand{\apocr}{{\bf Apostando Craps }}
+\newcommand{\sacr}{{\bf Saliendo a mesa de Craps }}
 \newcommand{\actm}{{\bf Activando Modo Dirigido }}
 \newcommand{\desm}{{\bf Desactivando Modo Dirigido }}
-\newcommand{\jugf}{{\bf Jugada Feliz }}
-\newcommand{\jugtp}{{\bf Jugada Todos Ponen }}
+\newcommand{\jugf}{{\bf Iniciando Jugada Feliz Manipulada}}
+\newcommand{\jugtp}{{\bf Iniciando Jugada Todos Ponen Manipulada}}
 \newcommand{\ac}{{\bf Abriendo Casino }}
-\newcommand{\cc}{{\bf Cerando Casino }}
-\newcommand{\apotra}{{\bf Apostando en Tragamonedas }}
-\newcommand{\incr}{{\bf Ingresando a mesa de Craps }}
-\newcommand{\scr}{{\bf Saliendo de mesa de Craps }}
-\newcommand{\jcr}{{\bf Jugando Craps }}
-\newcommand{\apcr}{{\bf Apostando Craps }}
-\newcommand{\admin}{{\bf administrador}}
-\newcommand{\ccas}{{\bf Cerrando Casino}}
-\newcommand{\empmark}{{\bf Empleado de Marketing}}
-\newcommand{\infomovjug}{{\bf Pidiendo informes}}
-\newcommand{\infoestact}{{\bf informe Estado Actual}}
-\newcommand{\inforankjug}{{\bf informe Ranking de Jugadores}}
+\newcommand{\cc}{{\bf Cerrando Casino }}
 \newcommand{\infdmj}{{\bf Pidiendo informe Detalles de movimientos por jugador}}
 \newcommand{\infea}{{\bf Pidiendo informe Estado Actual}}
 \newcommand{\infrj}{{\bf Pidiendo informe Ranking de Jugadores}}
-
-
-
-\newpage
-	
-%--------------------------------------------------------------------------------	
-
-%\begin{cu}{\infomovjug}
-%	\descripxizq=1cm
-%		\defln{ Este caso de uso explica la generacion de los  reportes Movimientos por Jugador, Estado Actual y Ranking de Jugadores }
-%		\actor{\empmark}
-%		\pre{ El casino debe estar abierto }
-%		\post{ El sistema generara el reporte solicitado}
-%
-%\begin{cursoe}{}
-%	
-%		\paso{1 Si el \empmark solicita el reporte ``Movimientos Por Jugador'' }{}
-%		\paso{2 El sistema devuelve tal reporte. Ir a  5}{}
-%		\paso{3 Si el \empmark solicita el reporte ``Estado Actual''}{} 
-%		\paso{4 El sistema devuelve tal reporte. Ir a 5}{}
-%		\paso{3 Si el \empmark solicita el reporte ``Ranking de Jugadores''}{} 
-%		\paso{4 El sistema devuelve tal reporte. Ir a 5}{}
-%		\paso{5 Fin C.U.}{}
-%		
-%
-%	\end{cursoe}
-%\end{cu}
-
-		
-

@@ -695,17 +695,17 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 \begin{cu}{\incr}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un jugador puede unirse o abrir una nueva mesa de craps }
-		\actor{\jucr}
-		\pre{El \jucr debe estar dentro del casino y no estar jugando en ninguna otra mesa}
-		\post{El \jucr ha ingresado en una mesa de Craps }
+		\actor{\pjc}
+		\pre{El \pjc debe estar dentro del casino y no estar jugando en ninguna otra mesa}
+		\post{El \pjc ha ingresado en una mesa de Craps }
 
 	\begin{cursoe}{}
 		
-		\paso{1 Si hay mesas disponibles el sistema pregunta si el \jucr desea unirse a una mesa, sino hay mesas disponibles ir a paso 3}{}
+		\paso{1 Si hay mesas disponibles el sistema pregunta si el \pjc desea unirse a una mesa, sino hay mesas disponibles ir a paso 3}{}
 		
 		\paso{2 Si el jugador decide unirse a una mesa selecciona la mesa a la cual desea unirse. Ir a 4}{}
 		
-		\paso{3 El sistema crea una nueva mesa para el \jucr }{}
+		\paso{3 El sistema crea una nueva mesa para el \pjc }{}
 		
 		\paso{4 El sistema informa que el jugador ha ingresado a una mesa de Craps.}{}
 		
@@ -739,8 +739,8 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 		\defln{Este caso de uso explica como un jugador juega en una nueva mesa de craps }
 		\actor{\jucr}
 		\actorsec{\apcr}
-		\pre{El \jucr debe estar dentro del casino y haber ingresado en una mesa de Craps}
-		\post{El \jucr ha jugado Craps }
+		\pre{El \jucr    debe estar dentro del casino y haber ingresado en una mesa de Craps}
+		\post{El \jucr    ha jugado Craps }
 
 	\begin{cursoe}{}
 		
@@ -827,10 +827,10 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 
 \begin{cu}{\sacr}
 	\descripxizq=1cm
-		\defln{Este caso de uso explica como un \jucr sale de una mesa de Craps, perdiendo asi sus apuestas sino las hubiera finalizado }
-		\actor{\jucr}
-		\pre{El \jucr debe estar dentro de una mesa de Craps}
-		\post{El \jucr ha salido de la mesa de Craps }
+		\defln{Este caso de uso explica como un \pjc sale de una mesa de Craps, perdiendo asi sus apuestas sino las hubiera finalizado }
+		\actor{\pjc}
+		\pre{El \pjc debe estar dentro de una mesa de Craps}
+		\post{El \pjc ha salido de la mesa de Craps }
 
 	\begin{cursoe}{}
 		\paso{1 El sistema informa que perdera todas las apuestas que tenga activas.}{}
@@ -839,7 +839,7 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso:
 	  
 	  \paso{3 Sino el sistema actualiza el estado de cuenta del jugador}{}
 	  
-	  \paso{4 El sistema saca de la mesa de Craps al \jucr}{}
+	  \paso{4 El sistema saca de la mesa de Craps al \pjc}{}
 	  
 	  \paso{5 El sistema cierra automaticamente la mesa si este era el unico jugador en ella}{}
 		

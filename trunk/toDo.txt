@@ -1,6 +1,6 @@
 
 
-trazabilidad entre CU y requerimientos.
+trazabilidad de requerimientos. -> cambiar el label REFERIDo EN:
 
 
 agregar invitado a Diagrama de Contexto (falta asociarlo con los cu correspondientes)

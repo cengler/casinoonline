@@ -366,14 +366,20 @@ En el siguiente Diagrama de actividades se puede observar lo que puede hacer un 
 
 \subsection{Modo Dirigido}
 
+El casino cuenta con un Modo Dirigido. EL mismo se utiliza para interferir en el azar para sacar mayor provecho de las apuestas. 
+Esto satisface el siguiente requerimiento:
+ \textbf{El sistema deberá contar con un modo dirigido: Se podra poner en modo dirigido a cada uno de los juegos y todas sus respectivas mesas tendrán como resultado el definido por el manipulador de modos.}  \label{8a}
+
 \subsubsection{Inicio de Modo Dirigido}
 
 Cuando se ingresa en este modo, los resultados de las jugadas no seran al azar sino que el manipulador decidira los mismos.
-
+	
 Esos resultados ingresados se respetaran para todas las jugadas de todas las mesas habilitadas de ese juego mientras no se vuelva a modo normal.
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: CU \actm \ref{lactm}
+Dicha interaccion con el sistema esta explicada con los siguientes casos de uso:
 	
+
+
 %-------------------------------
 %CASO DE USO ACTIVANDO MODO DIRIGIDO
 %--------------------------------
@@ -407,12 +413,6 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \actm \ref
 Asumimos que el ingreso de los resultados de las jugadas es una configuración dada
 %me refiero a q ingresa un "archivo" con cierta configuracion ya armada para los result
 \end{flushleft}
-\paragraph{\req }
-\begin{flushleft}
-\begin{itemize}
-\item El sistema deberá contar con un modo dirigido
-\end{itemize}
-\end{flushleft}	
 \end{cu}
 
 
@@ -457,13 +457,9 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref
 		
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
-\item El sistema deberá contar con un modo dirigido
-\item El sistema deberá permitir generar jugada feliz manualmente
-\item No se debe permitir el solapamiento de jugadas felices en el mismo instante
+  \item El sistema deberá permitir generar jugada feliz manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas felices mientras no se solapen simultaneamente en los juegos del casino.  \label{8b}
 \end{itemize}
-\end{flushleft}
 \end{cu}
 
 %---------------------------------
@@ -490,13 +486,9 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref
 
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
-\item El sistema deberá contar con un modo dirigido
-\item El sistema deberá permitir generar jugada todos ponen manualmente
-\item No se debe permitir el solapamiento de jugadas todos ponen en una misma jugada
+  \item El sistema deberá permitir generar jugada todos ponen manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas todos ponen mientras no se solapen en la misma jugada. \label{8c}
 \end{itemize}
-\end{flushleft}
 \end{cu}
 
 \subsubsection{Finalización de Modo Dirigido}
@@ -529,11 +521,9 @@ Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
 
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
 \item El sistema deberá contar con un modo dirigido
 \end{itemize}
-\end{flushleft}
 \end{cu}                                            
 \subsection{Juego Tragamonedas}
 

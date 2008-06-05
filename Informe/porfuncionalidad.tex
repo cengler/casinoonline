@@ -90,8 +90,7 @@ Explicaremos esta operatoria con un diagrama de actividades. Ver Figura: \ref{fi
 
 \subsubsection{Ingreso y egreso del casino}
 
-La forma en que un cliente ingresa o egresa del casino esta explicado en los casos de uso: \\
-CU \ic \ref{lic} y CU \salc \ref{lsalc}.
+La forma en que un cliente ingresa o egresa del casino esta explicado en los siguientes  casos de uso:
 
 %-------------------------------------------------------
 % CASO DE USO INGRESANDO A CASINO
@@ -167,10 +166,11 @@ Al realizarse la apertura del casino, el sistema carga automaticamente un archiv
 \end{center}
 
 Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema. 
+
 %-------------------------------------------------------
 % CASO DE USO ABRIENDO CASINO
 %-------------------------------------------------------
-\begin{cu}{\ac}
+\begin{cu}{\ac} \label{lac}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como se abre el casino }
 		\actor{\adm}
@@ -201,13 +201,10 @@ Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema.
 
 \end{flushleft}	
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
-\item Las fichas serán ilimitadas
-\item El valor de las fichas debe poder configurarse por el administrador
-\item Permitir la configuración estática del monto mínimo de los pozos
+\item Permitir la configuración estática del monto mínimo de los pozos: Se podrá permitir configurar el monto minimo que debe superar un pozo antes de poder entregarlo. \label{4a}
+\item El valor de las fichas debe poder configurarse por el administrador: Cada vez que el casino abre al administrador configurara los valores posibles de las fichas \label{5c}
 \end{itemize}
-\end{flushleft}	
 
 \end{cu}
 
@@ -240,7 +237,7 @@ La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad
 \paragraph{\req }
 \begin{flushleft}
 \begin{itemize}
-	\item El casino no se podrá cerrar mientras haya gente jugando
+\item El casino no se podrá cerrar mientras haya gente jugando: El casino solo podrá cerrar cuando todos los jugadores hayan salido del mismo \label{2e}
 \end{itemize}
 \end{flushleft}		
 \end{cu}
@@ -337,9 +334,7 @@ La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\t
 		\paso{2 El sistema muestra las mesas abiertas disponibles para ese juego}{2.1 El sistema informa que no hay mesas disponibles para observar de ese juego. Ir a 8}
 		\paso{3 El \invi selecciona una de las mesas disponibles}{}
 		\paso{4 El sistema ingresa al \invi a la mesa del juego seleccionado}{}
-		
 		\paso{5 El sistema muestra la informacion disponible de la mesa seleccionada}{}
-		
 		\paso{6 Si la mesa debe ser cerrada (pues se retiran todos los jugadores), entonces se saca al invitado de la mesa. Ir a 8}{}
 		\paso{7 Si el jugador desea salir de esa mesa. Ir a paso 8, sino ir a paso 5}{}
 	  \paso{8 Fin C.U.}{}
@@ -432,11 +427,12 @@ Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido.
 
 El manipulador puede iniciar una Jugada Feliz, al hacerlo debe seleccionar una unica jugada que se verá afectada por la Jugada Feliz.
 
-Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref{ljugf}
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref{ljugf} y CU \jugtp \ref{ljugtp}
 
 %----------------------------------------
-
-\begin{cu}{\jugf}
+% GENERACION DE JUGADAS FELICES
+%----------------------------------------
+\begin{cu}{\jugf} \label{ljugf}
 	\descripxizq=1cm
 		\defln{ Este caso de uso explica como se seleccionara la aparición de las jugadas felices }
 		\actor{\mani}
@@ -462,9 +458,11 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref
 \end{itemize}
 \end{cu}
 
-%---------------------------------
+%----------------------------------------
+% GENERACION DE JUGADAS TODOS PONEN
+%----------------------------------------
 
-\begin{cu}{\jugtp}
+\begin{cu}{\jugtp}  \label{ljugtp}
 	\descripxizq=1cm
 		\defln{ Este caso de uso explica como se seleccionara la aparición de las jugadas todos ponen }
 		\actor{\mani}
@@ -499,9 +497,7 @@ Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
 %----------------------------------------------------------
 %Caso de uso Desactivando modo dirigido
 %----------------------------------------------------------
-%-----------------------------
-
-\begin{cu}{\desm}
+\begin{cu}{\desm} \label{ldesm}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como se desactiva el modo dirigido }
 	  \actor{\mani}
@@ -568,6 +564,7 @@ Se ven reflejados los requerimientos:
 \begin{flushleft}
 \begin{itemize}
 \item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a1}
+\item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos. \label{2b1}
 \end{itemize}
 \end{flushleft}	
 
@@ -614,6 +611,8 @@ Se ven reflejados los requerimientos:
 	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a2}
 	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b2}
 	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d2}
+	\item Las apuestas se harán por medio de fichas: En todos los juegos el jugador podrá elegir el monto a apostar seleccionando de entre los valores establecidos de las fichas. \label{5a2}
+	\item Las fichas serán ilimitadas: No habra una cantidad fija de fichas sino que se dispondrá de ellas en un numero ilimitado. \label{5b2}
 	\item El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas.\label{9c} 
 
 \end{itemize}
@@ -642,13 +641,9 @@ Se ven reflejados los requerimientos:
 		
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
-\item Proveer juego Tragamonedas
-\item Las mesas vacias se cerraran automáticamente
-\item Las pantallas mostraran el estado de la cuenta del jugador
+\item Las mesas vacias se cerraran automáticamente: Cuando un jugador salga de un juego el sitema automáticamente cerrara la mesa a menos que haya otros jugadores en ella. \label{2d2}
 \end{itemize}
-\end{flushleft}	
 \end{cu}
 		
 
@@ -720,6 +715,8 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 \paragraph{\req }
 \begin{itemize}
 	\item \item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a2}
+	\item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos. \label{2b2}
+	\item Los clientes podrán unirse a mesas (sí el juego lo permite): El tragamonedas no permite unirse a una mesa, pero en el Craps el jugador podrá elegir a cual de las mesas habilitadas se unirá \label{2c}
 \end{itemize}
 
 \end{cu}
@@ -755,7 +752,7 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 	  
 	  \paso{7 Si el \jucr ha establecido el punto ir a paso 1}{}
 	  \paso{8 Si el \jucr gano y desea volver a tirar ir a paso 1. Sino ir a paso 10}{}
-	  \paso{9 El sistema informa al \jucr que debe pasar los dados obligatoriamente pues a 	perdido. }{}
+	  \paso{9 El sistema informa al \jucr que debe pasar los dados obligatoriamente pues a perdido.}{}
 	  \paso{10 El sistema selecciona entre los \apcr al proximo tirador de dados.}{ }
 	  \paso{11 Fin C.U.}{}
 		
@@ -780,7 +777,7 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 	\begin{cursoe}{}
     \paso{1 El \apcr elige un tipo de apuesta entre las habilitadas para el tiro corriente.}{}
     
-    \paso{2 El \apcr selecciona un monto a apostar}{}
+    \paso{2 El \apcr selecciona un monto a apostar (Este seleccion se hace por medio de fichas)}{}
 		
 		\paso{3 Si el \apcr no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
 			
@@ -799,6 +796,8 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a1}
 	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b1}
 	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d1}
+	\item Las apuestas se harán por medio de fichas: En todos los juegos el jugador podrá elegir el monto a apostar seleccionando de entre los valores establecidos de las fichas. \label{5a1}
+	\item Las fichas serán ilimitadas: No habra una cantidad fija de fichas sino que se dispondrá de ellas en un numero ilimitado. \label{5b1}
 \end{itemize}
 
 \end{cu}
@@ -829,13 +828,9 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 		
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
-\item Proveer juego Craps
-\item Las mesas vacias se cerraran automáticamente
-\item Las pantallas mostraran el estado de la cuenta del jugador
+\item Las mesas vacias se cerraran automáticamente: Cuando un jugador salga de un juego el sitema automáticamente cerrara la mesa a menos que haya otros jugadores en ella. \label{2d1}
 \end{itemize}
-\end{flushleft}	
 \end{cu}
 
 
@@ -880,6 +875,8 @@ Expicamos en lenguaje OCL como es que se obtienen los datos necesarios para la g
 
 \subsubsection{Generacion de reporte: Ranking de Jugadores}
 
+\textsl{Generar informe electrónico: Ranking de jugadores: Se generará un informe con los jugadores que más dinero ganaron en el día desde que abrio el casino, como también los que más dinero perdieron.} \label{6a}
+
 \begin{framed}
 \begin{lstlisting}[breaklines=true]
 --este operacion devuelve dado un jugador una tupla con su nombre y su ganancia
@@ -913,6 +910,8 @@ endif
 
 \subsubsection{Generacion de reporte: Estado Actual}
 
+\textsl{Generar informe electronico: Estado Actual: Se generará un informe con el estado del casino y su saldo y también el de los clientes.}  \label{6b}
+
 \begin{framed}
 \begin{lstlisting}[breaklines=true]
 --este operacion devuelve dado un jugador una tupla con su nombre y su saldo y el del casino
@@ -935,6 +934,8 @@ post:
 \subsubsection{Generacion de reporte: Detalle de movimientos por jugador}
 
 Aqui explicamos como se obtiene la info de los movimientos de cada jugador. Por un lado explicamos como obtener la informacion de tragamonedas y por otro la informacion de craps.
+
+Esta satisface el rquerimiento: \textsl{Generar informe electronico: Detalle de movimientos por jugador: Se generará un informe con todas las apuestas, premios ganados, y montos ganados por cada jugador que haya ingresado al casino}. \label{6c}
 
 La info que obtenemos con este informe es una lista de apuestas finalizadas de un jugador.
 Dicha lista contiene la siguiente informacion:
@@ -1105,7 +1106,7 @@ post:
 
 \subsection{Pago de jugadas y premios}
 
-Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)\\
+Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)
 
 \textbf{NOTA: } Esta seccion esta dirigida a solo a lectores con conocimientos de modelo de clases conceptuales y OCL. El las secciones de \textbf{Juego Tragamonedas} y \textbf{Juego Craps} se explica cuando un jugador debe cobrar
 

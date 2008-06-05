@@ -202,7 +202,7 @@ post:
   
   endif
 
--------------------------------------------------------------------------
+----------------------------------------
 pagoApuestaDeSitio(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
 pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Sitio and jug.participaEn.JugadaCraps->exist( y | y = j) 
      and ap.hechaEn.JugadaCraps->exist(t | t = ap)
@@ -243,7 +243,7 @@ post: let loqAposto = ap.valor
 
   endif
 
---------------------------------------------------------------------------
+-------------------------------------------
 
 
 pagoApuestaGanar(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
@@ -353,9 +353,10 @@ post: let loqAposto = ap.valor
 
    endif
 
-------------------------------------------------------------------------
+-----------------------------------------------------
 pagoApuestaenContra(j: jugadaCraps, ap: ApuestaCraps, jug:jugador, jorn: Jornada) : void
-pre: ap.estado = EstadoAp:Activa and ap.tipo = TipoApCraps:Contra and jug.participaEn.JugadaCraps->exist( y | y = j) 
+pre: ap.estado = EstadoAp:Activa and ap.tipo = 
+  TipoApCraps:Contra and jug.participaEn.JugadaCraps->exist( y | y = j) 
      and ap.hechaEn.JugadaCraps->exist(t | t = ap)
 post: let loqAposto = ap.valor
   

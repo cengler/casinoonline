@@ -5,7 +5,7 @@
 \newcommand{\nf}{{\bf No funcional }}
 \newcommand{\ee}{{\bf Esencial }}
 
-\newcommand{\rrr}{{ \\ \bf REFERIDO EN: }}
+\newcommand{\rrr}{{ \\ \bf Se menciona en: }}
 
 \begin{enumerate}
 
@@ -13,7 +13,7 @@
 \begin{enumerate}
 \item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo.  \ff - \ii. \rrr \ref{1a1} y en \ref{1a2}
 \item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado.  \ff - \ii. \rrr \ref{1b1} y en \ref{1b2}
-\item VER Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en el. \ff - \dd. \rrr \ref{1c}
+\item Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en el. \ff - \ii. \rrr \ref{1c}
 \item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo.  \ff - \ii. \rrr \ref{1d1} y en \ref{1d2}
 \end{enumerate}
 
@@ -56,9 +56,9 @@
 \item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - JUGADAS Y POZOS}
 \begin{enumerate}
 \item Mostrar en todo momento el monto de los pozos: En todo momento se mostrara el monto actualizado de todos los pozos del casino, y se actualizará inmediatamente a medida que varie. \ff - \ii
-\item Generar jugada feliz automáticamente: La jugada feliz se generara en base a probabilidades.  \ff - \ee
-\item Generar jugada todos ponen automáticamente: La jugada todos ponen tambien se generara en base a probabilidades.  \ff - \ee
-\item No se debe permitir el solapamiento de jugadas felices en el mismo instante: Si ha ocurrido una, entonces no podra ocurrir otra hasta que se pague la jugada existente y se supere el monto minimo, aunque pueden ocurrir en cualquiera de las mesas del casino pero no simultaneamente.  \ff - \ii
+\item Generar jugada feliz automáticamente: La jugada feliz se generara en base a probabilidades.  \ff - \ee. \rrr \ref{7b}
+\item Generar jugada todos ponen automáticamente: La jugada todos ponen tambien se generara en base a probabilidades.  \ff - \ee. \rrr \ref{7c}
+\item No se debe permitir el solapamiento de jugadas felices en el mismo instante: Si ha ocurrido una, entonces no podra ocurrir otra hasta que se pague la jugada existente y se supere el monto minimo, aunque pueden ocurrir en cualquiera de las mesas del casino pero no simultaneamente.  \ff - \ii. \rrr \ref{7d}
 \end{enumerate}
 
 \item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - MODO DIRIGIDO}
@@ -83,15 +83,15 @@
 \item\textsc{REQUERIMIENTOS DE IMPLEMENTACION Y COMPORTAMIENTO}
 \begin{enumerate}
 \item El sistema debe funcionar en red.  \nf - \ee
-\item VER El sistema a implementarse deberá estar realizado en Java o C$\#$ \nf - \ii 
-\item VER El sistema debe ser facilmente extendible con nuevos juegos \nf - \ii 
+\item El sistema a implementarse deberá estar realizado en Java o C$\#$ \nf - \ii 
+\item El sistema debe ser facilmente extendible con nuevos juegos \nf - \ii 
 \end{enumerate}
 
 
 \item\textsc{REQUERIMIENTOS DE FUNCIONALIDAD EXTRA}
 \begin{enumerate}
-\item VER Se podrán ver imagenes de los juegos en 3D \ff - \dd
-\item VER Los jugadores podran chatear entre ellos dentro del juego \ff - \dd
+\item Se podrán ver imagenes de los juegos en 3D \ff - \dd
+\item Los jugadores podran chatear entre ellos dentro del juego \ff - \dd
 \end{enumerate}
 
 \end{enumerate}

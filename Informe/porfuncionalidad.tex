@@ -62,10 +62,13 @@ Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes par
 
 \input{imc.tex}
 
-\subsection{Requerimientos}
+\newpage
+
+\subsection{Requerimientos Especificos}
 
 \input{lr.tex}
 
+\newpage
 \subsection{Registracion y Ingreso al casino online y modificacion de saldo}
 
 \subsubsection{Registracion}
@@ -161,9 +164,11 @@ El administrador puede realizar configuraciones de distintos aspectos:
 \end{itemize}
 Al realizarse la apertura del casino, el sistema carga automaticamente un archivo donde se encuentran establecidas las configuracion efectuadas por el administrador. 
 
+\label{7b}
 \begin{center}
-\includegraphics[scale=0.38]{img/configuraciones.png}
+\includegraphics[scale=0.6]{img/configuraciones.png}
 \end{center}
+\label{7c}
 
 Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema. 
 
@@ -455,6 +460,7 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref
 \paragraph{\req }
 \begin{itemize}
   \item El sistema deberá permitir generar jugada feliz manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas felices mientras no se solapen simultaneamente en los juegos del casino.  \label{8b}
+	\item No se debe permitir el solapamiento de jugadas felices en el mismo instante: Si ha ocurrido una, entonces no podra ocurrir otra hasta que se pague la jugada existente y se supere el monto minimo, aunque pueden ocurrir en cualquiera de las mesas del casino pero no simultaneamente. \label{7d}
 \end{itemize}
 \end{cu}
 

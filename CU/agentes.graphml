@@ -33,10 +33,10 @@
     <node id="n2">
       <data key="d0">
         <y:ImageNode>
-          <y:Geometry height="48.0" width="48.0" x="96.0" y="-64.0"/>
+          <y:Geometry height="48.0" width="48.0" x="118.0" y="24.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="sandwich" modelPosition="s" textColor="#000000" visible="true" width="109.0" x="-30.5" y="52.0">Cliente del Casino
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="sandwich" modelPosition="n" textColor="#000000" visible="true" width="109.0" x="-30.5" y="-23.92626953125">Cliente del Casino
 </y:NodeLabel>
           <y:Image refid="2"/>
         </y:ImageNode>
@@ -46,7 +46,7 @@
     <node id="n3">
       <data key="d0">
         <y:ImageNode>
-          <y:Geometry height="48.0" width="48.0" x="16.0" y="56.0"/>
+          <y:Geometry height="48.0" width="48.0" x="48.0" y="97.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="false" width="11.0" x="18.5" y="14.036865234375">5</y:NodeLabel>
@@ -58,7 +58,7 @@
     <node id="n4">
       <data key="d0">
         <y:ImageNode>
-          <y:Geometry height="48.0" width="48.0" x="176.0" y="56.0"/>
+          <y:Geometry height="48.0" width="48.0" x="170.0" y="123.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="false" width="11.0" x="18.5" y="14.036865234375">6</y:NodeLabel>
@@ -119,7 +119,7 @@ Marketing</y:NodeLabel>
     <node id="n9">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="265.0" y="105.0"/>
+          <y:Geometry height="30.0" width="30.0" x="247.0" y="124.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="92.0" x="-31.0" y="-9.0517578125">Potencial
@@ -133,10 +133,10 @@ Jugador
     <node id="n10">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="-15.0" y="25.0"/>
+          <y:Geometry height="30.0" width="30.0" x="-18.0" y="102.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="internal" modelPosition="tr" textColor="#000000" visible="true" width="86.0" x="-60.0" y="4.0">Potencial
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="86.0" x="-28.0" y="-1.701171875">Potencial
 Jugador Craps</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
@@ -146,7 +146,7 @@ Jugador Craps</y:NodeLabel>
     <node id="n11">
       <data key="d0">
         <y:ImageNode>
-          <y:Geometry height="48.0" width="48.0" x="96.0" y="-144.0"/>
+          <y:Geometry height="48.0" width="48.0" x="-21.0" y="-6.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="false" width="18.0" x="15.0" y="14.036865234375">14</y:NodeLabel>
@@ -158,7 +158,7 @@ Jugador Craps</y:NodeLabel>
     <node id="n12">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="140.0" x="50.0" y="-175.0"/>
+          <y:Geometry height="30.0" width="140.0" x="-67.0" y="-44.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="46.0" x="47.0" y="5.6494140625">Invitado</y:NodeLabel>
@@ -170,10 +170,10 @@ Jugador Craps</y:NodeLabel>
     <node id="n13">
       <data key="d0">
         <y:ImageNode>
-          <y:Geometry height="48.0" width="48.0" x="-64.0" y="136.0"/>
+          <y:Geometry height="48.0" width="48.0" x="1.0" y="170.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="sandwich" modelPosition="n" textColor="#000000" visible="true" width="63.0" x="-7.5" y="-23.92626953125">Apostador</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="eight_pos" modelPosition="w" textColor="#000000" visible="true" width="63.0" x="-67.0" y="14.036865234375">Apostador</y:NodeLabel>
           <y:Image refid="8"/>
         </y:ImageNode>
       </data>
@@ -182,7 +182,7 @@ Jugador Craps</y:NodeLabel>
     <node id="n14">
       <data key="d0">
         <y:ImageNode>
-          <y:Geometry height="48.0" width="48.0" x="-64.0" y="216.0"/>
+          <y:Geometry height="48.0" width="48.0" x="-24.0" y="242.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="false" width="18.0" x="15.0" y="14.036865234375">16</y:NodeLabel>
@@ -194,7 +194,7 @@ Jugador Craps</y:NodeLabel>
     <node id="n15">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="-135.0" y="225.0"/>
+          <y:Geometry height="30.0" width="30.0" x="-91.0" y="251.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="100.0" x="-35.0" y="5.6494140625">Tirador de  Craps</y:NodeLabel>

@@ -1,33 +1,11 @@
+prototipos de pantalla y requerimientos
+requerimientos no cumplidos!!
 
+PONER TEXTOS EN LA SECCIONES DONDE PEGUE TODO
 
-trazabilidad de requerimientos. -> cambiar el label REFERIDo EN:
+agregar invitado a Diagrama de Contexto
+(falta asociarlo con los cu correspondientes)
 
-
-agregar invitado a Diagrama de Contexto (falta asociarlo con los cu correspondientes)
-
-
-agregar algo del invitado en los requerimientos.
-
-
-nota: sacar referncias a los CU en el informe.
-
-
-mandar FSM Jugada craps a tutor para que la vea.
-mandar FSM coupiet a tutor para q la vea.
-
------------------------------------------
-
-REVISAR Y REHACER DIAGRAMA DE CONTEXTO (POR CASOS DE USO DE ISIS)
-REVISAR Y REHACER DIAGRAMA DE CASOS DE USO (POR CASOS DE USO DE ISIS)
-
-
-REVISAR SI DEJAR LAS COSAS EN ANEXOS
-REVISAR OPERACION HARCODEADA
-
-donde explicar palancas maximas del modelo conceptual
-
-RONDAS!! que decir
-
-MAS CONCLUCIONES
+PONER NOTA pPREVISAR OPERACION HARCODEADA
 
 

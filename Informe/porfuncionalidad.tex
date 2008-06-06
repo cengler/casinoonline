@@ -163,14 +163,17 @@ El administrador puede realizar configuraciones de distintos aspectos:
 	\item valores minimos para la entrega de premios
 \end{itemize}
 Al realizarse la apertura del casino, el sistema carga automaticamente un archivo donde se encuentran establecidas las configuracion efectuadas por el administrador. 
-
+\vskip1cm
 \label{7b}
 \begin{center}
 \includegraphics[scale=0.6]{img/configuraciones.png}
 \end{center}
 \label{7c}
 
-Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema. 
+Como se puede ver en el diagrama, el administrador puede ingresar alguna de las configuraciones posibles. Luego guarda en un archivo dicha configuracion. Si asi lo desea, el administrador puede cargar otra configuracion o modificar la recientemente cargada. 
+
+\vskip1cm
+Por otro lado con el caso de uso \ac \ref{lac}, se explica la interaccion con el sistema.
 
 %-------------------------------------------------------
 % CASO DE USO ABRIENDO CASINO
@@ -199,12 +202,9 @@ Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema.
 		\paso{7 Fin C.U.}{}	
 		
 	\end{cursoe}
-\paragraph{DPTO: }
-\begin{flushleft}
 
 \depto Asumimos que el ingreso de las configuraciones consiste en un archivo donde se ha guardado la ultima configuración en un momento dado
 
-\end{flushleft}	
 \paragraph{\req }
 \begin{itemize}
 \item Permitir la configuración estática del monto mínimo de los pozos: Se podrá permitir configurar el monto minimo que debe superar un pozo antes de poder entregarlo. \label{4a}
@@ -262,7 +262,7 @@ La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad
 \includegraphics[scale=0.5]{img/jugador.png}
 \end{center}
 
-\textbf{Nota}: la interaccion que tiene un jugador con cada uno de los juegos se puede observar en los apartados `JUEGO TRAGAMONEDAS' y `JUEGO CRAPS'. 
+\textbf{Nota}: la interaccion que tiene un jugador con cada uno de los juegos se puede observar en los apartados \ref{sjt} JUEGO TRAGAMONEDAS y \ref{sjc} JUEGO CRAPS. 
 
 
 \end{framed}
@@ -527,27 +527,30 @@ Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
 \item El sistema deberá contar con un modo dirigido
 \end{itemize}
 \end{cu}                                            
-\subsection{Juego Tragamonedas}
+\subsection{Juego Tragamonedas \label{sjt}}
 
 Las máquinas tragamonedas juegan con un único valor de ficha (Cuando se inicia el jugador elige dicho valor, entre los valores de fichas disponibles del casino).  
-
-En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de tragamonedas.
 
 \begin{center}
 \includegraphics[scale=0.5]{img/JugadorTragamonedasDA.png}
 \end{center}
 
-Se ven reflejados los requerimientos:
+En este Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de tragamonedas. 
+
+
+\paragraph{Requerimientos satisfechos:}
 \begin{itemize}
 \item Proveer juego Tragamonedas: Se proveera el juego del Tragamonedas respetando las reglas provistas por los clientes.  \label{9a}.
 \item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas: Se podrá elegir una mesa de maquina tragamonedas de distintos valores entre los definidos. Una vez elegido el valor de la ficha para el tragamonedas este no se podrá cambiar hasta salir del juego. \label{9b}
 \end{itemize}
 %Cada una de estas actividades se explican con mas detalle en los casos de uso: CU \jtra \ref{ljtra} y CU \apotra \ref{lapotra}
+\newpage
+Por otro lado se explicará con los casos de uso \ref{imt}, \ref{jut} y ,\ref{smt} la interaccion con el sistema.
 
 %-------------------------------------------------------
 % CASO DE USO Ingresando a la mesa de Tragamonedas
 %-------------------------------------------------------
-
+\label{imt}
 \begin{cu}{\intr}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un jugador puede abrir una nueva mesa de tragamonedas }
@@ -567,19 +570,18 @@ Se ven reflejados los requerimientos:
 		
 	\end{cursoe}
 \paragraph{\req }
-\begin{flushleft}
 \begin{itemize}
 \item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a1}
 \item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos. \label{2b1}
 \end{itemize}
-\end{flushleft}	
+	
 
 \end{cu}
 
 %-------------------------------------------------------
 % CASO DE USO JUGANDO TRAGAMONEDAS
 %-------------------------------------------------------
-
+\label{jut}
 \begin{cu}{\jtra}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un \aptraga que ha ingresado en el casino puede jugar en una mesa de tragamonedas}
@@ -627,7 +629,7 @@ Se ven reflejados los requerimientos:
 %------------------------------------------------------
 % CASO DE USO Saliendo de mesa de trgamonedas
 %------------------------------------------------------
-
+\label{smt}
 \begin{cu}{\satr}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un \jutra sale de una mesa de Tragamonedas }
@@ -685,19 +687,19 @@ Aqui se refleja el siguiente requerimiento: El juego Tragamonedas debe contar co
 
 \end{framed}
 
-\subsection{Juego Craps}
+\subsection{Juego Craps \label{sjc}}
 
 Otro de los juegos elegidos por los socios es el \textbf{Craps}. Esto satisface el requerimiento \textbf{Proveer juego Craps: Se proveera el juego de Craps respetando las reglas provistas por los clientes.} \label{10a}\\
 En este juego un tirador lanza un par de dados para establecer un PUNTO y las apuestas girarán en base a las posibilidades de que dicho tirador repita el mismo punto antes de lanzar un 7.
 Cuando un jugador Craps decida jugar debe seleccionar una mesa existente o abrir una nueva. Luego durante el juego podra tirar los dados y/o apostar.
 
-Cada una de estas actividades se explican con mas detalle en los siguientes casos de uso:
+Cada una de estas actividades se explican con mas detalle en los casos de uso \ref{imc} \textbf{Ingresando a la mesa de Craps}, \ref{jc} \textbf{Jugando Craps}, \ref{apc} \textbf{Apostando en Craps}, \ref{smc} \textbf{Saliendo de Mesa de Craps}
 
 \vskip2cm
 %-------------------------------------------------------
 % CASO DE USO Ingresando a la mesa de craps
 %-------------------------------------------------------
-
+\label{imc}
 \begin{cu}{\incr}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un jugador puede unirse o abrir una nueva mesa de craps }
@@ -733,6 +735,7 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 %\begin{flushleft}
 %
 %\end{flushleft}
+\label{jc}
 \begin{cu}{\jugcr}
 	\descripxizq=3cm
 		\defln{Este caso de uso explica como un jugador juega en una nueva mesa de craps }
@@ -773,6 +776,7 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 %-------------------------------
 %CASO DE USO APOSTANDO EN CRAPS
 %--------------------------------
+\label{apc}
 \begin{cu}{\apocr}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un \apcr apuesta en una mesa de Craps }
@@ -811,7 +815,7 @@ Cada una de estas actividades se explican con mas detalle en los siguientes caso
 %----------------------------------------------------------
 % CASO DE USO Saliendo de mesa de Craps
 %----------------------------------------------------------
-
+\label{smc}
 \begin{cu}{\sacr}
 	\descripxizq=1cm
 		\defln{Este caso de uso explica como un \pjc sale de una mesa de Craps, perdiendo asi sus apuestas sino las hubiera finalizado }
@@ -877,9 +881,11 @@ Con esta FSM explicamos una jugada de manera general, es decir sin las apuestas.
 
 \subsection{Generacion de reportes}
 
-Expicamos en lenguaje OCL como es que se obtienen los datos necesarios para la generacion de los informes.
+Expicamos en lenguaje OCL como es que se obtienen los datos necesarios para la generacion de los informes, asi como es la generacion de los mismos.
+
 
 \subsubsection{Generacion de reporte: Ranking de Jugadores}
+
 
 \textsl{Generar informe electrónico: Ranking de jugadores: Se generará un informe con los jugadores que más dinero ganaron en el día desde que abrio el casino, como también los que más dinero perdieron.} \label{6a}
 
@@ -1033,6 +1039,7 @@ post:
 \end{framed}
 
 %-------------
+Por otro lado tambien mostramos la interaccion con el sistema en los casos de uso  \ref{pid} Pidiendo Informe Detalles de movimiento por Jugador, \ref{pie} Pidiendo Informe Estado Actual y \ref{pir} Pidiendo Informe Ranking de Jugadores
 
 \begin{cu}{\infdmj}
 	\descripxizq=1cm

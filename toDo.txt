@@ -3,8 +3,6 @@ requerimientos no cumplidos!!
 
 PONER TEXTOS EN LA SECCIONES DONDE PEGUE TODO
 
-agregar invitado a Diagrama de Contexto
-(falta asociarlo con los cu correspondientes)
 
 PONER NOTA pPREVISAR OPERACION HARCODEADA
 

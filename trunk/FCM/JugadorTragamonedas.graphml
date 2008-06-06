@@ -10,7 +10,7 @@
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="40.82753824756605" y="-16.00695410292076"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">1</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -22,7 +22,7 @@
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="132.62726008344922" y="-120.80250347705152"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">2</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -34,7 +34,7 @@
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="301.1780250347706" y="-115.81223922114054"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">4</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -46,7 +46,7 @@
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="479.39777468706563" y="-112.48539638386654"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">5</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -58,7 +58,7 @@
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="604.4158553546596" y="-112.13490959666206"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">6</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -70,7 +70,7 @@
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="826.4075104311547" y="-130.78303198887352"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">7</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -96,7 +96,7 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="440.121001390821" y="176.7162726008345"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="9.5" y="5.6494140625">9</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -108,7 +108,7 @@ Var k: int [1..maximo]</y:NodeLabel>
       <data key="d0">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="594.2276309689387" y="77.02781641168275"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="18.0" x="6.0" y="5.6494140625">10</y:NodeLabel>
           <y:Shape type="ellipse"/>
@@ -168,7 +168,7 @@ Var k: int [1..maximo]</y:NodeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="126.0" x="-104.16866361722447" y="35.21317425121953">salirTragamonedas_i!</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="126.0" x="-104.16866361722447" y="35.21317425121951">salirTragamonedas_i!</y:EdgeLabel>
           <y:Arc height="34.82931" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
@@ -270,7 +270,7 @@ Var k: int [1..maximo]</y:NodeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="49.0" x="-109.89352360007979" y="150.5095712293006">cobrar_i</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="49.0" x="-109.89352360007979" y="150.50957122930063">cobrar_i</y:EdgeLabel>
           <y:Arc height="101.884384" ratio="0.8410755" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
@@ -360,7 +360,7 @@ tresCerezas_i?</y:EdgeLabel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="68.0" x="-141.20141392898373" y="60.3564513489175">salirMesa_i</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="68.0" x="-141.20141392898375" y="60.35645134891752">salirMesa_i</y:EdgeLabel>
           <y:Arc height="89.20877" ratio="2.1161501" type="fixedRatio"/>
         </y:ArcEdge>
       </data>

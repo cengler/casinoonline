@@ -9,7 +9,7 @@
     <node id="n0">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="257.0" x="246.79166666666663" y="-4.666666666666686"/>
+          <y:Geometry height="30.0" width="257.0" x="271.5" y="65.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="28.501953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="72.0" x="92.5" y="0.7490234375">Invitado</y:NodeLabel>
@@ -21,7 +21,7 @@
     <node id="n1">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="214.0" x="293.29166666666663" y="70.33333333333331"/>
+          <y:Geometry height="30.0" width="214.0" x="293.29166666666663" y="110.33333333333331"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.0" x="57.5" y="-1.701171875">Ingresa al casino
@@ -60,7 +60,7 @@ trgamonedas para observar</y:NodeLabel>
     <node id="n4">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="184.0" x="308.29166666666663" y="145.33333333333331"/>
+          <y:Geometry height="30.0" width="184.0" x="308.29166666666663" y="185.33333333333331"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="102.0" x="41.0" y="-1.701171875">seleccionar juego
@@ -74,7 +74,7 @@ para observar
     <node id="n5">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="30.0" width="30.0" x="385.29166666666663" y="195.33333333333331"/>
+          <y:Geometry height="30.0" width="30.0" x="385.29166666666663" y="235.33333333333331"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="4.0" x="13.0" y="13.0"/>
@@ -222,7 +222,7 @@ de trgamonedas</y:NodeLabel>
     <node id="n17">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="17.0" width="17.0" x="116.79166666666663" y="76.83333333333331"/>
+          <y:Geometry height="17.0" width="17.0" x="116.79166666666663" y="116.83333333333331"/>
           <y:Fill color="#000000" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="11.0" x="3.0" y="-0.8505859375">5</y:NodeLabel>
@@ -234,7 +234,7 @@ de trgamonedas</y:NodeLabel>
     <node id="n18">
       <data key="d0">
         <y:ShapeNode>
-          <y:Geometry height="20.0" width="21.25" x="339.375" y="640.0"/>
+          <y:Geometry height="20.0" width="21.25" x="189.375" y="550.0"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="4.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="4.0" x="8.625" y="8.0"/>
@@ -258,7 +258,7 @@ de trgamonedas</y:NodeLabel>
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="575.2916666666666" y="210.33333333333331"/>
+            <y:Point x="575.2916666666666" y="250.33333333333331"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -271,7 +271,7 @@ de trgamonedas</y:NodeLabel>
       <data key="d2">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="275.29166666666663" y="210.33333333333331"/>
+            <y:Point x="275.29166666666663" y="250.33333333333331"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -361,8 +361,8 @@ tragamonedas?
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="50.29166666666663" y="510.33333333333326"/>
-            <y:Point x="50.29166666666663" y="160.33333333333331"/>
-            <y:Point x="200.29166666666663" y="160.33333333333331"/>
+            <y:Point x="50.29166666666663" y="200.33333333333331"/>
+            <y:Point x="200.29166666666663" y="200.33333333333331"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -420,7 +420,7 @@ tragamonedas?
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="95.0" x="-90.021962483724" y="-13.350596110026117">salir del casino?</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="95.0" x="-36.7197116798655" y="-43.96635173703572">salir del casino?</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -462,7 +462,7 @@ tragamonedas?
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="95.0" x="-0.9668172200521212" y="-14.70118204752606">salir del casino?</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="95.0" x="-0.9668172200521212" y="-21.749413558780077">salir del casino?</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -501,7 +501,7 @@ tragamonedas?
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="91.9765625" ty="0.0">
             <y:Point x="775.2916666666666" y="510.33333333333326"/>
-            <y:Point x="775.2916666666666" y="160.33333333333331"/>
+            <y:Point x="775.2916666666666" y="200.33333333333331"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -535,9 +535,7 @@ tragamonedas?
     <edge id="e22" source="n12" target="n18">
       <data key="d2">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="350.0" y="625.0"/>
-          </y:Path>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>

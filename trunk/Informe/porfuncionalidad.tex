@@ -72,8 +72,9 @@ Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes par
 \subsection{Registracion y Ingreso al casino online y modificacion de saldo}
 
 \subsubsection{Registracion}
-Segun lo acordado, la registracion de los usuarios se hace por fuera del sistema informatico del casino online. Explicaremos como esperamos que interactuen los agentes externos para que el sistema posea la lista actualizada de usuarios registrados. Para ello usaremos el Diagrama de Activdades\footnote{Diagrama de Actividades: Grafico que representa el flujo de actividades. Las cajas representan actividades y las flechas repersentan secuencialidad y los rombos representan decisiones} ``Registracion''. Ver Figura: \ref{fig:daReg}
-
+Segun lo acordado, la registracion de los usuarios se hace por fuera del sistema informatico del casino online. Explicaremos como esperamos que interactuen los agentes externos para que el sistema posea la lista actualizada de usuarios registrados. \\
+Para ello usaremos el Diagrama de Activdades\footnote{Diagrama de Actividades: Grafico que representa el flujo de actividades. Las cajas representan actividades y las flechas repersentan secuencialidad y los rombos representan decisiones} ``Registracion''. Ver Figura: \ref{fig:daReg}
+\vskip1cm
 {\large Diagrama de actividades Registracion\label{fig:daReg}}
 \begin{center}
 \includegraphics[scale=0.5]{img/daRegistracion.png}
@@ -81,11 +82,12 @@ Segun lo acordado, la registracion de los usuarios se hace por fuera del sistema
 
 Cabe aclarar que el cliente podra comenzar a jugar en el casino recien cuando el casino se vuelva a abrir
 
+\newpage
 \subsubsection{Modificacion de saldo}
 
 Una vez registrado un cliente puede ingresar y retirar dinero real, dicha operacion solo podra realizarse mistras el casino permanece cerrado.
 Explicaremos esta operatoria con un diagrama de actividades. Ver Figura: \ref{fig:modSaldo}
-
+\vskip1cm
 {\large Diagrama de actividades Modificacion de Saldo\label{fig:modSaldo}}
 \begin{center}
 \includegraphics[scale=0.4]{img/clienteModSaldo.png}
@@ -93,7 +95,7 @@ Explicaremos esta operatoria con un diagrama de actividades. Ver Figura: \ref{fi
 
 \subsubsection{Ingreso y egreso del casino}
 
-La forma en que un cliente ingresa o egresa del casino esta explicado en los siguientes  casos de uso:
+La forma en que un cliente ingresa o egresa del casino esta explicado con los siguientes  casos de uso:
 
 %-------------------------------------------------------
 % CASO DE USO INGRESANDO A CASINO
@@ -213,6 +215,8 @@ Por otro lado con el caso de uso \ac \ref{lac}, se explica la interaccion con el
 
 \end{cu}
 
+\newpage
+
 \subsubsection{Clausura del casino}
 
 La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad. No es posible cerrar el casino si hay jugadores dentro del casino
@@ -267,9 +271,19 @@ La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad
 
 \end{framed}
 
+\newpage
 \subsection{Invitado}
-El casino brinda una modalidad para entrar a los juegos como invitado. Bajo este modalidad aquella persona que ingrese al casino podra observar el desarrollo de los juegos pero sin participar
-La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\textit{faltan los cu})
+El casino brinda una modalidad para entrar a los juegos como invitado. Bajo este modalidad aquella persona que ingrese al casino podra observar el desarrollo de los juegos pero sin participar.
+
+Esto satisface el requrimiento: \textbf{Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en él.} \label{1c}
+
+En el siguiente Diagrama de actividades se puede observar lo que puede hacer un invitado dentro del casino.
+
+\begin{center}
+\includegraphics[scale=0.5]{img/invitado.png}
+\end{center}
+
+Las interacciones que posee un \textbf{\textit{invitado}} con el sistema se explica con los CU \inginvi y CU \salinvi y CU \obser.
 
 %------------------------------------------------------
 % CASO DE USO INGRESANDO Al CASINO COMO INVITADO
@@ -291,14 +305,6 @@ La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\t
 		\paso{4 Fin C.U.}{}	
 		
 	\end{cursoe}
-	
-\paragraph{\req }
-\begin{flushleft}
-\begin{itemize}
-	\item Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en el \label{1c}
-\end{itemize}
-\end{flushleft}	
-
 \end{cu}
 
 %-------------------------------------------------------
@@ -322,6 +328,7 @@ La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\t
 		
 	\end{cursoe}		
 \end{cu}
+
 %--------------------------------------------------------
 % CASO DE USO Observando Juego
 %--------------------------------------------------------
@@ -345,30 +352,26 @@ La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\t
 	  \paso{8 Fin C.U.}{}
 		
 	\end{cursoe}
-\paragraph{\req }
-\begin{flushleft}
-\begin{itemize}
-	\item Un invitado podrá observar los juegos pero sin participar en ellos
-\end{itemize}
-\end{flushleft}	
 \end{cu}
 
-
-En el siguiente Diagrama de actividades se puede observar lo que puede hacer un invitado dentro del casino.
-
-\begin{center}
-\includegraphics[scale=0.5]{img/invitado.png}
-\end{center}
-
-
-
-
-
+\newpage
 \subsection{Modo Dirigido}
 
 El casino cuenta con un Modo Dirigido. EL mismo se utiliza para interferir en el azar para sacar mayor provecho de las apuestas. 
 Esto satisface el siguiente requerimiento:
  \textbf{El sistema deberá contar con un modo dirigido: Se podra poner en modo dirigido a cada uno de los juegos y todas sus respectivas mesas tendrán como resultado el definido por el manipulador de modos.}  \label{8a}
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) Mostramos que en modo dirigido se pueden lanzar jugadas de forma manual, dicha funcionalidad no esta permitida en modo normal.
+Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido. 
+
+\paragraph{FSM: Manipulador}
+\begin{center}
+\includegraphics[scale=0.5]{img/manipulador.png}
+\end{center}
+
+\end{framed}
 
 \subsubsection{Inicio de Modo Dirigido}
 
@@ -377,8 +380,6 @@ Cuando se ingresa en este modo, los resultados de las jugadas no seran al azar s
 Esos resultados ingresados se respetaran para todas las jugadas de todas las mesas habilitadas de ese juego mientras no se vuelva a modo normal.
 
 Dicha interaccion con el sistema esta explicada con los siguientes casos de uso:
-	
-
 
 %-------------------------------
 %CASO DE USO ACTIVANDO MODO DIRIGIDO
@@ -401,32 +402,14 @@ Dicha interaccion con el sistema esta explicada con los siguientes casos de uso:
 		
 		\paso{4 El \mani ingresa el resultado de las jugadas}{}
 		
-  	\paso{5 El sistema modifica la configuración del casino}{}	
+  		\paso{5 El sistema modifica la configuración del casino}{}	
 		
 		\paso{6 El sistema informa que el casino se encuentra ahora en modo dirigido }{}
 
 		\paso{7 Fin C.U.}{}
 		
 	\end{cursoe}
-\paragraph{DPTO: }
-\begin{flushleft}
-Asumimos que el ingreso de los resultados de las jugadas es una configuración dada
-%me refiero a q ingresa un "archivo" con cierta configuracion ya armada para los result
-\end{flushleft}
 \end{cu}
-
-
-\begin{framed}
-
-\depto Con esta maquina de estados finitos (FSM) Mostramos que en modo dirigido se pueden lanzar jugadas de forma manual, dicha funcionalidad no esta permitida en modo normal.
-Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido. 
-
-\paragraph{FSM: Manipulador}
-\begin{center}
-\includegraphics[scale=0.5]{img/manipulador.png}
-\end{center}
-
-\end{framed}
 
 \subsubsection{Seteo de Jugadas Feliz y Todos Ponen}
 
@@ -464,13 +447,14 @@ Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref
 \end{itemize}
 \end{cu}
 
+\newpage
 %----------------------------------------
 % GENERACION DE JUGADAS TODOS PONEN
 %----------------------------------------
 
 \begin{cu}{\jugtp}  \label{ljugtp}
 	\descripxizq=1cm
-		\defln{ Este caso de uso explica como se seleccionara la aparición de las jugadas todos ponen }
+		\defln{ Este CU explica como se seleccionara la aparición de las jugadas todos ponen }
 		\actor{\mani}
 		\pre{ El casino está abierto y esta activado el modo dirigido }
 		\post{ Se ha generado una nueva aparicion de jugada todos ponen }
@@ -522,10 +506,6 @@ Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
 		
 
 	\end{cursoe}
-\paragraph{\req }
-\begin{itemize}
-\item El sistema deberá contar con un modo dirigido
-\end{itemize}
 \end{cu}                                            
 \subsection{Juego Tragamonedas \label{sjt}}
 

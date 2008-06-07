@@ -58,7 +58,7 @@ Este diagrama tambien nos da otra mirada del alcance y expectativas del software
 		\includegraphics[scale=0.45]{img/dclCasino.png}
 \end{center}
 
-Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema. 
+\newpage
 
 \input{imc.tex}
 
@@ -175,10 +175,9 @@ Al realizarse la apertura del casino, el sistema carga automaticamente un archiv
 
 Como se puede ver en el diagrama, el administrador puede ingresar alguna de las configuraciones posibles. Luego guarda en un archivo dicha configuracion. Si asi lo desea, el administrador puede cargar otra configuracion o modificar la recientemente cargada. 
 
-\vskip1cm
+\newpage
 Por otro lado con el caso de uso \ac \ref{lac}, se explica la interaccion con el sistema.
 
-\newpage
 %-------------------------------------------------------
 % CASO DE USO ABRIENDO CASINO
 %-------------------------------------------------------
@@ -275,6 +274,7 @@ La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad
 
 \newpage
 \subsection{Invitado}
+
 El casino brinda una modalidad para entrar a los juegos como invitado. Bajo este modalidad aquella persona que ingrese al casino podra observar el desarrollo de los juegos pero sin participar.
 
 Esto satisface el requrimiento: \textbf{Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en él.} \label{1c}
@@ -309,6 +309,14 @@ Las interacciones que posee un \textbf{\textit{invitado}} con el sistema se expl
 	\end{cursoe}
 \end{cu}
 
+\newpage
+Prototipo de pantalla de \inginvi.
+\vskip1cm
+{\large PANTALLA : Invitado ingresando a mesa como invitado}
+\begin{center}
+\includegraphics[scale=0.75]{../pantallas/invitado.PNG}
+\end{center}
+
 %-------------------------------------------------------
 % CASO DE USO SALIENDO A CASINO como invitado
 %-------------------------------------------------------
@@ -331,6 +339,7 @@ Las interacciones que posee un \textbf{\textit{invitado}} con el sistema se expl
 	\end{cursoe}		
 \end{cu}
 
+\newpage
 %--------------------------------------------------------
 % CASO DE USO Observando Juego
 %--------------------------------------------------------
@@ -508,7 +517,29 @@ Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
 		
 
 	\end{cursoe}
-\end{cu}                                            
+\end{cu}    
+
+\subsection{Seleccion de un juego}
+
+Las siguientes dos secciones \textbf{Juego Tragamonedas} \ref{sjt} y \textbf{Juego Craps} \ref{sjc}, explican la eleccion de un juego de tal tipo y la forma en que se jugará.
+
+Presentamos aqui un prototipo de la pantalla que permitirá seleccionar un juego. Los jugadores que esten dentro del casino y no esten jugando o seleccionando una mesa de algun juego veran esta pantalla.
+
+\vskip1cm
+{\large PANTALLA : Dentro del casino}
+\begin{center}
+\includegraphics[scale=0.75]{../pantallas/dentrodelCasino.PNG}
+\end{center}
+
+Notese que aqui tambien se muestra el monto de los posos, ya que existe el objetivo de atraer a los jugadores con el monto de los posos.
+
+\textbf{Esto contribuye al requerimiento:}
+\begin{itemize}
+\item Mostrar en todo momento el monto de los pozos: En todo momento se mostrara el monto actualizado de todos los pozos del casino, y se actualizará inmediatamente a medida que varie.\label{7a1}
+\end{itemize}
+
+\newpage
+                                     
 \subsection{Juego Tragamonedas \label{sjt}}
 
 Las máquinas tragamonedas juegan con un único valor de ficha (Cuando se inicia el jugador elige dicho valor, entre los valores de fichas disponibles del casino).  
@@ -611,6 +642,24 @@ Por otro lado se explicará con los casos de uso \ref{imt}, \ref{jut} y ,\ref{smt
 \end{cu}
 
 \newpage
+
+Presentamos un prototipo de lo que veria un jugador de tragamonedas mientras que juega al tragamonedas.
+
+\vskip1cm
+{\large PANTALLA : Jugando al Tragamonedas}
+\begin{center}
+\includegraphics[scale=0.50]{../pantallas/jugandoTragamonedas.PNG}
+\end{center}
+
+\textbf{Esto contribuye a los requerimientos:}
+
+\begin{itemize}
+\item Las pantallas mostraran la información necesaria para el desarrollo del juego: Las pantallas mostrarán la interfaz del juego asi como tambien todas las opciones disponibles dentro del juego. \label{3a2}
+\item Las pantallas mostraran la información necesaria del estado del juego: Las pantallas mostraran el tipo de jugada, estado actual del juego y resultados, y será inmediatamente actualizada ante cualquier cambio o variación.\label{3b2}  
+\item Las pantallas mostraran el estado de la cuenta del jugador: Por pantalla se podrá ver si un jugador esta dentro del casino y dentro de algun juego y si es así en que mesa, si ha resultado ganador o no, y su correspondiente saldo.  \label{3c2}
+\end{itemize}
+
+\newpage
 %------------------------------------------------------
 % CASO DE USO Saliendo de mesa de trgamonedas
 %------------------------------------------------------
@@ -658,10 +707,7 @@ Por otro lado se explicará con los casos de uso \ref{imt}, \ref{jut} y ,\ref{smt
 
 \textbf{Notese Abuso de la notacion: } En las transiciones de los resultados que pueden salir, simplificamos todas las transiciones un una.
 
-
-Aqui se refleja el siguiente requerimiento: El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas.
-
-\vskip2cm
+\vskip1cm
 
 \textit{\textsl{Aclaraciones}}: 
 \begin{itemize}
@@ -671,6 +717,13 @@ Aqui se refleja el siguiente requerimiento: El juego Tragamonedas debe contar co
 	\item Si la apuesta es maxima la cantidad de apuestas de 3 fichas volverá a cero, tanto si gana el premio progresivo o no lo gane
 \end{itemize}
 
+\vskip1cm
+
+\textbf{Aqui se refleja el siguiente requerimiento: }
+
+\begin{itemize}
+	\item El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas. \label{9b2}
+\end{itemize}
 
 \end{framed}
 
@@ -714,8 +767,26 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso \r
 	\item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos. \label{2b2}
 	\item Los clientes podrán unirse a mesas (sí el juego lo permite): El tragamonedas no permite unirse a una mesa, pero en el Craps el jugador podrá elegir a cual de las mesas habilitadas se unirá \label{2c}
 \end{itemize}
-
 \end{cu}
+
+\newpage
+
+Presentamos aqui tambien un prototipo de pantalla para ilustrar la experiencia del ususario.
+
+\vskip1cm
+{\large PANTALLA : Ingresando juego craps}
+\begin{center}
+\includegraphics[scale=0.75]{../pantallas/ingresandoCraps.PNG}
+\end{center}
+
+Se muestra el monto de los pozos asi contrubuimos a sus ganas de jugar.
+
+\textbf{Esto contribuye al requerimiento:}
+\begin{itemize}
+\item Mostrar en todo momento el monto de los pozos: En todo momento se mostrara el monto actualizado de todos los pozos del casino, y se actualizará inmediatamente a medida que varie.\label{7a2}
+\end{itemize}
+
+\newpage
 %------------------------------------------------------
 % CASO DE USO Jugando Craps
 %------------------------------------------------------
@@ -797,7 +868,25 @@ Cada una de estas actividades se explican con mas detalle en los casos de uso \r
 \end{itemize}
 
 \end{cu}
-	
+
+\newpage
+
+Los CU de \jugcr y \apcr se encontraran disponibles en una misma pantalla de un ``jugador de craps''. Presentamos aqui un prototipo.
+
+\vskip1cm
+{\large PANTALLA : Jugando al Craps}
+\begin{center}
+\includegraphics[scale=0.50]{../pantallas/jugandoCraps.PNG}
+\end{center}
+
+\textbf{Esto contribuye a los requerimientos:}
+
+\begin{itemize}
+\item Las pantallas mostraran la información necesaria para el desarrollo del juego: Las pantallas mostrarán la interfaz del juego asi como tambien todas las opciones disponibles dentro del juego. \label{3a1}
+\item Las pantallas mostraran la información necesaria del estado del juego: Las pantallas mostraran el tipo de jugada, estado actual del juego y resultados, y será inmediatamente actualizada ante cualquier cambio o variación.\label{3b1}  
+\item Las pantallas mostraran el estado de la cuenta del jugador: Por pantalla se podrá ver si un jugador esta dentro del casino y dentro de algun juego y si es así en que mesa, si ha resultado ganador o no, y su correspondiente saldo.  \label{3c1}
+\end{itemize}
+
 \newpage	
 %----------------------------------------------------------
 % CASO DE USO Saliendo de mesa de Craps
@@ -866,52 +955,7 @@ Con esta FSM explicamos una jugada de manera general, es decir sin las apuestas.
 
 \end{framed}
 
-\subsection{Pantallas}
-
-En este seccion mostramos los prototipos de pantallas.
-
-
-
-
-
-
-{\large FSM: Jugada Craps}
-\begin{center}
-\includegraphics[scale=0.25]{../pantallas/desarrolloCraps.png}
-\end{center}
-
-{\large FSM: Jugada Craps}
-\begin{center}
-\includegraphics[scale=0.25]{../pantallas/jugandoCraps.PNG}
-\end{center}
-
-{\large FSM: Jugada Craps}
-\begin{center}
-\includegraphics[scale=0.25]{../pantallas/invitado.PNG}
-\end{center}
-
-{\large FSM: Jugada Craps}
-\begin{center}
-\includegraphics[scale=0.25]{../pantallas/ingresandoCraps.PNG}
-\end{center}
-
-{\large FSM: Jugada Craps}
-\begin{center}
-\includegraphics[scale=0.25]{img/dentrodelCasino.PNG}
-\end{center}
-
 \newpage
-
-\paragraph{Se satisfacen los requerimientos}
-
-\begin{itemize}
-\item Las pantallas mostraran la información necesaria para el desarrollo del juego: Las pantallas mostrarán la interfaz del juego asi como tambien todas las opciones disponibles dentro del juego. \label{3a}
-\item Las pantallas mostraran la información necesaria del estado del juego: Las pantallas mostraran el tipo de jugada, estado actual del juego y resultados, y será inmediatamente actualizada ante cualquier cambio o variación.\label{3b}  
-\item Las pantallas mostraran el estado de la cuenta del jugador: Por pantalla se podrá ver si un jugador esta dentro del casino y dentro de algun juego y si es así en que mesa, si ha resultado ganador o no, y su correspondiente saldo.  \label{3c}
-\item Mostrar en todo momento el monto de los pozos: En todo momento se mostrara el monto actualizado de todos los pozos del casino, y se actualizará inmediatamente a medida que varie.\label{7a}
-\end{itemize}
-
-
 \subsection{Generacion de reportes}
 
 Expicamos en lenguaje OCL como es que se obtienen los datos necesarios para la generacion de los informes, asi como es la generacion de los mismos.
@@ -1071,22 +1115,23 @@ post:
 \end{lstlisting}
 \end{framed}
 
-%-------------
-Por otro lado tambien mostramos la interaccion con el sistema en los casos de uso  \ref{pid} Pidiendo Informe Detalles de movimiento por Jugador, \ref{pie} Pidiendo Informe Estado Actual y \ref{pir} Pidiendo Informe Ranking de Jugadores
+\newpage
+
+Mostramos la interaccion con el sistema en los casos de uso  \ref{pid} Pidiendo Informe Detalles de movimiento por Jugador, \ref{pie} Pidiendo Informe Estado Actual y \ref{pir} Pidiendo Informe Ranking de Jugadores
 
 \label{pid}
 \begin{cu}{\infdmj}
 	\descripxizq=1cm
-		\defln{ Este caso de uso explica como el \emk solicita informe de detalles de movimientos por jugador }
+		\defln{ Este caso de uso explica como el \emk solicita informe de `Detalles de movimientos por jugador' }
 		\actor{\emk}
 		\pre{ El casino debe estar abierto }
 		\post{ El sistema ha generado el informe }
 
 	\begin{cursoe}{}
 	
-		\paso{1 El \emk solicita el informe 'Detalles de movimientos por jugador' }{}
+		\paso{1 El \emk solicita el informe `Detalles de movimientos por jugador' }{}
 		
-		\paso{2 El sistema genera el informe 'Detalles de movimientos por jugador' }{}
+		\paso{2 El sistema genera el informe `Detalles de movimientos por jugador' }{}
 		
 		\paso{3 Fin C.U.}{}
 		
@@ -1103,7 +1148,7 @@ Por otro lado tambien mostramos la interaccion con el sistema en los casos de us
 \label{pir}
 \begin{cu}{\infdmj}
 	\descripxizq=1cm
-		\defln{ Este caso de uso explica como el \emk solicita informe 'Ranking de jugadores' }
+		\defln{ Este caso de uso explica como el \emk solicita informe `Ranking de jugadores' }
 		\actor{\emk}
 		\pre{ El casino debe estar abierto }
 		\post{ El sistema ha generado el informe }
@@ -1126,11 +1171,12 @@ Por otro lado tambien mostramos la interaccion con el sistema en los casos de us
 \end{flushleft}
 \end{cu}
 
+\newpage
 %-----------------------
 \label{pie}
 \begin{cu}{\infdmj}
 	\descripxizq=1cm
-		\defln{ Este caso de uso explica como el \emk solicita informe 'Estado Actual' }
+		\defln{ Este caso de uso explica como el \emk solicita informe `Estado Actual' }
 		\actor{\emk}
 		\pre{ El casino debe estar abierto }
 		\post{ El sistema ha generado el informe }
@@ -1153,6 +1199,7 @@ Por otro lado tambien mostramos la interaccion con el sistema en los casos de us
 \end{flushleft}
 \end{cu}
 
+\newpage
 \subsection{Pago de jugadas y premios}
 
 Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)
@@ -1166,13 +1213,15 @@ Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo 
 \newpage
 \subsubsection{Pago jugada Craps}
 
-\vskip1cm
+\vskip0.3cm
 \textsc{Explicacion de Apuestas juego Craps}
-\vskip1cm
+\vskip0.3cm
 
 \input{fsmAp.tex}
 
-\vskip1cm
+
+\newpage
+
 \textsc{Especificacion de Apuestas juego Craps}
 \vskip1cm
 

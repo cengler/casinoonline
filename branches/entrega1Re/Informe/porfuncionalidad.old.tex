@@ -1,0 +1,1125 @@
+\subsection{Relevamiento de requerimientos Generales}
+
+\subsubsection{Objetivos y requerimientos a cumplir}
+
+Para lograr tener uns visión intencional del sistema, tanto en su parte funcional como en la no funcional, presentamos los objetivos que identificamos organizandolos en un Diagrama de Objetivos\footnote{Objetivos organizados en uno o mas arboles, donde tenemos que casa objetivos se logra gracias al cumplimiento de los objetivos dependientes (hijos inmediatos)}
+
+{\large Diagrama de Objetivos \label{fig:doCasino}}
+\begin{center}
+\includegraphics[scale=0.25]{img/doCasino.png}
+\end{center}
+
+\begin{framed}
+
+\depto Con este Diagrama de Objetivos intentamos dar el primer paso en la definicion del alcance del sistema y la justificacion de los requerimientos encontrados.
+Tambien sera de utilidad para el analisis de los supuestos sobre los que se basará el sistema.
+
+\end{framed}
+
+\subsection{Analisis de agentes involucrados en el sistema}
+
+Para comprender mejor la manera en que deberan relacionarse los distintos sujetos del mundo con el sistema a construir y sus interacciones, estucturamos el mundo con un Diagrama de contexto\footnote{Diagrama de contexto: Diagrama donde las cajas son agentes activos del sistema y las flechas son las interacciones basicas}
+
+Este diagrama tambien nos da otra mirada del alcance y expectativas del software a construir.
+
+{\large Diagrama de Contexto \label{fig:dcCasino}}
+\begin{center}
+\includegraphics[scale=0.38]{img/dcCasino.png}
+\end{center}
+
+\begin{framed}
+
+\depto Todas las interacciones de los agentes con el sistema han sido asignadas a uno o mas Casos de Uso que explicaran de forma mas detallada dichas interacciones. De esta manera podemos garantizar que las interacciones mas relevantes del sistema seran correctamente detalladas
+
+\end{framed}
+
+\subsection{Interacciones de agentes externos con el sistema}
+
+{\large Casos de Uso \label{fig:cuCasino}}
+\begin{center}
+\includegraphics[scale=0.38]{img/casosDeUso.png}
+\end{center}
+
+{\large Casos de Uso - Herencia \label{fig:herencia}}
+\begin{center}
+\includegraphics[scale=0.38]{img/herencia.png}
+\end{center}
+
+\input{cu.tex}
+
+\subsection{Conceptos fundamentales, y sus relaciones}
+
+\subsubsection{Conceptos fundamentales}
+\input{explDClases.tex}
+
+\subsubsection{Modelo Conceptual}
+
+\begin{center}
+		\includegraphics[scale=0.45]{img/dclCasino.png}
+\end{center}
+
+Dado las limitaciones del Modelo Conceptual, agregaremos algunos invarientes para identificar mejor los estados deseables del sistema. 
+
+\input{imc.tex}
+
+\subsection{Requerimientos}
+
+\input{lr.tex}
+
+\subsection{Registracion y Ingreso al casino online y modificacion de saldo}
+
+\subsubsection{Registracion}
+Segun lo acordado, la registracion de los usuarios se hace por fuera del sistema informatico del casino online. Explicaremos como esperamos que interactuen los agentes externos para que el sistema posea la lista actualizada de usuarios registrados. Para ello usaremos el Diagrama de Activdades\footnote{Diagrama de Actividades: Grafico que representa el flujo de actividades. Las cajas representan actividades y las flechas repersentan secuencialidad y los rombos representan decisiones} ``Registracion''. Ver Figura: \ref{fig:daReg}
+
+{\large Diagrama de actividades Registracion\label{fig:daReg}}
+\begin{center}
+\includegraphics[scale=0.5]{img/daRegistracion.png}
+\end{center}
+
+Cabe aclarar que el cliente podra comenzar a jugar en el casino recien cuando el casino se vuelva a abrir
+
+\subsubsection{Modificacion de saldo}
+
+Una vez registrado un cliente puede ingresar y retirar dinero real, dicha operacion solo podra realizarse mistras el casino permanece cerrado.
+Explicaremos esta operatoria con un diagrama de actividades. Ver Figura: \ref{fig:modSaldo}
+
+{\large Diagrama de actividades Modificacion de Saldo\label{fig:modSaldo}}
+\begin{center}
+\includegraphics[scale=0.4]{img/clienteModSaldo.png}
+\end{center}
+
+\subsubsection{Ingreso y egreso del casino}
+
+La forma en que un cliente ingresa o egresa del casino esta explicado en los casos de uso: \\
+CU \ic \ref{lic} y CU \salc \ref{lsalc}.
+
+%-------------------------------------------------------
+% CASO DE USO INGRESANDO A CASINO
+%-------------------------------------------------------
+\begin{cu}{\ic}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \pc ingresa en el casino }
+		\actor{\pc}
+		\pre{El casino debe estar abierto y el jugador debe estar fuera del casino}
+		\post{El \pc ha ingresado al casino }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \pc ingresa su nombre de usuario}{}
+		
+		\paso{2 El sistema verifica si el nombre corresponde a un usuario valido}{}
+		
+		\paso{3 El sistema ingresa al \pc al casino}{}
+		
+		\paso{4 El sistema informa que el \pc ha ingresado al casino satisfactoriamente}{4.1 El sistema informa que el usuario es invalido. Ir a paso 6}
+		
+		\paso{5 El sistema muestra el estado del \pc}{}	
+		
+		\paso{6 Fin C.U.}{}	
+		
+	\end{cursoe}
+	
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+	\item Las pantallas mostraran el estado de cuenta del jugador
+\end{itemize}
+\end{flushleft}	
+
+\end{cu}
+
+%-------------------------------------------------------
+% CASO DE USO SALIENDO A CASINO
+%-------------------------------------------------------
+
+\begin{cu}{\salc}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \pc sale del casino }
+		\actor{\pc}
+		\pre{El casino debe estar abierto, el \pc debe estar dentro del casino y no debe estar dentro de ninguna mesa}
+		\post{El \pc ha salido del casino }
+
+	\begin{cursoe}{}
+				
+		\paso{1 El sistema retira al \pc del casino}{}
+		
+		\paso{2 El sistema informa que el \pc ha salido del casino}{}
+		
+		\paso{3 Fin C.U.}{}
+		
+	\end{cursoe}		
+\end{cu}
+
+\subsection{Administracion del Casino}
+
+\subsubsection{Apertura del casino}
+
+El administrador puede realizar configuraciones de distintos aspectos:
+\begin{itemize}
+	\item Configuracion de valores de fichas
+	\item Asignacion de probablilidades
+	\item valores minimos para la entrega de premios
+\end{itemize}
+Al realizarse la apertura del casino, el sistema carga automaticamente un archivo donde se encuentran establecidas las configuracion efectuadas por el administrador. 
+
+\begin{center}
+\includegraphics[scale=0.38]{img/configuraciones.png}
+\end{center}
+
+Con el caso de uso CU \ac \ref{lac} explicaremos la interaccion con el sistema. 
+%-------------------------------------------------------
+% CASO DE USO ABRIENDO CASINO
+%-------------------------------------------------------
+\begin{cu}{\ac}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como se abre el casino }
+		\actor{\adm}
+		\pre{El casino debe estar cerrado}
+		\post{El casino está abierto }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \adm abre el casino}{}
+	
+		\paso{2 El sistema carga la lista de clientes}{}
+		
+		\paso{3 El sistema carga la configuración de valores de fichas}{}
+		
+		\paso{4 El sistema carga la configuración de los tipos de jugadas}{}
+		
+		\paso{5 El sistema carga la configuración de los valores minimos de los pozos para la entrega de premios}{}
+		
+		\paso{6 El sistema informa que se ha abierto el casino}{}	
+		
+		\paso{7 Fin C.U.}{}	
+		
+	\end{cursoe}
+\paragraph{DPTO: }
+\begin{flushleft}
+
+\depto Asumimos que el ingreso de las configuraciones consiste en un archivo donde se ha guardado la ultima configuración en un momento dado
+
+\end{flushleft}	
+\paragraph{\req }
+\begin{itemize}
+
+\end{itemize}
+
+\end{cu}
+
+\subsubsection{Clausura del casino}
+
+La operatioria de cerrar el casino no es muy complicada, pero tiene una salvedad. No es posible cerrar el casino si hay jugadores dentro del casino
+
+%Dicha interaccion con el sistema esta explicada en el caso de uso: CU \ccas \ref{lccas}
+%-----------------------------------------------------
+% CASO DE USO CERRANDO CASINO
+%------------------------------------------------------
+
+\begin{cu}{\cc}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como se cierra el casino }
+		\actor{\adm}
+		\pre{El casino debe estar abierto}
+		\post{El casino esta cerrado }
+
+	\begin{cursoe}{}
+				
+		\paso{1 Es \adm cierra el casino}{}
+		\paso{2 El sistema informa que el casino se cerrara}{2.1 El sistema infomra que hay mesas abiertas por lo tanto no se puede cerrar el casino. Ir a 4 }
+		
+		\paso{3 El sistema guarda los cambios}{}
+		
+		\paso{4 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+	\item El casino no se podrá cerrar mientras haya gente jugando
+\end{itemize}
+\end{flushleft}		
+\end{cu}
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) Mostramos que nos comprometemos a que un administrador podrá cerrar el casino solo si no hay ningun cliente en el mismo.
+
+{\large FSM: Administrador}
+\begin{center}
+\includegraphics[scale=0.5]{img/admin.png}
+\end{center}
+
+
+{\large FSM: Jugador$_i$}
+\begin{center}
+\includegraphics[scale=0.5]{img/jugador.png}
+\end{center}
+
+\textbf{Nota}: la interaccion que tiene un jugador con cada uno de los juegos se puede observar en los apartados `JUEGO TRAGAMONEDAS' y `JUEGO CRAPS'. 
+
+
+\end{framed}
+
+\subsection{Invitado}
+El casino brinda una modalidad para entrar a los juegos como invitado. Bajo este modalidad aquella persona que ingrese al casino podra observar el desarrollo de los juegos pero sin participar
+La interaccion que posee un \textbf{\textit{invitado}} se explica con los CU (\textit{faltan los cu})
+
+%------------------------------------------------------
+% CASO DE USO INGRESANDO Al CASINO COMO INVITADO
+%------------------------------------------------------
+\begin{cu}{\inginvi}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \invi ingresa en el casino como invitado}
+		\actor{\invi}
+		\pre{El casino debe estar abierto y el \invi debe estar fuera del casino}
+		\post{El \invi ha ingresado al casino }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \invi ingresa un nombre}{}
+		
+		\paso{2 El sistema ingresa al \invi al casino como usuario invitado}{}
+		
+		\paso{3 El sistema informa que el \invi ha ingresado al casino satisfactoriamente}{3.1 El sistema informa que no se ha podido ingresar al usuario como invitado (Por Repeticion de nombre con otro invitado o cliente). Ir a paso 4}	
+		\paso{4 Fin C.U.}{}	
+		
+	\end{cursoe}
+	
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+	\item Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en el \label{1c}
+\end{itemize}
+\end{flushleft}	
+
+\end{cu}
+
+%-------------------------------------------------------
+% CASO DE USO SALIENDO A CASINO como invitado
+%-------------------------------------------------------
+
+\begin{cu}{\salinvi}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \invi sale del casino }
+		\actor{\invi}
+		\pre{El casino debe estar abierto, el \invi debe estar dentro del casino y no debe estar observando ninguna mesa}
+		\post{El \invi ha salido del casino }
+
+	\begin{cursoe}{}
+				
+		\paso{1 El sistema retira al \invi del casino}{}
+		
+		\paso{2 El sistema informa que el \invi ha salido del casino}{}
+		
+		\paso{3 Fin C.U.}{}
+		
+	\end{cursoe}		
+\end{cu}
+%--------------------------------------------------------
+% CASO DE USO Observando Juego
+%--------------------------------------------------------
+
+\begin{cu}{\obser}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \invi puede observar un juego elegido }
+		\actor{\invi}
+		\pre{El \invi debe estar dentro del casino y no estar observando ningun otro juego}
+		\post{El \invi ha observado un juego }
+
+	\begin{cursoe}{}
+		
+		\paso{1 El \invi selecciona el juego que desea observar}{}
+		\paso{2 El sistema muestra las mesas abiertas disponibles para ese juego}{2.1 El sistema informa que no hay mesas disponibles para observar de ese juego. Ir a 8}
+		\paso{3 El \invi selecciona una de las mesas disponibles}{}
+		\paso{4 El sistema ingresa al \invi a la mesa del juego seleccionado}{}
+		
+		\paso{5 El sistema muestra la informacion disponible de la mesa seleccionada}{}
+		
+		\paso{6 Si la mesa debe ser cerrada (pues se retiran todos los jugadores), entonces se saca al invitado de la mesa. Ir a 8}{}
+		\paso{7 Si el jugador desea salir de esa mesa. Ir a paso 8, sino ir a paso 5}{}
+	  \paso{8 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+	\item Un invitado podrá observar los juegos pero sin participar en ellos
+\end{itemize}
+\end{flushleft}	
+\end{cu}
+
+
+En el siguiente Diagrama de actividades se puede observar lo que puede hacer un invitado dentro del casino.
+
+\begin{center}
+\includegraphics[scale=0.5]{img/invitado.png}
+\end{center}
+
+
+
+
+
+\subsection{Modo Dirigido}
+
+El casino cuenta con un Modo Dirigido. EL mismo se utiliza para interferir en el azar para sacar mayor provecho de las apuestas. 
+Esto satisface el siguiente requerimiento:
+ \textbf{El sistema deberá contar con un modo dirigido: Se podra poner en modo dirigido a cada uno de los juegos y todas sus respectivas mesas tendrán como resultado el definido por el manipulador de modos.}  \label{8a}
+
+\subsubsection{Inicio de Modo Dirigido}
+
+Cuando se ingresa en este modo, los resultados de las jugadas no seran al azar sino que el manipulador decidira los mismos.
+	
+Esos resultados ingresados se respetaran para todas las jugadas de todas las mesas habilitadas de ese juego mientras no se vuelva a modo normal.
+
+Dicha interaccion con el sistema esta explicada con los siguientes casos de uso:
+	
+
+
+%-------------------------------
+%CASO DE USO ACTIVANDO MODO DIRIGIDO
+%--------------------------------
+
+\begin{cu}{\actm}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como el \mani puede activar el modo dirigido del casino}
+		\actor{\mani}
+		\pre{ El casino debe estar abierto y desactivado el modo dirigido}
+		\post{ Se ha activado el modo dirigido }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \mani selecciona activar el modo dirigido del casino }{}
+		
+		\paso{2 El sistema activa el modo dirigido, desactiva las jugadas azarosas}{}
+						
+		\paso{3 El sistema informa que se ha activado el modo dirigido del casino y solicita ingresar el resultado de las jugadas}{}
+		
+		\paso{4 El \mani ingresa el resultado de las jugadas}{}
+		
+  	\paso{5 El sistema modifica la configuración del casino}{}	
+		
+		\paso{6 El sistema informa que el casino se encuentra ahora en modo dirigido }{}
+
+		\paso{7 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{DPTO: }
+\begin{flushleft}
+Asumimos que el ingreso de los resultados de las jugadas es una configuración dada
+%me refiero a q ingresa un "archivo" con cierta configuracion ya armada para los result
+\end{flushleft}
+\end{cu}
+
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) Mostramos que en modo dirigido se pueden lanzar jugadas de forma manual, dicha funcionalidad no esta permitida en modo normal.
+Es seteo de las jugadas debe hacerse en el momento de entrar en modo dirigido. 
+
+\paragraph{FSM: Manipulador}
+\begin{center}
+\includegraphics[scale=0.5]{img/manipulador.png}
+\end{center}
+
+\end{framed}
+
+\subsubsection{Seteo de Jugadas Feliz y Todos Ponen}
+
+El manipulador puede iniciar una Jugada Feliz, al hacerlo debe seleccionar una unica jugada que se verá afectada por la Jugada Feliz.
+
+Dicha interaccion con el sistema esta explicada en el caso de uso: CU \jugf \ref{ljugf}
+
+%----------------------------------------
+
+\begin{cu}{\jugf}
+	\descripxizq=1cm
+		\defln{ Este caso de uso explica como se seleccionara la aparición de las jugadas felices }
+		\actor{\mani}
+		\pre{ El casino está abierto y esta activado el modo dirigido }
+		\post{ Se ha generado una nueva aparicion de jugada feliz }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \mani selecciona un juego}{}
+		
+		\paso{2 El \mani selecciona una mesa del juego}{}
+		
+		\paso{3 El \mani selecciona una jugada particular}{}
+		
+		\paso{4 El sistema genera una nueva jugada feliz }{4.1 ERROR El sistema informa que la jugada se solapa con otra jugada feliz en el mismo instante en el casino o con otra jugada todos ponen en el mismo juego y jugada}
+	
+		\paso{5 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{itemize}
+  \item El sistema deberá permitir generar jugada feliz manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas felices mientras no se solapen simultaneamente en los juegos del casino.  \label{8b}
+\end{itemize}
+\end{cu}
+
+%---------------------------------
+
+\begin{cu}{\jugtp}
+	\descripxizq=1cm
+		\defln{ Este caso de uso explica como se seleccionara la aparición de las jugadas todos ponen }
+		\actor{\mani}
+		\pre{ El casino está abierto y esta activado el modo dirigido }
+		\post{ Se ha generado una nueva aparicion de jugada todos ponen }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \mani selecciona un juego }{}
+		
+		\paso{2 El \mani selecciona una mesa del juego}{}
+		
+		\paso{3 El \mani selecciona la jugada que se verá afectada por la jugada todos ponen}{}
+		
+		\paso{4 El sistema genera una nueva jugada todos ponen }{4.1 ERROR El sistema informa que la jugada se solapa con una jugada feliz o jugada todos ponen en el mismo juego y jugada}
+
+		\paso{5 Fin C.U.}{}
+		
+
+	\end{cursoe}
+\paragraph{\req }
+\begin{itemize}
+  \item El sistema deberá permitir generar jugada todos ponen manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas todos ponen mientras no se solapen en la misma jugada. \label{8c}
+\end{itemize}
+\end{cu}
+
+\subsubsection{Finalización de Modo Dirigido}
+
+En el momento que el manipulador decida abandoanar el modo dirigido, debera desactivarlo.
+Y asi volver al modo normal. Ver caso de uso: CU \desm \ref{ldesm}
+
+%----------------------------------------------------------
+%Caso de uso Desactivando modo dirigido
+%----------------------------------------------------------
+%-----------------------------
+
+\begin{cu}{\desm}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como se desactiva el modo dirigido }
+	  \actor{\mani}
+		\pre{ El casino debe estar abierto y activado el modo dirigido }
+		\post{ Se ha desactivado el modo dirigido y el resultado de las jugadas será aleatorio }
+		
+	\begin{cursoe}{}
+	
+		\paso{1 El \mani selecciona desactivar el modo dirigido del casino}{}
+		
+		\paso{2 El sistema desactiva el modo dirigido activando los resultados azarosos para todas las jugadas y asi tambien las ocurrencias de los distintos tipos de jugadas }{}
+		
+		\paso{3 El sistema informa que el casino se encuentra ahora en modo normal }{}
+		
+		\paso{4 Fin C.U.}{}
+		
+
+	\end{cursoe}
+\paragraph{\req }
+\begin{itemize}
+\item El sistema deberá contar con un modo dirigido
+\end{itemize}
+\end{cu}                                            
+\subsection{Juego Tragamonedas}
+
+Las máquinas tragamonedas juegan con un único valor de ficha (Cuando se inicia el jugador elige dicho valor, entre los valores de fichas disponibles del casino).  
+
+En el siguiente Diagrama de actividades se puede observar a grandes rasgos las actividades que realiza un jugador de tragamonedas.
+
+\begin{center}
+\includegraphics[scale=0.5]{img/JugadorTragamonedasDA.png}
+\end{center}
+
+Se ven reflejados los requerimientos:
+\begin{itemize}
+\item Proveer juego Tragamonedas: Se proveera el juego del Tragamonedas respetando las reglas provistas por los clientes.  \label{9a}.
+\item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas: Se podrá elegir una mesa de maquina tragamonedas de distintos valores entre los definidos. Una vez elegido el valor de la ficha para el tragamonedas este no se podrá cambiar hasta salir del juego. \label{9b}
+\end{itemize}
+%Cada una de estas actividades se explican con mas detalle en los casos de uso: CU \jtra \ref{ljtra} y CU \apotra \ref{lapotra}
+
+%-------------------------------------------------------
+% CASO DE USO Ingresando a la mesa de Tragamonedas
+%-------------------------------------------------------
+
+\begin{cu}{\intr}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un jugador puede abrir una nueva mesa de tragamonedas }
+		\actor{\jutra}
+		\pre{El \jutra debe estar dentro del casino y no estar jugando en ninguna otra mesa}
+		\post{El \jutra ha ingresado en una mesa de Tragamonedas }
+
+	\begin{cursoe}{}
+		
+		\paso{1 El \jutra selecciona entre los valores disponibles, un valor de ficha para la nueva mesa de tragamonedas}{}
+		
+		\paso{2 El sistema crea una nueva mesa para el \jutra}{}
+			
+		\paso{3 El sistema informa que el jugador ha ingresado a una mesa de tragamonedas.}{}		
+	  
+	  \paso{4 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a1}
+\end{itemize}
+\end{flushleft}	
+
+\end{cu}
+
+%-------------------------------------------------------
+% CASO DE USO JUGANDO TRAGAMONEDAS
+%-------------------------------------------------------
+
+\begin{cu}{\jtra}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \aptraga que ha ingresado en el casino puede jugar en una mesa de tragamonedas}
+		\actor{\aptraga}
+		\pre{El \aptraga debe estar dentro del casino, dentro de una mesa de Tragamonedas y no estar jugando en ninguna otra mesa}
+		\post{El \aptraga ha jugado al tragamonedas, si ha resultado ganador se modifica su saldo}
+
+	\begin{cursoe}{}
+	
+		
+    \paso{1 El \aptraga selecciona entre una y tres fichas para apostar }{}
+		
+		\paso{2 Si el \aptraga no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
+			
+		\paso{3 El sistema valida la apuesta y descuenta el monto del saldo del jugador}{3.1 Error: El sistema informa que no tiene saldo suficiente para realizar esta apuesta. Ir a Fin C.U.}
+				
+		\paso{4 El sistema incrementa y muestra el pozo Premio Gordo Progresivo}{}
+				
+		\paso{5 El \aptraga decide comenzar la jugada}{}
+		
+		\paso{6 El sistema da comienzo al juego}{}	
+		
+		\paso{7 El sistema informa si la jugada es normal, feliz o todos ponen}{}	
+	  
+	  \paso{8 El sistema muestra el resultado del juego}{}
+	  
+	  \paso{9 Si el resultado es ganador el sistema modifica el saldo del jugador, acredita y muestra los premios que correspondan. VER Seccion: \textbf{Pago de jugadas y premios}}{}
+	  	  
+		\paso{10 Fin C.U.}{}
+		
+  \end{cursoe}
+  
+ \paragraph{\req }
+\begin{itemize}
+	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a2}
+	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b2}
+	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d2}
+<<<<<<< .mine
+	\item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos. \label{2b1}
+=======
+	\item El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas.\label{9c} 
+
+>>>>>>> .r69
+\end{itemize}
+
+\end{cu}
+%------------------------------------------------------
+% CASO DE USO Saliendo de mesa de trgamonedas
+%------------------------------------------------------
+
+\begin{cu}{\satr}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \jutra sale de una mesa de Tragamonedas }
+		\actor{\jutra}
+		\pre{El \jutra debe estar dentro de una mesa de Tragamonedas}
+		\post{El \jutra ha salido de la mesa de Tragamonedas }
+
+	\begin{cursoe}{}
+	  
+	  \paso{1 El sistema actualiza el estado de cuenta del jugador}{}
+	  
+	  \paso{2 El sistema saca de la mesa de Tragamonedas al \jutra}{}
+	  
+	  \paso{3 El sistema cierra automaticamente la mesa}{}
+		
+		\paso{4 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{itemize}
+
+\end{itemize}
+
+\end{cu}
+		
+
+\begin{framed}
+
+\depto Con esta maquina de estados finitos (FSM) mostramos el desarrollo del juego tragamonedas, modelando solo la parte de cobrar o no. 
+\\
+{\large FSM: JugadaTragamonedas$_i$}
+\begin{center}
+\includegraphics[scale=0.5]{img/JugadaTragamonedas.png}
+\end{center}
+
+{\large FSM: MaquinaTragamonedas$_i$}
+\begin{center}
+\includegraphics[scale=0.5]{img/MaquinaTragamonedas.png}
+\end{center}
+
+\textbf{Notese Abuso de la notacion: } En las transiciones de los resultados que pueden salir, simplificamos todas las transiciones un una.
+
+
+Aqui se refleja el siguiente requerimiento: El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas.
+
+\vskip2cm
+
+\textit{\textsl{Aclaraciones}}: 
+\begin{itemize}
+	\item Dado que al abrir el casino se determina con que fichas se jugará,\textit{\textbf{elegirValorFicha}} refiere a una de esas 	fichas. Es decir, que al abrir una mesa se debe elegir una ficha dentro de las posibles.
+	\item Hay tantas FSM maquina tragamonedas como mesas se abran. Cuando
+	el jugador sale de la mesa, esta queda inhabilitada para una proxima jugada
+	\item Si la apuesta es maxima la cantidad de apuestas de 3 fichas volverá a cero, tanto si gana el premio progresivo o no lo gane
+\end{itemize}
+
+
+\end{framed}
+
+\subsection{Juego Craps}
+
+Otro de los juegos elegidos por los socios es el \textbf{Craps}. Esto satisface el requerimiento \textbf{Proveer juego Craps: Se proveera el juego de Craps respetando las reglas provistas por los clientes.} \label{10a}\\
+En este juego un tirador lanza un par de dados para establecer un PUNTO y las apuestas girarán en base a las posibilidades de que dicho tirador repita el mismo punto antes de lanzar un 7.
+Cuando un jugador Craps decida jugar debe seleccionar una mesa existente o abrir una nueva. Luego durante el juego podra tirar los dados y/o apostar.
+
+Cada una de estas actividades se explican con mas detalle en los siguientes casos de uso:
+
+\vskip2cm
+%-------------------------------------------------------
+% CASO DE USO Ingresando a la mesa de craps
+%-------------------------------------------------------
+
+\begin{cu}{\incr}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un jugador puede unirse o abrir una nueva mesa de craps }
+		\actor{\pjc}
+		\pre{El \pjc debe estar dentro del casino y no estar jugando en ninguna otra mesa}
+		\post{El \pjc ha ingresado en una mesa de Craps }
+
+	\begin{cursoe}{}
+		
+		\paso{1 Si hay mesas disponibles el sistema pregunta si el \pjc desea unirse a una mesa, sino hay mesas disponibles ir a paso 3}{}
+		
+		\paso{2 Si el jugador decide unirse a una mesa selecciona la mesa a la cual desea unirse. Ir a 4}{}
+		
+		\paso{3 El sistema crea una nueva mesa para el \pjc }{}
+		
+		\paso{4 El sistema informa que el jugador ha ingresado a una mesa de Craps.}{}
+		
+	  \paso{5 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{itemize}
+	\item \item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego \label{2a2}
+
+
+\end{itemize}
+
+\end{cu}
+%------------------------------------------------------
+% CASO DE USO Jugando Craps
+%------------------------------------------------------
+%\paragraph{Comentario: }
+%\begin{flushleft}
+%
+%\end{flushleft}
+\begin{cu}{\jugcr}
+	\descripxizq=3cm
+		\defln{Este caso de uso explica como un jugador juega en una nueva mesa de craps }
+		\actor{\jucr}
+		\actorsec{\apcr}
+		\pre{El \jucr    debe estar dentro del casino y haber ingresado en una mesa de Craps}
+		\post{El \jucr    ha jugado Craps }
+
+	\begin{cursoe}{}
+		
+		\paso{1 Si el \jucr lo desea, apuesta. \exti{\apcr} }{}
+		
+		\paso{2 El jugador tira los dados }{}
+		
+		\paso{3 El sistema informa tanto al \jucr como a los \apcr si la jugada es normal, feliz o todos ponen}{}
+					
+				
+		\paso{4 El sistema muestra tanto al \jucr como a los \apcr los resultados del tiro}{}
+		
+	  \paso{5 El sistema acredita todas las apuestas de los \apcr que resultaron ganadoras y cierra todas aquellas que resultaron perdedoras.}{}
+	  
+	  \paso{6 El sistema modifica el saldo de los \apcr }{}
+	  
+	  \paso{7 Si el \jucr ha establecido el punto ir a paso 1}{}
+	  \paso{8 Si el \jucr gano y desea volver a tirar ir a paso 1. Sino ir a paso 10}{}
+	  \paso{9 El sistema informa al \jucr que debe pasar los dados obligatoriamente pues a 	perdido. }{}
+	  \paso{10 El sistema selecciona entre los \apcr al proximo tirador de dados.}{ }
+	  \paso{11 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}	
+	\item Proveer juego Craps
+\end{itemize}
+\end{flushleft}
+\end{cu}	
+%-------------------------------
+%CASO DE USO APOSTANDO EN CRAPS
+%--------------------------------
+\begin{cu}{\apocr}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \apcr apuesta en una mesa de Craps }
+		\actor{\apcr}
+		\pre{El \apcr debe haber ingresado a una mesa Craps}
+		\post{El \apcr ha apostado en el Craps, y su saldo ha sido modificado }
+
+	\begin{cursoe}{}
+    \paso{1 El \apcr elige un tipo de apuesta entre las habilitadas para el tiro corriente.}{}
+    
+    \paso{2 El \apcr selecciona un monto a apostar}{}
+		
+		\paso{3 Si el \apcr no es VIP el sistema verifica si tiene saldo suficiente para la apuesta}{}
+			
+		\paso{4 El sistema valida la apuesta y descuenta el monto del saldo del jugador}{4.1 Error: El sistema informa que no tiene saldo suficiente para realizar esta apuesta. Ir a 7}
+				
+		\paso{5 Si el jugador desea realizar otra apuesta ir a paso 1 }{}
+		
+		\paso{6 El sitema actualiza y muestra el estado de cuenta del jugador }{}	
+		
+		\paso{7 Fin C.U.}{}	
+		
+	\end{cursoe}
+	
+ \paragraph{\req }
+\begin{itemize}
+	\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo \label{1a1}
+	\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado \label{1b1}
+	\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo \label{1d1}
+\end{itemize}
+
+\end{cu}
+		
+%----------------------------------------------------------
+% CASO DE USO Saliendo de mesa de Craps
+%----------------------------------------------------------
+
+\begin{cu}{\sacr}
+	\descripxizq=1cm
+		\defln{Este caso de uso explica como un \pjc sale de una mesa de Craps, perdiendo asi sus apuestas sino las hubiera finalizado }
+		\actor{\pjc}
+		\pre{El \pjc debe estar dentro de una mesa de Craps}
+		\post{El \pjc ha salido de la mesa de Craps }
+
+	\begin{cursoe}{}
+		\paso{1 El sistema informa que perdera todas las apuestas que tenga activas.}{}
+% Chicos: lo puse en este orden xq capaz despues de avisarle q pierde sus apuestas si se retira, se arrepiente y en el paso 8 puede optar x seguir, pero si no les gusta lo pueden varia	  
+	  \paso{2 Si el jugador desea cancelar la operación ir a 6}{}
+	  
+	  \paso{3 Sino el sistema actualiza el estado de cuenta del jugador}{}
+	  
+	  \paso{4 El sistema saca de la mesa de Craps al \pjc}{}
+	  
+	  \paso{5 El sistema cierra automaticamente la mesa si este era el unico jugador en ella}{}
+		
+		\paso{6 Fin C.U.}{}
+		
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+
+\end{itemize}
+\end{flushleft}	
+\end{cu}
+
+
+\begin{framed}
+
+\depto Con estas maquinas de estados finitos (FSM) mostramos el desarrollo del juego craps. Incluyendo entre ellas un seleccionador, un tirador y cada una de las apuestas. 
+\\
+{\large FSM: Seleccionador}
+\begin{center}
+\includegraphics[scale=0.4]{img/seleccionador.png}
+\end{center}
+
+Con esta FSM modelamos la eleccion del tirador. 
+
+{\large FSM: Tirador}
+\begin{center}
+\includegraphics[scale=0.5]{img/tirador.png}
+\end{center}
+
+{\large FSM: Cupier}
+\begin{center}
+\includegraphics[scale=0.5]{img/coupier.png}
+\end{center}
+
+
+
+{\large FSM: Jugada Craps}
+\begin{center}
+\includegraphics[scale=0.25]{img/desarrolloCraps.png}
+\end{center}
+
+\textbf{Notese Abuso de la notacion: } En las transiciones de los resultados que pueden salir, simplificamos todas las transiciones un una.
+
+Con esta FSM explicamos una jugada de manera general, es decir sin las apuestas. Estas ultimas se explican en el apartado \textit{Pago jugada Craps}. Cabe aclarar que cada una de las apuestas se explican con FSMs distintas; una para cada una de ellas.
+
+\end{framed}
+
+
+\subsection{Generacion de reportes}
+
+Expicamos en lenguaje OCL como es que se obtienen los datos necesarios para la generacion de los informes.
+
+\subsubsection{Generacion de reporte: Ranking de Jugadores}
+
+\begin{framed}
+\begin{lstlisting}[breaklines=true]
+--este operacion devuelve dado un jugador una tupla con su nombre y su ganancia
+dameNombreGanancia(j:Jugador):TupleType(nombre:String , ganancia: Numero))
+pre:	true
+post:	result = Tuple{nombre:String = j.nombre, ganancia:Numero = (j.saldo - j.saldoInicial)}
+
+
+--genera el reporte de ganancia por jugador
+--
+--busco el jugador que mas gano
+--y selecciono todos los jugadores que hayan ganado tanto como el que mas gano
+--luego los transforno en tuplas
+--
+reporteRanking(ascendente:Boolean):Collection(TupleType(nombre:String , ganancia: Numero))
+pre:	true
+post:	
+	let jugadores:Collection(Jugador) = Jugador.allInstances()
+	let masGanadores = jugadores->orderedBy(j | j.saldo - j.saldoInicial)
+	let menosGanadores = jugadores->orderedBy(j | j.saldoInicial - j.saldo)
+
+if ascendente
+then
+	result = masGanadores->iterate(j;res=orderedSet();res->including(dameNombreGanancia(j))
+else
+	result = menosGanadores->iterate(j;res=orderedSet();res->including(dameNombreGanancia(j))
+endif
+
+\end{lstlisting}
+\end{framed}
+
+\subsubsection{Generacion de reporte: Estado Actual}
+
+\begin{framed}
+\begin{lstlisting}[breaklines=true]
+--este operacion devuelve dado un jugador una tupla con su nombre y su saldo y el del casino
+dameNombreSaldo(j:Jugador):TupleType(nombre:String , ganancia: Numero))
+pre:	true
+post:	result Tuple{nombre:String = j.nombre, saldo:Numero = j.saldo}
+
+estadoActual(): Collection(TupleType(nombre:String , saldo: Numero))
+pre:	true
+post:	
+	let jugadores:Collection(Jugador) = Jugador.allInstances() 
+	let casino:Jornada = Jornada.allInstances()->asSecuence->first()
+
+	result jugadores->iterate(j;res=orderedset();res->including(dameNombreGanancia(j))
+		->including(Tuple{nombre:String = "Jornada Actual", saldo:Numero = casino.saldo})
+
+\end{lstlisting}
+\end{framed}
+
+\subsubsection{Generacion de reporte: Detalle de movimientos por jugador}
+
+Aqui explicamos como se obtiene la info de los movimientos de cada jugador. Por un lado explicamos como obtener la informacion de tragamonedas y por otro la informacion de craps.
+
+La info que obtenemos con este informe es una lista de apuestas finalizadas de un jugador.
+Dicha lista contiene la siguiente informacion:
+
+\begin{itemize}
+	\item nombre del jugador
+	\item juego (Tragamonedas o Craps)
+	\item montoApostado
+	\item retribucion		
+	\item fecha de realizacion de la apuesta		
+\end{itemize}
+
+
+\begin{framed}
+\begin{lstlisting}[breaklines=true]
+
+--este operacion devuelve dado un jugador y una apuesta 
+--tragamonedas, una tupla con su nombre, juego, mesa, 
+--montoApostado y retribucion
+
+dameInfoApuestaTraga(j:Jugador, a:ApuestaTraga):
+    TupleType(nombre:String, juego:String, mesa:Numero, 
+    monto:Numero, ganancia: Numero, fecha:Fecha)
+    
+pre:	a.estado == EstadoAp::ganada or ju.estado == EstadoAp::perdida
+
+post:	
+       let mesa = a.jugadaTraga.mesaTragamonedas
+       let valorApuesta = a.cantmonedas * mesa.valorFicha
+       let valorRetribucion = a.retribucion
+
+result Tuple{nombre:String = j.nombre, ''Juego Tragamonedas'', 
+    mesa.numeroMesa, valorApuesta, valorRetribucion, a.fecha}
+
+--busco las apuestas terminadas de tragamonedas y 
+--obtengo la info necesaria
+
+dameInfoApuestasTraga(j:Jugador):
+    Collection(TupleType(nombre:String, juego:String, 
+    mesa:Numero, monto:Numero, ganancia: Numero, fecha:Fecha))
+    
+pre:	true
+
+post:	
+       let apuestas:Collection(ApuestaTragamonedas) = j.apuestaTraga
+       let apuestasTerminadas = 
+           apuestas.select(a| a.estado != EstadoAp:activa)
+       let apuestasOrdenadas = 
+           apuestasTerminadas->orderedBy(a | a.fecha)
+	
+	result apuestasOrgenadas->
+	   iterate(a;res=orderedSet();res->including(dameInfoApuestaTraga(j,a))
+
+--este operacion devuelve dado un jugador y una apuesta 
+--craps, una tupla con su nombre, juego, mesa, 
+--montoApostado y retribucion
+
+dameInfoApuestaCraps(j:Jugador, a:ApuestaCraps):
+    TupleType(nombre:String, juego:String, mesa:Numero, 
+    monto:Numero, ganancia: Numero, fecha:Fecha)
+    
+pre:	a.estado == EstadoAp::ganada or ju.estado == EstadoAp::perdida
+
+post:	
+
+result Tuple{nombre:String = j.nombre, ''Juego Craps'', 
+    a.hechaEn.numeroMesa, a.monto, a.retribucion, a.fecha}
+
+--busco las apuestas terminadas de craps y 
+--obtengo la info necesaria
+
+dameInfoApuestasCraps(j:Jugador):
+    Collection(TupleType(nombre:String, juego:String, 
+    mesa:Numero, monto:Numero, ganancia: Numero, fecha:Fecha))
+    
+pre:	true
+
+post:	
+       let apuestas:Collection(ApuestaCraps) = j.apuestaCraps
+       let apuestasTerminadas = 
+           apuestas.select(a| a.estado != EstadoAp:activa)
+       let apuestasOrdenadas = 
+           apuestasTerminadas->orderedBy(a | a.fecha)
+	
+	result apuestasOrgenadas->
+	   iterate(a;res=orderedSet();res->including(dameInfoApuestaCraps(j,a))
+
+\end{lstlisting}
+\end{framed}
+
+%-------------
+
+\begin{cu}{\infdmj}
+	\descripxizq=1cm
+		\defln{ Este caso de uso explica como el \emk solicita informe de detalles de movimientos por jugador }
+		\actor{\emk}
+		\pre{ El casino debe estar abierto }
+		\post{ El sistema ha generado el informe }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \emk solicita el informe 'Detalles de movimientos por jugador' }{}
+		
+		\paso{2 El sistema genera el informe 'Detalles de movimientos por jugador' }{}
+		
+		\paso{3 Fin C.U.}{}
+		
+
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+\item Generar informe electronico: Detalle de movimientos por jugador
+\end{itemize}
+\end{flushleft}
+\end{cu}
+%-----------------------
+\begin{cu}{\infdmj}
+	\descripxizq=1cm
+		\defln{ Este caso de uso explica como el \emk solicita informe 'Ranking de jugadores' }
+		\actor{\emk}
+		\pre{ El casino debe estar abierto }
+		\post{ El sistema ha generado el informe }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \emk solicita informe 'Ranking de jugadores' }{}
+		
+		\paso{2 El sistema genera el informe 'Ranking de jugadores' }{}
+		
+		\paso{3 Fin C.U.}{}
+		
+
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+\item Generar informe electrónico: Ranking de jugadores
+\end{itemize}
+\end{flushleft}
+\end{cu}
+
+%-----------------------
+\begin{cu}{\infdmj}
+	\descripxizq=1cm
+		\defln{ Este caso de uso explica como el \emk solicita informe 'Estado Actual' }
+		\actor{\emk}
+		\pre{ El casino debe estar abierto }
+		\post{ El sistema ha generado el informe }
+
+	\begin{cursoe}{}
+	
+		\paso{1 El \emk solicita informe 'Estado Actual' }{}
+		
+		\paso{2 El sistema genera el informe de 'Estado Actual' }{}
+		
+		\paso{3 Fin C.U.}{}
+		
+
+	\end{cursoe}
+\paragraph{\req }
+\begin{flushleft}
+\begin{itemize}
+\item Generar informe electronico: Estado Actual
+\end{itemize}
+\end{flushleft}
+\end{cu}
+
+\subsection{Pago de jugadas y premios}
+
+Se explicaran aqui con detalle como se refleja el pago de apuestas en el modelo propuesto (Modelo de Clases)\\
+
+\textbf{NOTA: } Esta seccion esta dirigida a solo a lectores con conocimientos de modelo de clases conceptuales y OCL. El las secciones de \textbf{Juego Tragamonedas} y \textbf{Juego Craps} se explica cuando un jugador debe cobrar
+
+\subsubsection{Pago jugada Tragamonedas}
+
+\input{an4.tex}
+
+\subsubsection{Pago jugada Craps}
+
+\vskip1cm
+\textsc{Explicacion de Apuestas juego Craps}
+\vskip1cm
+
+\input{fsmAp.tex}
+
+\vskip1cm
+\textsc{Especificacion de Apuestas juego Craps}
+\vskip1cm
+
+\input{an5.tex}

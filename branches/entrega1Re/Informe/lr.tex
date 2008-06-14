@@ -1,0 +1,100 @@
+\newcommand{\ii}{{\bf Importante }}
+\newcommand{\ff}{{\bf Funcional }}
+\newcommand{\dd}{{\bf Deseable }}
+\newcommand{\nd}{{\bf No deseable }}
+\newcommand{\nf}{{\bf No funcional }}
+\newcommand{\ee}{{\bf Esencial }}
+
+\newcommand{\rrr}{{ \\ \bf Se menciona en: }}
+\newcommand{\nnn}{{ \\ \bf No cubierto por: }}
+
+\begin{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - MANEJO DE CLIENTES}
+\begin{enumerate}
+\item Los clientes no podrán apostar mas que el saldo permitido por el departamento de marketing: Los clientes tendrán un saldo limite y no podrán realizar ningun tipo de apuesta que sobrepase ese saldo.  \ff - \ii. \rrr \ref{1a1} y en \ref{1a2}
+\item Los clientes VIP podrán apostar ilimitadamente: Los clientes VIP no tiene limite de saldo, por lo tanto no habra ningun monto de apuesta que pueda ser invalidado.  \ff - \ii. \rrr \ref{1b1} y en \ref{1b2}
+\item Un invitado podrá observar los juegos pero sin participar en ellos: Puede ingresar en una mesa ya abierta y observar el desarrollo del juego pero sin intervenir en el. \ff - \ii. \rrr \ref{1c}
+\item Se deberá modificar el saldo del cliente en cada apuesta: Cada vez que un cliente haga una apuesta de cualquier tipo se vera reflejado en la disminución de su saldo.  \ff - \ii. \rrr \ref{1d1} y en \ref{1d2}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - MANEJO DE MESAS}
+\begin{enumerate}
+\item No se debe permitir que un jugador juegue en mas de una mesa al mismo tiempo: Para ingresar a una mesa de cualquier juego el jugador no podrá estar adentro de ninguna otra mesa de ningun juego.  \ff - \dd. \rrr \ref{2a1} y en \ref{2a2}
+\item Los clientes podrán abrir mesas: Todos los clientes tendran la opción de abrir una nueva mesa para cualquiera de los juegos.  \ff - \ee. \rrr \ref{2b1} y en \ref{2b2}
+\item Los clientes podrán unirse a mesas (sí el juego lo permite): El tragamonedas no permite unirse a una mesa, pero en el Craps el jugador podrá elegir a cual de las mesas habilitadas se unirá.  \ff - \ii. \rrr \ref{2c}
+\item Las mesas vacias se cerraran automáticamente: Cuando un jugador salga de un juego el sitema automáticamente cerrara la mesa a menos que haya otros jugadores en ella.  \ff - \ee. \rrr \ref{2d1} y en \ref{2d2}
+\item El casino no se podrá cerrar mientras haya gente jugando: El casino solo podrá cerrar cuando todos los jugadores hayan salido del mismo.  \ff - \ii. \rrr \ref{2e}
+\item No debe haber limite de mesas abiertas: Los clientes podrán ingresar a las mesas de los juegos y no habra un limite de ellas.  \ff - \ii. \rrr \ref{2f}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - PANTALLA}
+\begin{enumerate}
+\item Las pantallas mostraran la información necesaria para el desarrollo del juego: Las pantallas mostrarán la interfaz del juego asi como tambien todas las opciones disponibles dentro del juego.  \ff - \ii. \rrr \ref{3a1} y \ref{3a2}
+\item Las pantallas mostraran la información necesaria del estado del juego: Las pantallas mostraran el tipo de jugada, estado actual del juego y resultados, y será inmediatamente actualizada ante cualquier cambio o variación.  \ff - \ii. \rrr \ref{3b1} y \ref{3b2}
+\item Las pantallas mostraran el estado de la cuenta del jugador: Por pantalla se podrá ver si un jugador esta dentro del casino y dentro de algun juego y si es así en que mesa, si ha resultado ganador o no, y su correspondiente saldo.  \ff - \dd. \rrr \ref{3c1} y \ref{3c2}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - CONFIGURACION}
+\begin{enumerate}
+\item Permitir la configuración estática del monto mínimo de los pozos: Se podrá permitir configurar el monto minimo que debe superar un pozo antes de poder entregarlo.  \nf - \dd. \rrr \ref{4a}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - FICHAS}
+\begin{enumerate}
+\item Las apuestas se harán por medio de fichas: En todos los juegos el jugador podrá elegir el monto a apostar seleccionando de entre los valores establecidos de las fichas.  \ff - \ii. \rrr \ref{5a1} y en \ref{5a2}
+\item Las fichas serán ilimitadas: No habra una cantidad fija de fichas sino que se dispondrá de ellas en un numero ilimitado.  \ff - \ii. \rrr \ref{5b1} y en \ref{5b2}
+\item El valor de las fichas debe poder configurarse por el administrador: Cada vez que el casino abre al administrador configurara los valores posibles de las fichas.  \nf - \ii. \rrr \ref{5c}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - REPORTES}
+\begin{enumerate}
+\item Generar informe electrónico: Ranking de jugadores: Se generará un informe con los jugadores que más dinero ganaron en el día desde que abrio el casino, como también los que más dinero perdieron. \ff - \ii. \rrr \ref{6a}
+\item Generar informe electronico: Estado Actual: Se generará un informe con el estado del casino y su saldo y también el de los clientes. \ff - \ii. \rrr \ref{6b}
+\item Generar informe electronico: Detalle de movimientos por jugador: Se generará un informe con todas las apuestas, premios ganados, y montos ganados por cada jugador que haya ingresado al casino. \ff - \ii. \rrr \ref{6c}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - JUGADAS Y POZOS}
+\begin{enumerate}
+\item Mostrar en todo momento el monto de los pozos: En todo momento se mostrara el monto actualizado de todos los pozos del casino, y se actualizará inmediatamente a medida que varie. \ff - \ii. \rrr \ref{7a1} y \ref{7a2}
+\item Generar jugada feliz automáticamente: La jugada feliz se generara en base a probabilidades.  \ff - \ee. \rrr \ref{7b}
+\item Generar jugada todos ponen automáticamente: La jugada todos ponen tambien se generara en base a probabilidades.  \ff - \ee. \rrr \ref{7c}
+\item No se debe permitir el solapamiento de jugadas felices en el mismo instante: Si ha ocurrido una, entonces no podra ocurrir otra hasta que se pague la jugada existente y se supere el monto minimo, aunque pueden ocurrir en cualquiera de las mesas del casino pero no simultaneamente.  \ff - \ii. \rrr \ref{7d}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS GENERALES DEL CASINO - MODO DIRIGIDO}
+\begin{enumerate}
+\item El sistema deberá contar con un modo dirigido: Se podra poner en modo dirigido a cada uno de los juegos y todas sus respectivas mesas tendrán como resultado el definido por el manipulador de modos.  \ff - \ii. \rrr \ref{8a}
+\item El sistema deberá permitir generar jugada feliz manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas felices mientras no se solapen simultaneamente en los juegos del casino.  \ff - \ii. \rrr \ref{8b}
+\item El sistema deberá permitir generar jugada todos ponen manualmente: El manipulador de modos podrá decidir la ocurrencia de jugadas todos ponen mientras no se solapen en la misma jugada. \ff - \ii. \rrr \ref{8c}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS DE JUEGO TRAGAMONEDAS}
+\begin{enumerate}
+\item Proveer juego Tragamonedas: Se proveera el juego del Tragamonedas respetando las reglas provistas por los clientes.  \ff - \ee. \rrr \ref{9a}
+\item El juego Tragamonedas debe contar con un premio gordo progresivo: El juego de Tragamonedas permitira incrementar el premio gordo progresivo usando un porcentaje de cada una de las jugadas para ser otorgado luego de superar el monto minimo configurado al que obtenga la combinacion ganadora y haya apostado las n veces anteriores al maximo numero de fichas. \ff - \ee. \rrr \ref{9b} y \ref{9b2}
+\item El cliente podrá elegir entre varios valores de fichas de las maquinas tragamonedas: Se podrá elegir una mesa de maquina tragamonedas de distintos valores entre los definidos. Una vez elegido el valor de la ficha para el tragamonedas este no se podrá cambiar hasta salir del juego.  \ff - \nd. \rrr \ref{9c}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS DE JUEGO CRAPS}
+\begin{enumerate}
+\item Proveer juego Craps: Se proveera el juego de Craps respetando las reglas provistas por los clientes. \ff - \ee. \rrr \ref{10a}
+\end{enumerate}
+
+\item\textsc{REQUERIMIENTOS DE IMPLEMENTACION Y COMPORTAMIENTO}
+\begin{enumerate}
+\item El sistema debe funcionar en red.  \nf - \ee. \nnn Requerimiento de Diseño
+\item El sistema a implementarse deberá estar realizado en Java o C$\#$ \nf - \ii. \nnn Requerimiento de Diseño
+\item El sistema debe ser facilmente extendible con nuevos juegos \nf - \ii. \nnn Requerimiento de Diseño
+\end{enumerate}
+
+
+\item\textsc{REQUERIMIENTOS DE FUNCIONALIDAD EXTRA}
+\begin{enumerate}
+\item Se podrán ver imagenes de los juegos en 3D \nf - \dd. \nnn Requerimiento no cubierto en esta fase
+\item Los jugadores podran chatear entre ellos dentro del juego \ff - \dd. \nnn Requerimiento no cubierto en esta fase
+\end{enumerate}
+
+\end{enumerate}
+
+

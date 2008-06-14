@@ -1,0 +1,281 @@
+\documentclass[a4paper, 10pt, notitlepage]{article}
+
+\usepackage{moreverb} %para importar codigo
+
+\usepackage{pepotina} %paquete personal para la caratula del DC
+
+\usepackage[spanish,activeacute]{babel}
+\usepackage{babel} %paquete de idioma
+
+\usepackage[latin1]{inputenc}
+
+%\usepackage{color}
+
+\usepackage{hyperref}
+%\usepackage[all]{hypcap}
+
+\usepackage{caeycaeING}
+
+\usepackage{fancyhdr} %linea sup con comentarios
+
+\usepackage{lscape} %para hoja apaisada
+
+\usepackage{framed} %para crear cajas de texto
+
+\usepackage{lastpage} %ultima pagina
+
+%\usepackage{pstricks}
+%\usepackage{uml} %UML
+
+\usepackage{listings}
+%\lstset{
+%  breaklines=true,                                     % line wrapping on
+%  language=ocl,
+%  frame=ltrb,
+%  framesep=5pt,
+%  basicstyle=\normalsize,
+%  keywordstyle=\ttfamily\color{OliveGreen},
+%  identifierstyle=\ttfamily\color{CadetBlue}\bfseries,
+%  commentstyle=\color{Brown},
+%  stringstyle=\ttfamily,
+%  showstringspaces=ture
+%}
+
+\addtolength{\topmargin}{-50pt} 
+\addtolength{\textwidth}{105pt}
+\addtolength{\textheight}{120pt}
+\addtolength{\oddsidemargin}{-50pt}
+
+%\newcommand{\minix}{\textsl{minix }}
+
+%%% Encabezado y pie de p'agina
+\pagestyle{fancy}
+\fancyhead[LO]{Ingenieria del Software I}
+\fancyhead[C]{}
+\fancyhead[RO]{P\'agina \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+\newcommand{\depto}{{\bf DPTO: }}
+\newcommand{\falta}{ \begin{framed}	\begin{center} \hspace{1cm} \Large FALTA \normalsize \hspace{1cm} \end{center} \end{framed}}
+
+\begin{document}
+
+\universidad{Universidad de Buenos Aires}
+\facultad{Facultad de ciencias exactas y naturales}
+\departamento{Departamento de Computacion}
+\materia{Ingenieria del Software I}
+\resumen{Proyecto casino online}
+\keys{UML, Objetivos, Agentes, Casos De Uso, Diagrama De Contexto, Modelo Conceptual, OCL, Diagrama de Actividades, FSM}
+\titulo{Proyecto: Casino Online}
+\subtitulo{Informe 1: Analisis de Requerimientos y especificación}
+\grupo{Numero de grupo: 2}
+\fecha{1er Cuatrimeste 2008}
+\footspace{1cm}
+\integrante{Aquino, Isis}{313/05}{isisaquino@yahoo.com.ar}
+\integrante{Alvarez, Maria de los Angeles}{264/05}{mdelosaalvarez@hotmail.com}
+\integrante{Engler, Christian Alejandro}{314/05}{caeycae@gmail.com}
+
+%caratula
+\maketitle{}
+
+\tableofcontents
+
+\newpage
+
+\section{Introducción}
+	\subsection{Objetivo del documento}
+El objetivo de este documento es aportar criterios de validacion y verificacion de la especificación propuesta, que podran ser usados en las distintas actividades de desarrollo, ampliación, o modificación, del software del casino online.
+
+Este sera el documento base para la puesta en comun de los compromisos del software y los distintos agentes involucrados, da tal manera que pueda ser usado en el desarrollo, diseño, implementacion y testing para verificar el cumplimiento del proposito para el cual el software del casino online fue desarrollado.
+
+Tambien permitirá sentar las bases del alcance y los compromisos a cumplir y o negociar.
+
+	\subsection{Convenciones de notación}
+	
+Las convenciones de notación tomadas serán las siguientes:
+\begin{itemize}
+	\item Utilizaremos las palabras ``sistema'', ``software'', y ``máquina'' para referirnos indistintamente al sistema de software ``Casino Online'', las excepciones serán observadas oportunamente donde corresponda.    
+
+	\begin{framed}
+	\depto Utilizaremos la siguiente notación cuando queramos dirigirnos al Departamente de Calidad de Software
+	\end{framed}
+	
+	\begin{framed}
+	\textbf{TINTERO: } Utilizaremos la siguiente notación cuando queramos avisar que algo nos quedó en el tintero.
+	\end{framed}
+	
+	\end{itemize}
+
+	\subsection{Destinatarios del documento}
+	
+	Los destinatarios del presente documento serán los que se detallan a continuación, aunque puede llegar a extenderse a otros agentes que se involucren en un futuro o se vean afectados por el proyecto ``Casino Online'':
+
+		\begin{itemize}
+			\item Grupo Timbalistas
+			\item Departamento de Calidad de Software
+			\item Departamento de marketing
+			\item Administrador
+			\item Secretaria
+		\end{itemize}
+	
+	\subsection{Descripción del problema}
+	
+	El problema a resolver consiste en desarrollar un software que implemente la operatoria básica de un casino online, que además deberá funcionar en red. En principio el casino contara con 2 juegos: Craps y Tragamonedas. Cada uno tiene características propias: en el Craps puede haber varios jugadores, uno de ellos es el tirador de los dados. Los jugadores también pueden unirse a una jugada ya empezada y una vez allí todos los participantes pueden realizar distintos tipos de apuestas. 
+En el Tragamonedas solo hay un jugador que elige el valor de fichas con las que va a jugar en la maquina. Una vez allí puede jugar cuantas veces lo desee apostando de una a tres fichas. Cada vez que alguien juega al tragamonedas se debe incrementar el pozo llamado ``Premio Gordo Progresivo'', que se entregará automáticamente a quien saque la combinación ganadora siempre y cuando haya jugado el número máximo de fichas en, al menos, las últimas 4 jugadas.
+
+Además hay un pozo especial que podrá afectar a todos los juegos, pero de a una jugada por vez, llamada ``Jugada Feliz''. Consiste en un premio otorgado de forma aleatoria al ganador de la jugada y en caso de ser varios se prorrateará entre los ganadores. Este premio especial se conformará con lo recaudado en las ``Jugadas Todo Ponen'', que sería un porcentaje que se le descuenta de la apuesta ganada al ganador o ganadores de esta jugada, que también es aleatoria.
+
+Los jugadores tendrán un límite crédito para usar en las jugadas, aunque algunos serán catalogados como clientes VIP; estos tendrán crédito ilimitado.
+El casino puede entrar en un ``modo dirigido'' si así lo requiriera o deseara el Contador, donde se podría decidir el resultado de los juegos como así también las ocurrencias de los diferentes tipos de jugadas. El casino también debe poder ``abrirse'' o ``cerrarse'' para poder realizar ciertas configuraciones, obtener reportes y demás información relevante de la jornada. Los reportes requeridos son: Ranking de jugadores, Estado Actual(del casino y de los clientes) y Detalle de movimientos por jugador.
+	
+	\subsection{Documentos relacionados}
+	
+	Los documentos relacionados con este proyecto son los que aquí se detallan:
+
+\begin{itemize}
+\item 	Primera Reunión de Relevamiento
+\item 	Minuta de reunión 17/04/2008 Versión 1.0
+\item 	Minuta de reunión 17/04/2008 Versión 1.6
+\item 	Videos de Relevamiento: 
+\item 	http://www.sendspace.com/file/8mt2oo
+\item 	http://www.sendspace.com/file/4z4zbj
+\item 	http://www.sendspace.com/file/kyiw4o
+\item 	http://www.sendspace.com/file/wc8x94
+\item 	http://www.sendspace.com/file/go0w30	
+\item 	http://www.sendspace.com/file/i9aohl
+\item 	http://www.sendspace.com/file/dtrvyb
+\item 	http://www.sendspace.com/file/cb4kqt
+\item 	http://www.sendspace.com/file/hpg080
+\item 	http://www.sendspace.com/file/gy27bi
+\end{itemize}
+
+	\subsection{Organización del informe}
+
+\textbf{El Informe esta organizado de la siguiente manera:}
+\vskip1cm
+
+\textbf{1. Introducción:} Una introducción al mismo documento, convenciones de notación adoptada por los desarrolladores, destinatarios del presente documento y otros documentos relacionados para posibles consultas. Incluye ademas un preámbulo y breve descripción del problema a resolver.
+\vskip1cm
+\textbf{2. Descripción General:} Una breve descripción del problema y los factores que afectan al producto, su alcance, requerimientos y limitaciones. Muestra la perspectiva del producto a realizar y sus posibilidades de acoplamiento futuro. Las funciones principales que deberá incluir y características esperadas de los usuarios del producto. Restricciones impuestas sobre el desarrollo, y dependencias asumidas.
+\vskip1cm
+\textbf{3. Análisis por funcionalidad:}
+\begin{itemize}
+\item En la primera la seccion 3 se estudia el proyecto casino online a traves de distintas herramientas conceptuales que ayudan a reprensentar distintos factores involucrados, comportamientos e interacciones del problema a resolver. Cada herramienta contiene una breve explicación de como debe leerse.
+\begin{itemize}
+	\item \textbf{Relevamiento de requerimientos Generales} 
+	\item \textbf{Analisis de agentes involucrados en el sistema}
+	\item \textbf{Interacciones de agentes externos con el sistema}
+	\item \textbf{Conceptos fundamentales, y sus relaciones}  Breve descripcion de cada concepto que aparece en el modelo conceptual, modelo conceptual e invariantes 
+	\item \textbf{Lista de Requerimientos}
+\end{itemize}
+
+\item El la segunda parte se agruparon los temas por funcionalidad, explicando cada una de ellas con las herramientas que mejor especifiquen el concepto
+
+\begin{itemize}
+	\item Registracion y Ingreso al casino online y modificacion de saldo: Temas \textsl{Registracion, Modificacion de saldo, Ingreso y egreso del casino}
+	\item Administracion del Casino: Temas \textsl{Apertura del casino, Clausura del casino}
+	\item Invitado
+	\item Modo Dirigido Temas \textsl{Inicio de Modo Dirigido, Seteo de Jugadas Feliz y Todos Ponen, Finalización de Modo Dirigido}
+	\item Juego Tragamonedas
+	\item Juego Craps
+	\item Generacion de reportes: Temas \textsl{Generacion de reportes; Ranking de Jugadores, Estado Actual, Detalle de movimientos por jugador}
+	\item Pago de jugadas y premios: Temas \textsl{Pago jugada Tragamonedas, Pago jugada Craps}
+\end{itemize}
+
+\textbf{4. Glosario}
+\vskip0.5cm
+\textbf{5. Anexos:}
+\begin{itemize}
+\item Conclusiones.
+\end{itemize}
+
+\end{itemize}
+
+
+\section{Descripción General}
+	\subsection{Perspectiva del producto}
+	
+	El  producto final es independiente de otros productos, no necesita acoplarse a ningún otro software ni depende de alguno, es autocontenido. Por lo tanto, el presente documento contiene toda la información y descripción necesaria del software a construir.\\
+Pero cabe la posibilidad de que se requiera el acoplamiento en un futuro, pero no es algo que se contemple en este informe
+
+
+	\subsection{Funciones principales del producto}
+
+Las funciones principales del producto serán las siguientes:
+
+
+\begin{itemize}
+	\item Jugar y apostar en el Tragamonedas
+	\item 	Jugar y apostar Craps
+	\item 	Tener un pozo Premio gordo Progresivo para el juego de tragamonedas
+	\item 	Permitir un modo dirigido para decidir el resultado de las jugadas
+	\item 	Permitir la configuración de las jugadas, su monto minimo, porcentaje de retención(en el caso de todos ponen)
+	\item 	Tener Jugadas especiales, tales como Jugada Feliz y Todos Ponen
+	\item 	Permitir abrir y cerrar el casino
+	\item 	Permitir estando en modo dirigido configurar las ocurrencias de los distintos tipos de jugadas
+	\item 	Permitir Generar informes de Ranking de jugadores
+	\item 	Permitir Generar informes Estado Actual
+	\item 	Permitir Generar informes Detalle de movimientos por jugador
+\end{itemize}
+
+	\subsection{Características de los usuarios}
+	
+	Los usuarios de este software serán personas registradas en el sistema como mayores de edad, ya que eso es lo que la ley dictamina. Luego de la presentación de la documentación se los catalogará como Clientes VIP o comunes.\\
+Estos tiene computadora y acceso a la red. Se entiende que serán por lo menos aficionados o simpatizantes de los juegos de azar y tiene algo de experiencia en el consumo virtual.\\
+Sugerimos un estudio de campo sobre  la tendencia consumista de estos clientes para lograr captar un mayor numero de ellos.
+
+	\subsection{Restricciones}
+	
+	Se determinó que la implementación del proyecto sea realizada en Java o %C$/#$
+	
+	\subsection{Supuestos y dependencias}
+
+Algunos de los supuestos que hemos adoptado es que por ahora se incluirán solo los dos juegos mencionados, tragamonedas y craps, y que las reglas de estos juegos no cambiarán.
+
+\newpage
+\section{Análisis por funcionalidad}
+\input{porfuncionalidad.tex}
+	
+\newpage
+\section{Glosario}
+
+\vskip1cm
+
+\textsc{Glosario de Terminologia de juegos del casino}
+	
+\begin{itemize}
+	\item\textbf{Craps: } Es cuando en los dados se obtiene por resultado un dos, un tres o un doce.
+	\item\textbf{Natural: } Es cuando en los dados se obtiene por resultado un siete o un once.
+	\item\textbf{Puck: } Una luz en el tablero que indica si se ha establecido el Punto.
+	\item\textbf{Punto, establecer: } Es cuando en los dados se obtiene por resultado un cuatro, cinco, seis, ocho, nueve o diez.
+\end{itemize}
+
+\vskip2cm
+
+\textsc{Glosario de Terminologia de requerimientos}
+
+\begin{itemize}
+	\item\textbf{Actor: } Representa un tipo de usuario, un rol, abstrayendo al usuario real. Un actor es un agente.
+	\item\textbf{Agente: } Es cualquier ente, sistema, persona que interacciona con nuestra maquina, o sistema de software.
+	\item\textbf{Casos de Uso: } Describen bajo la forma de acciones y reacciones las operaciones provistas por una maquina desde el punto de vista del usuario, o sea, una secuencia de acciones que el sistema puede llevar a cabo interactuando con los actores. Estructuran el conjunto de operaciones según la categoría de usuarios que participan en el mismo.
+	\item\textbf{Diagrama de Actividad: } Presenta un flujo de actividades que están conectadas por medio de flechas representando flujo de control.
+	\item\textbf{FSM (Finite State Machines): } Las Maquinas de estado finito especifican aspectos relacionados con el tiempo real, dominios reactivos o autónomos, etc. Pueden representar aspectos dinámicos que no se expresan en otros diagramas.
+	\item\textbf{Herencia: } Un subconjunto del modelo heredado, con características propias además de todas las heredadas.
+	\item\textbf{Modelo Conceptual: } El objetivo es identificar y explicar los conceptos significativos en un dominio de problema y como estos se relacionan entre si.
+	\item\textbf{OCL (Object Constraint Languaje): } Lenguaje que depende del modelo de clases conceptuales (o modelo conceptual), se lo utiliza para expresar mas formalmente las operaciones y restricciones, para definir que estados son válidos.
+	\item\textbf{Validación: } Proceso cuyo objetivo es incrementar la confianza de que una descripción formal se corresponde con la realidad.
+	\item\textbf{Verificación: } Proceso cuyo objetivo es garantizar que una descripción formal es correcta con respecto a otra (la del problema con la de la solución en este caso).
+\end{itemize}
+
+\newpage
+\label{an1}
+\section{Anexo I - Conclusiones del TP}
+
+En este trabajo practico pudimos experimentar la dificil que es no contar con una definicion formal del problema a resolver.\\
+A medida que ibamos avanzando en el desarrollo del trabajo, nos dimos cuenta que alguno de los modelos nos fueron de ayuda para organizar el trabajo de avance.\\
+Las herramientas utilizadas en este trabajo nos facilitaron plasmar diferentes ideas y especificaciónes según el objetivo que cada una de estas herramientas pretende representar. Porque ademas pudimos entender que cada tecnica tenía una funcionalidad especifica y tuvimos que aprender a usar todo lo que ella pudiera ofrecernos sin extralimitarnos y pedirle que represente cosas que no tiene como objetivo representar.\\
+El Casino Online tenia muchas funcionalidades, interacciones, comportamientos dependientes de azar y de manipulaciones y de agentes externos. Creemos que hemos aprovechado al maximo las herramientas enseñadas para representar todo lo relativo a estas cuestiones.
+
+
+\end{document}

@@ -91,13 +91,63 @@
 
 \tableofcontents
 
+\newpage
 
 \section{Introducción}
 
+\section{Vista Modular}
+\label{sec:VistaModular}
 
+Para organizar el diseño, dividimos el problema en varios problemas independientes con el fin de hacer el diseño mas flexible y con espectativas de ocultamiento por capas, de modo de que a cada capa se le pudiera cambiar la implementacion.
 
+\imagen{0.70}{img/componentes.png}{Vista Modular}
 
-\section{Diseño por funcionalidad}
+\newpage
+\paragraph{Descripcion de cada uno de los modulos}
+\label{sec:DescripcionDeCadaUnoDeLosModulos}
+
+\begin{description}
+	\item[Mensajero] El modulo mensajero se ocupa de recibir los mensajes que le envian los clientes al servidor del casino online. Sus obligaciones son ``chequear'' la llegada de un mensaje, empaquetarlo y entregarselo al siguiente modulo.
+	\item[Interprete] El modulo interprete se ocupa de tomar un mensaje e intentar trasformarlo a un lenguaje entendible por los servicios del casino, en caso de que el mensaje no corresponda al formato esperado, debera notificar al cliente. Para lograr esta transformacion hace uso del modulo Parser.
+	\item[Parser] Este modulo convierte los datos del lenguaje de comunicacion al lenguaje que maneja el casino y viceversa. Esto es para que la eleccion del lenguaje de cada una de estas partes sea independiente y no afecte al resto del sistema.
+	\item[Servicios] Este modulo nuclea todos los servicios que presenta el casino. El diseño del casino esta ocultado detras de este modulo para que la implementacion de estos servicios pueda ser modificada sin grandes efectos colaterales.
+	\item[Casino] Aqui esta el casino propiamente dicho, intependiente a toda forma de comunicacion y protocolo. Este modulo se encarga de realizar todo lo especificado en el informe I.
+\end{description}
+\newpage
+
+\section{Modulos}
+\label{sec:Modulos}
+
+\subsection{Mensajero - Interpretador}
+\label{sec:MensajeroInterpretador}
+
+Diseñamos un servicio ``core'' de mensajeria para que administre el la recepcion de mensajes independientemente del uso que se le de a ellos.\\
+Presentamos aqui un diagrama de secuencia un ejemplo de uso correcto del servicio de mensajeria.
+No nos compretemos a que la implementacion del servicio sea ``porArchivos'', pero respetará el modelo propuesto por la clase abstracta mensajero.
+\imagen{0.50}{img/mensajeroSeq.png}{Diagrama de Secuencia: Mensajero}
+\newpage
+
+Ahora veamos mas en particular la operacion \textbf{OnMessage}. Esta operacion invoca al listener asociado al mensajero, dicha clase dira al mensajero que operacion realizar en el momento de recibir un mensaje.
+\imagen{0.50}{img/onMessageSeq.png}{Diagrama de Secuencia: OnMessage}
+\newpage
+
+Para completar la explicacion del diseño de este modulo necesitamos el diagrama de clases.
+
+\imagen{0.50}{img/mensajeroInterpretador.png}{Diagrama de Clases: Mensajero - Interpretador}
+\newpage
+
+\subsection{Interpretador - Parser - Servicios}
+
+No hay mucha complejidadad en estas interacciones y estan suficientemente ilustradas en el diagrama de secuencia anterior. Presentamos el diagrame de clases de los modulos restantes.
+
+\imagen{0.50}{img/interpretadorServicios.png}{Diagrama de Clases: Interpretador - Parser - Servicios}
+\newpage
+
+\subsection{Casino}
+\newpage
+
+\section{Funcionalidad Casino}
+\label{sec:FuncionalidadCasino}
 
 \subsection{Registracion y Ingreso al casino online y modificacion de saldo}
 
@@ -127,11 +177,9 @@ Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 
 \newpage
 \imagen{0.5}{img/entrar.png}{Jugador entrando al casino aceptado}
-\falta{entrar erroneo}
 
 \newpage
 \imagen{0.5}{img/salir.png}{Jugador saliendo al casino aceptado}
-\falta{salir erroneo}
 
 
 \newpage
@@ -168,11 +216,84 @@ Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 
 \falta{TODO lo de apertura del casino}
 
+\newpage
 \subsection{Invitado}
 
+En esta seccion estamos apuntando al ingreso de invitados al casino.
 
+Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 
+\imagen{0.5}{img/entrarInvitado.png}{Jugador entrando al casino aceptado}
 
+\newpage
+\imagen{0.5}{img/salirInvitado.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsection{Modo Dirigido}
+
+\subsubsection{Inicio de Modo Dirigido}
+
+\imagen{0.5}{img/setearMD.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Seteo de Jugadas Feliz y Todos Ponen}
+
+\imagen{0.5}{img/setearJF.png}{Jugador saliendo al casino aceptado}
+\newpage
+\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Finalización de Modo Dirigido}
+
+\imagen{0.5}{img/resetearMD.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsection{Juego Tragamonedas \label{sjt}}
+\subsubsection{Entrar en Tragamonedas}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\newpage
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Apostar en Tragamonedas}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\newpage
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Tirar en Tragamonedas}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\newpage
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Salir en Tragamonedas}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\newpage
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsection{Juego Craps \label{sjt}}
+\subsubsection{Entrar en Craps}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\newpage
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Apostar en Craps}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Tirar en Craps}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
+\subsubsection{Salir en Craps}
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\newpage
+%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+
+\newpage
 
 
 

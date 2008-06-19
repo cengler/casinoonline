@@ -3,13 +3,15 @@
 meter informe imagen ya exportada del seleccionador
 
 
-exportar imagenes de apostar craps
-y salir tragamonedas aceptado
+exportar imagenes de apostar craps (listo)
+y salir tragamonedas aceptado (listo)
 
 
-SUBIR DIAGRAMA DE CLASES !!!!!!!!!!!!!!!!!
+SUBIR DIAGRAMA DE CLASES !!!!!!!!!!!!!!!!! (listo)
 
+reportes
 
+y cosas q tengo anotas en mi cuaderno (mery)
 
 
 

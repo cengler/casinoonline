@@ -1,6 +1,6 @@
 
 
-meter informe imagen ya exportada del seleccionador
+ver imagenes de secuencia de mensajeria
 
 
 exportar imagenes de apostar craps (listo)

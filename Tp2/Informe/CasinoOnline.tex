@@ -176,9 +176,12 @@ En esta seccion estamos apuntando al ingreso de jugadores al casino (no al ingre
 Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 
 \newpage
+
+En este diagrama, observamos el mensaje del jugador ``Pepe'' que intenta loguearse en el casino online como jugador desde que llega al modulo de servicios y es resuelto por el modulo casino. El casino realiza todas las comprobaciones pertinentes y al estar todo ``en regla'' loggea al jugador y responde que la operacion pudo ser realizada.
 \imagen{0.5}{img/entrar.PNG}{Jugador entrando al casino aceptado}
 
 \newpage
+En este diagrama, observamos el mensaje del jugador ``Pepe'' que intenta desloguearse en el casino online como jugador desde que llega al modulo de servicios y es resuelto por el modulo casino. El casino realiza todas las comprobaciones pertinentes y al estar todo ``en regla'' desloggea al jugador y responde que la operacion pudo ser realizada.
 \imagen{0.5}{img/salir.PNG}{Jugador saliendo al casino aceptado}
 
 
@@ -249,6 +252,14 @@ Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 \imagen{0.5}{img/resetModoDirigido.PNG}{Finalización de Modo Dirigido}
 
 \newpage
+\subsection{Seleccionador de Tipo de jugada}
+
+El seleccionador de Tipo de jugada se encarga en un determinado momento seleccionar el tipo de jugada para una jugada de una mesa. El el momento de la creacion se una jugada, se invoca al seleccionador que segun el criterio de seleccion (por ej: el modo en que se encuentra el casino), seleccionará a un selector de tipo de jugada (por ej: Selector aleatorio - Selector probabilistico) que elige un tipo de jugada.
+
+\imagen{0.5}{img/seleccionador.PNG}{Seleccionador de Tipo de Jugada}
+
+
+\newpage
 \subsection{Juego Tragamonedas}
 \subsubsection{Entrar en Tragamonedas}
 \imagen{0.5}{img/entradaTragaAceptado.PNG}{Entrar en Traga Aceptado}
@@ -313,6 +324,12 @@ Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 \newpage
 \subsubsection{Generacion de reporte: Detalle de movimientos por jugador}
 \falta{ALGO}
+
+
+
+
+
+
 
 %%\section{Escenarios en castellano y Diagramas de secuencias de operaciones mas relevantes}
 %%

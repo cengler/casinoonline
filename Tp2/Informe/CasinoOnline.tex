@@ -95,12 +95,18 @@
 
 \section{Introducción}
 
+
+\input{introduccion.tex}
+\newpage
+
 \section{Vista Modular}
 \label{sec:VistaModular}
 
 Para organizar el diseño, dividimos el problema en varios problemas independientes con el fin de hacer el diseño mas flexible y con espectativas de ocultamiento por capas, de modo de que a cada capa se le pudiera cambiar la implementacion.
 
-\imagen{0.70}{img/componentes.PNG}{Vista Modular}
+\subsection{Modulos Server}
+
+\imagen{0.70}{img/componentes.PNG}{Vista Modular Server}
 
 \newpage
 \paragraph{Descripcion de cada uno de los modulos}
@@ -113,6 +119,12 @@ Para organizar el diseño, dividimos el problema en varios problemas independient
 	\item[Servicios] Este modulo nuclea todos los servicios que presenta el casino. El diseño del casino esta ocultado detras de este modulo para que la implementacion de estos servicios pueda ser modificada sin grandes efectos colaterales.
 	\item[Casino] Aqui esta el casino propiamente dicho, intependiente a toda forma de comunicacion y protocolo. Este modulo se encarga de realizar todo lo especificado en el informe I.
 \end{description}
+\newpage
+
+\subsection{Modulos Cliente y Administrador}
+
+\imagen{0.70}{img/componentesCliente.PNG}{Vista Modular Cliente}
+
 \newpage
 
 \section{Modulos}

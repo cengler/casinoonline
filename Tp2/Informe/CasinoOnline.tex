@@ -100,7 +100,7 @@
 
 Para organizar el diseño, dividimos el problema en varios problemas independientes con el fin de hacer el diseño mas flexible y con espectativas de ocultamiento por capas, de modo de que a cada capa se le pudiera cambiar la implementacion.
 
-\imagen{0.70}{img/componentes.png}{Vista Modular}
+\imagen{0.70}{img/componentes.PNG}{Vista Modular}
 
 \newpage
 \paragraph{Descripcion de cada uno de los modulos}
@@ -118,29 +118,29 @@ Para organizar el diseño, dividimos el problema en varios problemas independient
 \section{Modulos}
 \label{sec:Modulos}
 
-\subsection{Mensajero - Interpretador}
+\subsection{Mensajero / Interpretador}
 \label{sec:MensajeroInterpretador}
 
 Diseñamos un servicio ``core'' de mensajeria para que administre el la recepcion de mensajes independientemente del uso que se le de a ellos.\\
 Presentamos aqui un diagrama de secuencia un ejemplo de uso correcto del servicio de mensajeria.
 No nos compretemos a que la implementacion del servicio sea ``porArchivos'', pero respetará el modelo propuesto por la clase abstracta mensajero.
-\imagen{0.50}{img/mensajeroSeq.png}{Diagrama de Secuencia: Mensajero}
+\imagen{0.50}{img/mensajeroSeq.PNG}{Diagrama de Secuencia: Mensajero}
 \newpage
 
 Ahora veamos mas en particular la operacion \textbf{OnMessage}. Esta operacion invoca al listener asociado al mensajero, dicha clase dira al mensajero que operacion realizar en el momento de recibir un mensaje.
-\imagen{0.50}{img/onMessageSeq.png}{Diagrama de Secuencia: OnMessage}
+\imagen{0.50}{img/onMessageSeq.PNG}{Diagrama de Secuencia: OnMessage}
 \newpage
 
 Para completar la explicacion del diseño de este modulo necesitamos el diagrama de clases.
 
-\imagen{0.50}{img/mensajeroInterpretador.png}{Diagrama de Clases: Mensajero - Interpretador}
+\imagen{0.50}{img/mensajeroInterpretador.PNG}{Diagrama de Clases: Mensajero / Interpretador}
 \newpage
 
-\subsection{Interpretador - Parser - Servicios}
+\subsection{Interpretador / Parser / Servicios}
 
 No hay mucha complejidadad en estas interacciones y estan suficientemente ilustradas en el diagrama de secuencia anterior. Presentamos el diagrame de clases de los modulos restantes.
 
-\imagen{0.50}{img/interpretadorServicios.png}{Diagrama de Clases: Interpretador - Parser - Servicios}
+\imagen{0.50}{img/interpretadorServicios.PNG}{Diagrama de Clases: Interpretador / Parser / Servicios}
 \newpage
 
 \subsection{Casino}
@@ -176,10 +176,10 @@ En esta seccion estamos apuntando al ingreso de jugadores al casino (no al ingre
 Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 
 \newpage
-\imagen{0.5}{img/entrar.png}{Jugador entrando al casino aceptado}
+\imagen{0.5}{img/entrar.PNG}{Jugador entrando al casino aceptado}
 
 \newpage
-\imagen{0.5}{img/salir.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/salir.PNG}{Jugador saliendo al casino aceptado}
 
 
 \newpage
@@ -210,11 +210,12 @@ Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 </probablilidades>
 \end{verbatim}
 
-\falta{TODO lo de apertura del casino}
+\newpage
+\imagen{0.5}{img/abrirCasino.PNG}{Abrir Casino}
 
+\newpage
 \subsubsection{Clausura del casino}
-
-\falta{TODO lo de apertura del casino}
+\imagen{0.5}{img/cerrarCasino.PNG}{Cerrar Casino}
 
 \newpage
 \subsection{Invitado}
@@ -223,75 +224,81 @@ En esta seccion estamos apuntando al ingreso de invitados al casino.
 
 Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 
-\imagen{0.5}{img/entrarInvitado.png}{Jugador entrando al casino aceptado}
+\imagen{0.5}{img/entrarInvitado.PNG}{Jugador entrando del casino aceptado}
 
 \newpage
-\imagen{0.5}{img/salirInvitado.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/salirInvitado.PNG}{Jugador saliendo del casino aceptado}
 
 \newpage
 \subsection{Modo Dirigido}
 
 \subsubsection{Inicio de Modo Dirigido}
 
-\imagen{0.5}{img/setearMD.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/setModoDirigido.PNG}{Inicio de Modo Dirigido}
 
 \newpage
 \subsubsection{Seteo de Jugadas Feliz y Todos Ponen}
 
-\imagen{0.5}{img/setearJF.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/setJugFelizDirigida.PNG}{Seteo de Jugadas Feliz}
 \newpage
-\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/setearTodosPonenDir.PNG}{Seteo de Todos Ponen}
 
 \newpage
 \subsubsection{Finalización de Modo Dirigido}
 
-\imagen{0.5}{img/resetearMD.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/resetModoDirigido.PNG}{Finalización de Modo Dirigido}
 
 \newpage
-\subsection{Juego Tragamonedas \label{sjt}}
+\subsection{Juego Tragamonedas}
 \subsubsection{Entrar en Tragamonedas}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/entradaTragaAceptado.PNG}{Entrar en Traga Aceptado}
+
 \newpage
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/entradaTragaDenegada.PNG}{Entrar en Traga Denegado}
 
 \newpage
 \subsubsection{Apostar en Tragamonedas}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.4}{img/ApostarTragaAceptado.PNG}{Apostar en Traga Aceptado}
+
 \newpage
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/ApostarTragaDenegado.PNG}{Apostar en Traga Denegado}
 
 \newpage
 \subsubsection{Tirar en Tragamonedas}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.4}{img/tirarTragaAceptado.PNG}{Tirar en Traga Aceptado}
 \newpage
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/tirarTragaDenegado.PNG}{Tirar en Traga Denegado}
 
 \newpage
 \subsubsection{Salir en Tragamonedas}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/salidaTragaAceptado.PNG}{Salir en Traga Aceptado}
 \newpage
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/salirTragaDenegado.PNG}{Salir en Traga Denegado}
 
 \newpage
-\subsection{Juego Craps \label{sjt}}
+\subsection{Juego Craps}
 \subsubsection{Entrar en Craps}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/entradaCrapsAceptadoAbrir.PNG}{Entrar (Abrir mesa) en Craps Aceptado}
+
 \newpage
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/EntrarCrapsAceptadaUnirse.PNG}{Entrar (Unirse) en Craps Aceptado}
+
+\newpage
+\imagen{0.5}{img/EntrarCrapsDenegado.PNG}{Entrar en Craps Denegado}
 
 \newpage
 \subsubsection{Apostar en Craps}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/ApostarCrapsAceptado.PNG}{Apostar en Craps Aceptado}
 
 \newpage
 \subsubsection{Tirar en Craps}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/TirarCraps.PNG}{Tirar en Craps Aceptado}
 
 \newpage
 \subsubsection{Salir en Craps}
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/SalidaCrapsAceptado.PNG}{Salir en Craps Aceptado}
 \newpage
-%\imagen{0.5}{img/setearTP.png}{Jugador saliendo al casino aceptado}
+\imagen{0.5}{img/salirCrapsDenegado.PNG}{Salir en Craps Denegado}
 
 \newpage
 
@@ -319,10 +326,6 @@ Presentamos aqui diagramas de secuencia del correcto ingreso al casino online.
 %%%
 %%%Saludos,
 %%%Nicolas.
-
-
-
-
 
 
 %\includegraphics[scale=0.60]{mensajero.pdf}

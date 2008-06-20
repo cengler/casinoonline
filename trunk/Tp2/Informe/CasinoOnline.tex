@@ -123,7 +123,7 @@ Para organizar el diseño, dividimos el problema en varios problemas independient
 
 \subsection{Modulos Cliente y Administrador}
 
-\imagen{0.70}{img/componentesCliente.png}{Vista Modular Cliente}
+\imagen{0.60}{img/componentesCliente.png}{Vista Modular Cliente}
 
 \newpage
 
@@ -136,11 +136,11 @@ Para organizar el diseño, dividimos el problema en varios problemas independient
 Diseñamos un servicio ``core'' de mensajeria para que administre la recepcion de mensajes independientemente del uso que se le de a ellos.\\
 Presentamos aqui un diagrama de secuencia con un ejemplo de uso correcto del servicio de mensajeria.
 No nos comprometemos a que la implementacion del servicio sea ``porArchivos'', pero respetará el modelo propuesto por la clase abstracta mensajero.
-\imagen{0.50}{img/mensajeroSeq.png}{Diagrama de Secuencia: Mensajero}
+\imagen{0.45}{img/mensajeroSeq.png}{Diagrama de Secuencia: Mensajero}
 \newpage
 
 Ahora veamos mas en particular la operacion \textbf{OnMessage}. Esta operacion invoca al listener asociado al mensajero, dicha clase dira al mensajero que operacion realizar en el momento de recibir un mensaje.
-\imagen{0.50}{img/onMessageSeq.png}{Diagrama de Secuencia: OnMessage}
+\imagen{0.45}{img/onMessageSeq.png}{Diagrama de Secuencia: OnMessage}
 \newpage
 
 Para completar la explicacion del diseño de este modulo necesitamos el diagrama de clases.
@@ -257,7 +257,7 @@ Veamos un diagrama donde se realiza la apertura del casino y se muestra la carga
 
 Veamos tambien un diagrama en el que el administrador procede a cerrar el casino.
 
-\imagen{0.5}{img/cerrarCasino.png}{Cerrar Casino}
+\imagen{0.45}{img/cerrarCasino.png}{Cerrar Casino}
 
 \newpage
 \subsection{Invitado}
@@ -266,10 +266,10 @@ En esta seccion estamos apuntando al ingreso de invitados al casino.
 
 Presentamos aqui diagramas de secuencia del correcto ingreso y egreso de un invitado al casino online.
 
-\imagen{0.5}{img/entrarInvitado.png}{Jugador entrando del casino aceptado}
+\imagen{0.45}{img/entrarInvitado.png}{Jugador entrando del casino aceptado}
 
 \newpage
-\imagen{0.5}{img/salirInvitado.png}{Jugador saliendo del casino aceptado}
+\imagen{0.45}{img/salirInvitado.png}{Jugador saliendo del casino aceptado}
 
 Si asi lo requiere, el invitado puede pedir el estado del Casino. Ver \ref{notCas}
 
@@ -306,7 +306,7 @@ Escenario donde se deshabilita el modo dirigido para volver al modo normal. Asi 
 
 El seleccionador de Tipo de jugada se encarga de, en un determinado momento, seleccionar el tipo de jugada para una jugada de una mesa. En el momento de la creacion de una jugada, se invoca al seleccionador que segun el criterio de seleccion (por ej: el modo en que se encuentra el casino), seleccionará a un selector de tipo de jugada (por ej: Selector aleatorio - Selector probabilistico) que elige un tipo de jugada.
 
-\imagen{0.5}{img/seleccionador.png}{Seleccionador de Tipo de Jugada}
+\imagen{0.45}{img/seleccionador.png}{Seleccionador de Tipo de Jugada}
 
 
 \newpage
@@ -314,7 +314,7 @@ El seleccionador de Tipo de jugada se encarga de, en un determinado momento, sel
 \subsubsection{Entrar en Tragamonedas}
 
 
-\imagen{0.5}{img/entradaTragaAceptado.png}{Entrar en Traga Aceptado}
+\imagen{0.45}{img/entradaTragaAceptado.png}{Entrar en Traga Aceptado}
 
 \newpage
 \imagen{0.5}{img/entradaTragaDenegada.png}{Entrar en Traga Denegado}
@@ -330,44 +330,44 @@ El seleccionador de Tipo de jugada se encarga de, en un determinado momento, sel
 \subsubsection{Tirar en Tragamonedas}
 \imagen{0.4}{img/tirarTragaAceptado.png}{Tirar en Traga Aceptado}
 \newpage
-\imagen{0.5}{img/tirarTragaDenegado.png}{Tirar en Traga Denegado}
+\imagen{0.45}{img/tirarTragaDenegado.png}{Tirar en Traga Denegado}
 
 \newpage
 \subsubsection{Salir en Tragamonedas}
-\imagen{0.5}{img/salidaTragaAceptado.png}{Salir en Traga Aceptado}
+\imagen{0.45}{img/salidaTragaAceptado.png}{Salir en Traga Aceptado}
 \newpage
-\imagen{0.5}{img/salirTragaDenegado.png}{Salir en Traga Denegado}
+\imagen{0.45}{img/salirTragaDenegado.png}{Salir en Traga Denegado}
 
 \newpage
 \subsection{Juego Craps}
 \subsubsection{Entrar en Craps}
-\imagen{0.5}{img/entradaCrapsAceptadoAbrir.png}{Entrar (Abrir mesa) en Craps Aceptado}
+\imagen{0.45}{img/entradaCrapsAceptadoAbrir.png}{Entrar (Abrir mesa) en Craps Aceptado}
 
 \newpage
-\imagen{0.5}{img/EntrarCrapsAceptadaUnirse.png}{Entrar (Unirse) en Craps Aceptado}
+\imagen{0.45}{img/EntrarCrapsAceptadaUnirse.png}{Entrar (Unirse) en Craps Aceptado}
 
 \newpage
-\imagen{0.5}{img/EntrarCrapsDenegado.png}{Entrar en Craps Denegado}
+\imagen{0.45}{img/EntrarCrapsDenegado.png}{Entrar en Craps Denegado}
 
 \newpage
 \subsubsection{Apostar en Craps}
-\imagen{0.5}{img/ApostarCrapsAceptado.png}{Apostar en Craps Aceptado}
+\imagen{0.45}{img/ApostarCrapsAceptado.png}{Apostar en Craps Aceptado}
 
 \newpage
 \subsubsection{Tirar en Craps}
-\imagen{0.5}{img/TirarCraps.png}{Tirar en Craps Aceptado}
+\imagen{0.45}{img/TirarCraps.png}{Tirar en Craps Aceptado}
 
 \newpage
 \subsubsection{Salir en Craps}
-\imagen{0.5}{img/SalidaCrapsAceptado.png}{Salir en Craps Aceptado}
+\imagen{0.45}{img/SalidaCrapsAceptado.png}{Salir en Craps Aceptado}
 \newpage
-\imagen{0.5}{img/salirCrapsDenegado.png}{Salir en Craps Denegado}
+\imagen{0.45}{img/salirCrapsDenegado.png}{Salir en Craps Denegado}
 
 \newpage
 \subsection{Notificar Estado Casino \label{notCas}}
 Tanto el invitado como un jugador pueden querer observador el estado del casino, preguntandoselo al mismo. El diagrama que sigue describe como el casino obtiene los datos para luego notificarselos a quien lo solicite  
 
-\imagen{0.5}{img/notificarEstCasino.png}{Notificar Estado Casino}
+\imagen{0.45}{img/notificarEstCasino.png}{Notificar Estado Casino}
 
 \newpage
 \subsection{Generacion de reportes}
@@ -379,12 +379,14 @@ Tanto el invitado como un jugador pueden querer observador el estado del casino,
 \imagen{0.5}{img/reporteEstActual.png}{Estado Actual}
 
 \newpage
-\subsubsection{Generacion de reporte: Detalle de movimientos por jugador}
-\falta{REPORTE DETALLE DE MOVIMIENTOS POR JUGADOR}
+%\subsubsection{Generacion de reporte: Detalle de movimientos por jugador}
+%\falta{REPORTE DETALLE DE MOVIMIENTOS POR JUGADOR}
 
 
+\section{Anexo I - Conclusiones}
+\label{sec:AnexoIConclusiones}
 
-
+\input{conclusiones.tex}
 
 
 

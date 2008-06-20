@@ -1,23 +1,7 @@
 
-
-ver imagenes de secuencia de mensajeria
-
-
-exportar imagenes de apostar craps (listo)
-y salir tragamonedas aceptado (listo)
-
-
-SUBIR DIAGRAMA DE CLASES !!!!!!!!!!!!!!!!! (listo)
-
-reportes
+reportes (falta el de isis)
 
 y cosas q tengo anotas en mi cuaderno (mery)
-
-
-
-notificarEstadoCasino no lo vi (sin embargo lo tengo en el mp3 falta exportar a imagen)
-
-
 
 ------------------------------------
 

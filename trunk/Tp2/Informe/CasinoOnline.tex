@@ -91,13 +91,13 @@
 
 \tableofcontents
 
-\newpage
+%\newpage
 
 \section{Introducción}
 
 
 \input{introduccion.tex}
-\newpage
+%\newpage
 
 \section{Vista Modular}
 \label{sec:VistaModular}
@@ -108,7 +108,7 @@ Para organizar el diseño, dividimos el problema en varios problemas independient
 
 \imagen{0.70}{img/componentes.png}{Vista Modular Server}
 
-\newpage
+%\newpage
 \paragraph{Descripcion de cada uno de los modulos}
 \label{sec:DescripcionDeCadaUnoDeLosModulos}
 
@@ -157,16 +157,16 @@ No hay mucha complejidad en estas interacciones y estan suficientemente ilustrad
 
 \subsection{Casino}
 
-\imagen{0.40}{img/CasinoJugadorInvitadoClases.PNG}{Diagrama de Clases: Casino / Jugador / Invitado / TipoJugada}
+\imagen{0.40}{img/CasinoJugadorInvitadoClases.png}{Diagrama de Clases: Casino / Jugador / Invitado / TipoJugada}
 \newpage
 
-\imagen{0.40}{img/TragamonedasClases.PNG}{Diagrama de Clases: Traga}
+\imagen{0.40}{img/TragamonedasClases.png}{Diagrama de Clases: Traga}
 \newpage
 
-\imagen{0.40}{img/CrapsClases.PNG}{Diagrama de Clases: Craps}
+\imagen{0.40}{img/CrapsClases.png}{Diagrama de Clases: Craps}
 \newpage
 
-\imagen{0.40}{img/MensajesClases.PNG}{Diagrama de Clases: Mensajes}
+\imagen{0.40}{img/MensajesClases.png}{Diagrama de Clases: Mensajes}
 \newpage
 
 \section{Funcionalidad Casino}
@@ -199,15 +199,15 @@ Mas alla de la operatoria, debará modificarse el archivo definido en el punto an
 En esta seccion estamos apuntando al ingreso de jugadores al casino (no al ingreso de jugadores observadores, dicha interaccion con el casino esta expuesta en la seccion Invitado)
 
 Presentamos aqui diagramas de secuencia del correcto ingreso al Casino Online.
-
 \newpage
-
 En este diagrama, observamos el mensaje del jugador ``Pepe'' que intenta loguearse en el casino online como jugador desde que llega al modulo de servicios y es resuelto por el modulo casino. El casino realiza todas las comprobaciones pertinentes y al estar todo ``en regla'' loggea al jugador y responde que la operacion pudo ser realizada.
 \imagen{0.5}{img/entrar.png}{Jugador entrando al casino aceptado}
-
 \newpage
 En este diagrama, observamos el mensaje del jugador ``Pepe'' que intenta desloguearse en el casino online como jugador desde que llega al modulo de servicios y es resuelto por el modulo casino. El casino realiza todas las comprobaciones pertinentes y al estar todo ``en regla'' desloggea al jugador y responde que la operacion pudo ser realizada.
+
 \imagen{0.5}{img/salir.png}{Jugador saliendo del casino aceptado}
+\newpage
+\imagen{0.5}{img/estaJugando.png}{Esta Jugando}
 
 Si asi lo desea, un jugador pude solicitarle al casino su estado. Ver \ref{notCas}
 
@@ -239,7 +239,11 @@ Estos archivos de momento tendrán formato XML. Este es un ejemplo de uno de esto
     <traga>
         <gordoProgresivo montoMinimo="" descuento=""/>
         <combinaciones>
-            <combinacion simbolo1="" simbolo2="" simbolo3="" proba=""/>
+            <simbolo1= "" proba=""/>
+            .
+            .
+            <simboloN= "" proba=""/>
+            
         </combinaciones>
     </traga>
 </probablilidades>
@@ -266,46 +270,99 @@ En esta seccion estamos apuntando al ingreso de invitados al casino.
 
 Presentamos aqui diagramas de secuencia del correcto ingreso y egreso de un invitado al casino online.
 
-\imagen{0.45}{img/entrarInvitado.png}{Jugador entrando del casino aceptado}
+\imagen{0.45}{img/entrarInvitadoCliente.png}{Cliente del casino ingresando al mismo como invitado, aceptado}
 
 \newpage
-\imagen{0.45}{img/salirInvitado.png}{Jugador saliendo del casino aceptado}
+\imagen{0.45}{img/salirInvitadoCliente.png}{Cliente del casino saliendo del mismo como invitado, aceptado}
+\newpage
+\imagen{0.45}{img/entrarInvitadoNoCliente.png}{Jugador ingresando al casino como invitado, aceptado}
+\newpage
+\imagen{0.45}{img/salirInvitadoNoCliente.png}{Jugador del casino saliendo del  casino como invitado, aceptado}
+
 
 Si asi lo requiere, el invitado puede pedir el estado del Casino. Ver \ref{notCas}
 
 \newpage
 \subsection{Modo Dirigido}
 
+El casino cuenta con algunos archivos de configuración para establecer el modo en que estará.\\
+Los archivos vendran con la implementacion del casino y podran ser modificados por el administrador. 
+Estos archivos de momento tendrán formato XML. Estos son ejemplos de algunos de estos archivos.
+
+\begin{framed}
+\begin{verbatim}
+<setearModo>
+    <modo>dirigido</modo>
+    <resultados>
+	<resultadosTragamonedas>
+		"dino,dino,dino" 
+		"cereza,cereza,bar" 
+		"bar,bar,bar" 
+		"doble bar,bar,doble bar" 
+		...
+	</resultadosTragamonedas>
+	<resultadosCraps>
+		"1,7,3,6,12,11,3,6,3..."
+	</resultadosCraps>
+	...
+    </resultados>
+    <aceptado></aceptado>
+</setearModo>
+\end{verbatim}
+\end{framed}
+
+\begin{framed}
+\begin{verbatim}
+<setearModo>
+    <modo>normal</modo>
+    <resultados></resultados>
+    <aceptado>ok </aceptado>
+</setearModo>
+\end{verbatim}
+\end{framed}
+
+\begin{framed}
+\begin{verbatim}
+<setearJugada>
+    <tipo de jugada="normal, feliz, todosPonen">
+    </tipo de jugada>
+    <juego="nombre de juego">
+    </juego>
+    <mesa="id de la mesa">
+    </mesa>
+    <aceptado>si o no</aceptado>
+    <descripcion></descripcion>
+</setearJugada>
+\end{verbatim}
+\end{framed}
+
+\newpage
 \subsubsection{Inicio de Modo Dirigido}
 
 En el momento de entrar en modo dirigido, se deberán configurar el resultado que obtendran los juegos y qué jugadas deberán ir saliendo, ya que a partir de ese momento el azar no intervendrá en estos eventos.
 
-\imagen{0.5}{img/setModoDirigido.png}{Inicio de Modo Dirigido}
+\imagen{0.5}{img/setModoCasinoNvaVersion.png}{Inicio de Modo Dirigido}
 
 \newpage
-\subsubsection{Seteo de Jugadas Feliz y Todos Ponen}
+\subsubsection{Seteo de Jugadas}
 
 Una vez que el modo dirigido esta habilitado, se podra decidir la ocurrencia de jugadas felices y todos ponen para un juego y mesa particular.
-Escenario donde un manipulador setea una jugada feliz en la proxima jugada de la mesa 20 de Tragamonedas.
 
-\imagen{0.5}{img/setJugFelizDirigida.png}{Seteo de Jugadas Feliz}
+\imagen{0.5}{img/setJugada.png}{Seteo de Jugada}
 
-\newpage
-Escenario donde un manipulador setea una jugada todos ponen en la proxima jugada de la mesa 15 de Tragamonedas.
-\imagen{0.5}{img/setearTodosPonenDir.png}{Seteo de Todos Ponen}
 
 \newpage
 \subsubsection{Finalización de Modo Dirigido}
 
 Escenario donde se deshabilita el modo dirigido para volver al modo normal. Asi se habilitaran nuevamente los resultados y seteo de Tipo de jugada azarosos.
 
-\imagen{0.5}{img/resetModoDirigido.png}{Finalización de Modo Dirigido}
+\imagen{0.5}{img/resetModoCasinoNvaVersion.png}{Finalización de Modo Dirigido}
 
-\newpage
+
 \subsection{Seleccionador de Tipo de jugada}
 
 El seleccionador de Tipo de jugada se encarga de, en un determinado momento, seleccionar el tipo de jugada para una jugada de una mesa. En el momento de la creacion de una jugada, se invoca al seleccionador que segun el criterio de seleccion (por ej: el modo en que se encuentra el casino), seleccionará a un selector de tipo de jugada (por ej: Selector aleatorio - Selector probabilistico) que elige un tipo de jugada.
-
+\newpage
 \imagen{0.45}{img/seleccionador.png}{Seleccionador de Tipo de Jugada}
 
 
@@ -316,8 +373,11 @@ El seleccionador de Tipo de jugada se encarga de, en un determinado momento, sel
 
 \imagen{0.45}{img/entradaTragaAceptado.png}{Entrar en Traga Aceptado}
 
+
 \newpage
 \imagen{0.5}{img/entradaTragaDenegada.png}{Entrar en Traga Denegado}
+
+La funcionalidad EstaJugando se puede ver en \ref{estaJugando}
 
 \newpage
 \subsubsection{Apostar en Tragamonedas}
@@ -349,13 +409,22 @@ El seleccionador de Tipo de jugada se encarga de, en un determinado momento, sel
 \newpage
 \imagen{0.45}{img/EntrarCrapsDenegado.png}{Entrar en Craps Denegado}
 
-\newpage
+\imagen{0.45}{img/estaJugando.png}{Esta Jugando}
+El diagrama anterior describe la funcionalidad que recorre las mesas de craps para averiguar si un jugador dado se encuentra jugando en alguna de las mesas.
+De manera analoga se procede con las mesas del tragamonedas \label{estaJugando}
+
 \subsubsection{Apostar en Craps}
 \imagen{0.45}{img/ApostarCrapsAceptado.png}{Apostar en Craps Aceptado}
 
 \newpage
-\subsubsection{Tirar en Craps}
-\imagen{0.45}{img/TirarCraps.png}{Tirar en Craps Aceptado}
+\subsubsection{Tirar en Craps - Aceptado}
+\imagen{0.45}{img/tiraraCrapsTiroSalida.png}{Tiro de Salida}
+\newpage
+\imagen{0.45}{img/TirarCraps.png}{Tiro luego de establecido el punto}
+\newpage
+\imagen{0.45}{img/PagarApuestasCrapsFeliz.png}{PagarApuestas - Feliz}
+\newpage
+\imagen{0.45}{img/PagarApuestasTodosPonen.png}{PagarApuestas - TodosPonen}
 
 \newpage
 \subsubsection{Salir en Craps}

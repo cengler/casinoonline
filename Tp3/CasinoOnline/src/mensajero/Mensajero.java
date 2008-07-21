@@ -1,17 +1,22 @@
 package mensajero;
 
+import org.apache.log4j.Logger;
+
 public abstract class Mensajero {
 
 	protected boolean con = false;
-	private IMessageListener lis;
+	protected IMessageListener lis;
+	Logger logger = Logger.getLogger(Mensajero.class);
 	
 	public void closeConnection()
 	{
+		logger.debug("closeConnection()");
 		con = false;
 	}
 	
 	public void openConnection()
 	{
+		logger.debug("openConnection()");
 		con = true;
 	}
 	
@@ -21,6 +26,7 @@ public abstract class Mensajero {
 	
 	public void recive() throws Exception
 	{
+		logger.debug("recive()");
 		while(con)
 		{
 			IMessage msg = read();
@@ -30,6 +36,7 @@ public abstract class Mensajero {
 	
 	public void setListener(IMessageListener lis)
 	{
+		logger.debug("setListener() " + lis.getClass());
 		this.lis = lis;
 	}
 	

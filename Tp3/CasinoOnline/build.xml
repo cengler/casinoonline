@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<project name="Casino Online" default="zip">
+
+<property name="dir.lib" value="lib" />
+<property name="dir.bin" value="bin" />
+<property name="dir.jar" value="jar" />
+<property name="dir.src" value="src" />
+<property name="name.jar" value="casino.jar" />
+
+<path id="classpath">
+	<fileset dir="${dir.lib}" includes="jdepend-2.9.jar"/>
+	<fileset dir="${dir.lib}" includes="log4j.jar"/>
+	<fileset dir="${dir.lib}" includes="xstream-1.3.jar"/>
+	<fileset dir="${dir.lib}" includes="checkstyle-all-4.4.jar"/>
+</path>
+
+   
+<taskdef resource="checkstyletask.properties"
+          classpathref="classpath"/> 
+
+
+<target name="clear" description="Borra para un recompilacion completa">
+	<echo>Borrando directorios: ..................... </echo>
+    <delete dir="${dir.bin}" />
+    <delete dir="${dir.jar}" />
+</target>
+
+<target name="makedir" depends="clear" description="Crea los directorios">
+	<echo>verificando y creando directorios: ..................... </echo>
+    <mkdir dir="${dir.bin}" />
+    <mkdir dir="${dir.jar}" />
+	<mkdir dir="${dir.lib}" />
+</target>
+
+<target name="make" depends="makedir" description="Compila el proyecto">
+	<echo>Compilando Proyecto: ..................... </echo>
+    <javac srcdir="${dir.src}" destdir="${dir.bin}" classpathref="classpath" />
+</target>
+
+<target name="zip" depends="make" description="Crea el jar">
+	<echo>Creando Jars: ..................... </echo>
+    <jar jarfile="${dir.jar}/${name.jar}" basedir="${dir.bin}" />
+</target>
+
+   
+<target name="checkstyle"
+        description="Generates a report of code convention violations.">
+	<echo>Chequeando Codigo: ..................... </echo>
+
+  <checkstyle config="sun_checks.xml"
+              failureProperty="checkstyle.failure"
+              failOnViolation="false">
+    <formatter type="xml" tofile="checkstyle_report.xml"/>
+    <fileset dir="${dir.src}" includes="**/*.java" excludes="**/MSG*.java"/>
+  </checkstyle>
+
+  <style in="checkstyle_report.xml" out="checkstyle_report.html" style="checkstyle.xsl"/>
+
+</target>
+
+
+</project>
+

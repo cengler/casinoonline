@@ -4,7 +4,9 @@
 <property name="dir.lib" value="lib" />
 <property name="dir.bin" value="bin" />
 <property name="dir.jar" value="jar" />
-<property name="dir.src" value="src" />
+<property name="dir.src" value="src" /><br/>
+<property name="dir.etc" value="etc" />
+<property name="dir.rep" value="report" />
 <property name="name.jar" value="casino.jar" />
 
 <path id="classpath">
@@ -20,9 +22,10 @@
 
 
 <target name="clear" description="Borra para un recompilacion completa">
-	<echo>Borrando directorios: ..................... </echo>
+	<echo>Borrando directorios: ................................. </echo>
     <delete dir="${dir.bin}" />
     <delete dir="${dir.jar}" />
+	<delete dir="${dir.rep}" />
 </target>
 
 <target name="makedir" depends="clear" description="Crea los directorios">
@@ -30,17 +33,42 @@
     <mkdir dir="${dir.bin}" />
     <mkdir dir="${dir.jar}" />
 	<mkdir dir="${dir.lib}" />
+	<mkdir dir="${dir.rep}" />
 </target>
 
 <target name="make" depends="makedir" description="Compila el proyecto">
-	<echo>Compilando Proyecto: ..................... </echo>
+	<echo>Compilando Proyecto: .................................. </echo>
     <javac srcdir="${dir.src}" destdir="${dir.bin}" classpathref="classpath" />
 </target>
 
 <target name="zip" depends="make" description="Crea el jar">
-	<echo>Creando Jars: ..................... </echo>
+	<echo>Creando Jars: .......................................... </echo>
     <jar jarfile="${dir.jar}/${name.jar}" basedir="${dir.bin}" />
 </target>
+
+<target name="jdepend">
+	<echo>Calculando dependencias (Jdepend): ..................... </echo>
+	<jdepend format="xml" outputfile="${dir.rep}/jdepend-report.xml" classpathref="classpath">
+		<exclude name="java.*"/>
+		<exclude name="javax.*"/>
+		<classespath>
+			<pathelement location="${dir.bin}" />
+		</classespath>
+		<classpath location="classes" />
+	</jdepend>
+
+	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
+		style="${ant.home}/etc/jdepend.xsl" >
+	 	<mapper type="glob" from="*jdepend-report.xml" to="jdepend-report.html"/>
+	</xslt>
+	
+	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
+		style="${dir.etc}/jdepend2dot.xsl" >
+	 	<mapper type="glob" from="*jdepend-report.xml" to="jdepend-report.dot"/>
+	</xslt>
+	
+</target>
+
 
    
 <!--target name="checkstyle"

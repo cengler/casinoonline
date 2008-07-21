@@ -130,7 +130,7 @@ Para organizar el diseño, dividimos el problema en varios problemas independient
 \section{Modulos}
 \label{sec:Modulos}
 
-\subsection{Mensajero / Interpretador}
+\subsection{Mensajero / Interpretador/ core / servicios/ Interpretador Salida / Parser }
 \label{sec:MensajeroInterpretador}
 
 Diseñamos un servicio ``core'' de mensajeria para que administre la recepcion de mensajes independientemente del uso que se le de a ellos.\\
@@ -145,28 +145,33 @@ Ahora veamos mas en particular la operacion \textbf{OnMessage}. Esta operacion i
 
 Para completar la explicacion del diseño de este modulo necesitamos el diagrama de clases.
 
-\imagen{0.50}{img/mensajeroInterpretador.png}{Diagrama de Clases: Mensajero / Interpretador}
+\imagen{0.50}{img/mensajeroInterpreteServiciosParserInterpreteSalida.png}{Diagrama de Clases: Mensajero / Interpretador/ core / servicios/ Interpretador Salida / Parser}
 \newpage
 
-\subsection{Interpretador / Parser / Servicios}
 
-No hay mucha complejidad en estas interacciones y estan suficientemente ilustradas en el diagrama de secuencia anterior. Presentamos el diagrama de clases de los modulos restantes.
-
-\imagen{0.50}{img/interpretadorServicios.png}{Diagrama de Clases: Interpretador / Parser / Servicios}
-\newpage
-
+%\subsection{Casino}
+%\imagen{0.40}{img/CasinoJugadorInvitadoClases.png}{Diagrama de Clases: Casino / Jugador / Invitado / TipoJugada}
+%\newpage
 \subsection{Casino}
-
-\imagen{0.40}{img/CasinoJugadorInvitadoClases.png}{Diagrama de Clases: Casino / Jugador / Invitado / TipoJugada}
+\imagen{0.30}{img/casinoSolo.png}{Diagrama de Clases: Casino}
 \newpage
 
-\imagen{0.40}{img/TragamonedasClases.png}{Diagrama de Clases: Traga}
+\subsection{Tragamonedas}
+\imagen{0.40}{img/tragaSolo.png}{Diagrama de Clases: Traga}
 \newpage
 
-\imagen{0.40}{img/CrapsClases.png}{Diagrama de Clases: Craps}
+\subsection{Craps}
+\imagen{0.40}{img/crapsSolo.png}{Diagrama de Clases: Craps}
 \newpage
 
-\imagen{0.40}{img/MensajesClases.png}{Diagrama de Clases: Mensajes}
+%\imagen{0.40}{img/CrapsClases.png}{Diagrama de Clases: Craps}
+%\newpage
+
+%\imagen{0.40}{img/MensajesClases.png}{Diagrama de Clases: Mensajes}
+%\newpage
+
+\subsection{Servicios y dependencias}
+\imagen{0.50}{img/serviciosYdependencias.png}{Diagrama de Clases: Servicios y sus depedencias con Craps, Tragamonedas y Casino}
 \newpage
 
 \section{Funcionalidad Casino}

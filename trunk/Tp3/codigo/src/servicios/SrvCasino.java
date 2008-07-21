@@ -1,7 +1,7 @@
 package servicios;
 
 import casino.msg.MSGEntradaCasino;
-import casino.msg.MSGEstadoCasino;
+import casino.msg.estadoCasino.MSGEstadoCasino;
 import casino.msg.MSGSalidaCasino;
 
 public class SrvCasino {

@@ -27,7 +27,7 @@ public class Start {
 			Date d = new Date(); 
 			
 			logger.debug("Instanciando mensajeros...");
-			mCasino = new MensajeroXArchivos("C:\\"); 
+			/*mCasino = new MensajeroXArchivos("C:\\"); 
 			mCraps = new MensajeroXArchivos("C:\\"); 
 			mAdministracion = new MensajeroXArchivos("C:\\"); 
 			mTraga = new MensajeroXArchivos("C:\\"); 
@@ -38,7 +38,7 @@ public class Start {
 			new Thread(mCraps).start();
 			new Thread(mAdministracion).start();
 			new Thread(mTraga).start();
-			new Thread(mEstadoCraps).start();
+			new Thread(mEstadoCraps).start();*/
 			
 			logger.info("Servidor iniciado en: " + (new Date().getTime() - d.getTime()) + " millisegundos");
 			

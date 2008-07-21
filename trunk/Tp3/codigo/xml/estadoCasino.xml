@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
-<estadoCasino vTerm="200" usuario="nombre del usuario"> 
+<estadoCasino vTerm="20" usuario="nombre del usuario"> 
 	<jugadores> 
 		<jugador nombre="nombre del usuario jugador"></jugador> 
 	</jugadores> 
@@ -10,29 +10,28 @@
 		<tragamonedas>
 			<pozoProgresivo>200</pozoProgresivo> 
 			<mesasTragamonedas>
-				<mesaTragamonedas id="id del tragamonedas"> 
+				<mesaTragamonedas id="30"> 
 					<jugador nombre="nombre del jugador en la mesa"></jugador> 
-					<ultimoTiroTragamonedas>
+					<ultimoTiroTraga>
 						<tirador>nombre del jugador que efectuó el ultimo tiro</tirador> 
-						<resultadoTragamonedas> 
+						<resultadoTraga> 
 							<rueda1>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda1>
 							<rueda2>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda2> 
 							<rueda3>"cereza" o "bar simple" o "bar doble" o "bar triple" o "dinosaurio"</rueda3> 
-						</resultadoTragamonedas> 
-					</ultimoTiroTragamonedas>
+						</resultadoTraga> 
+					</ultimoTiroTraga>
 				</mesaTragamonedas> 
 			</mesasTragamonedas>
 		</tragamonedas> 
 		<craps>
 			<mesasCraps>
-				<mesaCraps id="id de mesa craps">
+				<mesaCraps id="20">
 					<jugadores>
 						<jugador nombre="nombre de un jugador en la mesa"></jugador> 
 					</jugadores>
-					<turno>nombre del jugador que tiene el turno</turno>
 					<ultimoTiroCraps>
 						<tirador> nombre del jugador que efectuó el ultimo tiro </tirador>
-						<resultadoCraps>6</resultadoCraps> 
+						<resultado>6</resultado> 
 					</ultimoTiroCraps> 
 				</mesaCraps>
 			</mesasCraps>

@@ -1,6 +1,6 @@
 package interpretador;
 
-import parser.IMessage;
+import core.IMessage;
 
 public interface IInterpretadorCasino {
 

@@ -1,4 +1,4 @@
-package craps;
+package observerCraps;
 
 import java.util.Observable;
 import java.util.Observer;

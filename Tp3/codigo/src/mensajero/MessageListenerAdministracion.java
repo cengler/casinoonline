@@ -1,8 +1,9 @@
 package mensajero;
 
-import parser.IMessage;
+import core.IMessage;
+import core.IMessageListener;
 
-public class MessageListenerAdministracion implements MessageListener {
+public class MessageListenerAdministracion implements IMessageListener {
 
 	public MessageListenerAdministracion(){
 

@@ -1,0 +1,38 @@
+<estadoCasino vTerm="20" usuario="nombre del usuario">
+  <jugadores>
+    <jugador nombre="nombre del usuario jugador"/>
+  </jugadores>
+  <observadores>
+    <observador nombre="nombre del usuario observador"/>
+  </observadores>
+  <juegos>
+    <tragamonedas>
+      <pozoProgresivo>200</pozoProgresivo>
+      <mesasTragamonedas>
+        <mesaTragamonedas id="30">
+          <jugador nombre="nombre del jugador en la mesa"/>
+          <ultimoTiroTraga>
+            <tirador>nombre del jugador que efectuó el ultimo tiro</tirador>
+            <resultadoTraga>
+              <rueda1>&quot;cereza&quot; o &quot;bar simple&quot; o &quot;bar doble&quot; o &quot;bar triple&quot; o &quot;dinosaurio&quot;</rueda1>
+              <rueda2>&quot;cereza&quot; o &quot;bar simple&quot; o &quot;bar doble&quot; o &quot;bar triple&quot; o &quot;dinosaurio&quot;</rueda2>
+              <rueda3>&quot;cereza&quot; o &quot;bar simple&quot; o &quot;bar doble&quot; o &quot;bar triple&quot; o &quot;dinosaurio&quot;</rueda3>
+            </resultadoTraga>
+          </ultimoTiroTraga>
+        </mesaTragamonedas>
+      </mesasTragamonedas>
+    </tragamonedas>
+    <craps>
+      <mesasCraps>
+        <mesaCraps id="20">
+          <jugadores>
+            <jugador nombre="nombre de un jugador en la mesa"/>
+          </jugadores>
+        </mesaCraps>
+      </mesasCraps>
+    </craps>
+  </juegos>
+  <pozosCasino>
+    <pozoFeliz>23</pozoFeliz>
+  </pozosCasino>
+</estadoCasino>

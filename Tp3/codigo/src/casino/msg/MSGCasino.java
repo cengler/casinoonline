@@ -2,7 +2,7 @@ package casino.msg;
 
 public abstract class MSGCasino {
 
-	private boolean aceptado;
+	/*private boolean aceptado;
 	private int idVirt;
 	private String nombre;
 	
@@ -23,7 +23,7 @@ public abstract class MSGCasino {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}*/
 
 
 

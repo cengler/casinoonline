@@ -1,25 +1,36 @@
 package core;
 
 import java.io.File;
-
+import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 public class MensajeroXArchivos extends Mensajero {
 
 	private String dirName;
 	private File dir;
+	private Pattern filtro;
 	private static final int MAX_RETRIES = 5;
+	private static final int SLEEP_TIME = 500;
 	Logger logger = Logger.getLogger(MensajeroXArchivos.class);
 	
-	public MensajeroXArchivos(String dirName) throws Exception
+	/**
+	 * Constructor.
+	 * 
+	 * @param dirName Directorio que acturá como mailbox
+	 * @param regex Expresion regular para filtar los mensajes que le corresponden a este mensajero
+	 * @throws Exception En caso de que el directorio sea invalido
+	 */
+	public MensajeroXArchivos(String dirName, String regex) throws Exception
 	{
 		this.dirName = dirName;
 		dir = new File(this.dirName);
 
 		if(!dir.isDirectory())
 		{
-			throw new Exception("Direcorio invalido");
+			throw new Exception("Direcorio invalido. No se puede acceder al directorio: " + dirName );
 		}
+		
+		filtro = Pattern.compile(regex);
 	}
 	
 	public IMessage read() {
@@ -36,7 +47,7 @@ public class MensajeroXArchivos extends Mensajero {
 				return new FileMessage(files[0]);
 			}
 			try {
-				Thread.sleep(500);
+				Thread.sleep(SLEEP_TIME);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

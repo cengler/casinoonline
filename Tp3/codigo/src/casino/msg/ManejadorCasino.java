@@ -1,5 +1,7 @@
 package casino.msg;
 
+import casino.msg.estadoCasino.MSGEstadoCasino;
+
 public class ManejadorCasino {
 
 	private static ManejadorCasino instance;

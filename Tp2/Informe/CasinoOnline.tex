@@ -228,30 +228,35 @@ Estos archivos de momento tendrán formato XML. Este es un ejemplo de uno de esto
 
 \begin{framed}
 \begin{verbatim}
-<valorFichas>
-        <valorFicha valor="" />
-</valorFichas>
-<probablilidades>
-    <jugadaFeliz proba="" montoMinimo="" />
-    <jugadaTodosPonen proba="" />
-    <jugadaNormal proba=""  />
-    <craps>
-        <valorDado numero="1" proba="" />
-        .
-        .
-        <valorDado numero="6" proba="" />
-    </craps>
-    <traga>
-        <gordoProgresivo montoMinimo="" descuento=""/>
-        <combinaciones>
-            <simbolo1= "" proba=""/>
-            .
-            .
-            <simboloN= "" proba=""/>
-            
-        </combinaciones>
-    </traga>
-</probablilidades>
+<?xml version="1.0" encoding="UTF-8" ?> 
+<abrirCasino> 
+	<aceptado>si</aceptado>
+	<descripcion>"descripcion de la respuesta o vacío</descripcion>
+	<valorFichas>
+	        <valorFicha valor="" />
+	</valorFichas>
+	<probablilidades>
+	    <jugadaFeliz proba="" montoMinimo="" />
+	    <jugadaTodosPonen proba="" />
+	    <jugadaNormal proba=""  />
+	    <craps>
+	        <valorDado numero="1" proba="" />
+	        .
+	        .
+	        <valorDado numero="6" proba="" />
+	    </craps>
+	    <traga>
+	        <gordoProgresivo montoMinimo="" descuento=""/>
+	        <combinaciones>
+	            <simbolo1= "" proba=""/>
+	            .
+	            .
+	            <simboloN= "" proba=""/>
+	            
+	        </combinaciones>
+	    </traga>
+	</probablilidades>
+</abrirCasino>
 \end{verbatim}
 \end{framed}
 
@@ -263,6 +268,18 @@ Veamos un diagrama donde se realiza la apertura del casino y se muestra la carga
 
 \newpage
 \subsubsection{Clausura del casino}
+
+\begin{framed}
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cerrarCasino> 
+	<aceptado>si</aceptado>
+	<descripcion>"descripcion de la respuesta o vacío</descripcion>
+</cerrarCasino>	
+\end{verbatim}
+\end{framed}
+
+
 
 Veamos tambien un diagrama en el que el administrador procede a cerrar el casino.
 
@@ -450,16 +467,44 @@ De manera analoga se procede con las mesas del tragamonedas \label{estaJugando}
 \subsection{Notificar Estado Casino \label{notCas}}
 Tanto el invitado como un jugador pueden querer observador el estado del casino, preguntandoselo al mismo. El diagrama que sigue describe como el casino obtiene los datos para luego notificarselos a quien lo solicite  
 
-\imagen{0.45}{img/notificarEstCasino.png}{Notificar Estado Casino}
+\imagen{0.30}{img/notificarEstCasino.png}{Notificar Estado Casino}
 
 \newpage
 \subsection{Generacion de reportes}
 \subsubsection{Generacion de reporte: Ranking de Jugadores}
-\imagen{0.5}{img/rankingJugadores.png}{Ranking de Jugadores}
+
+\begin{framed}
+\begin{verbatim}
+<reporteRanking>
+   <Jugadores> 
+            <Jugador>"nombre del jugador"</Jugador>   
+            <saldoJugador>"saldo del Jugador" </saldoJugador>
+            ....
+	 </Jugadores>
+</reporteRanking>
+\end{verbatim}
+\end{framed}
+
+\imagen{0.35}{img/rankingJugadores.png}{Ranking de Jugadores}
 
 \newpage
 \subsubsection{Generacion de reporte: Estado Actual}
-\imagen{0.5}{img/reporteEstActual.png}{Estado Actual}
+
+\begin{framed}
+\begin{verbatim}
+<reporteEstadoActual>
+    <SaldoCasino></SaldoCasino>
+ 
+   <Jugadores> 
+            <Jugador>"nombre del jugador"</Jugador>   
+            <saldoJugador>"saldo del Jugador" </saldoJugador>
+            ....
+    </Jugadores>
+</reporteEstadoActual>
+\end{verbatim}
+\end{framed}
+
+\imagen{0.40}{img/reporteEstActual.png}{Estado Actual}
 
 \newpage
 %\subsubsection{Generacion de reporte: Detalle de movimientos por jugador}

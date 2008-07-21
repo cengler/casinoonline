@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.0-beta6">
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\package.html">
+<error line="0" severity="error" message="Missing package documentation file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.PackageHtmlCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\test\package.html">
+<error line="0" severity="error" message="Missing package documentation file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.PackageHtmlCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\package.html">
+<error line="0" severity="error" message="Missing package documentation file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.PackageHtmlCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\CasinoListener.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\FileMessage.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\IMessage.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\IMessageListener.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\Mensajero.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\MensajeroXArchivos.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\IMSG.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\IMSGJuego.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGCraps.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGEntradaCasino.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGEstadoCasino.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGJugador.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGMesaCraps.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGMesaTragamonedas.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGObservador.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGPozosCasino.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGResultadoTragamonedas.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGTragamonedas.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGUltimoTiroCraps.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGUltimoTiroTragamonedas.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\ParserCasino.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\test\Main.java">
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\CasinoListener.java">
+<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" column="16" severity="error" message="Variable &apos;logger&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="9" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="10" column="9" severity="error" message="Method &apos;onMessage&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="10" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="10" column="31" severity="error" message="Parameter msg should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="11" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="18" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="22" column="54" severity="error" message="&apos;500&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="28" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="29" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\FileMessage.java">
+<error line="6" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="8" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="28" severity="error" message="Parameter file should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="11" column="33" severity="error" message="&apos;file&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="12" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="17" column="9" severity="error" message="Method &apos;getFile&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="17" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="18" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="22" column="9" severity="error" message="Method &apos;getData&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="22" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="27" column="9" severity="error" message="Method &apos;getDate&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="27" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="32" column="9" severity="error" message="Method &apos;getFrom&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="32" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="37" column="9" severity="error" message="Method &apos;getTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="37" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="42" column="9" severity="error" message="Method &apos;getName&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="42" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\IMessage.java">
+<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\IMessageListener.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\Mensajero.java">
+<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="27" severity="error" message="Variable &apos;con&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="8" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="9" column="16" severity="error" message="Variable &apos;logger&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;closeConnection&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="12" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="17" column="9" severity="error" message="Method &apos;openConnection&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="17" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="18" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="22" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="23" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="24" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="25" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="26" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="27" column="9" severity="error" message="Method &apos;recive&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="27" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="28" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="31" column="17" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="36" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="37" column="9" severity="error" message="Method &apos;setListener&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="37" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="37" column="33" severity="error" message="Parameter lis should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="37" column="50" severity="error" message="&apos;lis&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="38" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="42" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="43" column="9" severity="error" message="Method &apos;onMessage&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="43" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="43" column="31" severity="error" message="Parameter msg should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="44" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="45" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\mensajero\MensajeroXArchivos.java">
+<error line="7" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="10" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="11" column="16" severity="error" message="Variable &apos;logger&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="35" severity="error" message="Parameter dirName should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="13" column="42" severity="error" message="&apos;dirName&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="14" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="19" column="17" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="23" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="24" column="9" severity="error" message="Method &apos;read&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="24" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="25" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="26" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="28" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="30" column="17" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="33" column="25" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="34" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="38" column="46" severity="error" message="&apos;500&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="46" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="46" column="33" severity="error" message="Parameter msg should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\IMSG.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\IMSGJuego.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGCraps.java">
+<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="28" severity="error" message="Variable &apos;mesasCraps&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="9" column="9" severity="error" message="Method &apos;getMesasCraps&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="9" severity="error" message="Method &apos;setMesasCraps&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="35" severity="error" message="Parameter mesasCraps should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="13" column="54" severity="error" message="&apos;mesasCraps&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="17" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGEntradaCasino.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="4" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="6" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;getVTerm&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" column="9" severity="error" message="Method &apos;setVTerm&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" column="30" severity="error" message="Parameter term should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="19" column="9" severity="error" message="Method &apos;getUsuario&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="19" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="9" severity="error" message="Method &apos;setUsuario&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="23" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="32" severity="error" message="Parameter usuario should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="23" column="39" severity="error" message="&apos;usuario&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="27" column="9" severity="error" message="Method &apos;getModoAcceso&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="27" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="31" column="9" severity="error" message="Method &apos;setModoAcceso&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="31" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="31" column="35" severity="error" message="Parameter modoAcceso should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="31" column="42" severity="error" message="&apos;modoAcceso&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="34" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="35" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGEstadoCasino.java">
+<error line="7" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="17" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="18" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="19" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="21" column="9" severity="error" message="Method &apos;getJuegos&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="21" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="25" column="9" severity="error" message="Method &apos;setJuegos&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="25" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="25" column="31" severity="error" message="Parameter juegos should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="25" column="47" severity="error" message="&apos;juegos&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="29" column="9" severity="error" message="Method &apos;getJugadores&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="29" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="33" column="9" severity="error" message="Method &apos;setJugadores&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="33" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="33" column="34" severity="error" message="Parameter jugadores should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="33" column="51" severity="error" message="&apos;jugadores&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="37" column="9" severity="error" message="Method &apos;getObservadores&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="37" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="41" column="9" severity="error" message="Method &apos;setObservadores&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="41" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="41" column="37" severity="error" message="Parameter observadores should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="41" column="57" severity="error" message="&apos;observadores&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="45" column="9" severity="error" message="Method &apos;getPozosCasino&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="45" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="49" column="9" severity="error" message="Method &apos;setPozosCasino&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="49" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="49" column="36" severity="error" message="Parameter pozosCasino should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="49" column="51" severity="error" message="&apos;pozosCasino&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="53" column="9" severity="error" message="Method &apos;getUsuario&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="53" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="57" column="9" severity="error" message="Method &apos;setUsuario&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="57" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="57" column="32" severity="error" message="Parameter usuario should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="57" column="39" severity="error" message="&apos;usuario&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="61" column="9" severity="error" message="Method &apos;getVTerm&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="61" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="65" column="9" severity="error" message="Method &apos;setVTerm&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="65" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="65" column="30" severity="error" message="Parameter term should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGJugador.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="9" severity="error" message="Method &apos;getNombre&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;setNombre&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="31" severity="error" message="Parameter nombre should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="11" column="38" severity="error" message="&apos;nombre&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="15" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGMesaCraps.java">
+<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="15" column="9" severity="error" message="Method &apos;getId&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="19" column="9" severity="error" message="Method &apos;setId&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="19" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="19" column="27" severity="error" message="Parameter id should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="19" column="34" severity="error" message="&apos;id&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="23" column="9" severity="error" message="Method &apos;getJugadores&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="23" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="27" column="9" severity="error" message="Method &apos;setJugadores&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="27" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="27" column="34" severity="error" message="Parameter jugadores should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="27" column="51" severity="error" message="&apos;jugadores&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="31" column="9" severity="error" message="Method &apos;getTurno&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="31" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="35" column="9" severity="error" message="Method &apos;setTurno&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="35" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="35" column="30" severity="error" message="Parameter turno should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="35" column="37" severity="error" message="&apos;turno&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="39" column="9" severity="error" message="Method &apos;getUltimoTiroCraps&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="39" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="43" column="9" severity="error" message="Method &apos;setUltimoTiroCraps&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="43" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="43" column="40" severity="error" message="Parameter ultimoTiroCraps should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="43" column="59" severity="error" message="&apos;ultimoTiroCraps&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGMesaTragamonedas.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="6" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;getId&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" column="9" severity="error" message="Method &apos;setId&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" column="27" severity="error" message="Parameter id should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="15" column="34" severity="error" message="&apos;id&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="19" column="9" severity="error" message="Method &apos;getJugador&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="19" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="9" severity="error" message="Method &apos;setJugador&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="23" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="32" severity="error" message="Parameter jugador should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="23" column="43" severity="error" message="&apos;jugador&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="27" column="9" severity="error" message="Method &apos;getUltimoTiroTragamonedas&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="27" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="31" column="9" severity="error" message="Method &apos;setUltimoTiroTragamonedas&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="31" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="32" column="25" severity="error" message="Parameter ultimoTiroTragamonedas should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="32" column="51" severity="error" message="&apos;ultimoTiroTragamonedas&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="35" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="36" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGObservador.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="9" severity="error" message="Method &apos;getNombre&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;setNombre&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="31" severity="error" message="Parameter nombre should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="11" column="38" severity="error" message="&apos;nombre&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="15" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGPozosCasino.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="9" severity="error" message="Method &apos;getPozoFeliz&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;setPozoFeliz&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="11" column="34" severity="error" message="Parameter pozoFeliz should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="11" column="38" severity="error" message="&apos;pozoFeliz&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGResultadoTragamonedas.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="6" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="9" column="9" severity="error" message="Method &apos;getRueda1&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="12" column="9" severity="error" message="Method &apos;setRueda1&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="12" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="12" column="31" severity="error" message="Parameter rueda1 should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="12" column="38" severity="error" message="&apos;rueda1&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="15" column="9" severity="error" message="Method &apos;getRueda2&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="18" column="9" severity="error" message="Method &apos;setRueda2&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="18" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="18" column="31" severity="error" message="Parameter rueda2 should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="18" column="38" severity="error" message="&apos;rueda2&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="21" column="9" severity="error" message="Method &apos;getRueda3&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="21" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="24" column="9" severity="error" message="Method &apos;setRueda3&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="24" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="24" column="31" severity="error" message="Parameter rueda3 should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="24" column="38" severity="error" message="&apos;rueda3&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="28" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGTragamonedas.java">
+<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="11" column="9" severity="error" message="Method &apos;getMesasTragamonedas&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="11" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="15" column="9" severity="error" message="Method &apos;setMesasTragamonedas&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" column="42" severity="error" message="Parameter mesasTragamonedas should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="15" column="68" severity="error" message="&apos;mesasTragamonedas&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="19" column="9" severity="error" message="Method &apos;getPozoProgresivo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="19" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="9" severity="error" message="Method &apos;setPozoProgresivo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="23" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="39" severity="error" message="Parameter pozoProgresivo should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="23" column="43" severity="error" message="&apos;pozoProgresivo&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="26" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGUltimoTiroCraps.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="6" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="9" column="9" severity="error" message="Method &apos;getResultadoCraps&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="9" severity="error" message="Method &apos;setResultadoCraps&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="39" severity="error" message="Parameter resultadoCraps should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="13" column="43" severity="error" message="&apos;resultadoCraps&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="17" column="9" severity="error" message="Method &apos;getTirador&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="17" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="21" column="9" severity="error" message="Method &apos;setTirador&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="21" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="21" column="32" severity="error" message="Parameter tirador should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="21" column="39" severity="error" message="&apos;tirador&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="24" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="25" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\MSGUltimoTiroTragamonedas.java">
+<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="5" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="6" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="7" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="9" column="9" severity="error" message="Method &apos;getResultadoTragamonedas&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="9" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="9" severity="error" message="Method &apos;setResultadoTragamonedas&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="13" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="14" column="25" severity="error" message="Parameter resultadoTragamonedas should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="14" column="50" severity="error" message="&apos;resultadoTragamonedas&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="18" column="9" severity="error" message="Method &apos;getTirador&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="18" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="22" column="9" severity="error" message="Method &apos;setTirador&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="22" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="22" column="32" severity="error" message="Parameter tirador should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="22" column="39" severity="error" message="&apos;tirador&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="25" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="26" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\parser\ParserCasino.java">
+<error line="13" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="15" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="15" column="16" severity="error" message="Variable &apos;logger&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="17" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="17" column="17" severity="error" message="Variable &apos;xstream&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="18" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="19" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="20" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="21" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="22" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="28" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="29" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="36" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="39" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="41" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="42" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="44" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="45" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="46" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="48" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="49" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="50" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="51" column="9" severity="error" message="Method &apos;parse&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="51" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="51" column="27" severity="error" message="Parameter path should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="52" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="52" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="53" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="54" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="55" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="56" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="56" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="57" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="58" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="60" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="61" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="61" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="62" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="64" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="67" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="69" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="70" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="70" column="9" severity="error" message="Method &apos;renderizar&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="70" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="70" column="32" severity="error" message="Parameter msg should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="70" column="42" severity="error" message="Parameter path should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="71" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="71" column="9" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="72" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="73" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="74" column="41" severity="error" message="Empty statement." source="com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck"/>
+<error line="75" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+</file>
+<file name="H:\TPINGE\TPPP\Tp3\CasinoOnline\src\test\Main.java">
+<error line="11" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="11" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
+<error line="13" column="17" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="13" column="41" severity="error" message="Parameter args should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="20" column="17" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="21" column="17" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="22" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="23" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="29" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="30" column="17" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="32" column="17" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="34" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="35" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="37" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="38" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="40" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.GenericIllegalRegexpCheck"/>
+<error line="41" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="41" column="17" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="42" column="17" severity="error" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="44" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="46" severity="error" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+</checkstyle>

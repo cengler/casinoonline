@@ -1,15 +1,11 @@
-package craps;
+package observerCraps;
 
 import java.util.Observer;
 
+import craps.IManejadorObservadoresCraps;
+
 import casino.IMesa;
 
-
-
-/**
- * @version 1.0
- * @created 18-Jul-2008 19:48:48
- */
 public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 
 	private static ManejadorObservadoresCraps instance;

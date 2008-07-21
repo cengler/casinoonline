@@ -1,15 +1,9 @@
 package traga.msg;
 
-import traga.ITragaMessage;
 
-public class MSGApuestaTraga implements ITragaMessage {
+public class MSGApuestaTraga extends MSGTraga {
 
 	public MSGApuestaTraga(){
 
 	}
-
-	public void finalize() throws Throwable {
-
-	}
-
 }

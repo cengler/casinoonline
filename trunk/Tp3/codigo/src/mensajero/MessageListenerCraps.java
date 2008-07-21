@@ -3,12 +3,16 @@ package mensajero;
 import core.IMessage;
 import core.IMessageListener;
 
-public class MessageListenerTraga implements IMessageListener {
+public class MessageListenerCraps implements IMessageListener {
 
-	public MessageListenerTraga(){
+	public MessageListenerCraps(){
 
 	}
 
+	/**
+	 * 
+	 * @param mensaje
+	 */
 	public IMessage onMessage(IMessage mensaje){
 		return null;
 	}

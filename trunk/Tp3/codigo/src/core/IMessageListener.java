@@ -1,8 +1,7 @@
-package mensajero;
+package core;
 
-import parser.IMessage;
 
-public interface MessageListener {
+public interface IMessageListener {
 
 	/**
 	 * 

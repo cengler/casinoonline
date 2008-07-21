@@ -1,5 +1,6 @@
 package parser;
 
+import core.IMessage;
 import casino.msg.MSGCasino;
 
 public class ParserXML implements IParser {

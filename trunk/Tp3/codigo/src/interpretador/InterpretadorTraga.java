@@ -1,6 +1,6 @@
 package interpretador;
 
-import parser.IMessage;
+import core.IMessage;
 
 public class InterpretadorTraga implements IInterpretadorCasino {
 
@@ -8,14 +8,6 @@ public class InterpretadorTraga implements IInterpretadorCasino {
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
-	/**
-	 * 
-	 * @param mensaje
-	 */
 	public IMessage interpretar(IMessage mensaje){
 		return null;
 	}

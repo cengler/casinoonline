@@ -1,8 +1,9 @@
 package mensajero;
 
-import parser.IMessage;
+import core.IMessage;
+import core.IMessageListener;
 
-public class MessageListenerCasino implements MessageListener {
+public class MessageListenerCasino implements IMessageListener {
 
 	public MessageListenerCasino(){
 

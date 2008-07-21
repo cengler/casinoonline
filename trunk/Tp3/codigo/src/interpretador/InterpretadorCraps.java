@@ -1,7 +1,7 @@
-package craps;
+package interpretador;
 
+import core.IMessage;
 import interpretador.IInterpretadorCasino;
-import parser.IMessage;
 
 public class InterpretadorCraps implements IInterpretadorCasino {
 

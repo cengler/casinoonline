@@ -13,9 +13,7 @@ public class Casino implements ICasino {
 	}
 
 	public static Casino getInstance(){
-		if(instance != null)
-			return instance;
-		else
+		if(instance == null)
 			instance = new Casino();
 		return instance;
 	}

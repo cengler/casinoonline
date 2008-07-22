@@ -1,12 +1,11 @@
 package craps;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 
 import casino.IJugador;
 import casino.IMesa;
-import casino.PagadorDeApuestas;
 
 public class MesaCraps extends Observable implements IMesa {
 
@@ -16,170 +15,83 @@ public class MesaCraps extends Observable implements IMesa {
 	private List<IJugador> jugadores;
 	private boolean puck;
 	private int punto;
-	private IJugador Tirador;
-	public JugadaCraps m_JugadaCraps;
-	public ApuestaCraps m_ApuestaCraps;
-	public PagadorDeApuestas m_PagadorDeApuestas;
+	private IJugador tirador;
+	
+	public MesaCraps() {
+		super();
+		jugadores = new ArrayList<IJugador>();
+	}
 
-	public MesaCraps(){
-
+	public boolean isAbierta() {
+		return abierta;
+	}
+	
+	public void setAbierta(boolean abierta) {
+		this.abierta = abierta;
+	}
+	
+	public List<ApuestaCraps> getApuestas() {
+		return apuestas;
+	}
+	
+	public void setApuestas(List<ApuestaCraps> apuestas) {
+		this.apuestas = apuestas;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public List<IJugador> getJugadores() {
+		return jugadores;
+	}
+	
+	public void setJugadores(List<IJugador> jugadores) {
+		this.jugadores = jugadores;
 	}
 	
 	public boolean isPuck() {
 		return puck;
 	}
-
-
-
-	public IJugador getTirador() {
-		return Tirador;
+	
+	public void setPuck(boolean puck) {
+		this.puck = puck;
 	}
-
-
-
-	public void setApuestas(List<ApuestaCraps> apuestas) {
-		this.apuestas = apuestas;
+	
+	public int getPunto() {
+		return punto;
 	}
-
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-
-	public void setJugadores(List<IJugador> jugadores) {
-		this.jugadores = jugadores;
-	}
-
-
-
+	
 	public void setPunto(int punto) {
 		this.punto = punto;
 	}
-
-
-
-	/**
-	 * 
-	 * @param ap
-	 */
-	public void addApuesta(ApuestaCraps ap){
-
+	
+	public IJugador getTirador() {
+		return tirador;
+	}
+	
+	public void setTirador(IJugador tirador) {
+		this.tirador = tirador;
 	}
 
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public void addJugador(IJugador jugador){
-
+	public boolean estaJugando(IJugador jugador) {
+		
+		boolean esta = false;
+		int i =  0;
+		
+		while(i < jugadores.size() && !esta)
+		{
+			esta = jugadores.get(i).equals(jugador);
+			i++;
+		}
+		
+		return esta;
 	}
 
-	/**
-	 * 
-	 * @param listaFichayValor
-	 */
-	public void calcularMontoAApostar(List<Integer> listaFichayValor){
-
-	}
-
-	/*public void crearApuesta(int numAp, Tipo tipoAp, IJugador jugador, int monto){
-
-	}*/
-
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public boolean estaEnMesa(IJugador jugador){
-		return false;
-	}
-
-	public List<ApuestaCraps> getApuestas(){
-		return null;
-	}
-
-	public int getId(){
-		return 0;
-	}
-
-	public List<Observer> getObservadores(){
-		return null;
-	}
-
-	public int getPunto(){
-		return 0;
-	}
-
-	public boolean puckApagado(){
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public void quitarJugador(IJugador jugador){
-
-	}
-
-	/**
-	 * 
-	 * @param a
-	 * @param dados
-	 */
-	public boolean salioSiete(int a, int dados){
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param puck
-	 */
-	public void setPuck(boolean puck){
-
-	}
-
-	/**
-	 * 
-	 * @param tirador
-	 */
-	public void setTirador(IJugador tirador){
-
-	}
-
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public boolean validarTirador(IJugador jugador){
-		return false;
-	}
-
-	public List<IJugador> getJugadores(){
-		return null;
-	}
-
-	public boolean getAbierta(){
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param abierta
-	 */
-	public void setAbierta(boolean abierta){
-
-	}
-
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public boolean estaJugando(IJugador jugador){
-		return false;
-	}
+	
 
 }

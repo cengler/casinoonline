@@ -9,10 +9,11 @@ import traga.msg.MSGSalidaTraga;
 import traga.msg.MSGTiroTraga;
 
 import casino.IManejadorMesa;
+import casino.IMesa;
 
-public class ManejadorDeMesaTraga implements IManejadorMesa {
+public class ManejadorMesaTraga implements IManejadorMesa {
 
-	private static ManejadorDeMesaTraga instance;
+	private static ManejadorMesaTraga instance;
 	private List<MesaTraga> mesas = new ArrayList<MesaTraga>();
 	private int premioProgresivo;
 
@@ -21,14 +22,14 @@ public class ManejadorDeMesaTraga implements IManejadorMesa {
 	// CONSTRUCTORES
 	// ------------------------------------------------- //
 	
-	private ManejadorDeMesaTraga(){
+	private ManejadorMesaTraga(){
 
 	}
 
-	public static ManejadorDeMesaTraga getInstance()
+	public static ManejadorMesaTraga getInstance()
 	{
 		if(instance == null)
-			instance = new ManejadorDeMesaTraga();
+			instance = new ManejadorMesaTraga();
 		return instance;
 	}
 	
@@ -87,8 +88,8 @@ public class ManejadorDeMesaTraga implements IManejadorMesa {
 	// GETERS Y SETERS
 	// ------------------------------------------------- //
 	
-	public List<MesaTraga> getMesas() {
-		return mesas;
+	public List<IMesa> getMesas() {
+		return new ArrayList<IMesa>(mesas);
 	}
 
 	public void setMesas(List<MesaTraga> mesas) {

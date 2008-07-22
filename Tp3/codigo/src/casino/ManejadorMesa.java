@@ -1,20 +1,18 @@
 package casino;
 
-public class ManejadorMesa {
-
-	public ManejadorMesa(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
+/**
+ * ManejadorMesa
+ * 
+ * @author Administrador
+ *
+ */
+public abstract class ManejadorMesa
+{
 	/**
+	 * Informa su el jugador esta jugando en ese manejador en particular.
 	 * 
-	 * @param jugador
+	 * @param jugador jugador que esta potencialmente jugando
+	 * @return true si el jugador esta jugando en ese manejador
 	 */
-	public boolean estaJugando(Jugador jugador){
-		return false;
-	}
+	public abstract boolean estaJugando(Jugador jugador);
 }

@@ -92,6 +92,33 @@ public class MesaCraps extends Observable implements IMesa {
 		return esta;
 	}
 
+	/*public void setJugadores(List<IJugador> jugadores) {
+	this.jugadores = jugadores;
+	}
 	
+	
+	public void calcularMontoAApostar(List<Integer> listaFichayValor){
+	
+	}
+	
+	public void crearApuesta(int numAp, Tipo tipoAp, IJugador jugador, int monto){
+	
+	}
+	
+	public boolean estaEnMesa(IJugador jugador){
+		return false;
+	}
+	
+	public void quitarJugador(IJugador jugador){
+	
+	}
+	
+	public boolean salioSiete(int a, int dados){
+		return false;
+	}
+	
+	public boolean validarTirador(IJugador jugador){
+		return false;
+	}*/
 
 }

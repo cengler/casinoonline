@@ -6,7 +6,7 @@ import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGsetModoDirigido;
-import casino.msg.ManejadorCasino;
+import casino.ManejadorCasino;
 
 /**
  * Servicios Administracion. Ver 1.0

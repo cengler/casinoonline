@@ -5,26 +5,32 @@ import java.util.List;
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
 
-public class ManejadorJugador {
+public class ManejadorJugador implements IServiciosJugador {
 
-	private static ManejadorJugador instance;
+	private static IServiciosJugador instance;
 	private List<IInvitado> invitados;
 	private List<IJugador> jugadores;
 	private List<IManejadorMesa> manejadores;
 
 	private ManejadorJugador(){}
 	
-	public static ManejadorJugador getInstance()
+	public static IServiciosJugador getInstance()
 	{
 		if(instance == null)
 			instance = new ManejadorJugador();
 		return instance;
 	}
 
+	/* (non-Javadoc)
+	 * @see casino.IServiciosJugador#entrarCasino(casino.msg.MSGEntradaCasino)
+	 */
 	public MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see casino.IServiciosJugador#salirCasino(casino.msg.MSGSalidaCasino)
+	 */
 	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
 		return null;
 	}

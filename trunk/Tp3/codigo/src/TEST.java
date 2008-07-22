@@ -3,8 +3,10 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import casino.msg.estadoCasino.MSGEstadoCasino;
+import craps.msg.MSGEntradaCraps;
 
 import parser.ParserCasino;
+import parser.parserCraps;
 
 public class TEST {
 
@@ -13,7 +15,7 @@ public class TEST {
 	public static void main(String[] args) {
 		
 		
-		InputStream is;
+	/*	InputStream is;
 		try 
 		{
 			is = new FileInputStream("F:\\- 21-07-08\\TPPP\\Tp3\\codigo\\xml\\estadoCasino.xml");
@@ -25,7 +27,19 @@ public class TEST {
 		{
 			e.printStackTrace();
 		}
-		
+		*/
+		InputStream is1;
+		try 
+		{
+			is1 = new FileInputStream("C:\\ING-TP2\\tp3\\codigo\\entradaCraps.xml");
+			MSGEntradaCraps msg = (MSGEntradaCraps)parserCraps.getInstance().parse(is1);
+			
+			parserCraps.getInstance().renderizar(msg, "C:\\ING-TP2\\tp3\\codigo\\entradaCrapsP.xml");
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
 		
 		
 	}

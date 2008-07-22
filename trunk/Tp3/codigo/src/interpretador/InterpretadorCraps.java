@@ -5,15 +5,17 @@ import interpretador.IInterpretadorCasino;
 
 public class InterpretadorCraps implements IInterpretadorCasino {
 
-	public InterpretadorCraps(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+	private static InterpretadorCraps instance;
+	
+	private InterpretadorCraps(){}
 	
 	public IMessage interpretar(IMessage mensaje){
+		return null;
+	}
+
+	public static InterpretadorCraps getInstance() {
+		if(instance == null)
+			instance = new InterpretadorCraps();
 		return null;
 	}
 

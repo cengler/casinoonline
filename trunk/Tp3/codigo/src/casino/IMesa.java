@@ -6,7 +6,7 @@ public interface IMesa {
 
 	public boolean estaJugando(IJugador jugador);
 
-	public boolean getAbierta();
+	public boolean isAbierta();
 
 	public int getId();
 

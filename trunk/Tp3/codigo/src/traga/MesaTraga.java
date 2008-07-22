@@ -11,8 +11,6 @@ public class MesaTraga implements IMesa {
 	private int cantApMax;
 	private int id;
 	private IJugador jugador;
-	public JugadaTraga m_JugadaTraga;
-	public ApuestaTraga m_ApuestaTraga;
 
 	public MesaTraga(){
 
@@ -96,6 +94,11 @@ public class MesaTraga implements IMesa {
 	public void setAbierta(boolean abierta) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public boolean isAbierta() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

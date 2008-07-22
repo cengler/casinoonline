@@ -1,5 +1,6 @@
 package craps;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import craps.msg.MSGApuestaCraps;
@@ -11,12 +12,6 @@ import craps.msg.MSGTiroCraps;
 import casino.IManejadorMesa;
 import casino.IMesa;
 
-
-
-/**
- * @version 1.0
- * @created 18-Jul-2008 19:48:48
- */
 public class ManejadorMesaCraps implements IManejadorMesa {
 
 	private static ManejadorMesaCraps instance;
@@ -82,18 +77,10 @@ public class ManejadorMesaCraps implements IManejadorMesa {
 		return false;
 	}
 
-	/**
-	 * 
-	 * @param mensaje
-	 */
 	public MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
 		return null;
 	}
 
-	/**
-	 * 
-	 * @param unMSG
-	 */
 	public void tirarCraps(MSGTiroCraps unMSG){
 
 	}
@@ -103,8 +90,7 @@ public class ManejadorMesaCraps implements IManejadorMesa {
 	}
 
 	public List<IMesa> getMesas() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<IMesa>(mesas);
 	}
 
 	/*public List<MesaCraps> getMesas(){

@@ -1,6 +1,6 @@
 package casino;
 
-public interface IJugador extends ICliente {
+public interface IJugador extends ICliente{
 
 	public int getIdVirt();
 

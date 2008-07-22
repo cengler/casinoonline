@@ -51,6 +51,14 @@ public class Jugador implements IJugador {
 	public void setSaldo(long saldo) {
 		this.saldo = saldo;
 	}
+	
+	public boolean equals(Object jug)
+	{
+		if (jug instanceof Jugador)
+            return this.nombre.equals(((Jugador)jug).getNombre());
+        else
+            return false;
+	}
 
 	
 

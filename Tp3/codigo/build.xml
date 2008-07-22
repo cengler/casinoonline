@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<project name="Casino Online" default="zip">
+<project name="Casino Online" default="checkstyle">
 
 <property name="dir.lib" value="lib" />
 <property name="dir.bin" value="bin" />
@@ -46,7 +46,7 @@
     <jar jarfile="${dir.jar}/${name.jar}" basedir="${dir.bin}" />
 </target>
 
-<target name="jdepend">
+<target name="jdepend" depends="zip" description="Genera reporte de dependencias">
 	<echo>Calculando dependencias (Jdepend): ..................... </echo>
 	<jdepend format="xml" outputfile="${dir.rep}/jdepend-report.xml" classpathref="classpath">
 		<exclude name="java.*"/>
@@ -69,22 +69,21 @@
 	
 </target>
 
+<target name="checkstyle" depends="jdepend" description="Genera reporte de violaciones de convenciones de codigo.">
+	<echo>Chequeando Codigo: ..................................... </echo>
 
-   
-<!--target name="checkstyle"
-        description="Generates a report of code convention violations.">
-	<echo>Chequeando Codigo: ..................... </echo>
+	<checkstyle config="${dir.etc}/sun_checks.xml"
+		failureProperty="checkstyle.failure"
+		failOnViolation="false">
+		<formatter type="xml" tofile="${dir.rep}/checkstyle-report.xml"/>
+		<fileset dir="${dir.src}" includes="**/*.java" excludes="**/MSG*.java"/>
+	</checkstyle>
 
-  <checkstyle config="sun_checks.xml"
-              failureProperty="checkstyle.failure"
-              failOnViolation="false">
-    <formatter type="xml" tofile="checkstyle_report.xml"/>
-    <fileset dir="${dir.src}" includes="**/*.java" excludes="**/MSG*.java"/>
-  </checkstyle>
-
-  <style in="checkstyle_report.xml" out="checkstyle_report.html" style="checkstyle.xsl"/>
-
-</target-->
+	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
+		style="${dir.etc}/checkstyle.xsl" >
+	 	<mapper type="glob" from="*checkstyle-report.xml" to="checkstyle-report.html"/>
+	</xslt>
+</target>
 
 
 </project>

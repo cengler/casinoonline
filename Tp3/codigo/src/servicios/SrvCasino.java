@@ -1,41 +1,52 @@
 package servicios;
 
+import casino.ManejadorJugador;
 import casino.msg.MSGEntradaCasino;
+import casino.msg.ManejadorCasino;
 import casino.msg.estadoCasino.MSGEstadoCasino;
 import casino.msg.MSGSalidaCasino;
 
+/**
+ * Servicios Casino. Ver 1.0
+ * 
+ * @author Grupo2
+ *
+ */
 public class SrvCasino {
 
-	public SrvCasino(){
+	/**
+	 * Constructor.
+	 */
+	private SrvCasino(){}
 
-	}
-
-	public void finalize() throws Throwable {
-
+	/**
+	 * EntrarCasino.
+	 * 
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
+	 */
+	public static MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
+		return ManejadorJugador.getInstance().entrarCasino(mensaje);
 	}
 
 	/**
+	 * EstadoCasino.
 	 * 
-	 * @param mensaje
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
 	 */
-	public MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
-		return null;
+	public static MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje){
+		return ManejadorCasino.getInstance().estadoCasino(mensaje);
 	}
 
 	/**
+	 * SalirCasino.
 	 * 
-	 * @param mensaje
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
 	 */
-	public MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje){
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param mensaje
-	 */
-	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
-		return null;
+	public static MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
+		return ManejadorJugador.getInstance().salirCasino(mensaje);
 	}
 
 }

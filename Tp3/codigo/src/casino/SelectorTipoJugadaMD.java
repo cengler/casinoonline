@@ -16,5 +16,4 @@ public class SelectorTipoJugadaMD implements ISelectorTipoJugada {
 	public TipoJugada getTipoJugada() {
 		return null;
 	}
-
 }

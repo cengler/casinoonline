@@ -46,5 +46,4 @@ public class PagadorDeApuestas {
 	public void sumarATotal(int a){
 
 	}
-
 }

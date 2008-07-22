@@ -14,7 +14,7 @@ public class ManejadorJugador {
 
 	private ManejadorJugador(){}
 	
-	public ManejadorJugador getInstance()
+	public static ManejadorJugador getInstance()
 	{
 		if(instance == null)
 			instance = new ManejadorJugador();
@@ -78,11 +78,4 @@ public class ManejadorJugador {
 	public void setManejadores(List<IManejadorMesa> manejadores) {
 		this.manejadores = manejadores;
 	}
-	
-	
-	
-	
-	
-
-
 }

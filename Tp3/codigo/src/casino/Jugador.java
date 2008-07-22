@@ -59,8 +59,4 @@ public class Jugador implements IJugador {
         else
             return false;
 	}
-
-	
-
-
 }

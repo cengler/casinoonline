@@ -2,7 +2,7 @@ package servicios;
 
 import casino.ManejadorJugador;
 import casino.msg.MSGEntradaCasino;
-import casino.msg.ManejadorCasino;
+import casino.ManejadorCasino;
 import casino.msg.estadoCasino.MSGEstadoCasino;
 import casino.msg.MSGSalidaCasino;
 

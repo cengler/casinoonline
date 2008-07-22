@@ -81,8 +81,8 @@ public class ManejadorMesaCraps implements IManejadorMesa {
 		return null;
 	}
 
-	public void tirarCraps(MSGTiroCraps unMSG){
-
+	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
+		return null;
 	}
 
 	public boolean verificarMesasCerradas(){

@@ -8,16 +8,23 @@ public class Casino implements ICasino {
 	private int pozoFeliz;
 	private long saldo;
 
-	public Casino(){
+	/**
+	 * Constructor.
+	 */
+	private Casino(){}
 
-	}
-
+	/**
+	 * Obtiene la unica instancia de casino.
+	 * 
+	 * @return la unica instancia de casino.
+	 */
 	public static Casino getInstance(){
 		if(instance == null)
 			instance = new Casino();
 		return instance;
 	}
 
+	
 	public boolean isAbierto() {
 		return abierto;
 	}
@@ -49,7 +56,4 @@ public class Casino implements ICasino {
 	public void setSaldo(long saldo) {
 		this.saldo = saldo;
 	}
-
-	
-
 }

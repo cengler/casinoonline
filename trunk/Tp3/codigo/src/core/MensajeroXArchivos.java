@@ -1,6 +1,7 @@
 package core;
 
 import java.io.File;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
@@ -44,7 +45,12 @@ public class MensajeroXArchivos extends Mensajero {
 			if(files!=null && files.length > 0)
 			{
 				logger.debug("Hay " + files.length + " para procesar.");
-				return new FileMessage(files[0]);
+				for ( File f : files )
+				{
+					Matcher m = filtro.matcher(f.getName());
+					if( m.matches() )
+						return new FileMessage(f);
+				}
 			}
 			try {
 				Thread.sleep(SLEEP_TIME);

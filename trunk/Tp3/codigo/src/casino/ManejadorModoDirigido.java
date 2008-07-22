@@ -5,25 +5,19 @@ import casino.msg.MSGSetJugada;
 import casino.msg.MSGsetModoDirigido;
 
 
-
-/**
- * @version 1.0
- * @created 18-Jul-2008 19:48:48
- */
 public class ManejadorModoDirigido {
 
-	public ManejadorModoDirigido(){
+	private static ManejadorModoDirigido instance;
+	
+	private ManejadorModoDirigido(){}
 
+	public static ManejadorModoDirigido getInstance()
+	{
+		if(instance == null)
+			instance = new ManejadorModoDirigido();
+		return instance;
 	}
-
-	public void finalize() throws Throwable {
-
-	}
-
-	/**
-	 * 
-	 * @param mensaje
-	 */
+	
 	public MSGResetModoDirigido resetModoDirigido(MSGResetModoDirigido mensaje){
 		return null;
 	}

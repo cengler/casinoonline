@@ -1,7 +1,14 @@
 package casino;
 
-public interface ICasino {
-
+/**
+ * Interface de Casino.
+ * 
+ * @author Grupo2
+ *
+ */
+public interface ICasino
+{
 	
-
 }
+
+

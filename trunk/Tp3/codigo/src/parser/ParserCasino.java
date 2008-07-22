@@ -50,6 +50,7 @@ public class ParserCasino {
 	
 	public Object parse(InputStream is)
 	{	
+		logger.debug("parseando...");
 		Object message = xstream.fromXML(is);
 		return message;
 		

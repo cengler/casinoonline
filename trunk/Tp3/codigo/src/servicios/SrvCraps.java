@@ -1,50 +1,62 @@
 package servicios;
 
+import craps.ManejadorMesaCraps;
 import craps.msg.MSGApuestaCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
 
+/**
+ * Servicios Craps. Ver 1.0
+ * 
+ * @author Grupo2
+ *
+ */
 public class SrvCraps {
 
-	public SrvCraps(){
+	/**
+	 * Constructor.
+	 */
+	private SrvCraps(){}
 
-	}
-
-	public void finalize() throws Throwable {
-
+	/**
+	 * ApostarCraps.
+	 * 
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
+	 */
+	public static MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje){
+		return ManejadorMesaCraps.getInstance().apostarCraps(mensaje);
 	}
 
 	/**
+	 * EntrarCraps.
 	 * 
-	 * @param mensaje
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
 	 */
-	public MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje){
-		return null;
+	public static MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje){
+		return ManejadorMesaCraps.getInstance().entrarCraps(mensaje);
 	}
 
 	/**
+	 * SalirCraps.
 	 * 
-	 * @param mensaje
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
 	 */
-	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje){
-		return null;
+	public static MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
+		return ManejadorMesaCraps.getInstance().salirCraps(mensaje);
 	}
 
 	/**
+	 * TirarCraps.
 	 * 
-	 * @param mensaje
+	 * @param mensaje mensaje de pedido del jugadore de craps
+	 * @return mensaje de respusta al pedido
 	 */
-	public MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param mensaje
-	 */
-	public MSGTiroCraps tirarCraps(MSGTiroCraps mensaje){
-		return null;
+	public static MSGTiroCraps tirarCraps(MSGTiroCraps mensaje){
+		return ManejadorMesaCraps.getInstance().tirarCraps(mensaje);
 	}
 
 }

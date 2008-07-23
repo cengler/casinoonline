@@ -7,7 +7,7 @@ public class Jugador implements IJugador {
 	private boolean vip;
 	private boolean modoObservador;
 	private String nombre;
-	private long saldo;
+	private int saldo;
 
 	public Jugador(){
 		logeado = false;
@@ -45,11 +45,11 @@ public class Jugador implements IJugador {
 		this.nombre = nombre;
 	}
 
-	public long getSaldo() {
+	public int getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(long saldo) {
+	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
 	

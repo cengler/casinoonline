@@ -1,7 +1,10 @@
 package casino;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +49,38 @@ public class ManejadorCasino implements IServiciosCasino {
 	public MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje)
 	{
 		Casino casino = Casino.getInstance();
-		
-		for (ManejadorMesa m : getManejadores())
+		if(!casino.isAbierto())
 		{
-			//m
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion("El casino no esta abierto");
 		}
+		else
+		{
+			boolean mesasCerradas = true;
+			for (ManejadorMesa m : getManejadores())
+			{
+				mesasCerradas = mesasCerradas && m.mesasCerradas();
+			}
+			if(!mesasCerradas)
+			{
+				mensaje.setAceptado(false);
+				mensaje.setDescripcion("Hay jugadores jugando en el casino");
+			}
+			else
+			{
+				mensaje.setAceptado(true);
+				mensaje.setDescripcion("Es casino se cerrará");
+				
+				// cierro realmente el casino
+				casino.setAbierto(false);
+				
+				//guardo saldos de los jugadores
+				guardarListaJugadores();
+				logger.info("Los jugadores se han persistido correctamente");
+			}
+		}
+		
+		
 		
 		
 		return null;
@@ -81,6 +111,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		}
 		else
 		{
+			casino.setAbierto(true);
 			cargarListaJugadores();
 			mensaje.setAceptado(true);
 			mensaje.setDescripcion("Se abre el casino correctamente");
@@ -125,8 +156,29 @@ public class ManejadorCasino implements IServiciosCasino {
 		
 	private void guardarListaJugadores()
 	{
-		//FileOutputStream fos = new FileOutputStream(path);  
-		//xstream.toXML(msg, fos);;
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		OutputStream os = null;
+		try {
+			os = new FileOutputStream(LISTA_JUG);
+		} catch (FileNotFoundException e) {
+			logger.fatal("El casino no ha podido guardar la lista de jugadores del casino");
+			System.exit(-1);
+		}
+		
+		List<LSTJugador> listajug = new ArrayList<LSTJugador>();
+		
+		for( IJugador j : manJug.getJugadores() )
+		{
+			LSTJugador jl = new LSTJugador();
+			jl.setNombre(j.getNombre());
+			jl.setSaldo(j.getSaldo());
+			jl.setVip(j.isVip());
+			logger.debug("Preparando para almacenamiento jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
+			listajug.add(jl);
+		}
+		
+		
+		xstream.toXML(listajug, os);
 	}
 
 	public List<ManejadorMesa> getManejadores() {

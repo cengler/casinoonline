@@ -2,7 +2,6 @@ package servicios;
 
 import java.io.IOException;
 
-import core.ImplementationFactory;
 import casino.IServiciosCasino;
 import casino.ManejadorModoDirigido;
 import casino.msg.MSGAbrirCasino;
@@ -10,7 +9,7 @@ import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGsetModoDirigido;
-import casino.ManejadorCasino;
+import core.ImplementationFactory;
 
 /**
  * Servicios Administracion. Ver 1.0

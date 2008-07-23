@@ -14,7 +14,7 @@ public abstract class ManejadorMesa
 	 * @param jugador jugador que esta potencialmente jugando
 	 * @return true si el jugador esta jugando en ese manejador
 	 */
-	public abstract boolean estaJugando(Jugador jugador);
+	public abstract boolean estaJugando(IJugador jugador);
 	
 	/**
 	 * Informa si todas las mesas del manejador estan cerradas.

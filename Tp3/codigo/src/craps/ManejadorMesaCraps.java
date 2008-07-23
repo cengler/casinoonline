@@ -1,47 +1,134 @@
 package craps;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
+import casino.IJugador;
+import casino.IMesa;
+import casino.ManejadorMesa;
 import craps.msg.MSGApuestaCraps;
 import craps.msg.MSGEntradaCraps;
-import craps.msg.MSGEstadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
 
-import casino.IManejadorMesa;
-import casino.IMesa;
+/**
+ * ManejadorMesaCraps.
+ * 
+ * @author Grupo2
+ *
+ */
+public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps {
 
-public class ManejadorMesaCraps implements IManejadorMesa {
-
-	private static ManejadorMesaCraps instance;
+	private static IServiciosCraps instance;
 	private List<MesaCraps> mesas;
 
-	private ManejadorMesaCraps(){
+	private ManejadorMesaCraps(){}
 
-	}
-
-	public void agregarObservador(String idJugador, String idTVirt, IMesa mesa){
-
-	}
-
-	public MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje){
-		return null;
-	}
-
-	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje){
-		return null;
-	}
-
-	public MSGEstadoCraps estadoCraps(IMesa mesa){
-		return null;
-	}
-
-	public static ManejadorMesaCraps getInstance(){
+	public static IServiciosCraps getInstance(){
 		if(instance == null)
 			instance = new ManejadorMesaCraps();
 		return instance;
 	}
+	
+	// METODOS DE SERVICIOS EXTERNOS
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje){
+//		 TODO
+		return null;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje){
+//		 TODO
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
+//		 TODO
+		return null;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
+//		 TODO
+		return null;
+	}
+	
+	// METODOS DE MANEJADORE DE MESA
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean estaJugando(IJugador jugador) {
+		
+		boolean esta = false;
+		int i = 0;
+		
+		while( i < getMesas().size() && !esta )
+		
+		for( IMesa m : getMesas() )
+		{
+			esta = m.getJugadores().contains(jugador);
+		}
+		
+		return esta;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean mesasCerradas() {
+		
+		boolean mesasCer = true;
+		for ( IMesa m : getMesas() )
+		{
+			mesasCer = mesasCer && !m.isAbierta();
+		}
+		return mesasCer;
+	}
+	
+	// GETER Y SETERS 
+	
+	/**
+	 * Get mesas.
+	 * 
+	 * @return mesas del manejador
+	 */
+	public List<MesaCraps> getMesas() {
+		return mesas;
+	}
+
+	/**
+	 * Set mesas.
+	 * 
+	 * @param mesas mesas a setear.
+	 */
+	public void setMesas(List<MesaCraps> mesas) {
+		this.mesas = mesas;
+	}
+	
+	// METODOS INTERNOS
+	
+	
+	public void agregarObservador(String idJugador, String idTVirt, Observable mesa){
+
+	}
+
+	
+
+	
+	
+	
+	
 
 	public List<MesaCraps> getMesasAbiertas(){
 		return null;
@@ -77,24 +164,6 @@ public class ManejadorMesaCraps implements IManejadorMesa {
 		return false;
 	}
 
-	public MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
-		return null;
-	}
-
-	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
-		return null;
-	}
-
-	public boolean verificarMesasCerradas(){
-		return false;
-	}
-
-	public List<IMesa> getMesas() {
-		return new ArrayList<IMesa>(mesas);
-	}
-
-	/*public List<MesaCraps> getMesas(){
-		return mesas;
-	}*/
+	
 
 }

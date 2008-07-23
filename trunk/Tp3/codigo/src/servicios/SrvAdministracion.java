@@ -1,5 +1,9 @@
 package servicios;
 
+import java.io.IOException;
+
+import core.ImplementationFactory;
+import casino.IServiciosCasino;
 import casino.ManejadorModoDirigido;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
@@ -28,7 +32,22 @@ public class SrvAdministracion {
 	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje){
-		return ManejadorCasino.getInstance().abrirCasino(mensaje);
+		try {
+			return ImplementationFactory.getImplementation(IServiciosCasino.class, true).abrirCasino(mensaje);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	/**
@@ -38,7 +57,22 @@ public class SrvAdministracion {
 	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje){
-		return ManejadorCasino.getInstance().cerrarCasino(mensaje);
+		try {
+			return ImplementationFactory.getImplementation(IServiciosCasino.class, true).cerrarCasino(mensaje);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	/**

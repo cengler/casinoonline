@@ -15,4 +15,12 @@ public abstract class ManejadorMesa
 	 * @return true si el jugador esta jugando en ese manejador
 	 */
 	public abstract boolean estaJugando(Jugador jugador);
+	
+	/**
+	 * Informa si todas las mesas del manejador estan cerradas.
+	 * 
+	 * @return true si no hay ninguna mesa abierta
+	 */
+	public abstract boolean mesasCerradas();
+	
 }

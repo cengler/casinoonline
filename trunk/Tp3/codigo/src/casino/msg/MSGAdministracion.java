@@ -7,6 +7,7 @@ package casino.msg;
 public abstract class MSGAdministracion {
 
 	private boolean aceptado;
+	private String descripcion;
 
 	public boolean isAceptado() {
 		return aceptado;
@@ -16,5 +17,14 @@ public abstract class MSGAdministracion {
 		this.aceptado = aceptado;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	
 	
 }

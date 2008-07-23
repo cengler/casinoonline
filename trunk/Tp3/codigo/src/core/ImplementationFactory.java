@@ -29,8 +29,7 @@ public final class ImplementationFactory
 	/**
 	 * Constructor privado.
 	 */
-	private ImplementationFactory()
-	{}
+	private ImplementationFactory()	{}
 	
 	/**
 	 * A partir de la interfaz pasada como parametro, obtiene la implementacion que este configurada.

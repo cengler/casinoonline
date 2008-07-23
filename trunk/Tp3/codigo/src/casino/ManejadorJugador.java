@@ -12,7 +12,7 @@ public class ManejadorJugador implements IServiciosJugador {
 	private static ManejadorJugador instance;
 	private List<IInvitado> invitados;
 	private Set<IJugador> jugadores = new HashSet<IJugador>();
-	private List<IManejadorMesa> manejadores;
+	private List<ManejadorMesa> manejadores;
 
 	private ManejadorJugador(){}
 	
@@ -72,11 +72,11 @@ public class ManejadorJugador implements IServiciosJugador {
 		this.jugadores = jugadores;
 	}
 
-	public List<IManejadorMesa> getManejadores() {
+	public List<ManejadorMesa> getManejadores() {
 		return manejadores;
 	}
 
-	public void setManejadores(List<IManejadorMesa> manejadores) {
+	public void setManejadores(List<ManejadorMesa> manejadores) {
 		this.manejadores = manejadores;
 	}
 }

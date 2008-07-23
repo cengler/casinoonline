@@ -12,8 +12,6 @@ import org.apache.log4j.Logger;
 
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
-import casino.msg.MSGResetModoDirigido;
-import casino.msg.MSGsetModoDirigido;
 import casino.msg.estadoCasino.MSGEstadoCasino;
 
 import com.thoughtworks.xstream.XStream;
@@ -87,15 +85,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	}
 
 	public MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje){
-		return null;
-	}
-
-	public void resetModoDirigido(MSGsetModoDirigido unMSG){
-
-	}
-
-	public void setearModoDirigido(MSGResetModoDirigido unMSG){
-
+		return null; //TODO 
 	}
 
 	public MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje) {
@@ -176,8 +166,6 @@ public class ManejadorCasino implements IServiciosCasino {
 			logger.debug("Preparando para almacenamiento jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
 			listajug.add(jl);
 		}
-		
-		
 		xstream.toXML(listajug, os);
 	}
 

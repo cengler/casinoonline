@@ -2,34 +2,42 @@ package craps.msg;
 
 public class MSGCraps {
 
-	private boolean aceptado;
-	private int inVirt;
-	private String mesa;
-	private String nombre;
-	
-	public boolean isAceptado() {
+	private int vTerm;
+	private String usuario;
+	private int mesa; //cuando mesa = 0 la mesa es nula
+	private String aceptado; //este atributo es para comunicarle al solicitante 
+	//si su solicitud se acepto  o no
+	private String descripcion; //es caso de no ser aceptada debe ir una descripcion
+	//del motivo
+	public String getAceptado() {
 		return aceptado;
 	}
-	public void setAceptado(boolean aceptado) {
+	public void setAceptado(String aceptado) {
 		this.aceptado = aceptado;
 	}
-	public int getInVirt() {
-		return inVirt;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setInVirt(int inVirt) {
-		this.inVirt = inVirt;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-	public String getMesa() {
+	public int getMesa() {
 		return mesa;
 	}
-	public void setMesa(String mesa) {
+	public void setMesa(int mesa) {
 		this.mesa = mesa;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public int getVTerm() {
+		return vTerm;
+	}
+	public void setVTerm(int term) {
+		vTerm = term;
 	}
 	
 	

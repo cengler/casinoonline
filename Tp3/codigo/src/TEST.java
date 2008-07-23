@@ -1,7 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import parser.parserCraps;
+import parser.ParserCraps;
 import craps.msg.MSGEntradaCraps;
 
 public class TEST {
@@ -28,9 +28,9 @@ public class TEST {
 		try 
 		{
 			is1 = new FileInputStream("D:/casino/codigo/xml/entradaCraps.xml");
-			MSGEntradaCraps msg = (MSGEntradaCraps)parserCraps.getInstance().parse(is1);
+			MSGEntradaCraps msg = (MSGEntradaCraps)ParserCraps.getInstance().parse(is1);
 			
-			parserCraps.getInstance().renderizar(msg, "D:/casino/codigo/xml/entradaCrapsP.xml");
+			ParserCraps.getInstance().renderizar(msg, "D:/casino/codigo/xml/entradaCrapsP.xml");
 		} 
 		catch (FileNotFoundException e) 
 		{

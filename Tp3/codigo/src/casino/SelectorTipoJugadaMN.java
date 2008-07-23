@@ -32,7 +32,7 @@ public class SelectorTipoJugadaMN implements ISelectorTipoJugada {
 	/**
 	 * Obtiene el tipo de jugada para la proxima jugada.
 	 */
-	public TipoJugada getTipoJugada() {
+	public TipoJugada getTipoJugada(IMesa mesa) {
 		// TODO Auto-generated method stub
 		return null;
 	}

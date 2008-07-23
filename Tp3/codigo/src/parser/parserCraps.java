@@ -11,13 +11,13 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 
 
-public class parserCraps {
+public class ParserCraps {
 	
 	private static Logger logger = Logger.getLogger(ParserCasino.class);
 	private static XStream xstream;
-	private static parserCraps instance;
+	private static ParserCraps instance;
 	
-	private parserCraps()
+	private ParserCraps()
 	{
 		xstream = new XStream(new DomDriver()); 
 		
@@ -69,10 +69,10 @@ public class parserCraps {
 		xstream.aliasAttribute(MSGMesaCraps.class, "id", "id");		*/
 	}
 	
-	public static parserCraps getInstance()
+	public static ParserCraps getInstance()
 	{
 		if(instance == null)
-			instance = new parserCraps();
+			instance = new ParserCraps();
 		return instance;
 	}
 	

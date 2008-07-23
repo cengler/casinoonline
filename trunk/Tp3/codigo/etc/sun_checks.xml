@@ -34,11 +34,15 @@
 
     <!-- Checks that a package.html file exists for each package.     -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html#PackageHtml -->
-    <module name="PackageHtml"/>
+	
+<!-- CAEYCAE-->
+    <!--module name="PackageHtml"/-->
 
     <!-- Checks whether files end with a new line.                        -->
     <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
-    <module name="NewlineAtEndOfFile"/>
+	
+<!-- CAEYCAE-->
+    <!--module name="NewlineAtEndOfFile"/-->
 
     <!-- Checks that property files contain the same keys.         -->
     <!-- See http://checkstyle.sf.net/config_misc.html#Translation -->
@@ -97,7 +101,9 @@
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
         <module name="FileLength"/>
-        <module name="LineLength"/>
+
+<!-- CAEYCAE-->
+        <!--module name="LineLength"/-->
         <module name="MethodLength"/>
         <module name="ParameterNumber"/>
 

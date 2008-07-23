@@ -8,6 +8,13 @@ package casino;
  */
 public interface ICasino
 {
+	public boolean isAbierto() ;
+
+	public boolean isModoNormal();
+
+	public int getPozoFeliz();
+
+	public long getSaldo();
 	
 }
 

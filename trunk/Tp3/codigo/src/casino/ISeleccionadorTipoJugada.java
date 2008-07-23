@@ -2,6 +2,6 @@ package casino;
 
 public interface ISeleccionadorTipoJugada {
 
-	public TipoJugada getTipoJugada();
+	public TipoJugada getTipoJugada(IMesa mesa);
 
 }

@@ -1,40 +1,36 @@
 package casino;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
 
 public class ManejadorJugador implements IServiciosJugador {
 
-	private static IServiciosJugador instance;
+	private static ManejadorJugador instance;
 	private List<IInvitado> invitados;
-	private List<IJugador> jugadores;
+	private Set<IJugador> jugadores = new HashSet<IJugador>();
 	private List<IManejadorMesa> manejadores;
 
 	private ManejadorJugador(){}
 	
-	public static IServiciosJugador getInstance()
+	public static ManejadorJugador getInstance()
 	{
 		if(instance == null)
 			instance = new ManejadorJugador();
 		return instance;
 	}
 
-	/* (non-Javadoc)
-	 * @see casino.IServiciosJugador#entrarCasino(casino.msg.MSGEntradaCasino)
-	 */
 	public MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see casino.IServiciosJugador#salirCasino(casino.msg.MSGSalidaCasino)
-	 */
 	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
 		return null;
 	}
-	
 	
 	public void acreditar(IJugador jugador, int b){}
 
@@ -69,11 +65,11 @@ public class ManejadorJugador implements IServiciosJugador {
 		this.invitados = invitados;
 	}
 
-	public List<IJugador> getJugadores() {
+	public Set<IJugador> getJugadores() {
 		return jugadores;
 	}
 
-	public void setJugadores(List<IJugador> jugadores) {
+	public void setJugadores(Set<IJugador> jugadores) {
 		this.jugadores = jugadores;
 	}
 

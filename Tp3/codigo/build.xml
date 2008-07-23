@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<project name="Casino Online" default="checkstyle">
+<project name="Casino Online" default="zip">
 
 <property name="dir.lib" value="lib" />
 <property name="dir.bin" value="bin" />
@@ -51,6 +51,8 @@
 	<jdepend format="xml" outputfile="${dir.rep}/jdepend-report.xml" classpathref="classpath">
 		<exclude name="java.*"/>
 		<exclude name="javax.*"/>
+		<exclude name="org.apache.*"/>
+		<exclude name="com.thoughtworks.*"/>		
 		<classespath>
 			<pathelement location="${dir.bin}" />
 		</classespath>
@@ -62,14 +64,26 @@
 	 	<mapper type="glob" from="*jdepend-report.xml" to="jdepend-report.html"/>
 	</xslt>
 	
+</target>
+
+<target name="dot" depends="jdepend" description="Genera grafo de dependencias.">
+
 	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
 		style="${dir.etc}/jdepend2dot.xsl" >
 	 	<mapper type="glob" from="*jdepend-report.xml" to="jdepend-report.dot"/>
 	</xslt>
 	
+	<exec executable="dot">
+		<arg value="-Tpng"/>	
+		<arg value="-o"/>
+		<arg value="${dir.rep}/jdepend-report.png"/>
+		<arg value="${dir.rep}/jdepend-report.dot"/>
+	</exec>
+	
+	<!--dot -Tpng -o jdepend.png jdepend-report.dot-->
 </target>
 
-<target name="checkstyle" depends="jdepend" description="Genera reporte de violaciones de convenciones de codigo.">
+<target name="checkstyle" depends="dot" description="Genera reporte de violaciones de convenciones de codigo.">
 	<echo>Chequeando Codigo: ..................................... </echo>
 
 	<checkstyle config="${dir.etc}/sun_checks.xml"
@@ -83,6 +97,11 @@
 		style="${dir.etc}/checkstyle.xsl" >
 	 	<mapper type="glob" from="*checkstyle-report.xml" to="checkstyle-report.html"/>
 	</xslt>
+</target>
+
+
+<target name="all" depends="checkstyle" description="Realiza todo.">
+	<echo>All Actions: ..................................... </echo>
 </target>
 
 

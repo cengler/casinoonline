@@ -4,12 +4,13 @@ public class Jugador implements IJugador {
 
 	private int IdVirt;
 	private boolean logeado;
+	private boolean vip;
 	private boolean modoObservador;
 	private String nombre;
 	private long saldo;
 
 	public Jugador(){
-
+		logeado = false;
 	}
 
 	public int getIdVirt() {
@@ -52,6 +53,19 @@ public class Jugador implements IJugador {
 		this.saldo = saldo;
 	}
 	
+	public boolean isVip() {
+		return vip;
+	}
+
+	public void setVip(boolean vip) {
+		this.vip = vip;
+	}
+
+	@Override
+	public int hashCode() {
+		return nombre.hashCode();
+	}
+
 	public boolean equals(Object jug)
 	{
 		if (jug instanceof Jugador)

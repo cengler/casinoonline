@@ -21,13 +21,34 @@ public class parserCraps {
 	{
 		xstream = new XStream(new DomDriver()); 
 		
-		xstream.alias("entradaCraps", MSGEntradaCraps.class);
+		/*xstream.alias("entradaCraps", MSGEntradaCraps.class);
 		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
 		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
 		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
 		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
 		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
-			
+		
+		xstream.alias("salidaCraps", MSGSalidaCraps.class);
+		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
+		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
+		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
+		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
+		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
+		*/
+		xstream.alias("apostarCraps", MSGApostarCraps.class);
+		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
+		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
+		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
+		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
+		xstream.aliasAttribute(MSGApostarCraps.class, "valorApuesta", "valorApuesta");
+		xstream.alias("valorFicha", MSGValorFicha.class);
+		xstream.aliasAttribute(MSGValorFicha.class, "cantidad", "cantidad");
+		xstream.aliasAttribute(MSGValorFicha.class, "valor", "valor");
+		xstream.aliasAttribute(MSGApostarCraps.class, "opcionApuesta", "opcionApuesta");
+		xstream.alias("opcionApuesta", MSGOpcionApuesta.class);
+		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
+		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
+		
 		
 		//xstream.alias("jugador", MSGJugador.class);
 		//xstream.alias("observador", MSGObservador.class);
@@ -67,7 +88,7 @@ public class parserCraps {
 	{	
 		FileOutputStream fos = new FileOutputStream(path);  
 		
-		xstream.toXML(msg, fos);;
+		xstream.toXML(msg, fos);
 		
 	}
 }

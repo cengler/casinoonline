@@ -22,11 +22,11 @@ public class parserCraps {
 		xstream = new XStream(new DomDriver()); 
 		
 		xstream.alias("entradaCraps", MSGEntradaCraps.class);
-		xstream.aliasAttribute(MSGEntradaCraps.class, "vTerm", "vTerm");
-		xstream.aliasAttribute(MSGEntradaCraps.class, "usuario", "usuario");
-		xstream.aliasAttribute(MSGEntradaCraps.class, "mesa", "mesa");
-		xstream.aliasAttribute(MSGEntradaCraps.class, "aceptado", "aceptado");
-		xstream.aliasAttribute(MSGEntradaCraps.class, "descripcion", "descripcion");
+		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
+		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
+		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
+		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
+		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
 			
 		
 		//xstream.alias("jugador", MSGJugador.class);

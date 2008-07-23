@@ -31,7 +31,7 @@ public class TEST {
 		InputStream is1;
 		try 
 		{
-			is1 = new FileInputStream("C:\\ING-TP2\\tp3\\codigo\\entradaCraps.xml");
+			is1 = new FileInputStream("C:\\ING-TP2\\tp3\\codigo\\xml\\entradaCraps.xml");
 			MSGEntradaCraps msg = (MSGEntradaCraps)parserCraps.getInstance().parse(is1);
 			
 			parserCraps.getInstance().renderizar(msg, "C:\\ING-TP2\\tp3\\codigo\\entradaCrapsP.xml");

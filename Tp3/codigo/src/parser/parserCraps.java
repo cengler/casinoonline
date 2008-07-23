@@ -21,7 +21,7 @@ public class ParserCraps {
 	{
 		xstream = new XStream(new DomDriver()); 
 		
-		/*xstream.alias("entradaCraps", MSGEntradaCraps.class);
+		xstream.alias("entradaCraps", MSGEntradaCraps.class);
 		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
 		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
 		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
@@ -34,7 +34,7 @@ public class ParserCraps {
 		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
 		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
 		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
-		*/
+		
 		xstream.alias("apostarCraps", MSGApostarCraps.class);
 		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
 		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
@@ -49,24 +49,17 @@ public class ParserCraps {
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
 		
+		xstream.alias("tiroCraps", MSGTiroCraps.class);
+		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
+		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
+		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
+		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
+		xstream.aliasAttribute(MSGTiroCraps.class, "tipoJugada", "tipoJugada");
+		xstream.aliasAttribute(MSGTiroCraps.class, "resultado", "resultado");
+		xstream.alias("resultado", MSGResultadoCraps.class);
 		
-		//xstream.alias("jugador", MSGJugador.class);
-		//xstream.alias("observador", MSGObservador.class);
 		
-		/*xstream.alias("tragamonedas", MSGTragamonedas.class);
-		xstream.alias("mesaTragamonedas", MSGMesaTragamonedas.class);
-		xstream.alias("ultimoTiroTraga", MSGUltimoTiro.class);
 		
-		xstream.alias("resultadoTraga", MSGResultado.class);
-		xstream.alias("craps", MSGCraps.class);
-		xstream.alias("mesaCraps", MSGMesaCraps.class);
-		xstream.alias("proximoTiro", MSGProximoTiro.class);
-		xstream.alias("ultimoTiroCraps", MSGUltimoTiroCraps.class);
-		xstream.alias("pozosCasino", MSGPozo.class);
-		xstream.aliasAttribute(MSGJugador.class, "nombre", "nombre");
-		xstream.aliasAttribute(MSGObservador.class, "nombre", "nombre");
-		xstream.aliasAttribute(MSGMesaTragamonedas.class, "id", "id");
-		xstream.aliasAttribute(MSGMesaCraps.class, "id", "id");		*/
 	}
 	
 	public static ParserCraps getInstance()

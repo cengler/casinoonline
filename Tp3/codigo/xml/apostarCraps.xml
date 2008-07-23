@@ -13,7 +13,9 @@
 			<cantidad>3</cantidad> 
 			<valor>25</valor> 
 		</valorFicha> 
+		<valorFicha> 
 			<cantidad>5</cantidad> 
 			<valor>50</valor>  
+		</valorFicha> 
 	</valorApuesta> 
 </apostarCraps>

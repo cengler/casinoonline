@@ -1,5 +1,7 @@
 package casino;
 
+import java.util.Random;
+
 /**
  * SelectorTipoJugadaMN.
  * 
@@ -13,8 +15,7 @@ public class SelectorTipoJugadaMN implements ISelectorTipoJugada {
 	/**
 	 * Constructor.
 	 */
-	public SelectorTipoJugadaMN(){
-
+	private SelectorTipoJugadaMN(){
 	}
 
 	/**
@@ -33,7 +34,9 @@ public class SelectorTipoJugadaMN implements ISelectorTipoJugada {
 	 * Obtiene el tipo de jugada para la proxima jugada.
 	 */
 	public TipoJugada getTipoJugada(IMesa mesa) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Random generator = new Random();
+		int rnd = generator.nextInt(TipoJugada.values().length);
+        return TipoJugada.values()[rnd];
 	}
 }

@@ -2,7 +2,7 @@ package casino;
 
 import java.util.List;
 
-public interface IMesa {
+public interface IMesa extends Comparable<IMesa>{
 
 	public boolean estaJugando(IJugador jugador);
 

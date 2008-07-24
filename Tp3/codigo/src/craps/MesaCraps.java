@@ -92,6 +92,10 @@ public class MesaCraps extends Observable implements IMesa {
 		return esta;
 	}
 
+	public int compareTo(IMesa mesa) {
+		return (new Integer(this.id)).compareTo(new Integer(mesa.getId()));
+	}
+
 	/*public void setJugadores(List<IJugador> jugadores) {
 	this.jugadores = jugadores;
 	}

@@ -11,7 +11,10 @@ public class Casino implements ICasino {
 	/**
 	 * Constructor.
 	 */
-	private Casino(){}
+	private Casino(){
+		abierto = false;
+		modoNormal = true;
+	}
 
 	/**
 	 * Obtiene la unica instancia de casino.

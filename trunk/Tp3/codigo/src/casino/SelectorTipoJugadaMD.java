@@ -24,7 +24,6 @@ public class SelectorTipoJugadaMD implements ISelectorTipoJugada {
 		return instance;
 	}
 
-	
 	public TipoJugada getTipoJugada(IMesa mesa)
 	{
 		logger.debug("getTipoJugada para mesa: " + mesa.getId());

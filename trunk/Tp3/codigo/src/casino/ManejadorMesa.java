@@ -23,4 +23,8 @@ public abstract class ManejadorMesa
 	 */
 	public abstract boolean mesasCerradas();
 	
+	public abstract String getName();
+
+	public abstract IMesa getMesa(int id);
+	
 }

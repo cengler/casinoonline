@@ -1,8 +1,11 @@
 package casino;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.puppycrawl.tools.checkstyle.checks.indentation.NewHandler;
 
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
@@ -10,11 +13,16 @@ import casino.msg.MSGSalidaCasino;
 public class ManejadorJugador implements IServiciosJugador {
 
 	private static ManejadorJugador instance;
-	private List<IInvitado> invitados;
+	private Set<IInvitado> invitados;
 	private Set<IJugador> jugadores = new HashSet<IJugador>();
 	private List<ManejadorMesa> manejadores;
 
-	private ManejadorJugador(){}
+	private ManejadorJugador()
+	{
+		manejadores = new ArrayList<ManejadorMesa>();
+		jugadores = new HashSet<IJugador>();
+		invitados = new HashSet<IInvitado>();
+	}
 	
 	public static ManejadorJugador getInstance()
 	{
@@ -56,11 +64,11 @@ public class ManejadorJugador implements IServiciosJugador {
 
 	
 	
-	public List<IInvitado> getInvitados() {
+	public Set<IInvitado> getInvitados() {
 		return invitados;
 	}
 
-	public void setInvitados(List<IInvitado> invitados) {
+	public void setInvitados(Set<IInvitado> invitados) {
 		this.invitados = invitados;
 	}
 

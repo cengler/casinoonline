@@ -20,6 +20,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 	private static IServiciosCraps instance;
 	private List<MesaCraps> mesas;
+	private static String GAME_NAME = "craps";
 
 	private ManejadorMesaCraps(){}
 
@@ -164,6 +165,20 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		return false;
 	}
 
-	
+	public MesaCraps getMesa(int id)
+	{
+		for(MesaCraps m : mesas)
+		{
+			if(m.getId() == id)
+			{
+				return m;
+			}
+		}
+		return null;
+	}
+
+	public String getName() {
+		return GAME_NAME;
+	}
 
 }

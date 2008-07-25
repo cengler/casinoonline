@@ -2,19 +2,23 @@ package servicios;
 
 import casino.Jugador;
 import casino.ManejadorJugador;
+import casino.TipoJugada;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
+import casino.msg.MSGSetJugada;
 
 public class TestServicios {
 
 
 	public static void main(String[] args) {
 		
-		abrirCasino();
+		/*abrirCasino();
 		
 		((Jugador)ManejadorJugador.getInstance().getJugadores().iterator().next()).setSaldo(123456789);
 		
-		cerrarCasino();
+		cerrarCasino();*/
+		
+		setearJugada();
 	}
 	
 	public static void abrirCasino()
@@ -26,5 +30,14 @@ public class TestServicios {
 	{
 		SrvAdministracion.cerrarCasino(new MSGCerrarCasino());
 	}
-
+	
+	public static void setearJugada()
+	{
+		MSGSetJugada m = new MSGSetJugada();
+		m.setJuego("craps");
+		m.setMesa(10);
+		m.setTipo(TipoJugada.jugadaFeliz);
+		
+		SrvAdministracion.setearJugada(m);
+	}
 }

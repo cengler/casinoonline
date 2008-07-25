@@ -1,0 +1,6 @@
+<reporteRanking>
+	<jugadores> 
+		<jugador nombre="pepe" saldo="34"></jugador>
+		<jugador nombre="ana" saldo="20"></jugador>  
+	</jugadores>
+</reporteRanking>

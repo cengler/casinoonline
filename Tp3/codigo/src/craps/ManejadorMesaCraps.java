@@ -1,4 +1,5 @@
 package craps;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -26,7 +27,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	private List<MesaCraps> mesas;
 	private static String GAME_NAME = "craps";
 
-	private ManejadorMesaCraps(){}
+	private ManejadorMesaCraps()
+	{
+		mesas = new ArrayList<MesaCraps>();
+	}
 
 	public static IServiciosCraps getInstance(){
 		if(instance == null)
@@ -68,6 +72,9 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				mesa.getJugadores().add(jug);
 				// SET TIRADOR
 				mesa.setTirador(jug);
+				
+				// ME GUARDO LA MESA PARA MANEJARLA
+				mesas.add(mesa);
 				
 				// SETEO RESPUESTA
 				mensaje.setAceptado(MSGEntradaCraps.SI);
@@ -194,10 +201,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 	public List<MesaCraps> getMesasAbiertas(){
 		return null;
-	}
-
-	public int newIdMesa(){
-		return 0;
 	}
 
 	public void quitarObservador(String idJugador, IMesa mesa){

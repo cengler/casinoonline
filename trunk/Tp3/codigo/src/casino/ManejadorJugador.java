@@ -5,11 +5,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.puppycrawl.tools.checkstyle.checks.indentation.NewHandler;
-
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
 
+/**
+ * ManejadorJugador.
+ * 
+ * @author Grupo2
+ *
+ */
 public class ManejadorJugador implements IServiciosJugador {
 
 	private static ManejadorJugador instance;
@@ -17,6 +21,9 @@ public class ManejadorJugador implements IServiciosJugador {
 	private Set<IJugador> jugadores = new HashSet<IJugador>();
 	private List<ManejadorMesa> manejadores;
 
+	/**
+	 * Constructor.
+	 */
 	private ManejadorJugador()
 	{
 		manejadores = new ArrayList<ManejadorMesa>();
@@ -31,10 +38,16 @@ public class ManejadorJugador implements IServiciosJugador {
 		return instance;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
 		return null;
 	}
@@ -62,8 +75,6 @@ public class ManejadorJugador implements IServiciosJugador {
 		return false;
 	}
 
-	
-	
 	public Set<IInvitado> getInvitados() {
 		return invitados;
 	}

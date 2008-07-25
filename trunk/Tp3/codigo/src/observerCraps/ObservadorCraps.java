@@ -5,34 +5,45 @@ import java.util.Observer;
 
 import casino.IMesa;
 
+/**
+ * ObservadorCraps. Representa la asociacion de un jugador con una
+ * mesa de craps para el envio de mensajes de notificacion.
+ * 
+ * @author Administrador
+ *
+ */
 public class ObservadorCraps implements Observer {
 
-	public ObservadorCraps(){
+	private Observable observable;
+	private String idJugador;
+	private int idTVirt;
+	
+	public ObservadorCraps(){}
 
+	public void setMesa(Observable mesa){
+		observable = mesa;
+	}
+	
+	public void update(Observable o, Object obj) {
+		//TODO
 	}
 
-	public void finalize() throws Throwable {
-
+	public String getIdJugador() {
+		return idJugador;
 	}
 
-	public IMesa getMesa(){
-		return null;
+	public void setIdJugador(String idJugador) {
+		this.idJugador = idJugador;
 	}
 
-	public void notificar(){
-
+	public int getIdTVirt() {
+		return idTVirt;
 	}
 
-	/**
-	 * 
-	 * @param mesa
-	 */
-	public void setMesa(IMesa mesa){
+	public void setIdTVirt(int idTVirt) {
+		this.idTVirt = idTVirt;
 	}
-
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 
 }

@@ -1,17 +1,29 @@
 package casino;
 
+/**
+ * SeleccionadorTipoJugadaPorModo.
+ * 
+ * @author Grupo2
+ *
+ */
 public class SeleccionadorTipoJugadaPorModo implements ISeleccionadorTipoJugada {
 
 	private static SeleccionadorTipoJugadaPorModo instance;
-
 	private SeleccionadorTipoJugadaPorModo(){}
 
+	/**
+	 * Obtiene la unica instancia del SeleccionadorTipoJugadaPorModo.
+	 * @return
+	 */
 	public static SeleccionadorTipoJugadaPorModo getInstance(){
 		if(instance == null)
 			instance = new SeleccionadorTipoJugadaPorModo();
 		return instance;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public TipoJugada getTipoJugada(IMesa mesa) 
 	{
 		// TODO VER SI CAMBIAR DISEÑO

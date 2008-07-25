@@ -8,6 +8,9 @@ package casino;
  */
 public abstract class ManejadorMesa
 {
+	
+	private int lastIdMesa = 0;
+	
 	/**
 	 * Informa su el jugador esta jugando en ese manejador en particular.
 	 * 
@@ -26,5 +29,17 @@ public abstract class ManejadorMesa
 	public abstract String getName();
 
 	public abstract IMesa getMesa(int id);
+	
+	/**
+	 * Obtiene los id para las mesas de todos los juegos. 
+	 * De tal manera, no habra en el casino dos mesas con el mismo id
+	 * 
+	 * @return el siguiente id generado
+	 */
+	protected synchronized int newIdMesa()
+	{
+		lastIdMesa++;
+		return lastIdMesa;	
+	}
 	
 }

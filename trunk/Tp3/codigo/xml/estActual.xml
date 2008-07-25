@@ -1,0 +1,6 @@
+<reporteEstadoActual>
+	<saldoCasino></saldoCasino>
+	<jugadores> 
+            <jugador nombre="nombre del jugador" saldo="34"></jugador>   
+	</jugadores>
+</reporteEstadoActual>

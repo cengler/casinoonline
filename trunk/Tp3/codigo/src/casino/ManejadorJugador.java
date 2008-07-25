@@ -52,29 +52,8 @@ public class ManejadorJugador implements IServiciosJugador {
 		return null;
 	}
 	
-	public void acreditar(IJugador jugador, int b){}
-
-	public void AcreditarSaldo(Jugador jugador, int a, int b){}
-
-	public void debitarMonto(Jugador jugador, int a, int b){	}
-
-	public void estaJugando(IJugador jugador){}
-
-	public ICliente getCliente(int idVitrual, String nombre){
-		return null;
-	}
-
-	public boolean getJugador(String jugador){
-		return false;
-	}
-
-	public void getJugadorLoggeado(Jugador jugador, int a, int b){
-	}
-
-	public boolean montoValidoPara(Jugador jugador){
-		return false;
-	}
-
+	// GETERS Y SETERS
+	
 	public Set<IInvitado> getInvitados() {
 		return invitados;
 	}
@@ -98,4 +77,54 @@ public class ManejadorJugador implements IServiciosJugador {
 	public void setManejadores(List<ManejadorMesa> manejadores) {
 		this.manejadores = manejadores;
 	}
+	
+	// FUNCIONES VARIAS
+	
+	public IJugador getJugadorLoggeado(String nombreJugador, int idTerm)
+	{
+		for(IJugador jug : jugadores)
+		{
+			if( (jug.getNombre().equals(nombreJugador)) ) 
+			{
+				if( ((jug.getIdVirt() == idTerm) && (jug.isLogeado())) )
+					return jug;
+			}	
+			else
+				return null;
+		}
+		return null;
+	}
+	
+	
+	public void acreditar(IJugador jugador, int b){}
+
+	public void AcreditarSaldo(Jugador jugador, int a, int b){}
+
+	public void debitarMonto(Jugador jugador, int a, int b){	}
+
+	public boolean estaJugando(IJugador jugador)
+	{
+		boolean estaJugando = false;
+		
+		for( ManejadorMesa manejador : manejadores )
+		{
+			estaJugando = estaJugando || manejador.estaJugando(jugador);
+		}
+		
+		return estaJugando;
+	}
+
+	public ICliente getCliente(int idVitrual, String nombre){
+		return null;
+	}
+
+	public boolean getJugador(String jugador){
+		return false;
+	}
+
+	public boolean montoValidoPara(Jugador jugador){
+		return false;
+	}
+
+	
 }

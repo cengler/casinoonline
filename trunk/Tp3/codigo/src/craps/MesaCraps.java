@@ -17,8 +17,9 @@ public class MesaCraps extends Observable implements IMesa {
 	private int punto;
 	private IJugador tirador;
 	
-	public MesaCraps() {
+	public MesaCraps(int id) {
 		super();
+		this.id = id;
 		jugadores = new ArrayList<IJugador>();
 	}
 

@@ -12,8 +12,7 @@ public class TestTipoJugada {
 		
 		ISeleccionadorTipoJugada s = SeleccionadorTipoJugadaPorModo.getInstance();
 		
-		IMesa mesa = new MesaCraps();
-		((MesaCraps)mesa).setId(20);
+		IMesa mesa = new MesaCraps(20);
 		
 		System.out.println("MODO NORMAL: " + Casino.getInstance().isModoNormal());
 		s.getTipoJugada(mesa);

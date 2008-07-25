@@ -1,5 +1,12 @@
 package casino;
 
+/**
+ * Casino. Singleton que representa a las propiedades 
+ * basicas del casino online
+ * 
+ * @author Grupo2
+ *
+ */
 public class Casino implements ICasino {
 
 	private boolean abierto;
@@ -27,7 +34,9 @@ public class Casino implements ICasino {
 		return instance;
 	}
 
-	
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean isAbierto() {
 		return abierto;
 	}
@@ -36,6 +45,9 @@ public class Casino implements ICasino {
 		this.abierto = abierto;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean isModoNormal() {
 		return modoNormal;
 	}
@@ -44,6 +56,9 @@ public class Casino implements ICasino {
 		this.modoNormal = modoNormal;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getPozoFeliz() {
 		return pozoFeliz;
 	}
@@ -52,6 +67,9 @@ public class Casino implements ICasino {
 		this.pozoFeliz = pozoFeliz;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public long getSaldo() {
 		return saldo;
 	}

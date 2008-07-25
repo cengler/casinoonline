@@ -2,6 +2,9 @@ package craps.msg;
 
 public class MSGCraps {
 
+	public static String SI = "SI";
+	public static String NO = "NO";
+	
 	private int vTerm;
 	private String usuario;
 	private int mesa; //cuando mesa = 0 la mesa es nula
@@ -9,6 +12,7 @@ public class MSGCraps {
 	//si su solicitud se acepto  o no
 	private String descripcion; //es caso de no ser aceptada debe ir una descripcion
 	//del motivo
+	
 	public String getAceptado() {
 		return aceptado;
 	}

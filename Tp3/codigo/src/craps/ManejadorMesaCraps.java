@@ -2,8 +2,11 @@ package craps;
 import java.util.List;
 import java.util.Observable;
 
+import org.apache.log4j.Logger;
+
 import casino.IJugador;
 import casino.IMesa;
+import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import craps.msg.MSGApuestaCraps;
 import craps.msg.MSGEntradaCraps;
@@ -18,6 +21,7 @@ import craps.msg.MSGTiroCraps;
  */
 public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps {
 
+	private Logger logger = Logger.getLogger(ManejadorMesaCraps.class);
 	private static IServiciosCraps instance;
 	private List<MesaCraps> mesas;
 	private static String GAME_NAME = "craps";
@@ -35,9 +39,66 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje){
-//		 TODO
-		return null;
+	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje)
+	{
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		
+		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+		if(jug == null)
+		{
+			mensaje.setAceptado(MSGEntradaCraps.NO);
+			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
+			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
+		}
+		else if(manJug.estaJugando(jug))
+		{
+			mensaje.setAceptado(MSGEntradaCraps.NO);
+			mensaje.setDescripcion("El jugador ya esta jugando en algun juego");
+			logger.info("El jugador ya esta jugando en algun juego");
+		}
+		else
+		{
+			if(mensaje.getMesa() == 0)
+			{
+				/*HAY QUE CREAR UNA MESA*/
+				
+				// CREO LA MESA
+				MesaCraps mesa = new MesaCraps(newIdMesa());
+				// AGREGO AL JUGADOR
+				mesa.getJugadores().add(jug);
+				// SET TIRADOR
+				mesa.setTirador(jug);
+				
+				// SETEO RESPUESTA
+				mensaje.setAceptado(MSGEntradaCraps.SI);
+				mensaje.setMesa(mesa.getId());		
+				mensaje.setDescripcion("El jugador ha sido ingresado a la mesa: " + mesa.getId() + " y es el tirador asignado");
+				logger.info("El jugador ha sido ingresado a la mesa: " + mesa.getId() + " y es el tirador asignado");	
+			}
+			else
+			{
+				/*HAY QUE INTENTAR UNIRSE A UNA MESA*/
+				
+				IMesa mesa = getMesa(mensaje.getMesa());
+				if(mesa == null)
+				{
+					mensaje.setAceptado(MSGEntradaCraps.NO);
+					mensaje.setDescripcion("La mesa a la cual se esta intentando unir no existe");
+					logger.info("La mesa a la cual se esta intentando unir no existe");
+				}
+				else
+				{
+					// AGREGO AL JUGADOR
+					mesa.getJugadores().add(jug);
+					
+					// SETEO RESPUESTA
+					mensaje.setAceptado(MSGEntradaCraps.SI);	
+					mensaje.setDescripcion("El jugador ha sido ingresado a la mesa solicitada");
+					logger.info("El jugador ha sido ingresado a la mesa solicitada");	
+				}
+			}
+		}
+		return mensaje;
 	}
 	
 	/**

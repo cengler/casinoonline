@@ -18,6 +18,9 @@ public class Invitado implements IInvitado {
 	 */
 	public Invitado(){}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getIdVirt() {
 		return idVirt;
 	}
@@ -26,6 +29,9 @@ public class Invitado implements IInvitado {
 		this.idVirt = idVirt;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public String getNombre() {
 		return nombre;
 	}

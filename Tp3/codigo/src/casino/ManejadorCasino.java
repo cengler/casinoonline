@@ -25,6 +25,9 @@ public class ManejadorCasino implements IServiciosCasino {
 	private static String LISTA_JUG = "D:/codigo/xml/abrir.xml" ;
 	private List<ManejadorMesa> manejadores; 
 
+	/**
+	 * Constructor.
+	 */
 	private ManejadorCasino()
 	{
 		manejadores = new ArrayList<ManejadorMesa>();
@@ -37,13 +40,20 @@ public class ManejadorCasino implements IServiciosCasino {
 		xstream.aliasAttribute(LSTJugador.class, "vip", "vip");
 	}
 	
+	/**
+	 * Obtiene la unica instancia del manejador de casino. 
+	 * 
+	 * @return la unica instancia del manejador de casino. 
+	 */
 	public static IServiciosCasino getInstance(){
 		if(instance == null)
 			instance = new ManejadorCasino();
 		return instance;
 	}
 	
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje)
 	{
 		Casino casino = Casino.getInstance();
@@ -84,10 +94,16 @@ public class ManejadorCasino implements IServiciosCasino {
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje){
 		return null; //TODO 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje) {
 		
 		Casino casino = Casino.getInstance();
@@ -111,7 +127,11 @@ public class ManejadorCasino implements IServiciosCasino {
 		
 		return mensaje;
 	}
-	
+
+	/**
+	 * cargarListaJugadores.
+	 * 
+	 */
 	private void cargarListaJugadores()
 	{
 		logger.info("Cargando jugadores...");
@@ -143,7 +163,12 @@ public class ManejadorCasino implements IServiciosCasino {
 			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
 		}
 	}
-		
+	
+	/**
+	 * guardarListaJugadores.
+	 * 
+	 *  
+	 */
 	private void guardarListaJugadores()
 	{
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
@@ -169,10 +194,20 @@ public class ManejadorCasino implements IServiciosCasino {
 		xstream.toXML(listajug, os);
 	}
 
+	/**
+	 * Obtiene los manejadores disponibles del casino.
+	 * 
+	 * @return los manejadores disponibles del casino.
+	 */
 	public List<ManejadorMesa> getManejadores() {
 		return manejadores;
 	}
 
+	/**
+	 * Setea la lista de manejadores para el casino.
+	 * 
+	 * @param manejadores la lista de manejadores para el casino.
+	 */
 	public void setManejadores(List<ManejadorMesa> manejadores) {
 		this.manejadores = manejadores;
 	}

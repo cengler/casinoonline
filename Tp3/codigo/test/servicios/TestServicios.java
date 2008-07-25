@@ -1,7 +1,5 @@
 package servicios;
 
-import casino.Jugador;
-import casino.ManejadorJugador;
 import casino.TipoJugada;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;

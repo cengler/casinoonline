@@ -9,6 +9,7 @@ package casino.msg;
 public abstract class MSGModo {
 
 	private boolean aceptado;
+	private String descripcion;
 
 	/**
 	 * isAceptado.
@@ -26,6 +27,24 @@ public abstract class MSGModo {
 	 */
 	public void setAceptado(boolean aceptado) {
 		this.aceptado = aceptado;
+	}
+
+	/**
+	 * getDescripcion.
+	 * 
+	 * @return la descripcion de la razon del rechazo o aceptacion del mensaje
+	 */
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	/**
+	 * setDescripcion.
+	 * 
+	 * @param descripcion la descripcion de la razon del rechazo o aceptacion del mensaje
+	 */
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
 	

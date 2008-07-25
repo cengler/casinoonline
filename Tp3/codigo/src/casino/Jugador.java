@@ -1,5 +1,14 @@
 package casino;
 
+import org.apache.log4j.Logger;
+
+/**
+ * Jugador del casino. Esta clase representa los jugadores 
+ * registrados en el casino tanto los logeados como los no logeados.
+ *  
+ * @author Grupo2
+ *
+ */
 public class Jugador implements IJugador {
 
 	private int IdVirt;
@@ -8,7 +17,12 @@ public class Jugador implements IJugador {
 	private boolean modoObservador;
 	private String nombre;
 	private int saldo;
+	
+	private Logger logger = Logger.getLogger(Jugador.class);
 
+	/**
+	 * Constructor.
+	 */
 	public Jugador(){
 		logeado = false;
 	}
@@ -49,7 +63,15 @@ public class Jugador implements IJugador {
 		return saldo;
 	}
 
+	/**
+	 * Verifica si el jugador no es vip, no se le puede setear saldo negativo.
+	 * 
+	 * @param saldo saldo a setear al jugador
+	 */
 	public void setSaldo(int saldo) {
+		if(!isVip())
+			if(saldo<0)
+				logger.error("El saldo de un jugador no VIP no pude ser negativo");
 		this.saldo = saldo;
 	}
 	
@@ -61,11 +83,16 @@ public class Jugador implements IJugador {
 		this.vip = vip;
 	}
 
-	@Override
+	/**
+	 * El hashCode de jugadores esta dada por el nombre.
+	 */
 	public int hashCode() {
 		return nombre.hashCode();
 	}
 
+	/**
+	 * La igualdad de jugadores esta dada por el nombre.
+	 */
 	public boolean equals(Object jug)
 	{
 		if (jug instanceof Jugador)

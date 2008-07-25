@@ -2,82 +2,84 @@ package craps;
 
 import casino.IJugador;
 
+/**
+ * Clase ApuestaCraps.
+ * 
+ * @author Grupo2
+ *
+ */
 public class ApuestaCraps {
 
-	public ApuestaCraps(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
-	public IJugador getApostador(){
-		return null;
-	}
-
-	public int getPuntaje(){
-		return 0;
-	}
-
-	public String getTipoApu(){
-		return "";
-	}
-
-	public int getValorApu(){
-		return 0;
-	}
-
-	public ApuestaCraps(IJugador jugador, int motno, boolean tipoApuesta, int valApo){
-
-	}
+	IJugador apostador;
+	int puntaje;
+	TipoApuestaCraps tipo;
+	int valor;
+	boolean activa;
+		
+	/**
+	 * Constructor sin parametros.
+	 *
+	 */
+	public ApuestaCraps(){}
 
 	/**
+	 * Constructor.
 	 * 
-	 * @param bool
+	 * @param apostador jugador que realiza la apuesta
+	 * @param puntaje puntaje al que apuesta
+	 * @param tipo tipo de apuesta
+	 * @param valor monto a apostar
 	 */
-	public void setActiva(boolean bool){
-
+	public ApuestaCraps(IJugador apostador, int puntaje, TipoApuestaCraps tipo, int valor) {
+		super();
+		this.apostador = apostador;
+		this.puntaje = puntaje;
+		this.tipo = tipo;
+		this.valor = valor;
+		this.activa = true;
 	}
 
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public void setApostador(IJugador jugador){
-
+	public boolean isActiva() {
+		return activa;
 	}
 
-	/**
-	 * 
-	 * @param jugador
-	 */
-	public void setJugador(IJugador jugador){
-
+	public void setActiva(boolean activa) {
+		this.activa = activa;
 	}
 
-	/**
-	 * 
-	 * @param valor
-	 */
-	public void setPuntaje(int valor){
-
+	public IJugador getApostador() {
+		return apostador;
 	}
 
-	/**
-	 * 
-	 * @param tipoAp
-	 */
-	public void setTipoAp(String tipoAp){
-
+	public void setApostador(IJugador apostador) {
+		this.apostador = apostador;
 	}
 
-	/**
-	 * 
-	 * @param apuesta
-	 */
-	public void setValorApuesta(int apuesta){
-
+	public int getPuntaje() {
+		return puntaje;
 	}
+
+	public void setPuntaje(int puntaje) {
+		this.puntaje = puntaje;
+	}
+
+	public TipoApuestaCraps getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoApuestaCraps tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getValor() {
+		return valor;
+	}
+
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
+
+	
+
 
 }

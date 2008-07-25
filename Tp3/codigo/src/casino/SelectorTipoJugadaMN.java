@@ -2,6 +2,8 @@ package casino;
 
 import java.util.Random;
 
+import org.apache.log4j.Logger;
+
 /**
  * SelectorTipoJugadaMN.
  * 
@@ -11,6 +13,7 @@ import java.util.Random;
 public class SelectorTipoJugadaMN implements ISelectorTipoJugada {
 
 	private static SelectorTipoJugadaMN instance;
+	private Logger logger = Logger.getLogger(SelectorTipoJugadaMN.class);
 
 	/**
 	 * Constructor.
@@ -37,6 +40,11 @@ public class SelectorTipoJugadaMN implements ISelectorTipoJugada {
 		
 		Random generator = new Random();
 		int rnd = generator.nextInt(TipoJugada.values().length);
-        return TipoJugada.values()[rnd];
+        
+		logger.info("getTipoJugada para la mesa: " + mesa.getId() + " resulto: " + TipoJugada.values()[rnd].name());
+		
+		return TipoJugada.values()[rnd];
+        
+        
 	}
 }

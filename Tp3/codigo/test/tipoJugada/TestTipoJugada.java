@@ -1,11 +1,10 @@
 package tipoJugada;
 
-import craps.MesaCraps;
 import casino.Casino;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
 import casino.SeleccionadorTipoJugadaPorModo;
-import casino.TipoJugada;
+import craps.MesaCraps;
 
 public class TestTipoJugada {
 
@@ -17,23 +16,17 @@ public class TestTipoJugada {
 		((MesaCraps)mesa).setId(20);
 		
 		System.out.println("MODO NORMAL: " + Casino.getInstance().isModoNormal());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
+		s.getTipoJugada(mesa);
+		s.getTipoJugada(mesa);
+		s.getTipoJugada(mesa);
+		s.getTipoJugada(mesa);
 		
 		Casino.getInstance().setModoNormal(false);
 		
 		System.out.println("MODO NORMAL: " + Casino.getInstance().isModoNormal());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
-		System.out.println(s.getTipoJugada(mesa).name());
+		s.getTipoJugada(mesa);
+		s.getTipoJugada(mesa);
+		s.getTipoJugada(mesa);
+		s.getTipoJugada(mesa);
 	}
 }

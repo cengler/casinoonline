@@ -1,22 +1,16 @@
 package craps;
 
-import casino.IMesa;
+import java.util.Observable;
 
+/**
+ * Interface IManejadorObservadoresCraps.
+ * @author Administrador
+ *
+ */
 public interface IManejadorObservadoresCraps {
 
-	/**
-	 * 
-	 * @param idJugador
-	 * @param idTVirt
-	 * @param mesa
-	 */
-	public void agregarObservador(String idJugador, String idTVirt, IMesa mesa);
+	public void agregarObservador(String idJugador, String idTVirt, Observable mesa);
 
-	/**
-	 * 
-	 * @param idJugador
-	 * @param mesa
-	 */
-	public void quitarObservador(String idJugador, IMesa mesa);
+	public void quitarObservador(String idJugador, Observable mesa);
 
 }

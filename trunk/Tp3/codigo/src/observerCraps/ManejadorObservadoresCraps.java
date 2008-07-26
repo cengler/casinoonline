@@ -2,7 +2,6 @@ package observerCraps;
 
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 
 import craps.IManejadorObservadoresCraps;
 
@@ -50,7 +49,7 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 	 */
 	public void quitarObservador(String idJugador, ObservadorCraps mesa)
 	{
-		ObservadorCraps observerSel;
+		ObservadorCraps observerSel = null;
 		
 		for (ObservadorCraps o : observers)
 		{
@@ -59,6 +58,10 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 				observerSel = o;
 			}
 		}
+		observerSel.getClass();
+		
+		//TODO
+		
 		//observers.remove(()o);
 		//TODO
 	}

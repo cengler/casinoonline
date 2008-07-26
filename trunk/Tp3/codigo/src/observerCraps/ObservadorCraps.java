@@ -3,8 +3,6 @@ package observerCraps;
 import java.util.Observable;
 import java.util.Observer;
 
-import casino.IMesa;
-
 /**
  * ObservadorCraps. Representa la asociacion de un jugador con una
  * mesa de craps para el envio de mensajes de notificacion.
@@ -22,6 +20,10 @@ public class ObservadorCraps implements Observer {
 
 	public void setMesa(Observable mesa){
 		observable = mesa;
+	}
+	
+	public Observable getMesa(){
+		return observable;
 	}
 	
 	public void update(Observable o, Object obj) {

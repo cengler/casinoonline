@@ -20,6 +20,7 @@ public class MesaCraps extends Observable implements IMesa {
 	public MesaCraps(int id) {
 		super();
 		this.id = id;
+		abierta = true;
 		jugadores = new ArrayList<IJugador>();
 	}
 
@@ -95,6 +96,11 @@ public class MesaCraps extends Observable implements IMesa {
 
 	public int compareTo(IMesa mesa) {
 		return (new Integer(this.id)).compareTo(new Integer(mesa.getId()));
+	}
+
+	public boolean tieneApuestasActivas(IJugador jugador) {
+		// TODO HACER
+		return false;
 	}
 
 	/*public void setJugadores(List<IJugador> jugadores) {

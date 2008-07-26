@@ -23,7 +23,7 @@ import craps.msg.MSGTiroCraps;
 public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps {
 
 	private Logger logger = Logger.getLogger(ManejadorMesaCraps.class);
-	private static IServiciosCraps instance;
+	private static ManejadorMesaCraps instance;
 	private List<MesaCraps> mesas;
 	private static String GAME_NAME = "craps";
 
@@ -32,7 +32,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		mesas = new ArrayList<MesaCraps>();
 	}
 
-	public static IServiciosCraps getInstance(){
+	public static ManejadorMesaCraps getInstance(){
 		if(instance == null)
 			instance = new ManejadorMesaCraps();
 		return instance;
@@ -46,8 +46,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje)
 	{
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		manJug.getManejadores().add((ManejadorMesaCraps)ManejadorMesaCraps.getInstance());
 		
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+		
 		if(jug == null)
 		{
 			mensaje.setAceptado(MSGEntradaCraps.NO);
@@ -62,6 +64,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		}
 		else
 		{
+			
 			if(mensaje.getMesa() == 0)
 			{
 				/*HAY QUE CREAR UNA MESA*/
@@ -84,6 +87,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			}
 			else
 			{
+				logger.debug("Intentando unir al jugador a la mesa seleccionada");
 				/*HAY QUE INTENTAR UNIRSE A UNA MESA*/
 				
 				IMesa mesa = getMesa(mensaje.getMesa());
@@ -95,13 +99,22 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				}
 				else
 				{
-					// AGREGO AL JUGADOR
-					mesa.getJugadores().add(jug);
-					
-					// SETEO RESPUESTA
-					mensaje.setAceptado(MSGEntradaCraps.SI);	
-					mensaje.setDescripcion("El jugador ha sido ingresado a la mesa solicitada");
-					logger.info("El jugador ha sido ingresado a la mesa solicitada");	
+					if(mesa.isAbierta())
+					{	
+						// AGREGO AL JUGADOR
+						mesa.getJugadores().add(jug);
+						
+						// SETEO RESPUESTA
+						mensaje.setAceptado(MSGEntradaCraps.SI);	
+						mensaje.setDescripcion("El jugador ha sido ingresado a la mesa solicitada");
+						logger.info("El jugador ha sido ingresado a la mesa solicitada");
+					}	
+					else
+					{
+						mensaje.setAceptado(MSGEntradaCraps.NO);
+						mensaje.setDescripcion("La mesa a la que esta intentando unirse esta cerrada");
+						logger.info("La mesa a la que esta intentando unirse esta cerrada");
+					}
 				}
 			}
 		}
@@ -127,9 +140,65 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
-//		 TODO
-		return null;
+	public MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje)
+	{
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		
+		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+
+		if(jug == null)
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
+			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
+		}
+		else if(!estaJugando(jug))
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El jugador no esta jugando en dicho juego");
+			logger.info("El jugador no esta jugando en dicho juego");
+		}
+		else if( getMesa(mensaje.getMesa()) == null )
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("La mesa de la que esta intentando retirarse no existe");
+			logger.info("La mesa de la que esta intentando retirarse no existe");
+		}
+		else
+		{
+			MesaCraps mesa = getMesa(mensaje.getMesa());
+			
+			/* INTENTO QUITAR AL JUGADOR */
+			if(mesa.getJugadores().contains(jug))
+			{
+				if( mesa.tieneApuestasActivas(jug) )
+				{
+					mensaje.setAceptado(MSGSalidaCraps.NO);
+					mensaje.setDescripcion("El jugador tiene apuestas activas no puede retirarse");
+					logger.info("El jugador tiene apuestas activas no puede retirarse");
+				}
+				else
+				{
+					if(mesa.getJugadores().size() == 1)
+					{
+						// SE DEBE CERRAR LA MESA
+						mesa.setAbierta(false);
+					}
+					mesa.getJugadores().remove(jug);
+					
+					mensaje.setAceptado(MSGSalidaCraps.NO);
+					mensaje.setDescripcion("El jugador se ha retirado correctament de la mesa");
+					logger.info("El jugador se ha retirado correctament de la mesa");
+				}	
+			}
+			else
+			{
+				mensaje.setAceptado(MSGSalidaCraps.NO);
+				mensaje.setDescripcion("El jugador no se encuentra en la mesa de la que esta intentando retirarse");
+				logger.info("El jugador no se encuentra en la mesa de la que esta intentando retirarse");
+			}
+		}
+		return mensaje;
 	}
 	
 	// METODOS DE MANEJADORE DE MESA
@@ -143,12 +212,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		int i = 0;
 		
 		while( i < getMesas().size() && !esta )
-		
-		for( IMesa m : getMesas() )
 		{
-			esta = m.getJugadores().contains(jugador);
+			getMesas().get(i).getJugadores().contains(jugador);
+			i++;
 		}
-		
 		return esta;
 	}
 
@@ -244,5 +311,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public String getName() {
 		return GAME_NAME;
 	}
+	
+	
 
 }

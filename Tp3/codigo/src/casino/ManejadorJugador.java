@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
 
@@ -16,6 +18,7 @@ import casino.msg.MSGSalidaCasino;
  */
 public class ManejadorJugador implements IServiciosJugador {
 
+	private Logger logger = Logger.getLogger(ManejadorJugador.class);
 	private static ManejadorJugador instance;
 	private Set<IInvitado> invitados;
 	private Set<IJugador> jugadores = new HashSet<IJugador>();
@@ -71,6 +74,8 @@ public class ManejadorJugador implements IServiciosJugador {
 	}
 
 	public List<ManejadorMesa> getManejadores() {
+		if(manejadores.size() == 0)
+			logger.warn("REVISAR CONFIGURACION... NO HAY MANEJADORES DE JUEGO");
 		return manejadores;
 	}
 
@@ -106,7 +111,7 @@ public class ManejadorJugador implements IServiciosJugador {
 	{
 		boolean estaJugando = false;
 		
-		for( ManejadorMesa manejador : manejadores )
+		for( ManejadorMesa manejador : getManejadores() )
 		{
 			estaJugando = estaJugando || manejador.estaJugando(jugador);
 		}

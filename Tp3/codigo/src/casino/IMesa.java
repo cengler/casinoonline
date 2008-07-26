@@ -10,17 +10,14 @@ import java.util.List;
  */
 public interface IMesa extends Comparable<IMesa>{
 
-	public boolean estaJugando(IJugador jugador);
+	boolean estaJugando(IJugador jugador);
 
-	public boolean isAbierta();
+	boolean isAbierta();
 
-	public int getId();
+	int getId();
 
-	public List<IJugador> getJugadores();
+	List<IJugador> getJugadores();
 
-	/**
-	 * 
-	 * @param abierta
-	 */
-	public void setAbierta(boolean abierta);
+	boolean tieneApuestasActivas(IJugador jug);	
+	
 }

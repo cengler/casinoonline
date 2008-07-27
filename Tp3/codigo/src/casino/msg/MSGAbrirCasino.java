@@ -13,5 +13,6 @@ public class MSGAbrirCasino extends MSGAdministracion {
 	 */
 	public MSGAbrirCasino(){
 
+		
 	}
 }

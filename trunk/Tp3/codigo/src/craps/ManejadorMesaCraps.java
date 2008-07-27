@@ -14,6 +14,10 @@ import craps.msg.MSGApuestaCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
+import craps.msg.MSGResultadoCraps;
+import casino.ISeleccionadorTipoJugada;
+import casino.SeleccionadorTipoJugadaPorModo;
+import casino.TipoJugada;
 
 /**
  * ManejadorMesaCraps.
@@ -169,8 +173,116 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	 * {@inheritDoc}
 	 */
 	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
-//		 TODO
-		return null;
+
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		manJug.getManejadores().add((ManejadorMesaCraps)ManejadorMesaCraps.getInstance());
+		
+		IJugador jug = manJug.getJugadorLoggeado(unMSG.getUsuario(), unMSG.getVTerm());
+		
+		if(jug == null)
+		{
+			unMSG.setAceptado(MSGEntradaCraps.NO);
+			unMSG.setDescripcion("El jugador no esta registrado como jugador en dicha terminal virtual");
+			logger.info("El jugador no esta registrado como jugador en dicha terminal virtual");
+		}
+		else
+		{
+			int mesa = unMSG.getMesa(); 
+			MesaCraps laMesa = this.getMesa(mesa);
+						
+			if(mesa == 0 || laMesa.estaJugando(jug)){
+//				 SETEO RESPUESTA
+				unMSG.setAceptado(MSGTiroCraps.NO);
+				unMSG.setDescripcion("El jugador no esta jugando en la mesa ");
+				logger.info("El jugador no esta jugando en la mesa ");	
+							
+			}else{
+			
+				if (laMesa.getTirador()== jug ){
+									
+						ISeleccionadorTipoJugada s = SeleccionadorTipoJugadaPorModo.getInstance();
+						TipoJugada jugada = s.getTipoJugada(laMesa);
+						
+						laMesa.notifyObservers();
+						ISeleccionadorResCraps src = SeleccionadorResCrapsPorModo.getInstance();
+						
+						//falta implementar el metodo getInstance()	
+						ResultadoCraps resultado = src.getResult();
+						//falta el metodo getResult de seleccionadorResCrapsPorModo
+		
+						
+						if (laMesa.isPuck()== false){
+							//el puck esta apagado, es tiro de salida
+							
+											
+							if (laMesa.saleCraps(resultado)){ //falta el metodo saleCraps(int)
+								
+								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
+								//falta metodo getInstance()
+								IJugador proxTirador = selTir.getProxTirador(laMesa);
+								//falta getProxTirador quien deberia tener como parametro la mesa
+								laMesa.notifyObservers();
+								laMesa.setTirador(proxTirador);
+							}else{		
+								
+								if (laMesa.saleNatural(resultado)){//falta el metodo saleNatural(int)
+									
+									laMesa.setPunto(resultado);
+									laMesa.setPuck(true);
+									laMesa.notifyObservers();
+									
+								}
+							}
+							
+						}else{
+							//el puck esta prendido
+							int punto = laMesa.getPunto();
+							if(laMesa.salioSiete(resultado, punto)){
+								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
+								//falta metodo getInstance()
+								IJugador proxTirador = selTir.getProxTirador(laMesa);
+								//falta getProxTirador quien deberia tener como parametro la mesa
+								laMesa.notifyObservers();
+								laMesa.setTirador(proxTirador);
+								
+							}else{
+								if(laMesa.repitioPunto(resultado, punto)){
+									//apago el puck
+									laMesa.setPuck(false);
+								}
+								
+							}
+													
+						}
+						
+						
+						unMSG.setAceptado(MSGTiroCraps.SI);	
+						unMSG.setTipoJugada(jugada);
+						MSGResultadoCraps resCraps = new MSGResultadoCraps();
+						resCraps.setDado1(resultado.getDado1());
+						resCraps.setDado2(resultado.getDado2());
+						unMSG.setResultado(resCraps);
+						unMSG.pagarApuestas(jugada, resultado, laMesa.getId());
+						unMSG.setDescripcion("El jugador ha tirado los dados");
+						logger.info("El jugador ha sido ingresado a la mesa solicitada");
+						
+					}else{
+						
+						unMSG.setAceptado(MSGTiroCraps.NO);
+						unMSG.setDescripcion("al jugador no le toca tirar ");
+						logger.info("al jugador no le toca tirar ");	
+						
+						
+					}
+				
+				}
+								
+			}	
+				
+			
+					
+		return unMSG;
+
 	}
 	
 	/**

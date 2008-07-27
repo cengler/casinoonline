@@ -1,4 +1,5 @@
 package craps;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -124,8 +125,43 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje){
-//		 TODO
+	public MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje)
+	{
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		
+		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+
+		if(jug == null)
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
+			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
+		}
+		else if(!estaJugando(jug))
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El jugador no esta jugando en dicho juego");
+			logger.info("El jugador no esta jugando en dicho juego");
+		}
+		else if( getMesa(mensaje.getMesa()) == null )
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("La mesa de la que esta intentando apostar no existe");
+			logger.info("La mesa de la que esta intentando apostar no existe");
+		}
+		else
+		{
+			MesaCraps mesa = getMesa(mensaje.getMesa());
+			
+			mesa.getId();
+			//VALIDO FICHAS
+			
+			
+			
+		}
+		
+		//TODO
+		
 		return null;
 	}
 

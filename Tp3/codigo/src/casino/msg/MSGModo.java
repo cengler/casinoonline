@@ -8,6 +8,9 @@ package casino.msg;
  */
 public abstract class MSGModo {
 
+	public static String DIRIGIDO = "dirigido";
+	public static String NORMAL = "normal";
+	
 	private boolean aceptado;
 	private String descripcion;
 

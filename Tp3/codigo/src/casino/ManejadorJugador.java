@@ -130,6 +130,16 @@ public class ManejadorJugador implements IServiciosJugador {
 	public boolean montoValidoPara(Jugador jugador){
 		return false;
 	}
+	
+	public ManejadorMesa getManejador(String name)
+	{
+		for (ManejadorMesa m : manejadores )
+		{
+			if(m.getName().equals(name))
+				return m;
+		}
+		return null;
+	}
 
 	
 }

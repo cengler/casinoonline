@@ -3,13 +3,19 @@ package core;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.Date;
+import java.io.OutputStream;
+
+import org.apache.log4j.Logger;
 
 public class FileMessage implements IMessage {
 
 	private File file;
+	//private InputStream is;
+	//private OutputStream os;
 	private String name;
+	private Logger logger = Logger.getLogger(FileMessage.class);
 	
 	public FileMessage(File file)
 	{
@@ -22,20 +28,20 @@ public class FileMessage implements IMessage {
 		return file;
 	}
 
-	public InputStream getData() {
+	public InputStream getInputStream() throws NoDataException {
 		
 		InputStream is = null;
 		try {
 			is = new FileInputStream(file);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("No se ha encontrado el archivo " + name, e);
+			throw new NoDataException(e);
 		}
 		
 		return is;
 	}
 
-	public Date getDate() {
+	/*public Date getDate() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -48,9 +54,21 @@ public class FileMessage implements IMessage {
 	public String getTo() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 	public String getName() {
 		return name;
+	}
+
+	public OutputStream getOutputStream()
+	{
+		OutputStream os = null;
+		try {
+			os = new FileOutputStream(file, false);
+		} catch (FileNotFoundException e) {
+			logger.error("No se ha encontrado el archivo " + name, e);
+			// TODO ex
+		}
+		return os;
 	}
 }

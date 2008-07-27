@@ -1,13 +1,7 @@
 package craps.msg;
 
-public class MSGApuestaCraps implements ICrapsMessage {
+public class MSGApuestaCraps extends MSGCraps {
 
-	public MSGApuestaCraps(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+	public MSGApuestaCraps(){}
 
 }

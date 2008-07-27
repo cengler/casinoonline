@@ -19,16 +19,16 @@ public class MensajeroXArchivos extends Mensajero {
 	 * 
 	 * @param dirName Directorio que acturá como mailbox
 	 * @param regex Expresion regular para filtar los mensajes que le corresponden a este mensajero
-	 * @throws Exception En caso de que el directorio sea invalido
+	 * @throws MensajeroException En caso de que el directorio sea invalido
 	 */
-	public MensajeroXArchivos(String dirName, String regex) throws Exception
+	public MensajeroXArchivos(String dirName, String regex) throws MensajeroException
 	{
 		this.dirName = dirName;
 		dir = new File(this.dirName);
 
 		if(!dir.isDirectory())
 		{
-			throw new Exception("Direcorio invalido. No se puede acceder al directorio: " + dirName );
+			throw new MensajeroException("Direcorio invalido. No se puede acceder al directorio: " + dirName );
 		}
 		
 		filtro = Pattern.compile(regex);
@@ -42,7 +42,7 @@ public class MensajeroXArchivos extends Mensajero {
 		while(con)
 		{
 			File[] files = dir.listFiles();
-			if(files!=null && files.length > 0)
+			if(files!=null && files.length > 0) // si hay archivos
 			{
 				logger.debug("Hay " + files.length + " para procesar.");
 				for ( File f : files )
@@ -55,7 +55,7 @@ public class MensajeroXArchivos extends Mensajero {
 			try {
 				Thread.sleep(SLEEP_TIME);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				logger.error("NO se ha podido interrumpir el thread ", e);
 			}
 		}
 		return null;
@@ -63,17 +63,29 @@ public class MensajeroXArchivos extends Mensajero {
 
 	public void send(IMessage msg, String name) {
 		// TODO
-
 	}
 	
-	public void onMessage(IMessage msg)
+	public IMessage onMessage(IMessage msg) throws MensajeroException
 	{
-		if(lis == null)
-			logger.error("No listerner set");
-			//throw new Exception("No listerner set");
-		lis.onMessage(msg);
+		IMessage message;
 		
-		FileMessage fm = (FileMessage)msg;
+		if(lis == null)
+		{
+			logger.error("No listerner set");
+			throw new MensajeroException("No listerner set");
+		}
+		message = lis.onMessage(msg);
+		
+		FileMessage fm = null;
+		if(msg instanceof FileMessage)
+		{
+			fm = (FileMessage)msg;
+		}
+		else
+		{
+			logger.error("onMessage debe recibir un FileMessage");
+			throw new MensajeroException("onMessage debe recibir un FileMessage");
+		}
 		
 		int retries = 0;
 		boolean fileDeleted = false;
@@ -81,15 +93,22 @@ public class MensajeroXArchivos extends Mensajero {
 			fileDeleted = fm.getFile().delete(); 
 			if(!fileDeleted) {
 				retries++;
-				try {
+				try
+				{
 					Thread.sleep(500);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+				} 
+				catch (InterruptedException e)
+				{
+					logger.info("NO se ha podido interrumpir el thread ", e);
 				}
 			}
 		}
 		if(!fileDeleted)
+		{
 			logger.error("No pudo borrar " + fm.getFile().getName());
+			throw new MensajeroException("No pudo borrar " + fm.getFile().getName());
+		}
+		return message;
 	}
 	
 

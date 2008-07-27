@@ -1,15 +1,27 @@
 package parser;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import casino.msg.estadoCasino.*;
 import org.apache.log4j.Logger;
+
+import casino.msg.estadoCasino.MSGCraps;
+import casino.msg.estadoCasino.MSGEstadoCasino;
+import casino.msg.estadoCasino.MSGJugador;
+import casino.msg.estadoCasino.MSGMesaCraps;
+import casino.msg.estadoCasino.MSGMesaTragamonedas;
+import casino.msg.estadoCasino.MSGObservador;
+import casino.msg.estadoCasino.MSGPozo;
+import casino.msg.estadoCasino.MSGProximoTiro;
+import casino.msg.estadoCasino.MSGResultado;
+import casino.msg.estadoCasino.MSGTragamonedas;
+import casino.msg.estadoCasino.MSGUltimoTiro;
+import casino.msg.estadoCasino.MSGUltimoTiroCraps;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-public class ParserCasino {
+import core.IMessage;
+import core.NoDataException;
+
+public class ParserCasino extends Parser{
 	
 	private static Logger logger = Logger.getLogger(ParserCasino.class);
 	private static XStream xstream;
@@ -48,19 +60,33 @@ public class ParserCasino {
 		return instance;
 	}
 	
-	public Object parse(InputStream is)
+	public Object parse(IMessage is) throws ParserException
 	{	
 		logger.debug("parseando...");
-		Object message = xstream.fromXML(is);
+		Object message;
+		try {
+			message = xstream.fromXML(is.getInputStream());
+		} catch (NoDataException e) {
+			logger.error("No se pudo obtener la información", e);
+			throw new ParserException(e);
+		}
+		
 		return message;
 		
 	}
 	
-	public void renderizar(Object msg, String path) throws FileNotFoundException
+	public IMessage renderizar(Object msg) throws ParserException
 	{	
-		FileOutputStream fos = new FileOutputStream(path);  
+		/*FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(path);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
 		
-		xstream.toXML(msg, fos);;
-		
+		xstream.toXML(msg, fos);;*/
+		//TODO
+		return null;
 	}
 }

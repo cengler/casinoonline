@@ -2,13 +2,13 @@ package craps;
 
 import java.util.List;
 
-public class SelectorResCrapsModoDirigido implements ISelectorResCraps {
+import casino.ISeteadorResultado;
 
+public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteadorResultado {
+
+	public static String SEL_RES_NAME = "craps";
+	
 	public SelectorResCrapsModoDirigido(){
-
-	}
-
-	public void finalize() throws Throwable {
 
 	}
 
@@ -27,6 +27,15 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps {
 	public void getResult() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void setResultados(List<Object> lista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getName() {
+		return SEL_RES_NAME;
 	}
 
 }

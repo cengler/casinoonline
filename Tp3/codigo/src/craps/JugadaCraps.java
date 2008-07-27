@@ -3,7 +3,7 @@ package craps;
 import casino.msg.MSGModo;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
-import casino.msg.MSGsetModoDirigido;
+import casino.msg.MSGSetModoDirigido;
 
 public class JugadaCraps {
 
@@ -35,7 +35,7 @@ public class JugadaCraps {
 	 * 
 	 * @param msg
 	 */
-	public void setearModoDirigido(MSGsetModoDirigido msg){
+	public void setearModoDirigido(MSGSetModoDirigido msg){
 
 	}
 
@@ -43,7 +43,7 @@ public class JugadaCraps {
 	 * 
 	 * @param msg
 	 */
-	public void setJugadafelizMD(MSGsetModoDirigido msg){
+	public void setJugadafelizMD(MSGSetModoDirigido msg){
 
 	}
 

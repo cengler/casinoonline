@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
+<estadoMesaCraps vTerm="60" 
+		usuario="pepe" 
+		mesa="20"> 
+	<jugadores></jugadores> 
+	<proximoTiro> 
+		<tirador>"ana"</tirador> 
+		<tiroSalida>"Si"</tiroSalida> 
+		<punto>0</punto> 
+	</proximoTiro> 
+	<ultimoTiro> 
+		<tirador>"pepe</tirador> 
+		<resultado>5</resultado> 
+		<premios> 
+			<premio> 
+				<apostador>"pepe"</apostador> 
+				<montoPremioJugada>0</montoPremioJugada> 
+				<montoPremioJugadaFeliz>0</montoPremioJugadaFeliz> 
+				<montoRetenidoJugadaTodosPonen >0</montoRetenidoJugadaTodosPonen> 
+			</premio> 
+		</premios> 
+	</ultimoTiro> 
+	<apuestasVigentes> 
+		<apuesta> 
+			<apostador>"ana"</apostador> 
+			<opcionApuesta> 
+				<tipoApuesta>"pase"</tipoApuesta> 
+				<puntajeApostado>0</puntajeApostado>
+			</opcionApuesta> 
+			<valorApuesta> 
+				<valorFicha> 
+					<cantidad>3</cantidad> 
+					<valor>25</valor> 
+				</valorFicha> 
+			</valorApuesta> 
+		</apuesta> 
+	</apuestasVigentes> 
+</estadoMesaCraps>

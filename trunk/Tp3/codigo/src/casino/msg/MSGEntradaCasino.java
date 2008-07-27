@@ -2,6 +2,8 @@ package casino.msg;
 
 public class MSGEntradaCasino extends MSGCasino {
 
+	private int idVirt;
+	private String usuario;
 	private String descripcion;
 	private String modoAcceso;
 	private int saldo;
@@ -19,8 +21,7 @@ public class MSGEntradaCasino extends MSGCasino {
 		this.modoAcceso = modoAcceso;
 	}
 	public int getSaldo() {
-		return saldo;
-	}
+		return saldo;	}
 	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}

@@ -1,9 +1,21 @@
-package craps.msg;
+package craps;
 
-public class MSGResultadoCraps {
+public class ResultadoCraps {
 
 	private int dado1;
 	private int dado2;
+	
+	public ResultadoCraps(int d1, int d2){
+		
+		dado1 = d1;
+		dado2 = d2;
+		
+	}
+	
+	public ResultadoCraps getResult(){
+		
+		return this;
+	}
 	
 	public int getDado1() {
 		return dado1;

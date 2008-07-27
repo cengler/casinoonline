@@ -103,6 +103,15 @@ public class MesaCraps extends Observable implements IMesa {
 		return false;
 	}
 
+	public boolean saleCraps(ResultadoCraps resCraps){
+		
+		int resul = resCraps.getDado1() + resCraps.getDado2();
+		if (resul == 2 || resul == 3 || resul ==6){
+			
+			
+		}
+		
+	}
 	/*public void setJugadores(List<IJugador> jugadores) {
 	this.jugadores = jugadores;
 	}

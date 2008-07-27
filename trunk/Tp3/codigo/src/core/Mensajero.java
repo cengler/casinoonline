@@ -26,11 +26,19 @@ public abstract class Mensajero implements Runnable {
 	
 	public void run()
 	{
-		logger.debug("recive()");
-		while(con)
-		{
-			IMessage msg = read();
-			onMessage(msg);
+		try {
+			logger.debug("recive()");
+			while(con)
+			{
+				IMessage msg = read();
+				if(msg != null)
+				{
+					IMessage rta = onMessage(msg);
+					send(rta, "");
+				}
+			}
+		} catch (MensajeroException e) {
+			logger.fatal("Error en en mensajero ", e);
 		}
 	}
 	
@@ -40,11 +48,13 @@ public abstract class Mensajero implements Runnable {
 		this.lis = lis;
 	}
 	
-	public void onMessage(IMessage msg)
+	public IMessage onMessage(IMessage msg) throws MensajeroException
 	{
 		if(lis == null)
+		{
 			logger.error("No listerner set");
-			//throw new Exception("No listerner set");
-		lis.onMessage(msg);
+			throw new MensajeroException("No listerner set");
+		}
+		return lis.onMessage(msg);
 	}
 }

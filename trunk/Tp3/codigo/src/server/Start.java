@@ -2,9 +2,14 @@ package server;
 
 import java.util.Date;
 
+import mensajero.MessageListenerAdministracion;
+import mensajero.MessageListenerCasino;
+import mensajero.MessageListenerCraps;
+
 import org.apache.log4j.Logger;
 
 import core.Mensajero;
+import core.MensajeroXArchivos;
 
 public class Start {
 
@@ -26,22 +31,35 @@ public class Start {
 			Date d = new Date(); 
 			
 			logger.debug("Instanciando mensajeros...");
-			/*mCasino = new MensajeroXArchivos("C:\\"); 
-			mCraps = new MensajeroXArchivos("C:\\"); 
-			mAdministracion = new MensajeroXArchivos("C:\\"); 
-			mTraga = new MensajeroXArchivos("C:\\"); 
-			mEstadoCraps = new MensajeroXArchivos("C:\\"); 
+			mCasino = new MensajeroXArchivos("D:\\casino\\messageBox", "c.*"); 
+			mCraps = new MensajeroXArchivos("D:\\casino\\messageBox","b.*"); 
+			mAdministracion = new MensajeroXArchivos("D:\\casino\\messageBox","abrirCasino.*"); 
+			/*mTraga = new MensajeroXArchivos("D:\\casino\\messageBox",".*"); 
+			mEstadoCraps = new MensajeroXArchivos("D:\\casino\\messageBox",".*"); */
+			
+			mCasino.setListener(new MessageListenerCasino());
+			mCraps.setListener(new MessageListenerCraps());
+			mAdministracion.setListener(new MessageListenerAdministracion()); 
+			
+			mCasino.openConnection();
+			mCraps.openConnection();
+			mAdministracion.openConnection();
+			/*mAdministracion.openConnection(); 
+			mTraga.openConnection(); 
+			mEstadoCraps.openConnection();*/
 			
 			logger.debug("Iniciando mensajeros...");
 			new Thread(mCasino).start();
 			new Thread(mCraps).start();
 			new Thread(mAdministracion).start();
-			new Thread(mTraga).start();
+			/*new Thread(mTraga).start();
 			new Thread(mEstadoCraps).start();*/
 			
-			logger.info("Servidor iniciado en: " + (new Date().getTime() - d.getTime()) + " millisegundos");
+			logger.info("Servidor iniciado en: " + (new Date().getTime() - d.getTime()) + " milisegundos");
 			
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			logger.fatal("El servidor ha encontrado un error grave ", e);
 			System.exit(-1);
 		}

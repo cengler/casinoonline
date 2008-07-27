@@ -6,8 +6,4 @@ public class XML {
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
 }

@@ -1,21 +1,27 @@
 package casino.msg;
 
-public class MSGsetModoDirigido extends MSGModo {
+import java.util.List;
 
-	public MSGsetModoDirigido(){
+public class MSGSetModoDirigido extends MSGModo {
 
+	private String modo;
+	private List<MSGResultados> resultados;
+	
+	public MSGSetModoDirigido(){}
+
+	public String getModo() {
+		return modo;
 	}
 
-	public void finalize() throws Throwable {
-		super.finalize();
+	public void setModo(String modo) {
+		this.modo = modo;
 	}
 
-	/**
-	 * 
-	 * @param bool
-	 */
-	public void setAceptado(boolean bool){
-
+	public List<MSGResultados> getResultados() {
+		return resultados;
 	}
 
+	public void setResultados(List<MSGResultados> resultados) {
+		this.resultados = resultados;
+	}
 }

@@ -1,10 +1,13 @@
 package casino;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import casino.msg.MSGResetModoDirigido;
+import casino.msg.MSGResultados;
 import casino.msg.MSGSetJugada;
-import casino.msg.MSGsetModoDirigido;
+import casino.msg.MSGSetModoDirigido;
 
 /**
  * ManejadorModoDirigido.
@@ -17,6 +20,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 
 	private static IServiciosModoDirigido instance;
 	private Logger logger = Logger.getLogger(ManejadorModoDirigido.class);
+	private List<ISeteadorResultado> seteadoresRes;
 	
 	/**
 	 * Constructor.
@@ -93,8 +97,50 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGsetModoDirigido setModoDirigido(MSGsetModoDirigido mensaje)
+	public MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje)
 	{
+		if(mensaje.getModo().equals(MSGSetModoDirigido.DIRIGIDO) )
+		{
+			if(!Casino.getInstance().isModoNormal())
+			{
+				logger.info("El casino ya se encuentra en modo " + mensaje.getModo());
+				mensaje.setAceptado(false);
+				mensaje.setDescripcion("El casino ya se encuentra en modo " + mensaje.getModo());
+			}
+			else
+			{
+				for (MSGResultados r : mensaje.getResultados())
+				{
+					ISeteadorResultado s = getSeteador(r.getName());
+					if(s == null)
+					{
+						logger.info("El manejador de modo dirigido no tiene un seteadorDeRes para el conjunto de resultados " + r.getName());
+						mensaje.setAceptado(false);
+						mensaje.setDescripcion("El casino no pudo configurar los resultados ");
+						return mensaje;
+					}
+					else
+					{
+						logger.debug("Seteando resultados para " + r.getName());
+						s.setResultados(r.getResultados());
+					}
+					mensaje.setAceptado(true);
+					mensaje.setDescripcion("El casino seteo al casino en modo: " + mensaje.getModo());
+				}
+				//TODO
+				
+			}
+		}
+		return null;
+	}
+	
+	private ISeteadorResultado getSeteador(String setName)
+	{
+		for (ISeteadorResultado s : seteadoresRes)
+		{
+			if(s.getName().equals(setName))
+				return s; 
+		}
 		return null;
 	}
 

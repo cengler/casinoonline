@@ -22,7 +22,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	private static IServiciosCasino instance;
 	private static Logger logger = Logger.getLogger(ManejadorCasino.class);
 	private XStream xstream;
-	private static String LISTA_JUG = "D:/codigo/xml/abrir.xml" ;
+	private static String LISTA_JUG = "D:/casino/codigo/xml/abrir.xml" ;
 	private List<ManejadorMesa> manejadores; 
 
 	/**

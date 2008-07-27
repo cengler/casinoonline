@@ -16,7 +16,7 @@ public class InterpretadorCraps implements IInterpretadorCasino {
 	public static InterpretadorCraps getInstance() {
 		if(instance == null)
 			instance = new InterpretadorCraps();
-		return null;
+		return instance;
 	}
 
 }

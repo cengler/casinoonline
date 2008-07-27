@@ -8,7 +8,7 @@ import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
-import casino.msg.MSGsetModoDirigido;
+import casino.msg.MSGSetModoDirigido;
 import core.ImplementationFactory;
 
 /**
@@ -100,7 +100,7 @@ public class SrvAdministracion {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGsetModoDirigido setModoDirigido(MSGsetModoDirigido mensaje){
+	public static MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje){
 		return ManejadorModoDirigido.getInstance().setModoDirigido(mensaje);
 	}
 

@@ -1,12 +1,14 @@
-package casino;
+package craps;
 
+/**
+ * PagadorDeApuestas de una mesa en particular.
+ * 
+ * @author Grupo2
+ *
+ */
 public class PagadorDeApuestas {
 
-	public PagadorDeApuestas(){
-
-	}
-
-	public void finalize() throws Throwable {
+	public PagadorDeApuestas(MesaCraps mesa){
 
 	}
 
@@ -45,5 +47,10 @@ public class PagadorDeApuestas {
 	 */
 	public void sumarATotal(int a){
 
+	}
+
+	public void pagarApuestas() {
+		// TODO Auto-generated method stub
+		
 	}
 }

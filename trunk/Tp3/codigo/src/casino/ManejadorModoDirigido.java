@@ -1,6 +1,7 @@
 package casino;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -102,9 +103,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 	 * {@inheritDoc}
 	 */
 	public MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje)
-	{
-		logger.debug("Intentando pasar el casino a modo dirigido");
-		
+	{	
 		if(mensaje.getModo().equals(MSGSetModoDirigido.DIRIGIDO) )
 		{
 			if(!Casino.getInstance().isModoNormal())
@@ -145,9 +144,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 			}
 		}
 		else if ( mensaje.getModo().equals(MSGSetModoDirigido.NORMAL))
-		{
-			logger.debug("Intentando pasar el casino a modo normal");
-			
+		{	
 			if(Casino.getInstance().isModoNormal())
 			{
 				logger.info("El casino ya se encuentra en modo " + mensaje.getModo());
@@ -161,6 +158,16 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 				mensaje.setAceptado(true);
 				mensaje.setDescripcion("El casino seteo al casino en modo: " + mensaje.getModo());
 				logger.info("El casino seteo al casino en modo: " + mensaje.getModo());
+				
+				// BORRO JUGADAS SETEADAS 
+				SelectorTipoJugadaMD.getInstance().setJugadasSeteadas(new HashMap<IMesa, TipoJugada>());
+				
+				// BORRO RESULTADOS
+				for(ISeteadorResultado is : seteadoresRes)
+				{
+					is.getResultados().clear();
+				}
+				
 				
 				// TODO BORRAR SETEOS DE JUGADAS Y RESULTADOS
 			}

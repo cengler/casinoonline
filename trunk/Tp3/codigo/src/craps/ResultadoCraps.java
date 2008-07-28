@@ -10,7 +10,7 @@ public class ResultadoCraps {
 	
 	public ResultadoCraps(int d1, int d2) throws CrapsException
 	{	
-		if(d1 < 0 || d1 > 6 || d1 < 0 || d1 > 6)
+		if(d1 < 1 || d1 > 6 || d1 < 1 || d1 > 6)
 		{
 			logger.error("El resultado craps no es valido: " + d1 + " " + d2);
 			throw new CrapsException("El resultado craps no es valido: " + d1 + " " + d2);
@@ -31,4 +31,11 @@ public class ResultadoCraps {
 	public void setDado2(int dado2) {
 		this.dado2 = dado2;
 	}
+
+	@Override
+	public String toString() {
+		return "["+dado1+", " +dado2+"]";
+	}
+	
+	
 }

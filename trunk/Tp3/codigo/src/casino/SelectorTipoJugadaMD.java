@@ -63,4 +63,14 @@ public class SelectorTipoJugadaMD implements ISelectorTipoJugada {
 	{
 		jugadasSeteadas.put(mesa, tipo);
 	}
+
+	public Map<IMesa, TipoJugada> getJugadasSeteadas() {
+		return jugadasSeteadas;
+	}
+
+	public void setJugadasSeteadas(Map<IMesa, TipoJugada> jugadasSeteadas) {
+		this.jugadasSeteadas = jugadasSeteadas;
+	}
+	
+	
 }

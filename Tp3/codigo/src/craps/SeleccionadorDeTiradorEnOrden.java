@@ -1,6 +1,7 @@
 package craps;
 
 import casino.IJugador;
+import casino.IMesa;
 
 public class SeleccionadorDeTiradorEnOrden implements ISeleccionadorDeTirador {
 
@@ -14,8 +15,8 @@ public class SeleccionadorDeTiradorEnOrden implements ISeleccionadorDeTirador {
 	}
 	public SeleccionadorDeTiradorEnOrden(){}
 
-	public IJugador getProxTirador(){
-		//if(i == )
+	public IJugador getProxTirador(IMesa mesa) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

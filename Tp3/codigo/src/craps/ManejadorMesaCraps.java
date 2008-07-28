@@ -185,7 +185,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			int mesa = unMSG.getMesa(); 
 			MesaCraps laMesa = this.getMesa(mesa);
 						
-			if(mesa == 0 || laMesa.estaJugando(jug)) // EL JUGADOR NO ESTA JUGANDO EL LA MESA
+			if( laMesa.estaJugando(jug)) // EL JUGADOR NO ESTA JUGANDO EL LA MESA
 			{	
 				unMSG.setAceptado(MSGTiroCraps.NO);
 				unMSG.setDescripcion("El jugador no esta jugando en la mesa: " + unMSG.getMesa());

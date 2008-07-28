@@ -91,6 +91,7 @@ public class ManejadorJugador implements IServiciosJugador {
 		{
 			if( (jug.getNombre().equals(nombreJugador)) ) 
 			{
+				
 				if( ((jug.getIdVirt() == idTerm) && (jug.isLogeado())) )
 					return jug;
 			}	

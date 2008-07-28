@@ -14,10 +14,6 @@ import craps.msg.MSGApuestaCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
-import craps.msg.MSGResultadoCraps;
-import casino.ISeleccionadorTipoJugada;
-import casino.SeleccionadorTipoJugadaPorModo;
-import casino.TipoJugada;
 
 /**
  * ManejadorMesaCraps.
@@ -172,7 +168,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
+	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG)
+	{
 
 /*		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		manJug.getManejadores().add((ManejadorMesaCraps)ManejadorMesaCraps.getInstance());

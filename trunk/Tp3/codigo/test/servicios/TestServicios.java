@@ -34,7 +34,7 @@ public class TestServicios {
 		MSGSetJugada m = new MSGSetJugada();
 		m.setJuego("craps");
 		m.setMesa(10);
-		m.setTipo(TipoJugada.jugadaFeliz);
+		m.setTipo(TipoJugada.feliz);
 		
 		SrvAdministracion.setearJugada(m);
 	}

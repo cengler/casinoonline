@@ -1,5 +1,6 @@
 package casino;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -18,21 +19,24 @@ import casino.msg.MSGSetModoDirigido;
 public class ManejadorModoDirigido implements IServiciosModoDirigido 
 {
 
-	private static IServiciosModoDirigido instance;
+	private static ManejadorModoDirigido instance;
 	private Logger logger = Logger.getLogger(ManejadorModoDirigido.class);
 	private List<ISeteadorResultado> seteadoresRes;
 	
 	/**
 	 * Constructor.
 	 */
-	private ManejadorModoDirigido(){}
+	private ManejadorModoDirigido()
+	{
+		seteadoresRes = new ArrayList<ISeteadorResultado>();
+	}
 
 	/**
 	 * Obtiene la unica instancia del ManejadorModoDirigido.
 	 * 
 	 * @return la unica instancia del ManejadorModoDirigido.
 	 */
-	public static IServiciosModoDirigido getInstance()
+	public static ManejadorModoDirigido getInstance()
 	{
 		if(instance == null)
 			instance = new ManejadorModoDirigido();
@@ -99,6 +103,8 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 	 */
 	public MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje)
 	{
+		logger.debug("Intentando pasar el casino a modo dirigido");
+		
 		if(mensaje.getModo().equals(MSGSetModoDirigido.DIRIGIDO) )
 		{
 			if(!Casino.getInstance().isModoNormal())
@@ -121,17 +127,51 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 					}
 					else
 					{
-						logger.debug("Seteando resultados para " + r.getName());
-						s.setResultados(r.getResultados());
+						logger.debug("Seteando resultados para " + r.getName() + " resultados: " + r.getResultados());
+						try {
+							s.setResultados(r.getResultados());
+						} catch (CasinoException e) {
+							mensaje.setAceptado(false);
+							mensaje.setDescripcion(e.getMessage());
+							return mensaje;
+						}
 					}
-					mensaje.setAceptado(true);
-					mensaje.setDescripcion("El casino seteo al casino en modo: " + mensaje.getModo());
 				}
-				//TODO
 				
+				Casino.getInstance().setModoNormal(false);
+				mensaje.setAceptado(true);
+				mensaje.setDescripcion("El casino seteo al casino en modo: " + mensaje.getModo());
+				logger.info("El casino seteo al casino en modo: " + mensaje.getModo());
 			}
 		}
-		return null;
+		else if ( mensaje.getModo().equals(MSGSetModoDirigido.NORMAL))
+		{
+			logger.debug("Intentando pasar el casino a modo normal");
+			
+			if(Casino.getInstance().isModoNormal())
+			{
+				logger.info("El casino ya se encuentra en modo " + mensaje.getModo());
+				mensaje.setAceptado(false);
+				mensaje.setDescripcion("El casino ya se encuentra en modo " + mensaje.getModo());
+			}
+			else
+			{
+				
+				Casino.getInstance().setModoNormal(true);
+				mensaje.setAceptado(true);
+				mensaje.setDescripcion("El casino seteo al casino en modo: " + mensaje.getModo());
+				logger.info("El casino seteo al casino en modo: " + mensaje.getModo());
+				
+				// TODO BORRAR SETEOS DE JUGADAS Y RESULTADOS
+			}
+		}
+		else
+		{
+			logger.info("El casino no cuenta con un modo " + mensaje.getModo() + ".");
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion("El casino no cuenta con un modo " + mensaje.getModo() + ".");
+		}
+		return mensaje;
 	}
 	
 	private ISeteadorResultado getSeteador(String setName)
@@ -143,5 +183,15 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 		}
 		return null;
 	}
+
+	public List<ISeteadorResultado> getSeteadoresRes() {
+		return seteadoresRes;
+	}
+
+	public void setSeteadoresRes(List<ISeteadorResultado> seteadoresRes) {
+		this.seteadoresRes = seteadoresRes;
+	}
+	
+	
 
 }

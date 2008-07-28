@@ -1,13 +1,17 @@
 package casino.msg;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MSGSetModoDirigido extends MSGModo {
 
-	private String modo;
+	private String modo = "";
 	private List<MSGResultados> resultados;
 	
-	public MSGSetModoDirigido(){}
+	public MSGSetModoDirigido()
+	{
+		resultados = new ArrayList<MSGResultados>();
+	}
 
 	public String getModo() {
 		return modo;

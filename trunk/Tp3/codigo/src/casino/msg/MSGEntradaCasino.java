@@ -2,8 +2,8 @@ package casino.msg;
 
 public class MSGEntradaCasino extends MSGCasino {
 
-	private int idVirt;
-	private String usuario;
+	//private int idVirt;
+	//private String usuario;
 	private String descripcion;
 	private String modoAcceso;
 	private int saldo;

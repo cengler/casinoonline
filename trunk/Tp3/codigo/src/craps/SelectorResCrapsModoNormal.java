@@ -2,21 +2,22 @@ package craps;
 
 public class SelectorResCrapsModoNormal implements ISelectorResCraps {
 
-	public SelectorResCrapsModoNormal(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
-	public void getResult() {
-		// TODO Auto-generated method stub
+	private static SelectorResCrapsModoNormal instance;
+	
+	private SelectorResCrapsModoNormal()
+	{
 		
 	}
+	
+	public static SelectorResCrapsModoNormal getInstance()
+	{
+		if(instance == null)
+			instance = new SelectorResCrapsModoNormal();
+		return instance;
+	}
 
-	/*public <val, val> getResult(){
+	public ResultadoCraps getResult() {
+		// TODO Auto-generated method stub
 		return null;
-	}*/
-
+	}
 }

@@ -1,20 +1,22 @@
 package craps;
 
+import org.apache.log4j.Logger;
+
 public class ResultadoCraps {
 
 	private int dado1;
 	private int dado2;
+	private Logger logger = Logger.getLogger(ResultadoCraps.class);
 	
-	public ResultadoCraps(int d1, int d2){
-		
+	public ResultadoCraps(int d1, int d2) throws CrapsException
+	{	
+		if(d1 < 0 || d1 > 6 || d1 < 0 || d1 > 6)
+		{
+			logger.error("El resultado craps no es valido: " + d1 + " " + d2);
+			throw new CrapsException("El resultado craps no es valido: " + d1 + " " + d2);
+		}
 		dado1 = d1;
-		dado2 = d2;
-		
-	}
-	
-	public ResultadoCraps getResult(){
-		
-		return this;
+		dado2 = d2;	
 	}
 	
 	public int getDado1() {
@@ -29,7 +31,4 @@ public class ResultadoCraps {
 	public void setDado2(int dado2) {
 		this.dado2 = dado2;
 	}
-	
-	
-	
 }

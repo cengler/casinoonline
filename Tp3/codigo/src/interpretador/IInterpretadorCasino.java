@@ -4,6 +4,6 @@ import core.IMessage;
 
 public interface IInterpretadorCasino {
 
-	public IMessage interpretar(IMessage mensaje);
+	IMessage interpretar(IMessage mensaje);
 
 }

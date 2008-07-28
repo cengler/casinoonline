@@ -17,19 +17,19 @@ public interface IServiciosCasino {
 	 * @param mensaje
 	 * @return
 	 */
-	public abstract MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje);
+	MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje);
 
 	/**
 	 * 
 	 * @param mensaje
 	 * @return
 	 */
-	public abstract MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje);
+	MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje);
 
 	/**
 	 * 
 	 * @param mensaje
 	 * @return
 	 */
-	public abstract MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje);
+	MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje);
 }

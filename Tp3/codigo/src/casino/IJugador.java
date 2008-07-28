@@ -2,16 +2,16 @@ package casino;
 
 public interface IJugador extends ICliente{
 
-	public int getIdVirt();
+	int getIdVirt();
 
-	public boolean isLogeado();
+	boolean isLogeado();
 	
-	public boolean isVip();
+	boolean isVip();
 
-	public boolean isModoObservador();
+	boolean isModoObservador();
 
-	public String getNombre();
+	String getNombre();
 
-	public int getSaldo();
+	int getSaldo();
 
 }

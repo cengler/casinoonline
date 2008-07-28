@@ -175,8 +175,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
 
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
-		manJug.getManejadores().add((ManejadorMesaCraps)ManejadorMesaCraps.getInstance());
-		
 		IJugador jug = manJug.getJugadorLoggeado(unMSG.getUsuario(), unMSG.getVTerm());
 		
 		if(jug == null)
@@ -185,70 +183,74 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			unMSG.setDescripcion("El jugador no esta registrado como jugador en dicha terminal virtual");
 			logger.info("El jugador no esta registrado como jugador en dicha terminal virtual");
 		}
-		else
+		else // EL JUGADOR ESTA LOGEADO
 		{
 			int mesa = unMSG.getMesa(); 
 			MesaCraps laMesa = this.getMesa(mesa);
 						
-			if(mesa == 0 || laMesa.estaJugando(jug)){
-//				 SETEO RESPUESTA
+			if(mesa == 0 || laMesa.estaJugando(jug)) // EL JUGADOR NO ESTA JUGANDO EL LA MESA
+			{	
 				unMSG.setAceptado(MSGTiroCraps.NO);
-				unMSG.setDescripcion("El jugador no esta jugando en la mesa ");
-				logger.info("El jugador no esta jugando en la mesa ");	
-							
-			}else{
+				unMSG.setDescripcion("El jugador no esta jugando en la mesa: " + unMSG.getMesa());
+				logger.info("El jugador no esta jugando en la mesa: " + unMSG.getMesa());				
+			}
+			else // EL JUGADOR ESTA JUGANDO EN LA MESA
+			{
 			
-				if (laMesa.getTirador()== jug ){	
-									
-						ISeleccionadorTipoJugada s = SeleccionadorTipoJugadaPorModo.getInstance();
-						TipoJugada jugada = s.getTipoJugada(laMesa);
+				if (laMesa.getTirador().equals(jug) ) // EL JUGADOR ES EL TIRADOR DE LA MESA
+				{	
+					// BUSCO TIPO DE JUGADA
+					ISeleccionadorTipoJugada s = SeleccionadorTipoJugadaPorModo.getInstance();
+					TipoJugada jugada = s.getTipoJugada(laMesa);
+					
+					// BUSCO RESULTADO
+					ISeleccionadorResCraps src = SeleccionadorResCrapsPorModo.getInstance();
+					ResultadoCraps resultado = src.getResult();
+					
+					if ( !laMesa.isPuck() ) // PUCK APAGADO == TIRO DE SALIDA
+					{
 						
-						laMesa.notifyObservers();
-						ISeleccionadorResCraps src = SeleccionadorResCrapsPorModo.getInstance();
-						
-						ResultadoCraps resultado = src.getResult();
-						
-						
-						if (laMesa.isPuck()== false){
-							//el puck esta apagado, es tiro de salida
-							
-											
-							if (laMesa.saleCraps(resultado)){ //falta el metodo saleCraps(int)
-								
-								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
-								//falta metodo getInstance()
-								IJugador proxTirador = selTir.getProxTirador(laMesa);
-								//falta getProxTirador quien deberia tener como parametro la mesa
+						if (laMesa.saleCraps(resultado)) // PERDIO!
+						{ 
+							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
+							IJugador proxTirador = selTir.getProxTirador(laMesa);
+							laMesa.setTirador(proxTirador);
+						}
+						else // NO PERDIO!
+						{
+							if (laMesa.saleNatural(resultado))
+							{
+								laMesa.setPunto(resultado);
+								laMesa.setPuck(true);
 								laMesa.notifyObservers();
-								laMesa.setTirador(proxTirador);
-							}else{		
-								
-								if (laMesa.saleNatural(resultado)){//falta el metodo saleNatural(int)
-									
-									laMesa.setPunto(resultado);
-									laMesa.setPuck(true);
-									laMesa.notifyObservers();
-									
-								}
 							}
-							
-						}else{
-							//el puck esta prendido
-							int punto = laMesa.getPunto();
-							if(laMesa.salioSiete(resultado)){
-								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
-								//falta metodo getInstance()
-								IJugador proxTirador = selTir.getProxTirador(laMesa);
-								//falta getProxTirador quien deberia tener como parametro la mesa
-								laMesa.notifyObservers();
-								laMesa.setTirador(proxTirador);
-								
-							}else{
-								if(laMesa.repitioPunto(resultado, punto)){
-									//apago el puck
-									laMesa.setPuck(false);
-								}
-							}	
+							else // ESTABLECE PUNTO !!!! OJO
+							{
+								// TODO que se hace en este caso? NADA?
+							}
+						}	
+					}
+					else // PUCK PRENDIDO == NO TIRO DE SALIDA
+					{
+						int punto = laMesa.getPunto();
+						
+						if(laMesa.salioSiete(resultado)) // PERDIO!
+						{
+							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
+							IJugador proxTirador = selTir.getProxTirador(laMesa);
+							laMesa.setTirador(proxTirador);	
+						}
+						else // NO PERDIO!
+						{
+							if(laMesa.repitioPunto(resultado, punto)) // GANO!
+							{
+								laMesa.setPuck(false);
+							}
+							else
+							{
+								//
+							}
+						}	
 							
 							
 						}
@@ -272,6 +274,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			}	
 			
 		}			
+		//laMesa.notifyObservers(); TODO esta parte por ahora no
 		return unMSG;
 
 	}

@@ -165,10 +165,12 @@
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
         <module name="FinalParameters"/>
-        <module name="GenericIllegalRegexp">
+<!-- CAEYCAE-->
+        <!--module name="GenericIllegalRegexp">
             <property name="format" value="\s+$"/>
             <property name="message" value="Line has trailing spaces."/>
-        </module>
+        </module-->
+<!-- CAEYCAE-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
 

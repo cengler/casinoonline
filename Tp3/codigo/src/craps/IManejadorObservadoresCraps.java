@@ -4,13 +4,14 @@ import java.util.Observable;
 
 /**
  * Interface IManejadorObservadoresCraps.
- * @author Administrador
+ 
+ * @author Grupo2
  *
  */
 public interface IManejadorObservadoresCraps {
 
-	public void agregarObservador(String idJugador, String idTVirt, Observable mesa);
+	void agregarObservador(String idJugador, String idTVirt, Observable mesa);
 
-	public void quitarObservador(String idJugador, Observable mesa);
+	void quitarObservador(String idJugador, Observable mesa);
 
 }

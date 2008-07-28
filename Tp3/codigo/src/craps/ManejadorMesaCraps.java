@@ -174,7 +174,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	 */
 	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){
 
-		ManejadorJugador manJug = ManejadorJugador.getInstance();
+/*		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		manJug.getManejadores().add((ManejadorMesaCraps)ManejadorMesaCraps.getInstance());
 		
 		IJugador jug = manJug.getJugadorLoggeado(unMSG.getUsuario(), unMSG.getVTerm());
@@ -219,15 +219,15 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 								
 								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 								//falta metodo getInstance()
-								IJugador proxTirador = selTir.getProxTirador(laMesa);
+						//		IJugador proxTirador = selTir.getProxTirador(laMesa);
 								//falta getProxTirador quien deberia tener como parametro la mesa
 								laMesa.notifyObservers();
-								laMesa.setTirador(proxTirador);
+						//		laMesa.setTirador(proxTirador);
 							}else{		
 								
 								if (laMesa.saleNatural(resultado)){//falta el metodo saleNatural(int)
 									
-									laMesa.setPunto(resultado);
+						//			laMesa.setPunto(resultado);
 									laMesa.setPuck(true);
 									laMesa.notifyObservers();
 									
@@ -237,50 +237,41 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						}else{
 							//el puck esta prendido
 							int punto = laMesa.getPunto();
-							if(laMesa.salioSiete(resultado, punto)){
+						//	if(laMesa.salioSiete(resultado, punto)){
 								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 								//falta metodo getInstance()
-								IJugador proxTirador = selTir.getProxTirador(laMesa);
+							//	IJugador proxTirador = selTir.getProxTirador(laMesa);
 								//falta getProxTirador quien deberia tener como parametro la mesa
 								laMesa.notifyObservers();
-								laMesa.setTirador(proxTirador);
+							//	laMesa.setTirador(proxTirador);
 								
 							}else{
-								if(laMesa.repitioPunto(resultado, punto)){
+								//if(laMesa.repitioPunto(resultado, punto)){
 									//apago el puck
 									laMesa.setPuck(false);
 								}
-								
-							}
-													
-						}
-						
-						
-						unMSG.setAceptado(MSGTiroCraps.SI);	
-						unMSG.setTipoJugada(jugada);
-						MSGResultadoCraps resCraps = new MSGResultadoCraps();
-						resCraps.setDado1(resultado.getDado1());
-						resCraps.setDado2(resultado.getDado2());
-						unMSG.setResultado(resCraps);
-						unMSG.pagarApuestas(jugada, resultado, laMesa.getId());
-						unMSG.setDescripcion("El jugador ha tirado los dados");
-						logger.info("El jugador ha sido ingresado a la mesa solicitada");
-						
-					}else{
+							unMSG.setAceptado(MSGTiroCraps.SI);	
+							unMSG.setTipoJugada(jugada);
+							MSGResultadoCraps resCraps = new MSGResultadoCraps();
+							resCraps.setDado1(resultado.getDado1());
+							resCraps.setDado2(resultado.getDado2());
+							unMSG.setResultado(resCraps);
+							unMSG.pagarApuestas(jugada, resultado, laMesa.getId());
+							unMSG.setDescripcion("El jugador ha tirado los dados");
+							logger.info("El jugador ha sido ingresado a la mesa solicitada");			
+							
+						}else{
 						
 						unMSG.setAceptado(MSGTiroCraps.NO);
 						unMSG.setDescripcion("al jugador no le toca tirar ");
 						logger.info("al jugador no le toca tirar ");	
 						
-						
+						}		
 					}
 				
-				}
-								
-			}	
 				
 			
-					
+*/					
 		return unMSG;
 
 	}

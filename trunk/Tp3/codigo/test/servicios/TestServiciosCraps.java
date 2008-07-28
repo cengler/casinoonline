@@ -73,13 +73,19 @@ public class TestServiciosCraps {
 		mensaje.setVTerm(50);
 		mensaje.setMesa(20);
 		
-		SrvCraps.tirarCraps(mensaje);
-		
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
 		pepe.setIdVirt(50);
 		pepe.setLogeado(true);
+		
+		SrvCraps.tirarCraps(mensaje);
+		
+		
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
+		ManejadorMesaCraps mc =ManejadorMesaCraps.getInstance();
+		int idLaMesa = mensaje.getMesa();
+		MesaCraps laMesa = mc.getMesa(idLaMesa);
+		laMesa.getJugadores().add(pepe);
 		
 		SrvCraps.tirarCraps(mensaje);
 		

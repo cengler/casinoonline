@@ -62,4 +62,18 @@ public class TestServiciosCraps {
 		SrvCraps.entrarCraps(mensaje);
 		
 	}
+	
+	public static void tirarCraps(){
+		//seteos
+		MSGTiroCraps mensaje = new MSGTiroCraps();
+		mensaje.setUsuario("pepe");
+		mensaje.setVTerm(50);
+		mensaje.setMesa(20);
+		
+		SrvCraps.entrarCraps(mensaje);
+		
+		
+		
+	}
+	
 }

@@ -5,6 +5,8 @@ public class MSGResultadoCraps {
 	private int dado1;
 	private int dado2;
 	
+	
+	
 	public int getDado1() {
 		return dado1;
 	}

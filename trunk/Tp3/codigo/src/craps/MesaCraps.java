@@ -125,6 +125,38 @@ public class MesaCraps extends Observable implements IMesa {
 		return res;
 	}
 	
+	public void setPunto(ResultadoCraps resCraps){
+		
+		int resul = resCraps.getDado1() + resCraps.getDado2();
+		this.punto = resul;
+		
+	}
+	
+	public boolean salioSiete(ResultadoCraps resCraps){
+		
+		boolean res = false;
+		int resul = resCraps.getDado1() + resCraps.getDado2();
+		if (resul == 7 ){
+			res = true;
+			
+		}
+		return res;
+		
+	}
+	
+	public boolean repitioPunto(ResultadoCraps resCraps, int pto){
+		
+		boolean res = false;
+		int resul = resCraps.getDado1() + resCraps.getDado2();
+		if (resul == pto ){
+			res = true;
+			
+		}
+		return res;
+		
+		
+	}
+	
 	/*public void setJugadores(List<IJugador> jugadores) {
 	this.jugadores = jugadores;
 	}

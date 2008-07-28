@@ -16,12 +16,14 @@ public class MesaCraps extends Observable implements IMesa {
 	private boolean puck;
 	private int punto;
 	private IJugador tirador;
+	private PagadorDeApuestas pagador;
 	
 	public MesaCraps(int id) {
 		super();
 		this.id = id;
 		abierta = true;
 		jugadores = new ArrayList<IJugador>();
+		pagador = new PagadorDeApuestas(this);
 	}
 
 	public boolean isAbierta() {
@@ -158,11 +160,12 @@ public class MesaCraps extends Observable implements IMesa {
 		
 		
 	}
-	
-	/*public void setJugadores(List<IJugador> jugadores) {
-	this.jugadores = jugadores;
+
+	public PagadorDeApuestas getPagador() {
+		return pagador;
 	}
 	
+	/*
 	
 	public void calcularMontoAApostar(List<Integer> listaFichayValor){
 	

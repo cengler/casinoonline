@@ -8,16 +8,16 @@ import org.apache.log4j.Logger;
 
 import casino.IJugador;
 import casino.IMesa;
+import casino.ISeleccionadorTipoJugada;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
-import craps.msg.MSGApuestaCraps;
-import craps.msg.MSGEntradaCraps;
-import craps.msg.MSGSalidaCraps;
-import craps.msg.MSGTiroCraps;
-import craps.msg.MSGResultadoCraps;
-import casino.ISeleccionadorTipoJugada;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.TipoJugada;
+import craps.msg.MSGApuestaCraps;
+import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGResultadoCraps;
+import craps.msg.MSGSalidaCraps;
+import craps.msg.MSGTiroCraps;
 
 /**
  * ManejadorMesaCraps.
@@ -276,6 +276,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					}
 					
 					// NO PARECE QUE SEA EL MENSAJE EL QUE PAGA
+					laMesa.getPagador().pagarApuestas();
 					//unMSG.pagarApuestas(jugada, resultado, laMesa.getId()); TODO
 					laMesa.notifyObservers();
 				}	

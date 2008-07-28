@@ -5,6 +5,6 @@ import casino.IMesa;
 
 public interface ISeleccionadorDeTirador {
 
-	IJugador getProxTirador(IMesa mesa);
+	IJugador getProxTirador(MesaCraps mesa);
 
 }

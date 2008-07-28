@@ -18,6 +18,6 @@ public interface IMesa extends Comparable<IMesa>{
 
 	List<IJugador> getJugadores();
 
-	boolean tieneApuestasActivas(IJugador jug);	
+	boolean tieneApuestasActivas(IJugador jug);
 	
 }

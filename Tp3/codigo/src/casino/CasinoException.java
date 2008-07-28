@@ -1,5 +1,6 @@
 package casino;
 
+@SuppressWarnings("serial")
 public class CasinoException extends Exception {
 
 	public CasinoException() {

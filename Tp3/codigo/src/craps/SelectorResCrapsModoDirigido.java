@@ -60,7 +60,7 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 	/**
 	 * {@inheritDoc}
 	 */
-	public void setResultados(List<Object> lista) throws CasinoException
+	public void setResultados(List< ? > lista) throws CasinoException
 	{
 		resActual = lista.size();
 		
@@ -71,8 +71,8 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 				resultados.add((ResultadoCraps)o);
 			else
 			{
-				logger.error("Los resultados a seter para craps deben ser :" + ResultadoCraps.class);
-				throw new CasinoException("Los resultados a seter para craps deben ser :" + ResultadoCraps.class);
+				logger.error("Los resultados a seter para craps deben ser: " + ResultadoCraps.class + " y son: " + o.getClass());
+				throw new CasinoException("Los resultados a seter para craps deben ser: " + ResultadoCraps.class + " y son: " + o.getClass() );
 			}
 		}
 	}
@@ -82,6 +82,10 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 	 */
 	public String getName() {
 		return SEL_RES_NAME;
+	}
+
+	public List<?> getResultados() {
+		return resultados;
 	}
 
 }

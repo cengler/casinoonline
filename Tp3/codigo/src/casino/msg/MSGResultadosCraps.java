@@ -2,26 +2,32 @@ package casino.msg;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class MSGResultadosCraps extends MSGResultados
 {
 	public static String GAME_NAME = "craps";
-	private List<Integer> resultados; 
+	private List<MSGResultadoCraps> resultados; 
+	private Logger logger = Logger.getLogger(MSGResultadosCraps.class);
 	
 	public MSGResultadosCraps()
 	{
-		resultados = new ArrayList<Integer>();
+		resultados = new ArrayList<MSGResultadoCraps>();
 	}
 
-	public List<Object> getResultados() {
-		return new ArrayList<Object>(resultados);
+	public List< ? > getResultados() {
+		return resultados;
 	}
 
-	public void setResultadosCrasp(List<Object> resultados) {
-		this.resultados = new ArrayList<Integer>();
+	public void setResultados(List< ? > resultados) 
+	{
+		logger.debug("setResultados");
+		
+		this.resultados = new ArrayList<MSGResultadoCraps>();
 		for (Object i : resultados)
 		{
-			this.resultados.add((Integer)i);
+			logger.debug("Res: " + i);
+			this.resultados.add((MSGResultadoCraps)i);
 		}
 	}
 

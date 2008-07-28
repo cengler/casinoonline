@@ -9,7 +9,7 @@ public class SeleccionadorResCrapsPorModo implements ISeleccionadorResCraps {
 	public SeleccionadorResCrapsPorModo(){
 
 	}
-
+	
 	public static SeleccionadorResCrapsPorModo getInstance(){
 		if(instance == null)
 			instance = new SeleccionadorResCrapsPorModo();
@@ -28,4 +28,3 @@ public class SeleccionadorResCrapsPorModo implements ISeleccionadorResCraps {
 		
 	}
 
-}

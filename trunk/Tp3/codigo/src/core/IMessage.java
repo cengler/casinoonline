@@ -7,7 +7,6 @@ public interface IMessage
 {
 	String getName();
 	InputStream getInputStream() throws NoDataException;
-	//void setData(OutputStream os);
 	OutputStream getOutputStream();
 	
 	

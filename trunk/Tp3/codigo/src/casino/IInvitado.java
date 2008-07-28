@@ -15,13 +15,13 @@ public interface IInvitado extends ICliente {
 	 * 
 	 * @return el id de la terminal virtual
 	 */
-	public int getIdVirt();
+	int getIdVirt();
 	
 	/**
 	 * Geter del nombre del invitado.
 	 * 
 	 * @return el nombre del invitado
 	 */
-	public String getNombre();
+	String getNombre();
 
 }

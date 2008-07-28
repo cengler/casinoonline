@@ -13,7 +13,7 @@ public interface ICasino
 	 * 
 	 * @return devuelve true si el casino esta abierto.
 	 */
-	public boolean isAbierto() ;
+	boolean isAbierto() ;
 
 	/**
 	 * Geter del modo en que se encuentra el casino. 
@@ -21,21 +21,21 @@ public interface ICasino
 	 * 
 	 * @return devuelve true si el modo es normal
 	 */
-	public boolean isModoNormal();
+	boolean isModoNormal();
 
 	/**
 	 * Geter del monto del pozo feliz.
 	 * 
 	 * @return el monto del pozo feliz.
 	 */
-	public int getPozoFeliz();
+	int getPozoFeliz();
 	
 	/**
 	 * Geter del saldo del casino.
 	 * 
 	 * @returnel saldo del casino.
 	 */
-	public long getSaldo();
+	long getSaldo();
 	
 }
 

@@ -17,20 +17,20 @@ public interface IServiciosModoDirigido {
 	 * @param mensaje
 	 * @return
 	 */
-	public abstract MSGResetModoDirigido resetModoDirigido(MSGResetModoDirigido mensaje);
+	MSGResetModoDirigido resetModoDirigido(MSGResetModoDirigido mensaje);
 
 	/**
 	 * 
 	 * @param mensaje
 	 * @return
 	 */
-	public abstract MSGSetJugada setearJugada(MSGSetJugada mensaje);
+	MSGSetJugada setearJugada(MSGSetJugada mensaje);
 
 	/**
 	 * 
 	 * @param mensaje
 	 * @return
 	 */
-	public abstract MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje);
+	MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje);
 
 }

@@ -1,7 +1,6 @@
 package parser;
 
 import casino.msg.MSGAbrirCasino;
-import casino.msg.MSGAdministracion;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

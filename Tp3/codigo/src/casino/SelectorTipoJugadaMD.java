@@ -44,7 +44,7 @@ public class SelectorTipoJugadaMD implements ISelectorTipoJugada {
 		TipoJugada tj = jugadasSeteadas.get(mesa);
 
 		if(tj == null)
-			tj = TipoJugada.jugadaNormal;
+			tj = TipoJugada.normal;
 		else
 			jugadasSeteadas.remove(mesa);
 		

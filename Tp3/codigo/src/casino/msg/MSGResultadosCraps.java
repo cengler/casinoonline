@@ -9,7 +9,9 @@ public class MSGResultadosCraps extends MSGResultados
 	private List<Integer> resultados; 
 	
 	public MSGResultadosCraps()
-	{}
+	{
+		resultados = new ArrayList<Integer>();
+	}
 
 	public List<Object> getResultados() {
 		return new ArrayList<Object>(resultados);

@@ -1,11 +1,11 @@
 package craps;
 
-import casino.SeleccionadorTipoJugadaPorModo;
+import casino.Casino;
 
 public class SeleccionadorResCrapsPorModo implements ISeleccionadorResCraps {
 
 	private static SeleccionadorResCrapsPorModo instance;
-	public ResultadoCraps getResult(){}
+	
 	public SeleccionadorResCrapsPorModo(){
 
 	}
@@ -15,11 +15,16 @@ public class SeleccionadorResCrapsPorModo implements ISeleccionadorResCraps {
 			instance = new SeleccionadorResCrapsPorModo();
 		return instance;
 	}
-	
-	public void finalize() throws Throwable {
 
+	public ResultadoCraps getResult()
+	{
+		ISelectorResCraps selector = null; 
+		if(Casino.getInstance().isModoNormal())
+			selector = SelectorResCrapsModoNormal.getInstance();
+		else
+			selector = SelectorResCrapsModoDirigido.getInstance();
+		return selector.getResult();
 	}
-
 	/*public <val, val> getResult(){
 		return null;
 	}*/

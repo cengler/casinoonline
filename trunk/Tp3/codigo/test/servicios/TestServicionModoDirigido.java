@@ -35,6 +35,8 @@ public class TestServicionModoDirigido {
 		msg.setModo(MSGSetModoDirigido.DIRIGIDO);
 		SrvAdministracion.setModoDirigido(msg);
 		
+		System.out.println("...........>");
+		
 		ISeteadorResultado seter = SelectorResCrapsModoDirigido.getInstance();
 		ManejadorModoDirigido.getInstance().getSeteadoresRes().add(seter);
 		SrvAdministracion.setModoDirigido(msg);

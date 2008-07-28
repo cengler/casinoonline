@@ -258,7 +258,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						resCraps.setDado1(resultado.getDado1());
 						resCraps.setDado2(resultado.getDado2());
 						unMSG.setResultado(resCraps);
-						unMSG.pagarApuestas(jugada, resultado, laMesa.getId());
+						//unMSG.pagarApuestas(jugada, resultado, laMesa.getId());
 						unMSG.setDescripcion("El jugador ha tirado los dados");
 						logger.info("El jugador ha sido ingresado a la mesa solicitada");			
 					}else{

@@ -5,13 +5,15 @@ import casino.ManejadorJugador;
 import craps.ManejadorMesaCraps;
 import craps.MesaCraps;
 import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGTiroCraps;
 
 public class TestServiciosCraps {
 
 	
 	public static void main(String[] args) {
 		//entrarCraps1();
-		entrarCraps2();
+		//entrarCraps2();
+		tirarCraps();
 	}
 	
 	public static void entrarCraps1()
@@ -64,14 +66,22 @@ public class TestServiciosCraps {
 	}
 	
 	public static void tirarCraps(){
-		//seteos
+		
+		
 		MSGTiroCraps mensaje = new MSGTiroCraps();
 		mensaje.setUsuario("pepe");
 		mensaje.setVTerm(50);
 		mensaje.setMesa(20);
 		
-		SrvCraps.entrarCraps(mensaje);
+		SrvCraps.tirarCraps(mensaje);
 		
+		Jugador pepe = new Jugador();
+		pepe.setNombre("pepe");
+		pepe.setIdVirt(50);
+		pepe.setLogeado(true);
+		ManejadorJugador.getInstance().getJugadores().add(pepe);
+		
+		SrvCraps.tirarCraps(mensaje);
 		
 		
 	}

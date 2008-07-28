@@ -159,9 +159,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			
 			mesa.getId();
 			//VALIDO FICHAS
-			
-			
-			
 		}
 		
 		//TODO
@@ -196,8 +193,13 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			}
 			else // EL JUGADOR ESTA JUGANDO EN LA MESA
 			{
-			
-				if (laMesa.getTirador().equals(jug) ) // EL JUGADOR ES EL TIRADOR DE LA MESA
+				if ( !(laMesa.getTirador().equals(jug)) )
+				{
+					unMSG.setAceptado(MSGTiroCraps.NO);
+					unMSG.setDescripcion("El jugador no el el tirador asignado, lo es: " + laMesa.getTirador().getNombre());
+					logger.info("El jugador no el el tirador asignado, lo es: " + laMesa.getTirador().getNombre());	
+				}	
+				else // EL JUGADOR ES EL TIRADOR DE LA MESA
 				{	
 					// BUSCO TIPO DE JUGADA
 					ISeleccionadorTipoJugada s = SeleccionadorTipoJugadaPorModo.getInstance();
@@ -206,6 +208,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					// BUSCO RESULTADO
 					ISeleccionadorResCraps src = SeleccionadorResCrapsPorModo.getInstance();
 					ResultadoCraps resultado = src.getResult();
+					boolean sigueTirando = true;
 					
 					if ( !laMesa.isPuck() ) // PUCK APAGADO == TIRO DE SALIDA
 					{
@@ -215,6 +218,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 							IJugador proxTirador = selTir.getProxTirador(laMesa);
 							laMesa.setTirador(proxTirador);
+							sigueTirando = false;
 						}
 						else // NO PERDIO!
 						{
@@ -222,7 +226,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							{
 								laMesa.setPunto(resultado);
 								laMesa.setPuck(true);
-								laMesa.notifyObservers();
 							}
 							else // ESTABLECE PUNTO !!!! OJO
 							{
@@ -239,6 +242,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 							IJugador proxTirador = selTir.getProxTirador(laMesa);
 							laMesa.setTirador(proxTirador);	
+							sigueTirando = false;
 						}
 						else // NO PERDIO!
 						{
@@ -246,35 +250,38 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							{
 								laMesa.setPuck(false);
 							}
-							else
+							else // SIGUE INTENTANDO REPETIR PUNTO
 							{
-								//
+								//	TODO que se hace en este caso? NADA?
 							}
-						}	
-							
-							
-						}
-						unMSG.setAceptado(MSGTiroCraps.SI);	
-						unMSG.setTipoJugada(jugada);
-						MSGResultadoCraps resCraps = new MSGResultadoCraps();
-						resCraps.setDado1(resultado.getDado1());
-						resCraps.setDado2(resultado.getDado2());
-						unMSG.setResultado(resCraps);
-						//unMSG.pagarApuestas(jugada, resultado, laMesa.getId());
-						unMSG.setDescripcion("El jugador ha tirado los dados");
-						logger.info("El jugador ha sido ingresado a la mesa solicitada");			
-					}else{
-						
-						unMSG.setAceptado(MSGTiroCraps.NO);
-						unMSG.setDescripcion("al jugador no le toca tirar ");
-						logger.info("al jugador no le toca tirar ");	
-					}	
-								
+						}			
+					}
 					
+					unMSG.setAceptado(MSGTiroCraps.SI);	
+					unMSG.setTipoJugada(jugada);
+					MSGResultadoCraps resCraps = new MSGResultadoCraps();
+					resCraps.setDado1(resultado.getDado1());
+					resCraps.setDado2(resultado.getDado2());
+					unMSG.setResultado(resCraps);
+					
+					if(sigueTirando)
+					{
+						unMSG.setDescripcion("El jugador ha tirado los dados y sigue tirando");
+						logger.info("El jugador ha tirado los dados y sigue tirando");
+					}
+					else
+					{
+						unMSG.setDescripcion("El jugador ha tirado los dados y NO sigue tirando");
+						logger.info("El jugador ha tirado los dados y NO sigue tirando");
+					}
+					
+					// NO PARECE QUE SEA EL MENSAJE EL QUE PAGA
+					//unMSG.pagarApuestas(jugada, resultado, laMesa.getId()); TODO
+					laMesa.notifyObservers();
+				}	
 			}	
-			
 		}			
-		//laMesa.notifyObservers(); TODO esta parte por ahora no
+		
 		return unMSG;
 
 	}

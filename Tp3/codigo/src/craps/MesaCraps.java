@@ -22,7 +22,7 @@ public class MesaCraps extends Observable implements IMesa {
 		this.id = id;
 		abierta = true;
 		jugadores = new ArrayList<IJugador>();
-		pagador = new ManejadorDeApuestas(this);
+		pagador = new ManejadorDeApuestas();
 	}
 
 	public boolean isAbierta() {

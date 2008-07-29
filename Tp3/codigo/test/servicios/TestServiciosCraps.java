@@ -90,6 +90,7 @@ public class TestServiciosCraps {
 		SrvCraps.tirarCraps(mensaje);
 		
 		
+		
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
 		pepe.setIdVirt(50);
@@ -144,6 +145,7 @@ public class TestServiciosCraps {
 		mensaje.setMesa(20);
 		
 		SrvCraps.apostarCraps(mensaje);
+		logger.info("EL JUGADOR NO ESTA EN EL CASINO");
 		
 		
 		Jugador pepe = new Jugador();
@@ -157,15 +159,18 @@ public class TestServiciosCraps {
 		juana.setNombre("juana");
 		juana.setIdVirt(50);
 		juana.setLogeado(true);
+		
 		ManejadorJugador.getInstance().getJugadores().add(juana);
 		
 		SrvCraps.apostarCraps(mensaje);
+		logger.info("EL JUGADOR NO ESTA EN EL JUEGO");
 		
 		MesaCraps mesa = new MesaCraps(20);
 		mesa.getJugadores().add(pepe);
 		mesa.getJugadores().add(juana);
 		mesa.setTirador(pepe);
 		ManejadorMesaCraps.getInstance().getMesas().add(mesa);
+		
 		//seteo las fichas
 		MSGOpcionApuesta op = new MSGOpcionApuesta();
 		op.setPuntajeApostado(0);

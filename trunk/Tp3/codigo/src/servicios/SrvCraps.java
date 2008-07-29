@@ -1,7 +1,7 @@
 package servicios;
 
 import craps.ManejadorMesaCraps;
-import craps.msg.MSGApuestaCraps;
+import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
@@ -25,7 +25,7 @@ public class SrvCraps {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje){
+	public static MSGApostarCraps apostarCraps(MSGApostarCraps mensaje){
 		return ManejadorMesaCraps.getInstance().apostarCraps(mensaje);
 	}
 

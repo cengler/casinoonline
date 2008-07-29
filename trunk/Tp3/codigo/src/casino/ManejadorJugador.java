@@ -106,7 +106,7 @@ public class ManejadorJugador implements IServiciosJugador {
 
 	public void AcreditarSaldo(Jugador jugador, int a, int b){}
 
-	public void debitarMonto(Jugador jugador, int a, int b){	}
+	public void debitarMonto(IJugador jugador, int a){	}
 
 	public boolean estaJugando(IJugador jugador)
 	{
@@ -128,7 +128,7 @@ public class ManejadorJugador implements IServiciosJugador {
 		return false;
 	}
 
-	public boolean montoValidoPara(Jugador jugador){
+	public boolean montoValidoPara(IJugador jugador, int monto){
 		return false;
 	}
 	

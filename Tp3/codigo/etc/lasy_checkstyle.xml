@@ -34,29 +34,33 @@
 
     <!-- Checks that a package.html file exists for each package.     -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html#PackageHtml -->
-	
-<!-- CAEYCAE-->
-    <!--module name="PackageHtml"/-->
+    <module name="PackageHtml"/>
 
     <!-- Checks whether files end with a new line.                        -->
     <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
-	
-<!-- CAEYCAE-->
-    <!--module name="NewlineAtEndOfFile"/-->
+    <!-- <module name="NewlineAtEndOfFile"/> -->
 
     <!-- Checks that property files contain the same keys.         -->
     <!-- See http://checkstyle.sf.net/config_misc.html#Translation -->
-    <module name="Translation"/>
+    <!--<module name="Translation"/>-->
+
+	<!-- Indicates suppressions of rules for a particular file -->
+	<module name="SuppressionFilter">
+		<!--property name="file" value="${checkstyle_supression_file}"/-->
+	</module>
 
 
     <module name="TreeWalker">
+
+            
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
         <module name="JavadocMethod"/>
         <module name="JavadocType"/>
-<!-- CAEYCAE--> <!-- ESTAN EN EL GET-->
-        <!--module name="JavadocVariable"/-->
+        <module name="JavadocVariable">
+		   <property name="excludeScope" value="private"/>
+		</module>
         <module name="JavadocStyle"/>
 
 
@@ -101,27 +105,37 @@
 
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
-        <module name="FileLength"/>
+        <module name="FileLength">
+		<property name="max" value="2000"/>
+	</module>
 
-<!-- CAEYCAE-->
-        <!--module name="LineLength"/-->
-        <module name="MethodLength"/>
-        <module name="ParameterNumber"/>
+	<!--
+        <module name="LineLength">
+		<property name="max" value="120"/>
+	</module> 
+	-->
+        
+	<module name="MethodLength">
+		<property name="max" value="500"/>
+	</module>
+
+        <module name="ParameterNumber">
+		<property name="max" value="12"/>
+	</module>
 
 
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
         <module name="EmptyForIteratorPad"/>
-        <!--module name="MethodParamPad"/-->
-        <!--module name="NoWhitespaceAfter"/-->
-        <!--module name="NoWhitespaceBefore"/-->
-        <!--module name="OperatorWrap"/-->
-        <!--module name="ParenPad"/-->
+<!--        <module name="MethodParamPad"/> -->
+<!--        <module name="NoWhitespaceAfter"/> -->
+<!--        <module name="NoWhitespaceBefore"/> -->
+<!--		<module name="OperatorWrap"/> -->
+<!--        <module name="ParenPad"/> -->
         <module name="TypecastParenPad"/>
-        <!--module name="TabCharacter"/-->
-        <!--module name="WhitespaceAfter"/-->
-        <!--module name="WhitespaceAround"/-->
-
+<!--        <module name="TabCharacter"/> -->
+<!--        <module name="WhitespaceAfter"/> -->
+<!--        <module name="WhitespaceAround"/> -->
 
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifiers.html -->
@@ -132,22 +146,32 @@
         <!-- Checks for blocks. You know, those {}'s         -->
         <!-- See http://checkstyle.sf.net/config_blocks.html -->
         <module name="AvoidNestedBlocks"/>
-        <module name="EmptyBlock"/>
-        <module name="LeftCurly"/>
-        <module name="NeedBraces"/>
-        <module name="RightCurly"/>
+        <module name="EmptyBlock">
+			<property name="option" value="text"/>
+		</module>
+<!--        <module name="LeftCurly"/> -->
+<!--        <module name="NeedBraces"/> -->
+<!--		<module name="RightCurly"/> -->
 
 
         <!-- Checks for common coding problems               -->
         <!-- See http://checkstyle.sf.net/config_coding.html -->
-        <module name="AvoidInlineConditionals"/>
+<!--        <module name="AvoidInlineConditionals"/> -->
         <module name="DoubleCheckedLocking"/>    <!-- MY FAVOURITE -->
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
-        <module name="HiddenField"/>
+<!--        <module name="HiddenField"/> -->
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
-        <module name="MagicNumber"/>
+        
+        
+        <!--module name="FwkMagicNumberCheck"/-->
+        
+        <!-- <module name="MagicNumber"/> -->
+        
+        
+        
+        
         <module name="MissingSwitchDefault"/>
         <module name="RedundantThrows"/>
         <module name="SimplifyBooleanExpression"/>
@@ -155,25 +179,32 @@
 
         <!-- Checks for class design                         -->
         <!-- See http://checkstyle.sf.net/config_design.html -->
-        <module name="DesignForExtension"/>
+<!--        <module name="DesignForExtension"/> OJO - VER -->
         <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
         <module name="InterfaceIsType"/>
-        <module name="VisibilityModifier"/>
+        <module name="VisibilityModifier">
+       	 <property name="protectedAllowed " value="true"/>
+        </module>
 
 
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
-        <module name="FinalParameters"/>
-<!-- CAEYCAE-->
-        <!--module name="GenericIllegalRegexp">
+<!--        <module name="FinalParameters"/> -->
+		
+		<!--
+        <module name="GenericIllegalRegexp">
             <property name="format" value="\s+$"/>
             <property name="message" value="Line has trailing spaces."/>
-        </module-->
-<!-- CAEYCAE-->
+        </module>
         <module name="TodoComment"/>
+		-->
         <module name="UpperEll"/>
+
+		<!--module name="ImportControl">
+			<property name="file" value="${checkstyle_import_control_file}"/>
+		</module-->
 
     </module>
 

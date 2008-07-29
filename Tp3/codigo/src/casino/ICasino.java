@@ -33,7 +33,7 @@ public interface ICasino
 	/**
 	 * Geter del saldo del casino.
 	 * 
-	 * @returnel saldo del casino.
+	 * @return el saldo del casino.
 	 */
 	long getSaldo();
 	

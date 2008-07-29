@@ -21,6 +21,7 @@ public class SeleccionadorDeTiradorEnOrden implements ISeleccionadorDeTirador {
 		// DEBERIA SEGUIR ESTANDO EN EL JUEGO 
 		// PUES NO SE PUEDE RETIRAR SI ES EL TIRADOR
 		IJugador tiradorActual = mesa.getTirador();
+		int indiceActual = 0;
 
 		if(tiradorActual == null)
 		{
@@ -28,23 +29,27 @@ public class SeleccionadorDeTiradorEnOrden implements ISeleccionadorDeTirador {
 			//throw new CrapsException("El tirador de la mesa esta en NULL y siempre deberia haber un tirador");
 			// TODO LUEGO AGREGAR
 		}
-		else
+		else if(mesa.getJugadores().size() < 1)
 		{
-			boolean elSig = false;
-			for(IJugador jugador : mesa.getJugadores())
-			{
-				if(elSig)
-				{
-					return jugador;
-				}
-				else if(jugador.equals(tiradorActual))
-				{
-					elSig = true;
-				}
-			}
+			logger.error("Debe haber jugadores en la mesa, la mesa deberia estar cerrada");
+			//throw new CrapsException("Debe haber jugadores en la mesa, la mesa deberia estar cerrada");
+			// TODO LUEGO AGREGAR
 		}
-		logger.fatal("Ha ocurrido un error grave al obtener el proximo tirador");
-		return null;
+		else if( !mesa.getJugadores().contains(tiradorActual))
+		{
+			logger.debug("TiradorActual: " + tiradorActual + " Jugadores: " + mesa.getJugadores());
+			logger.error("El tirador actual debe ser un jugador");
+			//throw new CrapsException("El tirador actual debe ser un jugador");
+			// TODO LUEGO AGREGAR
+		}else
+		{
+			indiceActual = mesa.getJugadores().indexOf(tiradorActual);
+			if(indiceActual == (mesa.getJugadores().size() - 1))
+				indiceActual = 0;
+			else
+				indiceActual++;
+		}
+		return mesa.getJugadores().get(indiceActual);
 	}
 
 }

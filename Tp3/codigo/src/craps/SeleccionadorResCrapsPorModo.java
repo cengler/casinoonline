@@ -1,9 +1,12 @@
 package craps;
 
+import org.apache.log4j.Logger;
+
 import casino.Casino;
 
 public class SeleccionadorResCrapsPorModo implements ISeleccionadorResCraps {
 
+	private static Logger logger = Logger.getLogger(SeleccionadorResCrapsPorModo.class);
 	private static SeleccionadorResCrapsPorModo instance;
 	
 	public SeleccionadorResCrapsPorModo(){
@@ -23,7 +26,11 @@ public class SeleccionadorResCrapsPorModo implements ISeleccionadorResCraps {
 			selector = SelectorResCrapsModoNormal.getInstance();
 		else
 			selector = SelectorResCrapsModoDirigido.getInstance();
-		return selector.getResult();
+		
+		ResultadoCraps res = selector.getResult();
+		logger.debug(res);
+		
+		return res;
 	}
 	/*public <val, val> getResult(){
 		return null;

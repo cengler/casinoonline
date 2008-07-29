@@ -25,7 +25,7 @@ public class TestServiciosCraps {
 		
 		SrvCraps.entrarCraps(mensaje);
 		
-		// agrego a pepe
+		/*// agrego a pepe
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
@@ -39,7 +39,7 @@ public class TestServiciosCraps {
 		pepe.setLogeado(true);
 		
 		SrvCraps.entrarCraps(mensaje);
-		SrvCraps.entrarCraps(mensaje);
+		SrvCraps.entrarCraps(mensaje);*/
 	}
 	
 	public static void entrarCraps2()
@@ -73,21 +73,33 @@ public class TestServiciosCraps {
 		mensaje.setVTerm(50);
 		mensaje.setMesa(20);
 		
+		SrvCraps.tirarCraps(mensaje);
+		
+		
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
 		pepe.setIdVirt(50);
 		pepe.setLogeado(true);
-		
-		SrvCraps.tirarCraps(mensaje);
-		
-		
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
-		ManejadorMesaCraps mc =ManejadorMesaCraps.getInstance();
-		int idLaMesa = mensaje.getMesa();
-		MesaCraps laMesa = mc.getMesa(idLaMesa);
-		laMesa.getJugadores().add(pepe);
+		
+		
+		Jugador juana = new Jugador();
+		juana.setNombre("juana");
+		juana.setIdVirt(50);
+		juana.setLogeado(true);
+		ManejadorJugador.getInstance().getJugadores().add(juana);
 		
 		SrvCraps.tirarCraps(mensaje);
+		
+		MesaCraps mesa = new MesaCraps(20);
+		mesa.getJugadores().add(pepe);
+		mesa.getJugadores().add(juana);
+		mesa.setTirador(pepe);
+		ManejadorMesaCraps.getInstance().getMesas().add(mesa);
+		
+		for (int i = 0; i<20; i++)
+			SrvCraps.tirarCraps(mensaje);
+		
 		
 		
 	}

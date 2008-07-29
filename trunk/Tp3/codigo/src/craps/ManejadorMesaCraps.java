@@ -3,6 +3,8 @@ package craps;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import java.util.Map;
+
 
 import org.apache.log4j.Logger;
 
@@ -19,6 +21,8 @@ import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
 import craps.msg.MSGOpcionApuesta;
+import craps.msg.MSGValorFicha;
+import casino.Casino;
 
 /**
  * ManejadorMesaCraps.
@@ -163,17 +167,24 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			int calculoAApostar = 0;
 			int i = 0;
 			boolean fichaValida = true;
+			Casino cas = Casino.getInstance();
+			Map<Integer, Integer> valores = cas.getValores();
+			
 			while (i < (mensaje.getValorApuesta()).size() || fichaValida == true){
-
-				//MSGValorFicha vf = (mensaje.getValorApuesta()).first();
-				//if(el valor de la ficha es valido){
-	//			 calculoAApostar = calculoAApostar + (vf.getCantidad()* vf.getValor);
-				i++;
-				/*}else{
+				
+				
+				MSGValorFicha vf = (mensaje.getValorApuesta()).get(i);
+				
+				if(valores.containsKey(vf.getValor())){//chequeo si es una ficha valida
+					//obtengo el significado de esa clave
+					int valor = valores.get(vf.getValor());
+					calculoAApostar = calculoAApostar + (vf.getCantidad()* valor);
+					i++;
+				}else{
 				  	fichaValida = false;
 	  	
 					
-				}*/
+				}
 			}
 			if (fichaValida == false){
 				
@@ -189,8 +200,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
 					String tipoAp = opAp.getTipoApuesta();
 					int puntaje = opAp.getPuntajeApostado();
-					ApuestaCraps apCr = new ApuestaCraps(jugador, puntaje, tipoAp, calculoAApostar);
-					mesa.getPagador().getApuestas().add(apCr);
+					ManejadorDeApuestas manApCr = mesa.getPagador();
+					manApCr.crearNuevaApuesta(jugador, puntaje, tipoAp, calculoAApostar);
 					manJug.debitarMonto(jugador, calculoAApostar);
 					
 					mensaje.setAceptado(MSGApostarCraps.SI);

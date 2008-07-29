@@ -1,5 +1,6 @@
 package casino;
-
+import java.util.Map;
+import java.util.HashMap;
 /**
  * Casino. Singleton que representa a las propiedades 
  * basicas del casino online
@@ -14,13 +15,29 @@ public class Casino implements ICasino {
 	private boolean modoNormal;
 	private int pozoFeliz;
 	private long saldo;
+	private Map<Integer, Integer> valores;
 
+	
 	/**
 	 * Constructor.
 	 */
-	private Casino(){
+	private Casino(){              
 		abierto = false;
 		modoNormal = true;
+		Map<Integer,Integer> valores = new HashMap<Integer,Integer>();
+		valores.put(1,25);
+		valores.put(2,50);
+		valores.put(3,75);
+	
+		
+	}
+
+	public Map<Integer, Integer> getValores() {
+		return valores;
+	}
+
+	public void setValores(Map<Integer, Integer> valores) {
+		this.valores = valores;
 	}
 
 	/**

@@ -14,6 +14,10 @@ import craps.ResultadoCraps;
 import craps.SelectorResCrapsModoDirigido;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGTiroCraps;
+import craps.msg.MSGApostarCraps;
+import craps.msg.MSGValorFicha;
+import craps.msg.MSGOpcionApuesta;
+
 
 public class TestServiciosCraps {
 
@@ -22,7 +26,8 @@ public class TestServiciosCraps {
 	public static void main(String[] args) {
 		//entrarCraps1();
 		//entrarCraps2();
-		tirarCraps();
+		//tirarCraps();
+		apostarCraps();
 	}
 	
 	public static void entrarCraps1()
@@ -130,4 +135,54 @@ public class TestServiciosCraps {
 		
 	}
 	
+	public static void apostarCraps(){
+		
+		
+		MSGApostarCraps mensaje = new MSGApostarCraps();
+		mensaje.setUsuario("pepe");
+		mensaje.setVTerm(50);
+		mensaje.setMesa(20);
+		
+		SrvCraps.apostarCraps(mensaje);
+		
+		
+		Jugador pepe = new Jugador();
+		pepe.setNombre("pepe");
+		pepe.setIdVirt(50);
+		pepe.setLogeado(true);
+		ManejadorJugador.getInstance().getJugadores().add(pepe);
+		
+		
+		Jugador juana = new Jugador();
+		juana.setNombre("juana");
+		juana.setIdVirt(50);
+		juana.setLogeado(true);
+		ManejadorJugador.getInstance().getJugadores().add(juana);
+		
+		SrvCraps.apostarCraps(mensaje);
+		
+		MesaCraps mesa = new MesaCraps(20);
+		mesa.getJugadores().add(pepe);
+		mesa.getJugadores().add(juana);
+		mesa.setTirador(pepe);
+		ManejadorMesaCraps.getInstance().getMesas().add(mesa);
+		//seteo las fichas
+		MSGOpcionApuesta op = new MSGOpcionApuesta();
+		op.setPuntajeApostado(0);
+		op.setTipoApuesta("pase");
+		mensaje.setOpcionApuesta(op);
+		List<MSGValorFicha> list = new ArrayList<MSGValorFicha>();
+		MSGValorFicha vf = new MSGValorFicha();
+		vf.setCantidad(3);
+		vf.setValor(1);
+		MSGValorFicha vf1 = new MSGValorFicha();
+		vf1.setCantidad(5);
+		vf1.setValor(3);
+		list.add(vf);
+		list.add(vf1);
+		mensaje.setValorApuesta(list);
+		
+		SrvCraps.apostarCraps(mensaje);
+		
+	}	
 }

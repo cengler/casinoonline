@@ -1,6 +1,7 @@
 package craps;
 
 import java.util.List;
+import casino.IJugador;
 
 /**
  * PagadorDeApuestas de una mesa en particular.
@@ -40,4 +41,10 @@ public class ManejadorDeApuestas {
 	public void sumarATotal(int a){}
 	
 	public void pagarApuestas() {}*/
+	
+	public void crearNuevaApuesta(IJugador jug, int puntaje, String tipoAp, int valor){
+		
+		ApuestaCraps apc = new ApuestaCraps( jug,  puntaje, tipoAp, valor);
+		this.getApuestas().add(apc);
+	}
 }

@@ -13,11 +13,12 @@ import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.TipoJugada;
-import craps.msg.MSGApuestaCraps;
+import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
+import craps.msg.MSGOpcionApuesta;
 
 /**
  * ManejadorMesaCraps.
@@ -129,7 +130,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGApuestaCraps apostarCraps(MSGApuestaCraps mensaje)
+	public MSGApostarCraps apostarCraps(MSGApostarCraps mensaje)
 	{
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		
@@ -157,16 +158,54 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		{
 			MesaCraps mesa = getMesa(mensaje.getMesa());
 			
-			mesa.getId();
-			//VALIDO FICHAS
+			
+			//VALIDO FICHAS y si son validas calculo el monto a apostar
+			int calculoAApostar = 0;
+			int i = 0;
+			boolean fichaValida = true;
+			while (i < (mensaje.getValorApuesta()).size() || fichaValida == true){
+
+				//MSGValorFicha vf = (mensaje.getValorApuesta()).first();
+				//if(el valor de la ficha es valido){
+	//			 calculoAApostar = calculoAApostar + (vf.getCantidad()* vf.getValor);
+				i++;
+				/*}else{
+				  	fichaValida = false;
+	  	
+					
+				}*/
+			}
+			if (fichaValida == false){
+				
+				mensaje.setAceptado(MSGApostarCraps.NO);
+				mensaje.setDescripcion("Las fichas a apostar no corresponden a fichas validas");
+				logger.info("Las fichas a apostar no corresponden a fichas validas");
+			}else{
+				
+				IJugador jugador = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+				boolean montoValido = manJug.montoValidoPara(jugador,calculoAApostar);
+				if (montoValido == true){
+					
+					MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
+					String tipoAp = opAp.getTipoApuesta();
+					int puntaje = opAp.getPuntajeApostado();
+					ApuestaCraps apCr = new ApuestaCraps(jugador, puntaje, tipoAp, calculoAApostar);
+					mesa.getApuestas().add(apCr);
+					manJug.debitarMonto(jugador, calculoAApostar);
+					
+					mensaje.setAceptado(MSGApostarCraps.SI);
+					mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
+					logger.info("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
+
+					
+				}
+			}
+			
 		}
 		
-		//TODO
-		
-		return null;
-	}
-
-	/**
+				
+		return mensaje;
+	}	/**
 	 * {@inheritDoc}
 	 */
 	public MSGTiroCraps tirarCraps(MSGTiroCraps unMSG){

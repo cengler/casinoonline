@@ -12,7 +12,7 @@ public class ApuestaCraps {
 
 	IJugador apostador;
 	int puntaje;
-	TipoApuestaCraps tipo;
+	String tipo;
 	int valor;
 	boolean activa;
 		
@@ -30,7 +30,7 @@ public class ApuestaCraps {
 	 * @param tipo tipo de apuesta
 	 * @param valor monto a apostar
 	 */
-	public ApuestaCraps(IJugador apostador, int puntaje, TipoApuestaCraps tipo, int valor) {
+	public ApuestaCraps(IJugador apostador, int puntaje, String tipo, int valor) {
 		super();
 		this.apostador = apostador;
 		this.puntaje = puntaje;
@@ -63,11 +63,11 @@ public class ApuestaCraps {
 		this.puntaje = puntaje;
 	}
 
-	public TipoApuestaCraps getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(TipoApuestaCraps tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 

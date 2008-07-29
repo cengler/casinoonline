@@ -207,8 +207,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					mensaje.setAceptado(MSGApostarCraps.SI);
 					mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
 					logger.info("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
-
-					
 				}
 			}
 			
@@ -326,7 +324,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					}
 					
 					// NO PARECE QUE SEA EL MENSAJE EL QUE PAGA
-					//laMesa.getPagador().pagarApuestas();
+					laMesa.getPagador().pagarApuestas(jugada, resultado);
 					//unMSG.pagarApuestas(jugada, resultado, laMesa.getId()); TODO
 					laMesa.notifyObservers();
 				}	
@@ -416,7 +414,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		
 		while( i < getMesas().size() && !esta )
 		{
-			getMesas().get(i).getJugadores().contains(jugador);
+			esta = getMesas().get(i).getJugadores().contains(jugador);
 			i++;
 		}
 		return esta;

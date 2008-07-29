@@ -1,7 +1,11 @@
 package craps;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import casino.IJugador;
+import casino.TipoJugada;
 
 /**
  * PagadorDeApuestas de una mesa en particular.
@@ -12,7 +16,7 @@ import casino.IJugador;
 public class ManejadorDeApuestas {
 
 	private List<ApuestaCraps> apuestas;
-	
+	//private static int porcentajeTP;
 	
 	
 	
@@ -24,7 +28,64 @@ public class ManejadorDeApuestas {
 		this.apuestas = apuestas;
 	}
 
-	public ManejadorDeApuestas(MesaCraps mesa){}
+	public ManejadorDeApuestas(){}
+
+	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado)
+	{
+		int gananciaTotal = 0;
+		Map<IJugador, Integer> ganancias = new HashMap<IJugador, Integer>();
+		
+		for (ApuestaCraps apuesta : apuestas)
+		{
+			if( apuesta.terminaApuesta(resultado) )
+			{
+				apuesta.setActiva(false);
+				int ganancia = apuesta.obtenerGanancia(resultado);
+				apuesta.setGanancia(ganancia);
+				
+				if( ganancias.containsKey(apuesta.getApostador()) )
+				{
+					ganancias.put(apuesta.getApostador(), ganancias.get(apuesta.getApostador()) + ganancia );
+				}
+				else
+				{
+					ganancias.put(apuesta.getApostador(), ganancia);
+				}
+				gananciaTotal += ganancia;
+			}
+		}
+		
+		if(jugada.equals(TipoJugada.feliz))
+		{
+			//TODO
+		}
+		
+		if(jugada.equals(TipoJugada.todosponen))
+		{
+			for (IJugador j : ganancias.keySet() )
+			{
+				acreditar(j, quitarPorcentajeTP(ganancias.get(j)));
+			}
+		}
+		
+		if(jugada.equals(TipoJugada.normal))
+		{
+			for (IJugador j : ganancias.keySet() )
+			{
+				acreditar(j, ganancias.get(j));
+			}
+		}
+	}
+
+	private Integer quitarPorcentajeTP(Integer integer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void acreditar(IJugador j, Integer integer) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	/*public void correpondePagar(int a, <int, int> b){}
 	

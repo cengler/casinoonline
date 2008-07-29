@@ -10,11 +10,12 @@ import casino.IJugador;
  */
 public class ApuestaCraps {
 
-	IJugador apostador;
-	int puntaje;
-	String tipo;
-	int valor;
-	boolean activa;
+	private IJugador apostador;
+	private int puntaje;
+	private String tipo;
+	private int valor;
+	private boolean activa;
+	private int gananciaBruta;
 		
 	/**
 	 * Constructor sin parametros.
@@ -77,6 +78,24 @@ public class ApuestaCraps {
 
 	public void setValor(int valor) {
 		this.valor = valor;
+	}
+
+	public int getGanancia() {
+		return gananciaBruta;
+	}
+
+	public void setGanancia(int ganancia) {
+		this.gananciaBruta = ganancia;
+	}
+
+	public boolean terminaApuesta(ResultadoCraps resultado) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int obtenerGanancia(ResultadoCraps resultado) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	

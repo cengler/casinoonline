@@ -72,7 +72,7 @@
 </target>
 
 <target name="dot" depends="jdepend" description="Genera grafo de dependencias.">
-
+	<echo>Generando grafo de dependencias (dot): ..................... </echo>
 	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
 		style="${dir.etc}/jdepend2dot.xsl" >
 	 	<mapper type="glob" from="*jdepend-report.xml" to="jdepend-report.dot"/>
@@ -88,14 +88,15 @@
 	<!--dot -Tpng -o jdepend.png jdepend-report.dot-->
 </target>
 
-<target name="checkstyle" depends="dot" description="Genera reporte de violaciones de convenciones de codigo.">
+<target name="check" depends="dot" description="Genera reporte de violaciones de convenciones de codigo.">
 	<echo>Chequeando Codigo: ..................................... </echo>
 
-	<checkstyle config="${dir.etc}/sun_checks.xml"
+	<checkstyle config="${dir.etc}/lasy_checkstyle.xml"
 		failureProperty="checkstyle.failure"
 		failOnViolation="false">
 		<formatter type="xml" tofile="${dir.rep}/checkstyle-report.xml"/>
 		<fileset dir="${dir.src}" includes="**/*.java" excludes="**/MSG*.java"/>
+		<property key="checkstyle_import_control_file" value="${dir.etc}/casino_import_control_file.xml"/>
 	</checkstyle>
 
 	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
@@ -104,7 +105,7 @@
 	</xslt>
 </target>
 
-<target name="javadoc" depends="checkstyle" description="Genera reporte de violaciones de convenciones de codigo.">
+<target name="javadoc" depends="check" description="Genera reporte de violaciones de convenciones de codigo.">
 	<echo>Generando JavaDoc: ..................................... </echo>
 	<javadoc
 		destdir="${dir.api}"

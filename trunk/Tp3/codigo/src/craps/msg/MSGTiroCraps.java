@@ -1,10 +1,10 @@
 package craps.msg;
+
 import craps.msg.MSGResultadoCraps;
-import casino.TipoJugada;
 
 public class MSGTiroCraps extends MSGCraps {
 
-	private TipoJugada tipoJugada;
+	private String tipoJugada;
 	private MSGResultadoCraps  resultado;
 	
 	public MSGResultadoCraps getResultado() {
@@ -13,10 +13,10 @@ public class MSGTiroCraps extends MSGCraps {
 	public void setResultado(MSGResultadoCraps resultado) {
 		this.resultado = resultado;
 	}
-	public TipoJugada getTipoJugada() {
+	public String getTipoJugada() {
 		return tipoJugada;
 	}
-	public void setTipoJugada(TipoJugada tipoJugada) {
+	public void setTipoJugada(String tipoJugada) {
 		this.tipoJugada = tipoJugada;
 	}
 

@@ -1,7 +1,5 @@
 package casino.msg;
 
-import casino.TipoJugada;
-
 /**
  * MSGSetJugada.
  * 
@@ -10,7 +8,7 @@ import casino.TipoJugada;
  */
 public class MSGSetJugada extends MSGModo {
 
-	private TipoJugada tipo;
+	private String tipo;
 	private String juego;
 	private int mesa;
 	
@@ -18,7 +16,7 @@ public class MSGSetJugada extends MSGModo {
 	 * Geter del tipo de jugada a setear.
 	 * @return
 	 */
-	public TipoJugada getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 	
@@ -27,7 +25,7 @@ public class MSGSetJugada extends MSGModo {
 	 * 
 	 * @param tipo el tipo de jugada a setear.
 	 */
-	public void setTipo(TipoJugada tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	

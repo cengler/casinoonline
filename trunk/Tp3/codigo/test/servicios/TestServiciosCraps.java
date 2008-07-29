@@ -26,8 +26,8 @@ public class TestServiciosCraps {
 	public static void main(String[] args) {
 		//entrarCraps1();
 		//entrarCraps2();
-		//tirarCraps();
-		apostarCraps();
+		tirarCraps();
+		//apostarCraps();
 	}
 	
 	public static void entrarCraps1()
@@ -89,14 +89,11 @@ public class TestServiciosCraps {
 		
 		SrvCraps.tirarCraps(mensaje);
 		
-		
-		
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
 		pepe.setIdVirt(50);
 		pepe.setLogeado(true);
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
-		
 		
 		Jugador juana = new Jugador();
 		juana.setNombre("juana");

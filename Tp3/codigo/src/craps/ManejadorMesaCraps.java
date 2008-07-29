@@ -190,7 +190,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					String tipoAp = opAp.getTipoApuesta();
 					int puntaje = opAp.getPuntajeApostado();
 					ApuestaCraps apCr = new ApuestaCraps(jugador, puntaje, tipoAp, calculoAApostar);
-					mesa.getApuestas().add(apCr);
+					mesa.getPagador().getApuestas().add(apCr);
 					manJug.debitarMonto(jugador, calculoAApostar);
 					
 					mensaje.setAceptado(MSGApostarCraps.SI);
@@ -261,31 +261,31 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						}
 						else // NO PERDIO!
 						{
-							if (laMesa.saleNatural(resultado))
+							if (laMesa.saleNatural(resultado)) // GANO!
 							{
-								laMesa.setPunto(resultado);
-								laMesa.setPuck(true);
+								// NADA VER
 							}
 							else // ESTABLECE PUNTO !!!! OJO
 							{
+								laMesa.setPuck(true);
+								laMesa.setPunto(resultado);
 								// TODO que se hace en este caso? NADA?
 							}
 						}	
 					}
 					else // PUCK PRENDIDO == NO TIRO DE SALIDA
 					{
-						int punto = laMesa.getPunto();
-						
 						if(laMesa.salioSiete(resultado)) // PERDIO!
 						{
 							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 							IJugador proxTirador = selTir.getProxTirador(laMesa);
 							laMesa.setTirador(proxTirador);	
+							laMesa.setPuck(false);
 							sigueTirando = false;
 						}
 						else // NO PERDIO!
 						{
-							if(laMesa.repitioPunto(resultado, punto)) // GANO!
+							if(laMesa.repitioPunto(resultado, laMesa.getPunto())) // GANO!
 							{
 								laMesa.setPuck(false);
 							}
@@ -306,16 +306,16 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					if(sigueTirando)
 					{
 						unMSG.setDescripcion("El jugador ha tirado los dados y sigue tirando");
-						logger.info("El jugador ha tirado los dados y sigue tirando");
+						logger.info("El jugador ha tirado los dados y sigue tirando. Puck: " + laMesa.isPuck());
 					}
 					else
 					{
-						unMSG.setDescripcion("El jugador ha tirado los dados y NO sigue tirando");
-						logger.info("El jugador ha tirado los dados y NO sigue tirando");
+						unMSG.setDescripcion("El jugador ha tirado los dados y NO sigue tirando" + laMesa.isPuck());
+						logger.info("El jugador ha tirado los dados y NO sigue tirando Puck: " + laMesa.isPuck());
 					}
 					
 					// NO PARECE QUE SEA EL MENSAJE EL QUE PAGA
-					laMesa.getPagador().pagarApuestas();
+					//laMesa.getPagador().pagarApuestas();
 					//unMSG.pagarApuestas(jugada, resultado, laMesa.getId()); TODO
 					laMesa.notifyObservers();
 				}	
@@ -326,13 +326,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 	}
 	
-	
-	
-	
-	
-	
 	/*
-	 * VER QUE AL SALIR EL TIRADOR SE PROPONGA OTRO O SE CIERRE LA MESA
+	 * VER QUE AL SALIR EL TIRADOR SE PROPONGA OTRO O SE CIERRE LA MESA TODO
 	 */
 	/**
 	 * {@inheritDoc}

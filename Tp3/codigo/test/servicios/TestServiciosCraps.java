@@ -1,14 +1,23 @@
 package servicios;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import casino.Casino;
 import casino.Jugador;
 import casino.ManejadorJugador;
 import craps.ManejadorMesaCraps;
 import craps.MesaCraps;
+import craps.ResultadoCraps;
+import craps.SelectorResCrapsModoDirigido;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGTiroCraps;
 
 public class TestServiciosCraps {
 
+	private static Logger logger = Logger.getLogger(TestServiciosCraps.class);
 	
 	public static void main(String[] args) {
 		//entrarCraps1();
@@ -100,6 +109,23 @@ public class TestServiciosCraps {
 		for (int i = 0; i<20; i++)
 			SrvCraps.tirarCraps(mensaje);
 		
+		mesa.setTirador(pepe);
+		
+		
+		List<ResultadoCraps> l = new ArrayList<ResultadoCraps>();
+		
+		try {
+			Casino.getInstance().setModoNormal(false);
+			l.add(new ResultadoCraps(4, 4));
+			l.add(new ResultadoCraps(4, 4));
+			SelectorResCrapsModoDirigido.getInstance().setResultados(l);
+		} 
+		catch (Exception e) {
+			logger.error("HICE MAL LA CONFIGURACION");
+		}
+
+		for (int i = 0; i<20; i++)
+			SrvCraps.tirarCraps(mensaje);
 		
 		
 	}

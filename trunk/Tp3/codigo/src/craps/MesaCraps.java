@@ -10,20 +10,19 @@ import casino.IMesa;
 public class MesaCraps extends Observable implements IMesa {
 
 	private boolean abierta;
-	private List<ApuestaCraps> apuestas;
 	private int id;
 	private List<IJugador> jugadores;
 	private boolean puck;
 	private int punto;
 	private IJugador tirador;
-	private PagadorDeApuestas pagador;
+	private ManejadorDeApuestas pagador;
 	
 	public MesaCraps(int id) {
 		super();
 		this.id = id;
 		abierta = true;
 		jugadores = new ArrayList<IJugador>();
-		pagador = new PagadorDeApuestas(this);
+		pagador = new ManejadorDeApuestas(this);
 	}
 
 	public boolean isAbierta() {
@@ -32,14 +31,6 @@ public class MesaCraps extends Observable implements IMesa {
 	
 	public void setAbierta(boolean abierta) {
 		this.abierta = abierta;
-	}
-	
-	public List<ApuestaCraps> getApuestas() {
-		return apuestas;
-	}
-	
-	public void setApuestas(List<ApuestaCraps> apuestas) {
-		this.apuestas = apuestas;
 	}
 	
 	public int getId() {
@@ -161,7 +152,7 @@ public class MesaCraps extends Observable implements IMesa {
 		
 	}
 
-	public PagadorDeApuestas getPagador() {
+	public ManejadorDeApuestas getPagador() {
 		return pagador;
 	}
 	

@@ -1,6 +1,8 @@
 package casino.msg;
 import casino.TipoJugada;
 
+import casino.TipoJugada;
+
 /**
  * MSGSetJugada.
  * 

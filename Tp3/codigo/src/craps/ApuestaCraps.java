@@ -15,7 +15,7 @@ public class ApuestaCraps {
 	private String tipo;
 	private int valor;
 	private boolean activa;
-	private int gananciaBruta;
+	private int ganancia;
 		
 	/**
 	 * Constructor sin parametros.
@@ -81,11 +81,11 @@ public class ApuestaCraps {
 	}
 
 	public int getGanancia() {
-		return gananciaBruta;
+		return ganancia;
 	}
 
 	public void setGanancia(int ganancia) {
-		this.gananciaBruta = ganancia;
+		this.ganancia = ganancia;
 	}
 
 	public boolean terminaApuesta(ResultadoCraps resultado) {
@@ -98,7 +98,10 @@ public class ApuestaCraps {
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		return "{ JUG: " + apostador + ", TIPO: " + tipo + ", PUNT: " + puntaje + ", GAN: " + ganancia + ", ACT: "+ activa+ " }";
+	}
 	
-
 
 }

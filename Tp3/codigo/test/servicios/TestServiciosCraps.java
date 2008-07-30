@@ -17,6 +17,7 @@ import craps.msg.MSGTiroCraps;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGValorFicha;
 import craps.msg.MSGOpcionApuesta;
+import craps.TipoApuestaCraps;
 
 
 public class TestServiciosCraps {

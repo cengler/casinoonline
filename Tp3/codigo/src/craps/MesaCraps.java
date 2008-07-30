@@ -101,7 +101,7 @@ public class MesaCraps extends Observable implements IMesa {
 	
 		boolean res = false;
 		int resul = resCraps.getDado1() + resCraps.getDado2();
-		if (resul == 2 || resul == 3 || resul ==6){
+		if (resul == 2 || resul == 3 || resul ==12){
 			res = true;
 			
 		}

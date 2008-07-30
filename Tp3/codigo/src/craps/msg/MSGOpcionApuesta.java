@@ -1,8 +1,9 @@
 package craps.msg;
+import craps.TipoApuestaCraps;
 
 public class MSGOpcionApuesta {
 
-	private String tipoApuesta;
+	private TipoApuestaCraps tipoApuesta;
 	private int puntajeApostado;
 	
 	public int getPuntajeApostado() {
@@ -11,10 +12,10 @@ public class MSGOpcionApuesta {
 	public void setPuntajeApostado(int puntajeApostado) {
 		this.puntajeApostado = puntajeApostado;
 	}
-	public String getTipoApuesta() {
+	public TipoApuestaCraps getTipoApuesta() {
 		return tipoApuesta;
 	}
-	public void setTipoApuesta(String tipoApuesta) {
+	public void setTipoApuesta(TipoApuestaCraps tipoApuesta) {
 		this.tipoApuesta = tipoApuesta;
 	}
 	

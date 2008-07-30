@@ -7,6 +7,12 @@ package craps;
  *
  */
 public enum TipoApuestaCraps {
-	tiroSalida,
-	tirpepe
+	pase,
+	nopase,
+	venir,
+	novenir,
+	campo,
+	sitio,
+	ganar,
+	encontra,
 }

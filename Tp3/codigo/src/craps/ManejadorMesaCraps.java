@@ -169,8 +169,17 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				else
 				{
 					MesaCraps mesa = getMesa(mensaje.getMesa());
-			
-			
+					boolean puck = mesa.isPuck();
+			        if ( puck == false ){//es tiro de salida
+			        	
+			        	TipoApuestaCraps tipoAp = mensaje.getOpcionApuesta().getTipoApuesta();
+			        	//if (tipoAp = )
+			        	
+			        }else{
+			        	
+			        	
+			        	
+			        }
 					//VALIDO FICHAS y si son validas calculo el monto a apostar
 								
 					ManejadorCasino manCas = ManejadorCasino.getInstance();
@@ -189,7 +198,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				boolean montoValido = manJug.montoValidoPara(jugador,calculoAApostar);
 				if (montoValido == true){
 					MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
-					String tipoAp = opAp.getTipoApuesta();
+					TipoApuestaCraps tipoAp = opAp.getTipoApuesta();
 					int puntaje = opAp.getPuntajeApostado();
 					ManejadorDeApuestas manApCr = mesa.getPagador();
 					manApCr.crearNuevaApuesta(jugador, puntaje, tipoAp, calculoAApostar);
@@ -287,7 +296,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							{
 								laMesa.setPuck(true);
 								laMesa.setPunto(resultado);
-								// TODO que se hace en este caso? NADA?
+								
 							}
 						}	
 					}
@@ -494,9 +503,9 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	 * @param dado
 	 * @param dado2
 	 */
-	public boolean saleCraps(int dado, int dado2){
-		return false;
-	}
+	//public boolean saleCraps(int dado, int dado2){
+	//	return false;
+	//}
 
 	/**
 	 * 

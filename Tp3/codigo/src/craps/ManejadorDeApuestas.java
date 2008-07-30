@@ -164,7 +164,7 @@ public class ManejadorDeApuestas {
 	
 	public void pagarApuestas() {}*/
 	
-	public void crearNuevaApuesta(IJugador jug, int puntaje, String tipoAp, int valor){
+	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor){
 		
 		ApuestaCraps apc = new ApuestaCraps( jug,  puntaje, tipoAp, valor);
 		this.getApuestas().add(apc);

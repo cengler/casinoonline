@@ -15,9 +15,17 @@ public class MSGOpcionApuesta {
 	public TipoApuestaCraps getTipoApuesta() {
 		return tipoApuesta;
 	}
-	public void setTipoApuesta(TipoApuestaCraps tipoApuesta) {
+	/*public void setTipoApuesta(TipoApuestaCraps tipoApuesta) {
 		this.tipoApuesta = tipoApuesta;
-	}
 	
+	
+	}
+	*/
+	public void setTipoApuesta(String tipoApuesta) {
+				
+		this.tipoApuesta = this.tipoApuesta.valueOf(tipoApuesta);
+	
+	
+	}
 	
 }

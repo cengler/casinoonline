@@ -26,8 +26,8 @@ public class TestServiciosCraps {
 	public static void main(String[] args) {
 		//entrarCraps1();
 		//entrarCraps2();
-		tirarCraps();
-		//apostarCraps();
+		//tirarCraps();
+		apostarCraps();
 	}
 	
 	public static void entrarCraps1()
@@ -163,6 +163,7 @@ public class TestServiciosCraps {
 		logger.info("EL JUGADOR NO ESTA EN EL JUEGO");
 		
 		MesaCraps mesa = new MesaCraps(20);
+		
 		mesa.getJugadores().add(pepe);
 		mesa.getJugadores().add(juana);
 		mesa.setTirador(pepe);
@@ -173,15 +174,18 @@ public class TestServiciosCraps {
 		op.setPuntajeApostado(0);
 		op.setTipoApuesta("pase");
 		mensaje.setOpcionApuesta(op);
+		logger.info("antes de la lista");
 		List<MSGValorFicha> list = new ArrayList<MSGValorFicha>();
 		MSGValorFicha vf = new MSGValorFicha();
 		vf.setCantidad(3);
 		vf.setValor(1);
 		MSGValorFicha vf1 = new MSGValorFicha();
+		logger.info("nuevo MSGValorFicha");
 		vf1.setCantidad(5);
 		vf1.setValor(3);
 		list.add(vf);
 		list.add(vf1);
+		
 		mensaje.setValorApuesta(list);
 		
 		SrvCraps.apostarCraps(mensaje);

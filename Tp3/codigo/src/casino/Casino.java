@@ -25,6 +25,10 @@ public final class Casino implements ICasino {
 		abierto = false;
 		modoNormal = true;
 		valores = new HashMap<Integer,Integer>();
+		valores.put(1, 25);
+		valores.put(2, 50);
+		valores.put(3, 75);
+		
 	}
 
 	/**
@@ -32,19 +36,24 @@ public final class Casino implements ICasino {
 	 * 
 	 * @return las fichas permitidas y sus valores definidos.
 	 */
+	
 	public Map<Integer, Integer> getValores() {
 		return valores;
 	}
 
+	
 	/**
 	 * Setea las fichas permitidas y sus valores definidos.
 	 * 
 	 * @param valores as fichas permitidas y sus valores definidos a setear
 	 */
+	
+	
 	public void setValores(Map<Integer, Integer> valores) {
 		this.valores = valores;
 	}
-
+	
+	
 	/**
 	 * Obtiene la unica instancia de casino.
 	 * 
@@ -119,6 +128,8 @@ public final class Casino implements ICasino {
 	public void setSaldo(long saldo) {
 		this.saldo = saldo;
 	}
+
+	
 	
 	/*Error Description Line 
 	Parameter valores should be final. 43 

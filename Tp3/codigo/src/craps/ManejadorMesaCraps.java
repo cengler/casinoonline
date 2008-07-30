@@ -21,8 +21,8 @@ import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
 import craps.msg.MSGOpcionApuesta;
-import craps.msg.MSGValorFicha;
-import casino.Casino;
+//import craps.msg.MSGValorFicha;
+import casino.ManejadorCasino;
 
 /**
  * ManejadorMesaCraps.
@@ -142,61 +142,52 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 		if(jug == null)
 		{
-			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setAceptado(MSGApostarCraps.NO);
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
 			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
 		}
-		else if(!estaJugando(jug))
-		{
-			mensaje.setAceptado(MSGSalidaCraps.NO);
+		else{
+			if(!estaJugando(jug)){
+				mensaje.setAceptado(MSGApostarCraps.NO);
 			mensaje.setDescripcion("El jugador no esta jugando en dicho juego");
 			logger.info("El jugador no esta jugando en dicho juego");
-		}
-		else if( getMesa(mensaje.getMesa()) == null )
-		{
-			mensaje.setAceptado(MSGSalidaCraps.NO);
-			mensaje.setDescripcion("La mesa de la que esta intentando apostar no existe");
-			logger.info("La mesa de la que esta intentando apostar no existe");
-		}
-		else
-		{
-			MesaCraps mesa = getMesa(mensaje.getMesa());
-			
-			
-			//VALIDO FICHAS y si son validas calculo el monto a apostar
-			int calculoAApostar = 0;
-			int i = 0;
-			boolean fichaValida = true;
-			Casino cas = Casino.getInstance();
-			Map<Integer, Integer> valores = cas.getValores();
-			
-			while (i < (mensaje.getValorApuesta()).size() || fichaValida == true){
+			}else{
+			if (!getMesa(mensaje.getMesa()).getJugadores().contains(jug)){
 				
+				mensaje.setAceptado(MSGApostarCraps.NO);
+				mensaje.setDescripcion("El jugador no esta jugando en la mesa:" + getMesa(mensaje.getMesa()));
+				logger.info("El jugador no esta jugando en la mesa:" + getMesa(mensaje.getMesa()));
 				
-				MSGValorFicha vf = (mensaje.getValorApuesta()).get(i);
+			}else{
 				
-				if(valores.containsKey(vf.getValor())){//chequeo si es una ficha valida
-					//obtengo el significado de esa clave
-					int valor = valores.get(vf.getValor());
-					calculoAApostar = calculoAApostar + (vf.getCantidad()* valor);
-					i++;
-				}else{
-				  	fichaValida = false;
-	  	
-					
+				if( getMesa(mensaje.getMesa()) == null )
+				{
+					mensaje.setAceptado(MSGSalidaCraps.NO);
+					mensaje.setDescripcion("La mesa de la que esta intentando apostar no existe");
+					logger.info("La mesa de la que esta intentando apostar no existe");
 				}
-			}
-			if (fichaValida == false){
+				else
+				{
+					MesaCraps mesa = getMesa(mensaje.getMesa());
+			
+			
+					//VALIDO FICHAS y si son validas calculo el monto a apostar
+								
+					ManejadorCasino manCas = ManejadorCasino.getInstance();
+					
+					boolean fichasValidas = manCas.validarFichas(mensaje.getValorApuesta());
+					int calculoAApostar = manCas.calcularMontoAApostar(mensaje.getValorApuesta());
+					
+					
+				if (fichasValidas == false){
 				
 				mensaje.setAceptado(MSGApostarCraps.NO);
 				mensaje.setDescripcion("Las fichas a apostar no corresponden a fichas validas");
 				logger.info("Las fichas a apostar no corresponden a fichas validas");
-			}else{
-				
+				}else{
 				IJugador jugador = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 				boolean montoValido = manJug.montoValidoPara(jugador,calculoAApostar);
 				if (montoValido == true){
-					
 					MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
 					String tipoAp = opAp.getTipoApuesta();
 					int puntaje = opAp.getPuntajeApostado();
@@ -207,12 +198,21 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					mensaje.setAceptado(MSGApostarCraps.SI);
 					mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
 					logger.info("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
-				}
-			}
+				}else{
+					
+					mensaje.setAceptado(MSGApostarCraps.NO);
+					mensaje.setDescripcion("El jugador no posee fondos para dicha apuesta");
+					logger.info("El jugador no posee fondos para dicha apuesta");
+					}
+			 }
 			
 		}
 		
-				
+			}		
+		
+			
+		}
+		}
 		return mensaje;
 	}	/**
 	 * {@inheritDoc}
@@ -224,7 +224,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		
 		if(jug == null)
 		{
-			unMSG.setAceptado(MSGEntradaCraps.NO);
+			unMSG.setAceptado(MSGTiroCraps.NO);
 			unMSG.setDescripcion("El jugador no esta registrado como jugador en dicha terminal virtual");
 			logger.info("El jugador no esta registrado como jugador en dicha terminal virtual");
 		}
@@ -233,14 +233,23 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			int mesa = unMSG.getMesa(); 
 			MesaCraps laMesa = this.getMesa(mesa);
 						
-			if( laMesa == null || !laMesa.estaJugando(jug)) // EL JUGADOR NO ESTA JUGANDO EL LA MESA
+			if( laMesa == null || !laMesa.estaJugando(jug)) // EL JUGADOR NO ESTA JUGANDO EN EL JUEGO
 			{	
 				unMSG.setAceptado(MSGTiroCraps.NO);
-				unMSG.setDescripcion("El jugador no esta jugando en la mesa: " + unMSG.getMesa());
-				logger.info("El jugador no esta jugando en la mesa: " + unMSG.getMesa());				
+				unMSG.setDescripcion("El jugador no esta jugando en el juego");
+				logger.info("El jugador no esta jugando en el juego");				
 			}
-			else // EL JUGADOR ESTA JUGANDO EN LA MESA
+			else // EL JUGADOR ESTA JUGANDO EN LA MESA???
 			{
+				if (!getMesa(unMSG.getMesa()).getJugadores().contains(jug)){
+					
+					unMSG.setAceptado(MSGApostarCraps.NO);
+					unMSG.setDescripcion("El jugador no esta jugando en la mesa:" + getMesa(unMSG.getMesa()));
+					logger.info("El jugador no esta jugando en la mesa:" + getMesa(unMSG.getMesa()));
+					
+				}else{
+				
+				
 				if ( !(laMesa.getTirador().equals(jug)) )
 				{
 					unMSG.setAceptado(MSGTiroCraps.NO);
@@ -328,6 +337,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					//unMSG.pagarApuestas(jugada, resultado, laMesa.getId()); TODO
 					laMesa.notifyObservers();
 				}	
+				}
 			}	
 		}			
 		

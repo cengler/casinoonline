@@ -170,16 +170,23 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				{
 					MesaCraps mesa = getMesa(mensaje.getMesa());
 					boolean puck = mesa.isPuck();
-			        if ( puck == false ){//es tiro de salida
+					TipoApuestaCraps tipoApu = mensaje.getOpcionApuesta().getTipoApuesta();
+		        	//En el tiro de salida no se puede apostar venir y noVenir. Asi como tampoco dps del 
+					//tiro de salida se puede pase y nopase.
+					if ( (puck == false && (tipoApu.toString() == "venir" ||tipoApu.toString() == "novenir")) || 
+		        			(puck == true && (tipoApu.toString() == "pase" ||tipoApu.toString() == "nopase")) ){
+		        		
 			        	
-			        	TipoApuestaCraps tipoAp = mensaje.getOpcionApuesta().getTipoApuesta();
-			        	//if (tipoAp = )
+						mensaje.setAceptado(MSGApostarCraps.NO);
+						mensaje.setDescripcion("La apuesta no es valida para el momento del juego");
+						logger.info("La apuesta no es valida para el momento del juego");
+			        	
 			        	
 			        }else{
 			        	
 			        	
 			        	
-			        }
+			        
 					//VALIDO FICHAS y si son validas calculo el monto a apostar
 								
 					ManejadorCasino manCas = ManejadorCasino.getInstance();
@@ -214,7 +221,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					logger.info("El jugador no posee fondos para dicha apuesta");
 					}
 			 }
-			
+				}
 		}
 		
 			}		

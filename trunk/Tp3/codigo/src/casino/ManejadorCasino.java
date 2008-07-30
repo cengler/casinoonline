@@ -7,6 +7,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+//import java.util.Iterator;
+import java.util.Set;
+import craps.msg.MSGValorFicha;
 
 import org.apache.log4j.Logger;
 
@@ -14,12 +18,14 @@ import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.estadoCasino.MSGEstadoCasino;
 
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class ManejadorCasino implements IServiciosCasino {
 
-	private static IServiciosCasino instance;
+	//private static IServiciosCasino instance;
+	private static ManejadorCasino instance;
 	private static Logger logger = Logger.getLogger(ManejadorCasino.class);
 	private XStream xstream;
 	private static String LISTA_JUG = "D:/casino/codigo/xml/abrir.xml" ;
@@ -45,10 +51,16 @@ public class ManejadorCasino implements IServiciosCasino {
 	 * 
 	 * @return la unica instancia del manejador de casino. 
 	 */
-	public static IServiciosCasino getInstance(){
+	/*public static IServiciosCasino getInstance(){
 		if(instance == null)
 			instance = new ManejadorCasino();
 		return instance;
+	}*/
+	
+	public static ManejadorCasino getInstance(){
+	if(instance == null)
+		instance = new ManejadorCasino();
+	return instance;
 	}
 	
 	/**
@@ -211,14 +223,56 @@ public class ManejadorCasino implements IServiciosCasino {
 	public void setManejadores(List<ManejadorMesa> manejadores) {
 		this.manejadores = manejadores;
 	}
+
+	public boolean validarFichas(List<MSGValorFicha> fichas){
+		
+		int i = 0;
+		boolean fichaValida = true;
+		Casino cas = Casino.getInstance();
+		Map<Integer, Integer> valores = cas.getValores();
+		while (i < fichas.size() && fichaValida == true){
+			
+			MSGValorFicha vf = fichas.get(i);
+				if(valores.containsKey(vf.getValor())){//chequeo si es una ficha valida
+				
+				i++;
+			}else{
+			  	fichaValida = false;
+  					
+			}
+		}
+		return fichaValida;
+	
+	}
+	
+	
+	public int calcularMontoAApostar(List<MSGValorFicha> fichas){
+		
+		int i = 0;
+		int calculoAApostar = 0;
+		Casino cas = Casino.getInstance();
+		Map<Integer, Integer> valores = cas.getValores();
+		
+		while (i < fichas.size() ){
+						
+			MSGValorFicha vf = fichas.get(i);
+			
+			if(valores.containsKey(vf.getValor())){//chequeo si es una ficha valida
+				//obtengo el significado de esa clave
+				int valor = valores.get(vf.getValor());
+				calculoAApostar = calculoAApostar + (vf.getCantidad()* valor);
+				i++;
+					
+			}
+		}
+		
+		return calculoAApostar;
+	
+	}
+	
+	
+	
 	
 	
 
-	/*public void validarFichas(List<Ficha> fichas){
-
-	}*/
-	
-	/*public int calcularMontoAApostar(list<int a , fIcha ficha> lista){
-	return 0;
-	}*/
 }

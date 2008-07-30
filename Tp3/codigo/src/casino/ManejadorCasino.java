@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Map;
 //import java.util.Iterator;
 import java.util.Set;
+
+import craps.ManejadorMesaCraps;
+import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGValorFicha;
 
 import org.apache.log4j.Logger;
@@ -110,6 +113,20 @@ public class ManejadorCasino implements IServiciosCasino {
 	 * {@inheritDoc}
 	 */
 	public MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje){
+		
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+				IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+		
+		if(jug == null)
+		{
+			//mensaje.setAceptado(MSGEntradaCraps.NO);
+			//mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
+			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
+		}
+			
+		
+		
+		
 		return null; //TODO 
 	}
 

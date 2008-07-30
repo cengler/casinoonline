@@ -8,12 +8,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-//import java.util.Iterator;
-import java.util.Set;
-
-import craps.ManejadorMesaCraps;
-import craps.msg.MSGEntradaCraps;
-import craps.msg.MSGValorFicha;
 
 import org.apache.log4j.Logger;
 
@@ -21,9 +15,10 @@ import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.estadoCasino.MSGEstadoCasino;
 
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import craps.msg.MSGValorFicha;
 
 public class ManejadorCasino implements IServiciosCasino {
 

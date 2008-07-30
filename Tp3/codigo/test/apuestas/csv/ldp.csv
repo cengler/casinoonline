@@ -1,0 +1,23 @@
+PUCK / SALIO / APOSTO / PAGA
+
+false, 7, -1, 1:1
+false, 11, -1, 1:1
+false, 2, -1, 0
+false, 3, -1, 0
+false, 7, -1, 0
+true, 4, 4, 1:1
+true, 5, 5, 1:1
+true, 6, 6, 1:1
+true, 8, 8, 1:1
+true, 9, 9, 1:1
+true, 10, 10, 1:1
+true, 12, 12, 1:0 ??
+
+PUCK / SALIO / NEW_PUNTO
+
+true, 4, 4
+true, 5, 5
+true, 6, 6
+true, 8, 8
+true, 9, 9
+true, 10, 10

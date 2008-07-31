@@ -17,13 +17,12 @@ public class MSGOpcionApuesta {
 	}
 	/*public void setTipoApuesta(TipoApuestaCraps tipoApuesta) {
 		this.tipoApuesta = tipoApuesta;
-	
-	
+		// TODO
 	}
 	*/
 	public void setTipoApuesta(String tipoApuesta) {
 				
-		this.tipoApuesta = this.tipoApuesta.valueOf(tipoApuesta);
+		this.tipoApuesta = TipoApuestaCraps.valueOf(tipoApuesta);
 	
 	
 	}

@@ -3,26 +3,23 @@ package craps;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Map;
-
 
 import org.apache.log4j.Logger;
 
 import casino.IJugador;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
+import casino.ManejadorCasino;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.TipoJugada;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGOpcionApuesta;
 import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
-import craps.msg.MSGOpcionApuesta;
-//import craps.msg.MSGValorFicha;
-import casino.ManejadorCasino;
 
 /**
  * ManejadorMesaCraps.
@@ -36,6 +33,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	private static ManejadorMesaCraps instance;
 	private List<MesaCraps> mesas;
 	private static String GAME_NAME = "craps";
+
 
 	private ManejadorMesaCraps()
 	{
@@ -56,7 +54,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje)
 	{
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
-		manJug.getManejadores().add((ManejadorMesaCraps)ManejadorMesaCraps.getInstance());
 		
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 		
@@ -281,6 +278,14 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					// BUSCO RESULTADO
 					ISeleccionadorResCraps src = SeleccionadorResCrapsPorModo.getInstance();
 					ResultadoCraps resultado = src.getResult();
+					
+					// PAGO APUESTAS
+					laMesa.getPagador().pagarApuestas(jugada, resultado, laMesa.isPuck());
+					
+					// MODIFICO APUESTAS
+					// TODO
+					
+					// DEFINO DESITNO DE JUGADOR Y SELECCIONO PROXIMO TIRADOR Y MODIFICO PUCK
 					boolean sigueTirando = true;
 					
 					if ( !laMesa.isPuck() ) // PUCK APAGADO == TIRO DE SALIDA
@@ -330,6 +335,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						}			
 					}
 					
+					
+					// SETEO MENSAJE DE RTA
 					unMSG.setAceptado(MSGTiroCraps.SI);	
 					unMSG.setTipoJugada(jugada);
 					MSGResultadoCraps resCraps = new MSGResultadoCraps();
@@ -349,7 +356,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					}
 					
 					// NO PARECE QUE SEA EL MENSAJE EL QUE PAGA
-					laMesa.getPagador().pagarApuestas(jugada, resultado);
+					
 					//unMSG.pagarApuestas(jugada, resultado, laMesa.getId()); TODO
 					laMesa.notifyObservers();
 				}	

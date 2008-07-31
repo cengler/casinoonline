@@ -12,12 +12,11 @@ import craps.ManejadorMesaCraps;
 import craps.MesaCraps;
 import craps.ResultadoCraps;
 import craps.SelectorResCrapsModoDirigido;
-import craps.msg.MSGEntradaCraps;
-import craps.msg.MSGTiroCraps;
 import craps.msg.MSGApostarCraps;
-import craps.msg.MSGValorFicha;
+import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGOpcionApuesta;
-import craps.TipoApuestaCraps;
+import craps.msg.MSGTiroCraps;
+import craps.msg.MSGValorFicha;
 
 
 public class TestServiciosCraps {

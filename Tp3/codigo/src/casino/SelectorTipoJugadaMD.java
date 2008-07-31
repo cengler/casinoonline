@@ -5,6 +5,8 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
+import casino.core.TipoJugada;
+
 /**
  * SelectorTipoJugadaMD.
  * 

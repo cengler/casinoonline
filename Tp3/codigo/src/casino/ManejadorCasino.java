@@ -18,8 +18,6 @@ import casino.msg.estadoCasino.MSGEstadoCasino;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import craps.msg.MSGValorFicha;
-
 public class ManejadorCasino implements IServiciosCasino {
 
 	//private static IServiciosCasino instance;
@@ -240,11 +238,12 @@ public class ManejadorCasino implements IServiciosCasino {
 		this.manejadores = manejadores;
 	}
 
-	public boolean validarFichas(List<MSGValorFicha> fichas){
+	public boolean validarFichas(){  // List<MSGValorFicha> fichas
 		
 		int i = 0;
 		boolean fichaValida = true;
-		Casino cas = Casino.getInstance();
+		// TODO NO PUEDE RECIBIR MSG DE CRAPS
+		/*Casino cas = Casino.getInstance();
 		Map<Integer, Integer> valores = cas.getValores();
 		while (i < fichas.size() && fichaValida == true){
 			
@@ -256,17 +255,17 @@ public class ManejadorCasino implements IServiciosCasino {
 			  	fichaValida = false;
   					
 			}
-		}
+		}*/
 		return fichaValida;
 	
 	}
 	
 	
-	public int calcularMontoAApostar(List<MSGValorFicha> fichas){
+	public int calcularMontoAApostar(){ //List<MSGValorFicha> fichas
 		
 		int i = 0;
 		int calculoAApostar = 0;
-		Casino cas = Casino.getInstance();
+		/*Casino cas = Casino.getInstance();
 		Map<Integer, Integer> valores = cas.getValores();
 		
 		while (i < fichas.size() ){
@@ -280,7 +279,7 @@ public class ManejadorCasino implements IServiciosCasino {
 				i++;
 					
 			}
-		}
+		}*/
 		
 		return calculoAApostar;
 	

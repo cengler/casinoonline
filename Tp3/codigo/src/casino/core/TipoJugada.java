@@ -1,4 +1,4 @@
-package casino;
+package casino.core;
 
 /**
  * Enum con los tipos de jugada que posee el casino.

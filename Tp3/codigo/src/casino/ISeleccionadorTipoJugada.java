@@ -1,5 +1,7 @@
 package casino;
 
+import casino.core.TipoJugada;
+
 /**
  *  ISeleccionadorTipoJugada especifica la manera de seleccionar el tipo de jugada.
  *  Contiene el algoritmo de seleccion entre selectores de tipo de jugada

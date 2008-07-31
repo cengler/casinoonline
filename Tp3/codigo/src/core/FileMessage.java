@@ -1,55 +1,72 @@
 package core;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
 
 public class FileMessage implements IMessage {
 
-	private File file;
-	 
-	private byte[] buffer;
+	//private File file;
+	private String data;
 	private String name;
-	private Logger logger = Logger.getLogger(FileMessage.class);
+	private static Logger logger = Logger.getLogger(FileMessage.class);
 	
-	public FileMessage(File file)
+	
+	public FileMessage(File file) throws MensajeroException
 	{
 		try {
-			// TODO createTempFile(arg0, arg1) FILE.
-			int archLargo = (int) file.length();
-			byte[] buffer = new byte[archLargo];
-			OutputStream os = new ByteArrayOutputStream(archLargo);
-			
 			InputStream is = new FileInputStream(file);
-			is.read(buffer);
-			
-			os.write(buffer);
-			
-			this.file = file;
-			this.name = file.getName();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			br.close();
+			data = sb.toString();
+		} catch (Exception e) 
+		{
+			logger.error("No se ha podido leer el archivo: " + file.getName() + " por la sig razon: " + e.getMessage());
+			throw new MensajeroException("No se ha podido leer el archivo: " + file.getName() + " por la sig razon: " + e.getMessage(), e);
 		}
-	}
-	
-	public File getFile()
-	{
-		return file;
+		
 	}
 
-	public InputStream getInputStream() throws NoDataException {
+
+	public String getData() {
+		return data;
+	}
+
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+	
+	
+	
+	
+	/*public File getFile()
+	{
+		return file;
+	}*/
+
+	/*public InputStream getInputStream() throws NoDataException {
 		
 		InputStream is = null;
 		try {
@@ -60,7 +77,7 @@ public class FileMessage implements IMessage {
 		}
 		
 		return is;
-	}
+	}*/
 
 	/*public Date getDate() {
 		// TODO Auto-generated method stub
@@ -77,11 +94,7 @@ public class FileMessage implements IMessage {
 		return null;
 	}*/
 
-	public String getName() {
-		return name;
-	}
-
-	public OutputStream getOutputStream()
+	/*public OutputStream getOutputStream()
 	{
 		OutputStream os = null;
 		try {
@@ -91,5 +104,5 @@ public class FileMessage implements IMessage {
 			// TODO ex
 		}
 		return os;
-	}
+	}*/
 }

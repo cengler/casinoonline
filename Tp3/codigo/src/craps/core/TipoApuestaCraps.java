@@ -1,4 +1,4 @@
-package craps;
+package craps.core;
 
 /**
  * Tipo enumerado que representa las opciones de apuesta craps.

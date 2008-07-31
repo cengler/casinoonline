@@ -1,5 +1,6 @@
 package craps;
 
+import craps.core.TipoApuestaCraps;
 import casino.IJugador;
 
 /**

@@ -1,6 +1,6 @@
 package servicios;
 
-import casino.TipoJugada;
+import casino.core.TipoJugada;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGSetJugada;

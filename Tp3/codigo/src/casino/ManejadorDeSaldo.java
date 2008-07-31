@@ -1,5 +1,7 @@
 package casino;
 
+import casino.core.TipoJugada;
+
 /**
  * Manejador de saldo. Esta es la unica clase que deberia 
  * modificar el saldo de los jugadores y el casino.

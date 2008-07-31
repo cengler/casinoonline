@@ -5,7 +5,7 @@
 	<aceptado>si</aceptado>
 	<descripcion> </descripcion>
 	<opcionApuesta> 
-		<tipoApuesta>"pase"</tipoApuesta> 
+		<tipoApuesta>pase</tipoApuesta> 
 		<puntajeApostado>0</puntajeApostado> 
 	</opcionApuesta> 
 	<valorApuesta> 

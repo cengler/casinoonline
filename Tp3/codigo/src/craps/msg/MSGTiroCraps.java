@@ -2,7 +2,7 @@ package craps.msg;
 
 import casino.TipoJugada;
 import craps.msg.MSGResultadoCraps;
-import casino.TipoJugada;
+
 
 public class MSGTiroCraps extends MSGCraps {
 

@@ -3,32 +3,24 @@ package parser;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import casino.msg.MSGEntradaCasino;
+import casino.msg.MSGSalidaCasino;
 import casino.msg.estadoCasino.IMSGJuego;
 import casino.msg.estadoCasino.MSGCraps;
 import casino.msg.estadoCasino.MSGEstadoCasino;
 import casino.msg.estadoCasino.MSGJugador;
 import casino.msg.estadoCasino.MSGMesaCraps;
-import casino.msg.estadoCasino.MSGMesaTragamonedas;
 import casino.msg.estadoCasino.MSGObservador;
 import casino.msg.estadoCasino.MSGPozo;
-//import casino.msg.estadoCasino.MSGProximoTiro;
-//import casino.msg.estadoCasino.MSGResultado;
-import casino.msg.estadoCasino.MSGTragamonedas;
-//import casino.msg.estadoCasino.MSGUltimoTiroCraps;
-import casino.msg.MSGEntradaCasino;
-import casino.msg.MSGSalidaCasino;
-import craps.msg.MSGUltimoTiro;
-import craps.msg.MSGProxTiro;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import core.IMessage;
-import core.NoDataException;
+import craps.msg.MSGProxTiro;
+import craps.msg.MSGUltimoTiro;
 
 
 
@@ -51,8 +43,6 @@ public class ParserCasino extends Parser{
 		xstream.aliasAttribute(MSGEstadoCasino.class, "juegos", "juegos");
 		xstream.alias("juegos", IMSGJuego.class);
 				
-		xstream.alias("tragamonedas", MSGTragamonedas.class);
-		xstream.alias("mesaTragamonedas", MSGMesaTragamonedas.class);
 		xstream.alias("ultimoTiroTraga", MSGUltimoTiro.class);
 		
 		//xstream.alias("resultadoTraga", MSGResultado.class);
@@ -76,7 +66,6 @@ public class ParserCasino extends Parser{
 		xstream.alias("pozos", MSGPozo.class);
 		xstream.aliasAttribute(MSGJugador.class, "nombre", "nombre");
 		xstream.aliasAttribute(MSGObservador.class, "nombre", "nombre");
-		xstream.aliasAttribute(MSGMesaTragamonedas.class, "id", "id");
 		xstream.aliasAttribute(MSGMesaCraps.class, "id", "id");		
 				
 		

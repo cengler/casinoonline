@@ -88,11 +88,6 @@ public class ApuestaCraps {
 		this.ganancia = ganancia;
 	}
 
-	public boolean terminaApuesta(ResultadoCraps resultado) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	public int obtenerGanancia(ResultadoCraps resultado) {
 		// TODO Auto-generated method stub
 		return 0;

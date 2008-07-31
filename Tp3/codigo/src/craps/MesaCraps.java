@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import org.apache.log4j.Logger;
+
 import casino.IJugador;
 import casino.IMesa;
 
@@ -16,13 +18,15 @@ public class MesaCraps extends Observable implements IMesa {
 	private int punto;
 	private IJugador tirador;
 	private ManejadorDeApuestas pagador;
+	private static Logger logger = Logger.getLogger(MesaCraps.class);
 	
-	public MesaCraps(int id) {
-		super();
+	public MesaCraps(int id)
+	{
 		this.id = id;
 		abierta = true;
 		jugadores = new ArrayList<IJugador>();
 		pagador = new ManejadorDeApuestas();
+		logger.debug("Creando mesa de craps: " + id);
 	}
 
 	public boolean isAbierta() {
@@ -83,7 +87,6 @@ public class MesaCraps extends Observable implements IMesa {
 			esta = jugadores.get(i).equals(jugador);
 			i++;
 		}
-		
 		return esta;
 	}
 
@@ -96,90 +99,54 @@ public class MesaCraps extends Observable implements IMesa {
 		return false;
 	}
 
-	public boolean saleCraps(ResultadoCraps resCraps){
-		
-	
+	public boolean saleCraps(ResultadoCraps resCraps)
+	{
 		boolean res = false;
 		int resul = resCraps.getDado1() + resCraps.getDado2();
 		if (resul == 2 || resul == 3 || resul ==12){
 			res = true;
-			
 		}
 		return res;
 	}
 	
-	public boolean saleNatural(ResultadoCraps resCraps){
-		
-		
+	public boolean saleNatural(ResultadoCraps resCraps)
+	{
 		boolean res = false;
 		int resul = resCraps.getDado1() + resCraps.getDado2();
 		if (resul == 7 || resul == 11 ){
-			res = true;
-			
+			res = true;	
 		}
 		return res;
 	}
 	
-	public void setPunto(ResultadoCraps resCraps){
-		
+	public void setPunto(ResultadoCraps resCraps)
+	{
 		int resul = resCraps.getDado1() + resCraps.getDado2();
 		this.punto = resul;
-		
 	}
 	
-	public boolean salioSiete(ResultadoCraps resCraps){
-		
+	public boolean salioSiete(ResultadoCraps resCraps)
+	{
 		boolean res = false;
 		int resul = resCraps.getDado1() + resCraps.getDado2();
 		if (resul == 7 ){
 			res = true;
-			
 		}
 		return res;
-		
 	}
 	
-	public boolean repitioPunto(ResultadoCraps resCraps, int pto){
-		
+	public boolean repitioPunto(ResultadoCraps resCraps, int pto)
+	{
 		boolean res = false;
 		int resul = resCraps.getDado1() + resCraps.getDado2();
-		if (resul == pto ){
+		if (resul == pto )
+		{
 			res = true;
-			
 		}
 		return res;
-		
-		
 	}
 
 	public ManejadorDeApuestas getPagador() {
 		return pagador;
 	}
-	
-	/*
-	
-	public void calcularMontoAApostar(List<Integer> listaFichayValor){
-	
-	}
-	
-	public void crearApuesta(int numAp, Tipo tipoAp, IJugador jugador, int monto){
-	
-	}
-	
-	public boolean estaEnMesa(IJugador jugador){
-		return false;
-	}
-	
-	public void quitarJugador(IJugador jugador){
-	
-	}
-	
-	public boolean salioSiete(int a, int dados){
-		return false;
-	}
-	
-	public boolean validarTirador(IJugador jugador){
-		return false;
-	}*/
-
 }

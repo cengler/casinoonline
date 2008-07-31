@@ -9,6 +9,7 @@ import craps.ApuestaCraps;
 import craps.CrapsException;
 import craps.ManejadorDeApuestas;
 import craps.ResultadoCraps;
+import craps.TipoApuestaCraps;
 
 public class TestPagarApuestas {
 
@@ -27,12 +28,13 @@ public class TestPagarApuestas {
 	public static void pagarApuestas() throws CrapsException
 	{
 		ManejadorDeApuestas man = new ManejadorDeApuestas();
-		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4));
+		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);
 		
 		Jugador pepe = new Jugador();
-		ApuestaCraps ap1 = new ApuestaCraps(pepe, 0, "tiro", 4);
+		ApuestaCraps ap1 = new ApuestaCraps(pepe, 0, TipoApuestaCraps.pase, 8);
 		man.getApuestas().add(ap1);
-		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4));
+		
+		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);
 	}
 
 }

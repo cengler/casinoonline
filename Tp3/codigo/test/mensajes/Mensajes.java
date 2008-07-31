@@ -1,8 +1,9 @@
+package mensajes;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import parser.ParserCraps;
-import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGTiroCraps;

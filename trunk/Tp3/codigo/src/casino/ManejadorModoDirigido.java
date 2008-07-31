@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import casino.core.TipoJugada;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGResultados;
 import casino.msg.MSGSetJugada;

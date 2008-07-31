@@ -9,11 +9,13 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import craps.core.TipoApuestaCraps;
+
 import au.com.bytecode.opencsv.CSVReader;
 
 import casino.Casino;
 import casino.IJugador;
-import casino.TipoJugada;
+import casino.core.TipoJugada;
 
 /**
  * PagadorDeApuestas de una mesa en particular.
@@ -229,22 +231,6 @@ public class ManejadorDeApuestas {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	/*public void correpondePagar(int a, <int, int> b){}
-	
-	public void gananciaTodosPonen(int a, int b){}
-
-	public void obtenerGananciaAp(String a, <int, int> b, int c){}
-
-	public void obtenerGananciaFeliz(int a, int b){}
-
-	public void obtenerPorcentajeFeliz(int b, int c, int a){}
-
-	public void pagarApuestas(TipoJugador jugador, <int, int> res, int int){}
-
-	public void sumarATotal(int a){}
-	
-	public void pagarApuestas() {}*/
 	
 	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor){
 		

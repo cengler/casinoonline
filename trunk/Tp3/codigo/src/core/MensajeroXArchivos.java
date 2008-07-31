@@ -49,7 +49,39 @@ public class MensajeroXArchivos extends Mensajero {
 				{
 					Matcher m = filtro.matcher(f.getName());
 					if( m.matches() )
-						return new FileMessage(f);
+					{
+						FileMessage fm = null;
+						try {
+							fm = new FileMessage(f);
+						} catch (MensajeroException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						int retries = 0;
+						boolean fileDeleted = false;
+						while(retries<MAX_RETRIES && !fileDeleted) {
+							fileDeleted = f.delete(); 
+							if(!fileDeleted) {
+								retries++;
+								try
+								{
+									Thread.sleep(500);
+								} 
+								catch (InterruptedException e)
+								{
+									logger.info("NO se ha podido interrumpir el thread ", e);
+								}
+							}
+						}
+						if(!fileDeleted)
+						{
+							logger.error("No pudo borrar " + f.getName());
+							//throw new MensajeroException("No pudo borrar " + f.getName());
+							//TODO
+						}
+						return fm;
+					}
 				}
 			}
 			try {
@@ -75,39 +107,6 @@ public class MensajeroXArchivos extends Mensajero {
 			throw new MensajeroException("No listerner set");
 		}
 		message = lis.onMessage(msg);
-		
-		FileMessage fm = null;
-		if(msg instanceof FileMessage)
-		{
-			fm = (FileMessage)msg;
-		}
-		else
-		{
-			logger.error("onMessage debe recibir un FileMessage");
-			throw new MensajeroException("onMessage debe recibir un FileMessage");
-		}
-		
-		int retries = 0;
-		boolean fileDeleted = false;
-		while(retries<MAX_RETRIES && !fileDeleted) {
-			fileDeleted = fm.getFile().delete(); 
-			if(!fileDeleted) {
-				retries++;
-				try
-				{
-					Thread.sleep(500);
-				} 
-				catch (InterruptedException e)
-				{
-					logger.info("NO se ha podido interrumpir el thread ", e);
-				}
-			}
-		}
-		if(!fileDeleted)
-		{
-			logger.error("No pudo borrar " + fm.getFile().getName());
-			throw new MensajeroException("No pudo borrar " + fm.getFile().getName());
-		}
 		return message;
 	}
 	

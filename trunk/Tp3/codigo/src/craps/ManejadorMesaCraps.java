@@ -13,7 +13,8 @@ import casino.ManejadorCasino;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
-import casino.TipoJugada;
+import casino.core.TipoJugada;
+import craps.core.TipoApuestaCraps;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGOpcionApuesta;
@@ -188,8 +189,11 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 								
 					ManejadorCasino manCas = ManejadorCasino.getInstance();
 					
-					boolean fichasValidas = manCas.validarFichas(mensaje.getValorApuesta());
-					int calculoAApostar = manCas.calcularMontoAApostar(mensaje.getValorApuesta());
+					// TODO NO SE PUEDE PARAR UN MSG CRAPS A CASINO
+					boolean fichasValidas = true;
+					//= manCas.validarFichas(mensaje.getValorApuesta());
+					int calculoAApostar = 0;
+					//= manCas.calcularMontoAApostar(mensaje.getValorApuesta());
 					
 					
 				if (fichasValidas == false){

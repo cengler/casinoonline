@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-import craps.msg.MSGResultadoCraps;
-
 public class MSGResultadosCraps extends MSGResultados
 {
 	public static String GAME_NAME = "craps";

@@ -1,5 +1,5 @@
 package craps.msg;
-import craps.TipoApuestaCraps;
+import craps.core.TipoApuestaCraps;
 
 public class MSGOpcionApuesta {
 

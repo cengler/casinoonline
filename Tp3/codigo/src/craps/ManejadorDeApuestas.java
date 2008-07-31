@@ -67,6 +67,7 @@ public class ManejadorDeApuestas {
 			logger.fatal("No se han podido cargar los resultados posibles para las apuestas de craps: ", e);
 			throw new CrapsException(e);
 		}
+		logger.debug("PAGOS A APUESTAS CARGADAS: " + pagos);
 	}
 	
 	public void loadModificaciones() throws CrapsException
@@ -84,6 +85,7 @@ public class ManejadorDeApuestas {
 			throw new CrapsException(e);
 		}
 		
+		logger.debug("MOD A APUESTAS CARGADAS: " + modificaciones);
 	}
 	
 	public List<ApuestaCraps> getApuestas() {
@@ -96,7 +98,7 @@ public class ManejadorDeApuestas {
 
 	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
 	{
-		logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+")" );
+		logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
 		
 		int gananciaTotal = 0;
 		Casino casino = Casino.getInstance();
@@ -110,7 +112,7 @@ public class ManejadorDeApuestas {
 			if( correspondePagar(apuesta, resultado, puck) )
 			{
 				logger.info("Termina la apuesta " + apuesta);
-				int ganancia = apuesta.obtenerGanancia(resultado);
+				int ganancia = obtenerGanancia(apuesta, resultado, puck);
 				apuesta.setGanancia(ganancia);
 				gananciaTotal += ganancia;
 			}
@@ -142,6 +144,7 @@ public class ManejadorDeApuestas {
 		else if (jugada.equals(TipoJugada.feliz))
 		{
 			int pozoFeliz = casino.getPozoFeliz();
+			// TODO VER VALIDACION POZO FELIZ
 			
 			for (ApuestaCraps apuesta : apuestas)
 			{
@@ -180,6 +183,26 @@ public class ManejadorDeApuestas {
 			}
 		}
 		logger.debug("Fin de pagar apuestas. Se han pagado del saldo del casino: " + gananciaTotal + " pesos");
+	}
+
+	/**
+	 * obtenerGanancia.
+	 * PRECONDICION: la apuesta tiene garantizada una ganancia para el resultado y el estado del puck ingresados.
+	 * VER: correspondePagar.
+	 * 
+	 * @param apuesta apuesta que intento pagar
+	 * @param resultado resultado del ultimo tiro
+	 * @param puck puck previo al seteo del ultimo tiro
+	 * @return el monto a pagar a la apuesta
+	 */
+	private int obtenerGanancia(ApuestaCraps a, ResultadoCraps r, boolean puck)
+	{
+		String pck = Boolean.toString(puck);
+		ResultadoApuestaCraps res = new ResultadoApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje());
+		logger.debug("Ganancia Bruta pagar a: " + res + " --> "+ pagos.get( res ));
+		// TODO RELACION 2:1
+		// TODO  pagos.get( res 
+		return a.getValor();
 	}
 
 	/**
@@ -231,10 +254,9 @@ public class ManejadorDeApuestas {
 	
 	public boolean correspondePagar(ApuestaCraps a, ResultadoCraps r, boolean puck)
 	{
-		logger.debug("Corresponde pagar " + a + " " + r + " " + puck );
-		
 		String pck = Boolean.toString(puck);
-
-		return pagos.containsKey( new ResultadoApuestaCraps(a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje()) );
+		ResultadoApuestaCraps res = new ResultadoApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje());
+		logger.debug("Corresponde pagar a: " + res + " --> "+ pagos.containsKey( res ));
+		return pagos.containsKey( res );
     }
 }

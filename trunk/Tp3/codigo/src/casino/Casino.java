@@ -25,9 +25,9 @@ public final class Casino implements ICasino {
 		abierto = false;
 		modoNormal = true;
 		valores = new HashMap<Integer,Integer>();
-		valores.put(1, 25);
-		valores.put(2, 50);
-		valores.put(3, 75);
+		valores.put(25, 25);
+		valores.put(50, 50);
+		valores.put(75, 75);
 		
 	}
 

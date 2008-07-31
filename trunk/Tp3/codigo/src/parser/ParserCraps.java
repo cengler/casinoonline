@@ -51,6 +51,7 @@ public class ParserCraps {
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
 		
+		
 		xstream.alias("tiroCraps", MSGTiroCraps.class);
 		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
 		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");

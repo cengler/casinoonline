@@ -4,7 +4,7 @@
 		mesa="20"> 
 
 	<aceptado>si</aceptado> 
-	<tipoJugada>"normal"</tipoJugada> 
+	<tipoJugada>normal</tipoJugada> 
 	<resultado> 
 		<dado1>2</dado1> 
 		<dado2>5</dado2> 

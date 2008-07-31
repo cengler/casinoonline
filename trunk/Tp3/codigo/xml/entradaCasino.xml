@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<entradaCasino vTerm="30" 
+	usuario="pepe"> 
+	<aceptado>si</aceptado> 
+	<modoAcceso> "observador"</modoAcceso> 
+	<saldo>0</saldo> 
+	<fichasHabilitadas>
+  		<valorFicha>25</valorFicha> 
+  		<valorFicha>50</valorFicha> 
+  		<valorFicha>75</valorFicha> 
+  	</fichasHabilitadas>
+	<descripcion>"descripcion de la respuesta o vac�o"</descripcion> 
+</entradaCasino> 

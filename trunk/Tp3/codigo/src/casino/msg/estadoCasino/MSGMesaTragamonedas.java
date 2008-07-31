@@ -4,7 +4,7 @@ public class MSGMesaTragamonedas {
 
 	private int id;
 	private MSGJugador jugador;
-	private MSGUltimoTiro ultimoTiroTraga;
+	private MSGUltimoTiroTraga ultimoTiroTraga;
 	
 	public int getId() {
 		return id;
@@ -18,10 +18,10 @@ public class MSGMesaTragamonedas {
 	public void setJugador(MSGJugador jugador) {
 		this.jugador = jugador;
 	}
-	public MSGUltimoTiro getUltimoTiroTraga() {
+	public MSGUltimoTiroTraga getUltimoTiroTraga() {
 		return ultimoTiroTraga;
 	}
-	public void setUltimoTiroTraga(MSGUltimoTiro ultimoTiroTraga) {
+	public void setUltimoTiroTraga(MSGUltimoTiroTraga ultimoTiroTraga) {
 		this.ultimoTiroTraga = ultimoTiroTraga;
 	}
 	

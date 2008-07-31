@@ -1,38 +1,43 @@
-<estadoCasino vTerm="20" usuario="nombre del usuario">
+<estadoCasino vTerm="41" usuario="Ignacio">
   <jugadores>
-    <jugador nombre="nombre del usuario jugador"/>
+    <jugador/>
+    <jugador/>
+    <jugador/>
   </jugadores>
   <observadores>
-    <observador nombre="nombre del usuario observador"/>
+    <observador/>
   </observadores>
   <juegos>
     <tragamonedas>
-      <pozoProgresivo>200</pozoProgresivo>
-      <mesasTragamonedas>
-        <mesaTragamonedas id="30">
-          <jugador nombre="nombre del jugador en la mesa"/>
-          <ultimoTiroTraga>
-            <tirador>nombre del jugador que efectuó el ultimo tiro</tirador>
-            <resultadoTraga>
-              <rueda1>&quot;cereza&quot; o &quot;bar simple&quot; o &quot;bar doble&quot; o &quot;bar triple&quot; o &quot;dinosaurio&quot;</rueda1>
-              <rueda2>&quot;cereza&quot; o &quot;bar simple&quot; o &quot;bar doble&quot; o &quot;bar triple&quot; o &quot;dinosaurio&quot;</rueda2>
-              <rueda3>&quot;cereza&quot; o &quot;bar simple&quot; o &quot;bar doble&quot; o &quot;bar triple&quot; o &quot;dinosaurio&quot;</rueda3>
-            </resultadoTraga>
-          </ultimoTiroTraga>
-        </mesaTragamonedas>
-      </mesasTragamonedas>
+      <pozoProgresivo>10</pozoProgresivo>
+      <mesasTragamonedas/>
     </tragamonedas>
     <craps>
       <mesasCraps>
-        <mesaCraps id="20">
+        <mesaCraps id="1">
           <jugadores>
-            <jugador nombre="nombre de un jugador en la mesa"/>
+            <jugador/>
+            <jugador/>
           </jugadores>
+          <proximoTiro>
+            <tirador>&quot;Pepe&quot;</tirador>
+            <tiroSalida>&quot;si&quot;</tiroSalida>
+            <punto>0</punto>
+          </proximoTiro>
+          <ultimoTiro tirador="&quot;Juan&quot;" resultado="1"/>
+        </mesaCraps>
+        <mesaCraps id="3">
+          <jugadores>
+            <jugador/>
+          </jugadores>
+          <proximoTiro>
+            <tirador>&quot;Pedro&quot;</tirador>
+            <tiroSalida>&quot;no&quot;</tiroSalida>
+            <punto>4</punto>
+          </proximoTiro>
+          <ultimoTiro tirador="&quot;Pedro&quot;" resultado="2"/>
         </mesaCraps>
       </mesasCraps>
     </craps>
   </juegos>
-  <pozosCasino>
-    <pozoFeliz>23</pozoFeliz>
-  </pozosCasino>
 </estadoCasino>

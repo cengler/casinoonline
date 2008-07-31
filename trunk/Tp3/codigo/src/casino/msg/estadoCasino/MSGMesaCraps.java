@@ -1,7 +1,7 @@
 package casino.msg.estadoCasino;
 
 import java.util.List;
-
+import craps.msg.MSGUltimoTiro;
 public class MSGMesaCraps {
 
 	private int id;

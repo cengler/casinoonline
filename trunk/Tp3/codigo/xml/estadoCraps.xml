@@ -24,7 +24,7 @@
 		<apuesta> 
 			<apostador>"ana"</apostador> 
 			<opcionApuesta> 
-				<tipoApuesta>"pase"</tipoApuesta> 
+				<tipoApuesta>pase</tipoApuesta> 
 				<puntajeApostado>0</puntajeApostado>
 			</opcionApuesta> 
 			<valorApuesta> 

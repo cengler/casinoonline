@@ -114,9 +114,13 @@ public class ManejadorCasino implements IServiciosCasino {
 		
 		if(jug == null)
 		{
-			//mensaje.setAceptado(MSGEntradaCraps.NO);
 			//mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
 			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
+		}else{
+			
+			
+			
+			
 		}
 			
 		

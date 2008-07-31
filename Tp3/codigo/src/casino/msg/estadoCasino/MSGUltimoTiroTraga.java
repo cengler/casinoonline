@@ -1,6 +1,6 @@
 package casino.msg.estadoCasino;
 
-public class MSGUltimoTiro {
+public class MSGUltimoTiroTraga {
 
 	private String tirador;
 	private MSGResultado resultadoTraga;

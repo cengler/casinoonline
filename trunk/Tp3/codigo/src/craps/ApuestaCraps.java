@@ -88,11 +88,6 @@ public class ApuestaCraps {
 		this.ganancia = ganancia;
 	}
 
-	public int obtenerGanancia(ResultadoCraps resultado) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	@Override
 	public String toString() {
 		return "{ JUG: " + apostador + ", TIPO: " + tipo + ", PUNT: " + puntaje + ", GAN: " + ganancia + ", ACT: "+ activa+ " }";

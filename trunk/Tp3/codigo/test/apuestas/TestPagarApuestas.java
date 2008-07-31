@@ -2,6 +2,7 @@ package apuestas;
 
 import org.apache.log4j.Logger;
 
+import casino.Casino;
 import casino.Jugador;
 import casino.TipoJugada;
 
@@ -31,9 +32,9 @@ public class TestPagarApuestas {
 		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);
 		
 		Jugador pepe = new Jugador();
-		ApuestaCraps ap1 = new ApuestaCraps(pepe, 0, TipoApuestaCraps.pase, 8);
+		ApuestaCraps ap1 = new ApuestaCraps(pepe, 8, TipoApuestaCraps.pase, 8);
 		man.getApuestas().add(ap1);
-		
+		Casino.getInstance().setPozoFeliz(1100);
 		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);
 	}
 

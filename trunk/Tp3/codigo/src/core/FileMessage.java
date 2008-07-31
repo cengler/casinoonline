@@ -1,5 +1,6 @@
 package core;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,13 +13,17 @@ import org.apache.log4j.Logger;
 public class FileMessage implements IMessage {
 
 	private File file;
-	//private InputStream is;
+	private InputStream is;
 	//private OutputStream os;
 	private String name;
 	private Logger logger = Logger.getLogger(FileMessage.class);
 	
 	public FileMessage(File file)
 	{
+		// TODO createTempFile(arg0, arg1) FILE.
+		int archLargo = (int) file.length();
+		byte[] buffer = new byte[archLargo];
+		is = new ByteArrayInputStream(buffer) ;
 		this.file = file;
 		this.name = file.getName();
 	}

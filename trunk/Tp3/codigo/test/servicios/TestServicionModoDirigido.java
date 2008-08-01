@@ -44,12 +44,12 @@ public class TestServicionModoDirigido {
 		logger.error("  --- MENSAJE PASA A MODO NORMAL");
 		
 		MSGResultadosCrapsModo resCraps = new MSGResultadosCrapsModo(); 
-		try {
+		/*try {
 			((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(6, 6));
 		} catch (CrapsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/ // TODO
 		
 		msg.getResultados().add(resCraps);
 		msg.setModo(MSGSetModo.DIRIGIDO);
@@ -64,13 +64,13 @@ public class TestServicionModoDirigido {
 		logger.error("  --- MENSAJE PASA A MODO DIRIGIDO CON 1 JUGADA");
 		
 		msg.setModo(MSGSetModo.NORMAL);
-		try {
-			((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(1, 1));
-			((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(1, 1));
+		/*try {
+		//	((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(1, 1));
+		//	((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(1, 1));
 		} catch (CrapsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/ //TODO
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE PASA A MODO NORMAL");

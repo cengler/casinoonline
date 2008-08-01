@@ -9,6 +9,7 @@ import servicios.SrvAdministracion;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGAdministracion;
 import casino.msg.MSGCerrarCasino;
+import casino.msg.MSGResultadosCrapsModo;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
 import core.IMessage;
@@ -59,6 +60,8 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 		{
 			logger.error("SE RE COLGO!", re);
 		}
+		
+		logger.fatal("FATAL---*-*****> " + ((MSGResultadosCrapsModo)(((MSGSetModo)mensajeObj).getResultados().get(0))).getResultados());
 		
 		if(mensajeObj instanceof MSGAbrirCasino)
 			rta = SrvAdministracion.abrirCasino((MSGAbrirCasino)mensajeObj);

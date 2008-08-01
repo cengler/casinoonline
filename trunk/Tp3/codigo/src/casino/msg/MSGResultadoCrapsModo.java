@@ -1,11 +1,9 @@
 package casino.msg;
 
-public class MSGResultadoCrapsModo {
+public class MSGResultadoCrapsModo extends MSGResultadoModo {
 
 	private int dado1;
 	private int dado2;
-	
-	
 	
 	public int getDado1() {
 		return dado1;

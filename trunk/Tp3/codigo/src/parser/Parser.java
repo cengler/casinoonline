@@ -16,8 +16,8 @@ public abstract class Parser {
 		Object message; 
 		String s = is.getData();
 		message = xstream.fromXML(s.trim());
-		logger.debug("parseando: " + message + "\n ------------------- \n" + 
-				is.getData() + " ------------------- ");
+		logger.debug("parseando: " + message + "\n P>------------------ \n" + 
+				is.getData() + " P>------------------ ");
 		return message;
 	}
 	

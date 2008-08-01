@@ -8,12 +8,21 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.estadoCasino.MSGEstadoCasino;
+import casino.msg.estadoCasino.MSGJugador;
+import casino.msg.estadoCasino.MSGObservador;
+import casino.msg.estadoCasino.IMSGJuego;
+import casino.msg.estadoCasino.MSGPozo;
+import casino.ManejadorJugador;
+import casino.IJugador;
+import casino.msg.estadoCasino.MSGCraps;
+
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -116,7 +125,55 @@ public class ManejadorCasino implements IServiciosCasino {
 			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
 		}else{
 			
+			Set<IJugador> jugadores = manJug.getJugadores();
+			Set<IInvitado> invitados = manJug.getInvitados();
+			List<MSGJugador> losJugs = new ArrayList<MSGJugador>();
+			List<MSGObservador> losInvitados = new ArrayList<MSGObservador>();
 			
+			
+			//seteo los nombres de los jugadores
+			for ( IJugador j : jugadores ){
+				
+				MSGJugador msgJug = new MSGJugador();
+				msgJug.setNombre(j.getNombre());
+				losJugs.add(msgJug);
+										
+			}
+			mensaje.setJugadores(losJugs);
+			
+			//seteo los nombres de los invitados
+			for ( IInvitado i : invitados ){
+				
+				MSGObservador msgObs = new MSGObservador();
+				msgObs.setNombre(i.getNombre());
+				losInvitados.add(msgObs);
+										
+			}
+			mensaje.setObservadores(losInvitados);
+			
+			//seteo los juegos
+			List<IMSGJuego> losJuegos = new ArrayList<IMSGJuego>();
+			for ( ManejadorMesa manMesa : this.getManejadores() ){
+				
+				if (manMesa.getName() == "craps"){
+					
+					MSGCraps msgC = new MSGCraps();
+					//manMesa.estadoJuego();
+					
+				}
+				
+				
+				
+				
+			}
+			//seteo el pozo
+			Casino cas = Casino.getInstance();
+			MSGPozo pozo = new MSGPozo();
+			pozo.setPozoFeliz(cas.getPozoFeliz());
+			mensaje.setPozosCasino(pozo);
+			
+			
+			//IMSG para juegos - ver
 			
 			
 		}

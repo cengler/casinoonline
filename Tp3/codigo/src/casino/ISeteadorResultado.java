@@ -2,11 +2,13 @@ package casino;
 
 import java.util.List;
 
+import casino.msg.MSGResultadoModo;
+
 public interface ISeteadorResultado {
 
-	void setResultados(List< ? > lista) throws CasinoException;
+	void setResultados(List<MSGResultadoModo> lista) throws CasinoException;
 	
-	List< ? > getResultados();
+	void borrarResultadosSeteados();
 	
 	String getName();
 }

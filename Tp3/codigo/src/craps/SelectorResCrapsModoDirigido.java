@@ -5,8 +5,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import craps.msg.MSGResultadoCraps;
+
 import casino.CasinoException;
 import casino.ISeteadorResultado;
+import casino.msg.MSGResultadoCrapsModo;
+import casino.msg.MSGResultadoModo;
 
 /**
  * SelectorResCrapsModoDirigido.
@@ -18,7 +22,7 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 
 	public static String SEL_RES_NAME = "craps";
 	private static SelectorResCrapsModoDirigido instance;
-	private List<ResultadoCraps> resultados;
+	private List<MSGResultadoCrapsModo> resultados;
 	private int resActual = 0;
 	private Logger logger = Logger.getLogger(SelectorResCrapsModoDirigido.class);
 	
@@ -27,7 +31,7 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 	 */
 	private SelectorResCrapsModoDirigido()
 	{
-		resultados = new ArrayList<ResultadoCraps>();
+		resultados = new ArrayList<MSGResultadoCrapsModo>();
 	}
 	
 	/**
@@ -45,13 +49,14 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 	 */
 	public ResultadoCraps getResult() 
 	{
-		ResultadoCraps res = null;
+		ResultadoCraps res = new ResultadoCraps();
 		if(resultados.size() < 1)
 		{
 			logger.error("No se ha seteado ningun resultado para el modo dirigido");
 			//TODO throw new CraspEx
 		}
-		res = resultados.get(resActual);
+		res.setDado1(resultados.get(resActual).getDado1());
+		res.setDado2(resultados.get(resActual).getDado2());
 		
 		if(resActual == (resultados.size() - 1))
 			resActual = 0;
@@ -64,25 +69,25 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 	/**
 	 * {@inheritDoc}
 	 */
-	public void setResultados(List< ? > lista) throws CasinoException
+	public void setResultados(List<MSGResultadoModo> lista) throws CasinoException
 	{	
 		if(lista == null || lista.size() == 0)
 		{
 			logger.error("La lista de resultados a setear debe contener al menos un resultado");
 			throw new CasinoException("La lista de resultados a setear debe contener al menos un resultado");
 		}
-		resultados = new ArrayList<ResultadoCraps>();
+		resultados = new ArrayList<MSGResultadoCrapsModo>();
 		for(Object o : lista)
 		{
-			if(o instanceof ResultadoCraps)
+			if(o instanceof MSGResultadoCrapsModo)
 			{
 				logger.debug("Agregando res: " + o);
-				resultados.add((ResultadoCraps)o);
+				resultados.add((MSGResultadoCrapsModo)o);
 			}
 			else
 			{
-				logger.error("Los resultados a seter para craps deben ser: " + ResultadoCraps.class + " y son: " + o.getClass());
-				throw new CasinoException("Los resultados a seter para craps deben ser: " + ResultadoCraps.class + " y son: " + o.getClass() );
+				logger.error("Los resultados a seter para craps deben ser: " + MSGResultadoCrapsModo.class + " y son: " + o.getClass());
+				throw new CasinoException("Los resultados a seter para craps deben ser: " + MSGResultadoCrapsModo.class + " y son: " + o.getClass() );
 			}
 		}
 	}
@@ -94,8 +99,8 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 		return SEL_RES_NAME;
 	}
 
-	public List<?> getResultados() {
-		return resultados;
+	public void borrarResultadosSeteados() {
+		resultados.clear();
 	}
 
 }

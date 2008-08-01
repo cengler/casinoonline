@@ -117,7 +117,7 @@ public class TestServiciosCraps {
 		
 		List<ResultadoCraps> l = new ArrayList<ResultadoCraps>();
 		
-		try {
+		/*try {
 			Casino.getInstance().setModoNormal(false);
 			l.add(new ResultadoCraps(4, 4));
 			l.add(new ResultadoCraps(4, 4));
@@ -128,7 +128,7 @@ public class TestServiciosCraps {
 		}
 
 		for (int i = 0; i<20; i++)
-			SrvCraps.tirarCraps(mensaje);
+			SrvCraps.tirarCraps(mensaje);*/
 		
 		
 	}

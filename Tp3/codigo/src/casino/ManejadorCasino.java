@@ -21,7 +21,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	private static ManejadorCasino instance;
 	private static Logger logger = Logger.getLogger(ManejadorCasino.class);
 	
-	private List<ManejadorMesa> manejadores; 
+	//private List<ManejadorMesa> manejadores; 
 
 	/**
 	 * Constructor.
@@ -170,6 +170,12 @@ public class ManejadorCasino implements IServiciosCasino {
 			try 
 			{
 				cargarListaJugadores();
+				
+				casino.setAbierto(true);
+				mensaje.setAceptado(true);
+				mensaje.setDescripcion("Se abre el casino correctamente");
+				
+				logger.info("Se abre el casino correctamente");
 			} 
 			catch (CasinoException e)
 			{
@@ -177,14 +183,7 @@ public class ManejadorCasino implements IServiciosCasino {
 				mensaje.setAceptado(false);
 				mensaje.setDescripcion(e.getMessage());
 			}
-			
-			casino.setAbierto(true);
-			mensaje.setAceptado(true);
-			mensaje.setDescripcion("Se abre el casino correctamente");
-			
-			logger.info("Se abre el casino correctamente");
 		}
-		
 		return mensaje;
 	}
 
@@ -253,18 +252,18 @@ public class ManejadorCasino implements IServiciosCasino {
 	 * 
 	 * @return los manejadores disponibles del casino.
 	 */
-	public List<ManejadorMesa> getManejadores() {
+	/*public List<ManejadorMesa> getManejadores() {
 		return manejadores;
-	}
+	}*/
 
 	/**
 	 * Setea la lista de manejadores para el casino.
 	 * 
 	 * @param manejadores la lista de manejadores para el casino.
 	 */
-	public void setManejadores(List<ManejadorMesa> manejadores) {
+	/*public void setManejadores(List<ManejadorMesa> manejadores) {
 		this.manejadores = manejadores;
-	}
+	}*/
 
 	public boolean validarFichas(){  // List<MSGValorFicha> fichas
 		

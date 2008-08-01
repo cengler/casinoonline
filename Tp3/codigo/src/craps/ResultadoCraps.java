@@ -8,6 +8,9 @@ public class ResultadoCraps {
 	private int dado2;
 	private Logger logger = Logger.getLogger(ResultadoCraps.class);
 	
+	public ResultadoCraps(){}
+	
+	
 	public ResultadoCraps(int d1, int d2) throws CrapsException
 	{	
 		if(d1 < 1 || d1 > 6 || d1 < 1 || d1 > 6)

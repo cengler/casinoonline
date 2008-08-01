@@ -1,6 +1,9 @@
 package core;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
@@ -44,12 +47,13 @@ public class MensajeroXArchivos extends Mensajero {
 			File[] files = dir.listFiles();
 			if(files!=null && files.length > 0) // si hay archivos
 			{
-				logger.debug("Hay " + files.length + " para procesar.");
+				//logger.debug("Hay " + files.length + " para procesar.");
 				for ( File f : files )
 				{
 					Matcher m = filtro.matcher(f.getName());
 					if( m.matches() )
 					{
+						
 						FileMessage fm = null;
 						try {
 							fm = new FileMessage(f);
@@ -57,7 +61,7 @@ public class MensajeroXArchivos extends Mensajero {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						
+
 						int retries = 0;
 						boolean fileDeleted = false;
 						while(retries<MAX_RETRIES && !fileDeleted) {
@@ -94,7 +98,16 @@ public class MensajeroXArchivos extends Mensajero {
 	}
 
 	public void send(IMessage msg, String name) {
-		// TODO
+		
+		try {
+			FileWriter fr = new FileWriter(dirName+"/"+name);
+			fr.write(msg.getData());
+			fr.close();
+			logger.debug("MENSAJE ENVIADO");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("ERROR EN SEND: ",e);
+		}
 	}
 	
 	public IMessage onMessage(IMessage msg) throws MensajeroException

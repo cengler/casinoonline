@@ -2,6 +2,8 @@ package casino.msg.estadoCasino;
 
 public class MSGProximoTiro {
 
+	public static String SI = "Si";
+	
 	private String tirador;
 	private String tiroSalida;
 	private int punto;

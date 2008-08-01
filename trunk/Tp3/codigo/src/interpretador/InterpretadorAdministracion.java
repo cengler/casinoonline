@@ -40,6 +40,7 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 		
 		Object mensajeObj = null;
 		MSGAbrirCasino rta = null;
+		String nombreArchivo = mensaje.getName();
 		try 
 		{
 			mensajeObj = parser.parse(mensaje);
@@ -49,7 +50,6 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 			logger.error("Error en el parser");
 			// TODO Auto-generated catch block
 			// ver como responder al error al usuario
-			//e.printStackTrace();
 		}
 		catch(RuntimeException re)
 		{
@@ -61,6 +61,8 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 			rta = SrvAdministracion.abrirCasino((MSGAbrirCasino)mensajeObj);
 		}
 		
+		logger.debug("rta: ---------> " + rta);
+		
 		try {
 			parser.renderizar(rta, mensaje);
 		} catch (ParserException e) {
@@ -68,9 +70,8 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 			e.printStackTrace();
 		}
 		
-		// FALTA RESTO
-		
-		return null;
+		mensaje.setName("rta"+nombreArchivo);
+		return mensaje;
 	}
 
 

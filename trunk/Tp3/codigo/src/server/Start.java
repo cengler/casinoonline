@@ -3,13 +3,13 @@ package server;
 import java.util.Date;
 
 import mensajero.MessageListenerAdministracion;
-import mensajero.MessageListenerCasino;
-import mensajero.MessageListenerCraps;
 
 import org.apache.log4j.Logger;
 
+import casino.ManejadorCasino;
 import core.Mensajero;
 import core.MensajeroXArchivos;
+import craps.ManejadorMesaCraps;
 
 public class Start {
 
@@ -24,36 +24,23 @@ public class Start {
 	public Start()
 	{}
 	
-	public void iniciar()
+	public void iniciar(String dir)
 	{
 		try {
 			logger.info("Iniciando servidor...");
 			Date d = new Date(); 
 			
+			// CONFIGURACIONES INICIALES
+			// registro de juegos
+			ManejadorCasino.getInstance().getManejadores().add(ManejadorMesaCraps.getInstance());
+			
 			logger.debug("Instanciando mensajeros...");
-			mCasino = new MensajeroXArchivos("D:\\casino\\messageBox", "c.*"); 
-			mCraps = new MensajeroXArchivos("D:\\casino\\messageBox","b.*"); 
-			mAdministracion = new MensajeroXArchivos("D:\\casino\\messageBox","abrirCasino.*"); 
-			/*mTraga = new MensajeroXArchivos("D:\\casino\\messageBox",".*"); 
-			mEstadoCraps = new MensajeroXArchivos("D:\\casino\\messageBox",".*"); */
-			
-			mCasino.setListener(new MessageListenerCasino());
-			mCraps.setListener(new MessageListenerCraps());
+			mAdministracion = new MensajeroXArchivos(dir,"abrirCasino.*"); 
 			mAdministracion.setListener(new MessageListenerAdministracion()); 
-			
-			mCasino.openConnection();
-			mCraps.openConnection();
-			mAdministracion.openConnection();
-			/*mAdministracion.openConnection(); 
-			mTraga.openConnection(); 
-			mEstadoCraps.openConnection();*/
+			mAdministracion.openConnection(); 
 			
 			logger.debug("Iniciando mensajeros...");
-			new Thread(mCasino).start();
-			new Thread(mCraps).start();
 			new Thread(mAdministracion).start();
-			/*new Thread(mTraga).start();
-			new Thread(mEstadoCraps).start();*/
 			
 			logger.info("Servidor iniciado en: " + (new Date().getTime() - d.getTime()) + " milisegundos");
 			
@@ -69,7 +56,7 @@ public class Start {
 	public static void main(String[] args)
 	{
 		Start s = new Start();
-		s.iniciar();
+		s.iniciar(args[0]);
 
 	}
 }

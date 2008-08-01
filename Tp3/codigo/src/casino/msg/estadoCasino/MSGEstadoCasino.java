@@ -12,7 +12,15 @@ public class MSGEstadoCasino extends MSGCasino {
 	private List<MSGObservador> observadores;
 	private List<IMSGJuego> juegos;
 	private MSGPozo pozosCasino;
+	private String descripcion;
 	
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	public List<MSGJugador> getJugadores() {
 		return jugadores;
 	}

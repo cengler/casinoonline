@@ -17,6 +17,8 @@ public class MesaCraps extends Observable implements IMesa {
 	private boolean puck;
 	private int punto;
 	private IJugador tirador;
+	private IJugador tiradorAnterior;//TODO ver en los metodos donde se cambie el tirador.
+	private int ultimoResultado; //TODO setear donde correponda.
 	private ManejadorDeApuestas pagador;
 	private static Logger logger = Logger.getLogger(MesaCraps.class);
 	
@@ -148,5 +150,21 @@ public class MesaCraps extends Observable implements IMesa {
 
 	public ManejadorDeApuestas getPagador() {
 		return pagador;
+	}
+
+	public IJugador getTiradorAnterior() {
+		return tiradorAnterior;
+	}
+
+	public void setTiradorAnterior(IJugador tiradorAnterior) {
+		this.tiradorAnterior = tiradorAnterior;
+	}
+
+	public int getUltimoResultado() {
+		return ultimoResultado;
+	}
+
+	public void setUltimoResultado(int ultimoResultado) {
+		this.ultimoResultado = ultimoResultado;
 	}
 }

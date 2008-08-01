@@ -1,5 +1,9 @@
 package casino;
 
+import java.util.List;
+
+import craps.MesaCraps;
+
 /**
  * ManejadorMesa
  * 
@@ -17,6 +21,9 @@ public abstract class ManejadorMesa
 	 * @param jugador jugador que esta potencialmente jugando
 	 * @return true si el jugador esta jugando en ese manejador
 	 */
+	public abstract List<?> getMesas();
+	
+	
 	public abstract boolean estaJugando(IJugador jugador);
 	
 	/**
@@ -28,6 +35,8 @@ public abstract class ManejadorMesa
 	
 	public abstract String getName();
 
+	
+	
 	public abstract IMesa getMesa(int id);
 	
 	/**
@@ -41,5 +50,6 @@ public abstract class ManejadorMesa
 		lastIdMesa++;
 		return lastIdMesa;	
 	}
+	
 	
 }

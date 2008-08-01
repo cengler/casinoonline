@@ -14,6 +14,11 @@ import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.core.TipoJugada;
+import casino.msg.estadoCasino.MSGJugador;
+import casino.msg.estadoCasino.MSGMesaCraps;
+import casino.msg.estadoCasino.MSGProximoTiro;
+import casino.msg.estadoCasino.MSGUltimoTiroCraps;
+import casino.msg.estadoCasino.MSGCraps;
 import craps.core.TipoApuestaCraps;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
@@ -46,6 +51,54 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			instance = new ManejadorMesaCraps();
 		return instance;
 	}
+	
+	public MSGCraps estadoDeCraps(){
+		
+		MSGCraps mensaje = new MSGCraps();
+		
+		List<MSGMesaCraps> mesasCraps = new ArrayList<MSGMesaCraps>();
+		//seteos de las mesas
+		for(MesaCraps m : mesas){
+			
+			MSGMesaCraps msgC = new MSGMesaCraps();
+			//a MSGMesaCraps le seteo el id
+			msgC.setId(m.getId());
+			//seteo los jugadores de una mesa m
+			List<MSGJugador> jugadores = new ArrayList<MSGJugador>();
+			//una Mesa tiene IJugadores pero MSGMesaCraps tiene MSGJugador
+			for(IJugador j : m.getJugadores()){
+				
+				MSGJugador msgJug = new MSGJugador();
+				msgJug.setNombre(msgJug.getNombre());
+				jugadores.add(msgJug);
+				
+			}
+			msgC.setJugadores(jugadores);
+			
+			//seteo del proximo tiro de una mesa
+			MSGProximoTiro proximoTiro = new MSGProximoTiro();
+			proximoTiro.setTirador(m.getTirador().getNombre());
+			if (m.isPuck() == true){//no es tiro de salida
+				proximoTiro.setTiroSalida("NO");	
+			}else{
+				proximoTiro.setTiroSalida("SI");
+			}
+			proximoTiro.setPunto(m.getPunto());
+			msgC.setProximoTiro(proximoTiro);
+			
+			//seteo del ultimoTiro
+			MSGUltimoTiroCraps ultimoTiro = new MSGUltimoTiroCraps();
+			ultimoTiro.setTirador(m.getTiradorAnterior().getNombre());
+			ultimoTiro.setResultado(m.getUltimoResultado());
+			
+			msgC.setUltimoTiro(ultimoTiro);
+			mesasCraps.add(msgC);
+		}
+		
+		mensaje.setMesasCraps(mesasCraps);
+		return mensaje;		
+	}
+	
 	
 	// METODOS DE SERVICIOS EXTERNOS
 	
@@ -83,7 +136,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				mesa.getJugadores().add(jug);
 				// SET TIRADOR
 				mesa.setTirador(jug);
-				
+				mesa.setTiradorAnterior(jug);
 				// ME GUARDO LA MESA PARA MANEJARLA
 				mesas.add(mesa);
 				
@@ -300,6 +353,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 							IJugador proxTirador = selTir.getProxTirador(laMesa);
 							laMesa.setTirador(proxTirador);
+							laMesa.setTiradorAnterior(jug);
 							sigueTirando = false;
 						}
 						else // NO PERDIO!
@@ -323,6 +377,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 							IJugador proxTirador = selTir.getProxTirador(laMesa);
 							laMesa.setTirador(proxTirador);	
+							laMesa.setTiradorAnterior(jug);
 							laMesa.setPuck(false);
 							sigueTirando = false;
 						}
@@ -480,12 +535,15 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public List<MesaCraps> getMesas() {
 		return mesas;
 	}
-
+	
+	
+	
 	/**
 	 * Set mesas.
 	 * 
 	 * @param mesas mesas a setear.
 	 */
+	
 	public void setMesas(List<MesaCraps> mesas) {
 		this.mesas = mesas;
 	}
@@ -534,6 +592,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		return false;
 	}
 
+	
 	public MesaCraps getMesa(int id)
 	{
 		for(MesaCraps m : mesas)

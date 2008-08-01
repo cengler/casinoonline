@@ -1,11 +1,10 @@
 package core;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.apache.log4j.Logger;
 
 public class MensajeroXArchivos extends Mensajero {

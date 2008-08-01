@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 
 import casino.core.TipoJugada;
 import casino.msg.MSGResetModoDirigido;
-import casino.msg.MSGResultados;
+import casino.msg.MSGResultadosModo;
 import casino.msg.MSGSetJugada;
-import casino.msg.MSGSetModoDirigido;
+import casino.msg.MSGSetModo;
 
 /**
  * ManejadorModoDirigido.
@@ -103,9 +103,9 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje)
+	public MSGSetModo setModoDirigido(MSGSetModo mensaje)
 	{	
-		if(mensaje.getModo().equals(MSGSetModoDirigido.DIRIGIDO) )
+		if(mensaje.getModo().equals(MSGSetModo.DIRIGIDO) )
 		{
 			if(!Casino.getInstance().isModoNormal())
 			{
@@ -115,14 +115,14 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 			}
 			else
 			{
-				for (MSGResultados r : mensaje.getResultados())
+				for (MSGResultadosModo r : mensaje.getResultados())
 				{
 					ISeteadorResultado s = getSeteador(r.getName());
 					if(s == null)
 					{
 						logger.info("El manejador de modo dirigido no tiene un seteadorDeRes para el conjunto de resultados " + r.getName());
 						mensaje.setAceptado(false);
-						mensaje.setDescripcion("El casino no pudo configurar los resultados ");
+						mensaje.setDescripcion("El manejador de modo dirigido no tiene un seteadorDeRes para el conjunto de resultados " + r.getName());
 						return mensaje;
 					}
 					else
@@ -144,7 +144,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 				logger.info("El casino seteo al casino en modo: " + mensaje.getModo());
 			}
 		}
-		else if ( mensaje.getModo().equals(MSGSetModoDirigido.NORMAL))
+		else if ( mensaje.getModo().equals(MSGSetModo.NORMAL))
 		{	
 			if(Casino.getInstance().isModoNormal())
 			{

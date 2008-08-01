@@ -6,7 +6,7 @@ import java.io.InputStream;
 import craps.msg.*;
 import org.apache.log4j.Logger;
 
-import casino.msg.estadoCasino.MSGJugador;
+import casino.msg.MSGJugador;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

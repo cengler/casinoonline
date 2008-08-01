@@ -1,6 +1,6 @@
 package casino.msg;
 
-public class MSGResultadoCraps {
+public class MSGResultadoCrapsModo {
 
 	private int dado1;
 	private int dado2;

@@ -3,8 +3,7 @@ package craps.msg;
 
 import java.util.List;
 
-import casino.msg.estadoCasino.MSGJugador;
-//import casino.msg.estadoCasino.MSGUltimoTiroCraps;
+import casino.msg.MSGJugador;
 
 public class MSGEstadoCraps extends MSGCraps {
 

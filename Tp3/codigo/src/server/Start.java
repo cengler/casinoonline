@@ -7,9 +7,11 @@ import mensajero.MessageListenerAdministracion;
 import org.apache.log4j.Logger;
 
 import casino.ManejadorCasino;
+import casino.ManejadorModoDirigido;
 import core.Mensajero;
 import core.MensajeroXArchivos;
 import craps.ManejadorMesaCraps;
+import craps.SelectorResCrapsModoDirigido;
 
 public class Start {
 
@@ -33,9 +35,11 @@ public class Start {
 			// CONFIGURACIONES INICIALES
 			// registro de juegos
 			ManejadorCasino.getInstance().getManejadores().add(ManejadorMesaCraps.getInstance());
+			// registro seteadores de resultado
+			ManejadorModoDirigido.getInstance().getSeteadoresRes().add(SelectorResCrapsModoDirigido.getInstance());
 			
 			logger.debug("Instanciando mensajeros...");
-			mAdministracion = new MensajeroXArchivos(dir,"abrirCasino.*"); 
+			mAdministracion = new MensajeroXArchivos(dir,"abrirCasino.*|cerrarCasino.*|setModo.*|setJugada.*"); 
 			mAdministracion.setListener(new MessageListenerAdministracion()); 
 			mAdministracion.openConnection(); 
 			

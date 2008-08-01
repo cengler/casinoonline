@@ -6,6 +6,8 @@ package casino.msg;
  */
 public abstract class MSGAdministracion {
 
+	public static String DIRIGIDO = "dirigido";
+	public static String NORMAL = "normal";
 	private boolean aceptado;
 	private String descripcion;
 

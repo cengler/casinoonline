@@ -11,10 +11,13 @@ public abstract class Parser {
 	
 	public Object parse(IMessage is) throws ParserException
 	{	
-		logger.debug("parseando... " + is.getName() );
+		logger.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
+				is.getData() + " ------------------- ");
 		Object message; 
 		String s = is.getData();
 		message = xstream.fromXML(s.trim());
+		logger.debug("parseando: " + message + "\n ------------------- \n" + 
+				is.getData() + " ------------------- ");
 		return message;
 	}
 	

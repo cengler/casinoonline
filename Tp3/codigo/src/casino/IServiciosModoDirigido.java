@@ -2,7 +2,7 @@ package casino;
 
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
-import casino.msg.MSGSetModoDirigido;
+import casino.msg.MSGSetModo;
 
 /**
  * IServiciosModoDirigido.
@@ -31,6 +31,6 @@ public interface IServiciosModoDirigido {
 	 * @param mensaje
 	 * @return
 	 */
-	MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje);
+	MSGSetModo setModoDirigido(MSGSetModo mensaje);
 
 }

@@ -3,14 +3,14 @@ package casino.msg;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MSGSetModoDirigido extends MSGModo {
+public class MSGSetModo extends MSGAdministracion {
 
 	private String modo = "";
-	private List<MSGResultados> resultados;
+	private List<MSGResultadosModo> resultados;
 	
-	public MSGSetModoDirigido()
+	public MSGSetModo()
 	{
-		resultados = new ArrayList<MSGResultados>();
+		resultados = new ArrayList<MSGResultadosModo>();
 	}
 
 	public String getModo() {
@@ -21,11 +21,11 @@ public class MSGSetModoDirigido extends MSGModo {
 		this.modo = modo;
 	}
 
-	public List<MSGResultados> getResultados() {
+	public List<MSGResultadosModo> getResultados() {
 		return resultados;
 	}
 
-	public void setResultados(List<MSGResultados> resultados) {
+	public void setResultados(List<MSGResultadosModo> resultados) {
 		this.resultados = resultados;
 	}
 }

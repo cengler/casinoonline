@@ -4,8 +4,6 @@ import java.util.List;
 
 import casino.msg.estadoCasino.IMSGJuego;
 
-import craps.MesaCraps;
-
 /**
  * ManejadorMesa
  * 

@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import casino.core.TipoJugada;
 import casino.msg.MSGResetModoDirigido;
+import casino.msg.MSGResultadoModo;
 import casino.msg.MSGResultadosModo;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
@@ -61,6 +62,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 		
 		for (ManejadorMesa m : ManejadorJugador.getInstance().getManejadores())
 		{
+			logger.debug("MANEJADOR: " + m.getName() + " " + mensaje.getJuego());
 			if (m.getName().equals(mensaje.getJuego()));
 			{
 				logger.debug("encontre manejador");
@@ -131,7 +133,8 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 					else
 					{
 						logger.debug("Seteando resultados para " + r.getName() + " resultados: " + r.getResultados());
-						try {
+						try 
+						{
 							s.setResultados(r.getResultados());
 						} catch (CasinoException e) {
 							mensaje.setAceptado(false);
@@ -169,7 +172,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 				// BORRO RESULTADOS
 				for(ISeteadorResultado is : seteadoresRes)
 				{
-					is.getResultados().clear();
+					is.borrarResultadosSeteados();
 				}
 				
 				

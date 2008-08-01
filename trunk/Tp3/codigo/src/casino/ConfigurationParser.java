@@ -22,7 +22,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class ConfigurationParser {
 
 	private XStream xstream;
-	private static String LISTA_JUG = "D:/casino/codigo/xml/abrir.xml" ; 
+	private static String LISTA_JUG = "I:/- 21-07-08/TPPP/Tp3/codigo/xml/abrir.xml" ; 
 	// TODO ruta relativa ^
 	private static Logger logger = Logger.getLogger(ConfigurationParser.class);
 	private static ConfigurationParser instance; 
@@ -67,7 +67,7 @@ public class ConfigurationParser {
 		} 
 		catch (IOException e) 
 		{
-			logger.error("No se pudo cagar correctamente la lista de jugadores");
+			logger.error("No se pudo cagar correctamente la lista de jugadores de: " + LISTA_JUG);
 			throw new CasinoException("No se pudo cagar correctamente la lista de jugadores", e);
 		}
 		return lista;

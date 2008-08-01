@@ -1,6 +1,6 @@
 package servicios;
 
-import java.io.IOException;
+import org.apache.log4j.Logger;
 
 import casino.IServiciosCasino;
 import casino.ManejadorModoDirigido;
@@ -8,7 +8,7 @@ import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
-import casino.msg.MSGSetModoDirigido;
+import casino.msg.MSGSetModo;
 import core.ImplementationFactory;
 
 /**
@@ -19,6 +19,7 @@ import core.ImplementationFactory;
  */
 public class SrvAdministracion {
 
+	private static Logger logger = Logger.getLogger(SrvAdministracion.class);
 	/**
 	 * Constructor.
 	 */
@@ -30,23 +31,19 @@ public class SrvAdministracion {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje){
-		try {
+	public static MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje)
+	{
+		try 
+		{
 			return ImplementationFactory.getImplementation(IServiciosCasino.class, true).abrirCasino(mensaje);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion(e.getMessage());
 		}
-		return null;
+		return mensaje;
 	}
 
 	/**
@@ -55,23 +52,19 @@ public class SrvAdministracion {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje){
-		try {
+	public static MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje)
+	{
+		try 
+		{
 			return ImplementationFactory.getImplementation(IServiciosCasino.class, true).cerrarCasino(mensaje);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion(e.getMessage());
 		}
-		return null;
+		return mensaje;
 	}
 
 	/**
@@ -100,7 +93,7 @@ public class SrvAdministracion {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGSetModoDirigido setModoDirigido(MSGSetModoDirigido mensaje){
+	public static MSGSetModo setModoDirigido(MSGSetModo mensaje){
 		return ManejadorModoDirigido.getInstance().setModoDirigido(mensaje);
 	}
 

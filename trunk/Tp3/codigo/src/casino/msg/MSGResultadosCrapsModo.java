@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-public class MSGResultadosCraps extends MSGResultados
+public class MSGResultadosCrapsModo extends MSGResultadosModo
 {
 	public static String GAME_NAME = "craps";
-	private List<MSGResultadoCraps> resultados; 
-	private Logger logger = Logger.getLogger(MSGResultadosCraps.class);
+	private List<MSGResultadoCrapsModo> resultados; 
+	private Logger logger = Logger.getLogger(MSGResultadosCrapsModo.class);
 	
-	public MSGResultadosCraps()
+	public MSGResultadosCrapsModo()
 	{
-		resultados = new ArrayList<MSGResultadoCraps>();
+		resultados = new ArrayList<MSGResultadoCrapsModo>();
 	}
 
 	public List< ? > getResultados() {
@@ -23,11 +23,11 @@ public class MSGResultadosCraps extends MSGResultados
 	{
 		logger.debug("setResultados");
 		
-		this.resultados = new ArrayList<MSGResultadoCraps>();
+		this.resultados = new ArrayList<MSGResultadoCrapsModo>();
 		for (Object i : resultados)
 		{
 			logger.debug("Res: " + i);
-			this.resultados.add((MSGResultadoCraps)i);
+			this.resultados.add((MSGResultadoCrapsModo)i);
 		}
 	}
 

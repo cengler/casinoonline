@@ -9,17 +9,16 @@ import org.apache.log4j.Logger;
 import casino.IJugador;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
-import casino.ManejadorCasino;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.core.TipoJugada;
-import casino.msg.estadoCasino.IMSGJuego;
 import casino.msg.estadoCasino.MSGJugador;
+import casino.msg.estadoCasino.IMSGJuego;
+import casino.msg.estadoCasino.MSGCraps;
 import casino.msg.estadoCasino.MSGMesaCraps;
 import casino.msg.estadoCasino.MSGProximoTiro;
 import casino.msg.estadoCasino.MSGUltimoTiroCraps;
-import casino.msg.estadoCasino.MSGCraps;
 import craps.core.TipoApuestaCraps;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
@@ -70,7 +69,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			for(IJugador j : m.getJugadores())
 			{	
 				MSGJugador msgJug = new MSGJugador();
-				msgJug.setNombre(msgJug.getNombre());
+				msgJug.setNombre(j.getNombre());
 				jugadores.add(msgJug);	
 			}
 			msgC.setJugadores(jugadores);
@@ -237,7 +236,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			        
 					//VALIDO FICHAS y si son validas calculo el monto a apostar
 								
-					ManejadorCasino manCas = ManejadorCasino.getInstance();
+					//ManejadorCasino manCas = ManejadorCasino.getInstance();
 					
 					// TODO NO SE PUEDE PARAR UN MSG CRAPS A CASINO
 					boolean fichasValidas = true;

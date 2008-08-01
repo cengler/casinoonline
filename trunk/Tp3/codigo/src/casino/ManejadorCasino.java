@@ -1,5 +1,6 @@
 package casino;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -67,22 +68,28 @@ public class ManejadorCasino implements IServiciosCasino {
 			}
 			else
 			{
+				// guardo saldos de los jugadores
+				try 
+				{
+					guardarListaJugadores();
+				} 
+				catch (CasinoException e)
+				{
+					logger.error(e.getMessage());
+					mensaje.setAceptado(false);
+					mensaje.setDescripcion(e.getMessage());
+				}
+				
 				mensaje.setAceptado(true);
 				mensaje.setDescripcion("Es casino se cerrará");
 				
 				// cierro realmente el casino
 				casino.setAbierto(false);
-				
-				//guardo saldos de los jugadores
-				//guardarListaJugadores();
+
 				logger.info("Los jugadores se han persistido correctamente");
 			}
 		}
-		
-		
-		
-		
-		return null;
+		return mensaje;
 	}
 
 	/**
@@ -160,8 +167,18 @@ public class ManejadorCasino implements IServiciosCasino {
 		}
 		else
 		{
+			try 
+			{
+				cargarListaJugadores();
+			} 
+			catch (CasinoException e)
+			{
+				logger.error(e.getMessage());
+				mensaje.setAceptado(false);
+				mensaje.setDescripcion(e.getMessage());
+			}
+			
 			casino.setAbierto(true);
-			//cargarListaJugadores();
 			mensaje.setAceptado(true);
 			mensaje.setDescripcion("Se abre el casino correctamente");
 			
@@ -174,24 +191,19 @@ public class ManejadorCasino implements IServiciosCasino {
 	/**
 	 * cargarListaJugadores.
 	 * 
+	 * @throws CasinoException 
+	 * 
 	 */
-	/*private void cargarListaJugadores()
+	private void cargarListaJugadores() throws CasinoException
 	{
 		logger.info("Cargando jugadores...");
 		
-		List<LSTJugador> jugadores = null;
-		
-		try
-		{
-			InputStream is = new FileInputStream(LISTA_JUG);
-			jugadores = (List<LSTJugador>)xstream.fromXML(is);
-			if(jugadores == null)
-				throw new Exception("El parseo no se realizo correctamente");
-		}
-		catch(Exception e)
-		{
-			logger.fatal("No se pudo obtener la lista de jugadores ", e);
-			System.exit(-1);
+		List<LSTJugador> jugadores;
+		try {
+			jugadores = ConfigurationParser.getInstance().cargarListaJugadores();
+		} catch (CasinoException e) {
+			logger.error(e.getMessage());
+			throw new CasinoException(e);
 		}
 		
 		ManejadorJugador mj = ManejadorJugador.getInstance();
@@ -205,23 +217,17 @@ public class ManejadorCasino implements IServiciosCasino {
 			mj.getJugadores().add(jc);
 			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
 		}
-	}*/
+	}
 	
 	/**
 	 * guardarListaJugadores.
 	 * 
+	 * @throws CasinoException 
 	 *  
 	 */
-	/*private void guardarListaJugadores()
+	private void guardarListaJugadores() throws CasinoException
 	{
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
-		OutputStream os = null;
-		try {
-			os = new FileOutputStream(LISTA_JUG);
-		} catch (FileNotFoundException e) {
-			logger.fatal("El casino no ha podido guardar la lista de jugadores del casino");
-			System.exit(-1);
-		}
 		
 		List<LSTJugador> listajug = new ArrayList<LSTJugador>();
 		
@@ -234,8 +240,13 @@ public class ManejadorCasino implements IServiciosCasino {
 			logger.debug("Preparando para almacenamiento jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
 			listajug.add(jl);
 		}
-		xstream.toXML(listajug, os);
-	}*/
+		try {
+			ConfigurationParser.getInstance().guardarListaJugadores(listajug);
+		} catch (FileNotFoundException e) {
+			logger.error(e.getMessage());
+			throw new CasinoException(e);
+		}
+	}
 
 	/**
 	 * Obtiene los manejadores disponibles del casino.
@@ -257,7 +268,7 @@ public class ManejadorCasino implements IServiciosCasino {
 
 	public boolean validarFichas(){  // List<MSGValorFicha> fichas
 		
-		int i = 0;
+		//int i = 0;
 		boolean fichaValida = true;
 		// TODO NO PUEDE RECIBIR MSG DE CRAPS
 		/*Casino cas = Casino.getInstance();
@@ -280,7 +291,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	
 	public int calcularMontoAApostar(){ //List<MSGValorFicha> fichas
 		
-		int i = 0;
+		//int i = 0;
 		int calculoAApostar = 0;
 		/*Casino cas = Casino.getInstance();
 		Map<Integer, Integer> valores = cas.getValores();

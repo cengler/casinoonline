@@ -3,8 +3,8 @@ package servicios;
 import casino.ManejadorJugador;
 import casino.msg.MSGEntradaCasino;
 import casino.ManejadorCasino;
-import casino.msg.estadoCasino.MSGEstadoCasino;
 import casino.msg.MSGSalidaCasino;
+import casino.msg.estadoCasino.MSGEstadoCasino;
 
 /**
  * Servicios Casino. Ver 1.0

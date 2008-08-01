@@ -7,7 +7,7 @@ import casino.core.TipoJugada;
  * @author Grupo2
  *
  */
-public class MSGSetJugada extends MSGModo {
+public class MSGSetJugada extends MSGAdministracion {
 
 	private TipoJugada tipo;
 	private String juego;

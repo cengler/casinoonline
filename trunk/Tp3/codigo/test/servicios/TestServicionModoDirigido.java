@@ -9,8 +9,8 @@ import craps.ResultadoCraps;
 import craps.SelectorResCrapsModoDirigido;
 import casino.ISeteadorResultado;
 import casino.ManejadorModoDirigido;
-import casino.msg.MSGResultadosCraps;
-import casino.msg.MSGSetModoDirigido;
+import casino.msg.MSGResultadosCrapsModo;
+import casino.msg.MSGSetModo;
 
 public class TestServicionModoDirigido {
 
@@ -23,27 +23,27 @@ public class TestServicionModoDirigido {
 	
 	public static void setModoDirigido()
 	{
-		MSGSetModoDirigido msg = new MSGSetModoDirigido();
+		MSGSetModo msg = new MSGSetModo();
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE SIN MODO");
 		
-		msg.setModo(MSGSetModoDirigido.NORMAL);
+		msg.setModo(MSGSetModo.NORMAL);
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE EN MISMO MODO = MODO NORMAL");
 		
-		msg.setModo(MSGSetModoDirigido.DIRIGIDO);
+		msg.setModo(MSGSetModo.DIRIGIDO);
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE PASA A MODO DIRIGIDO");
 		
-		msg.setModo(MSGSetModoDirigido.NORMAL);
+		msg.setModo(MSGSetModo.NORMAL);
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE PASA A MODO NORMAL");
 		
-		MSGResultadosCraps resCraps = new MSGResultadosCraps(); 
+		MSGResultadosCrapsModo resCraps = new MSGResultadosCrapsModo(); 
 		try {
 			((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(6, 6));
 		} catch (CrapsException e) {
@@ -52,7 +52,7 @@ public class TestServicionModoDirigido {
 		}
 		
 		msg.getResultados().add(resCraps);
-		msg.setModo(MSGSetModoDirigido.DIRIGIDO);
+		msg.setModo(MSGSetModo.DIRIGIDO);
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE PASA A MODO DIRIGIDO CON 1 JUGADA >> NO HAY SETEADOR DE RES PARA CRAPS");
@@ -63,7 +63,7 @@ public class TestServicionModoDirigido {
 		
 		logger.error("  --- MENSAJE PASA A MODO DIRIGIDO CON 1 JUGADA");
 		
-		msg.setModo(MSGSetModoDirigido.NORMAL);
+		msg.setModo(MSGSetModo.NORMAL);
 		try {
 			((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(1, 1));
 			((List<ResultadoCraps>)resCraps.getResultados()).add(new ResultadoCraps(1, 1));
@@ -75,7 +75,7 @@ public class TestServicionModoDirigido {
 		
 		logger.error("  --- MENSAJE PASA A MODO NORMAL");
 		
-		msg.setModo(MSGSetModoDirigido.DIRIGIDO);
+		msg.setModo(MSGSetModo.DIRIGIDO);
 		SrvAdministracion.setModoDirigido(msg);
 		
 		logger.error("  --- MENSAJE PASA A MODO DIRIGIDO CON 3 JUGADAS");

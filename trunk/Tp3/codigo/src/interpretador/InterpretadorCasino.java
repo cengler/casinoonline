@@ -7,6 +7,7 @@ import parser.ParserCasino;
 import parser.ParserException;
 import servicios.SrvAdministracion;
 import casino.msg.MSGAbrirCasino;
+import casino.msg.MSGCerrarCasino;
 import core.IMessage;
 
 public class InterpretadorCasino implements IInterpretadorCasino {
@@ -34,9 +35,9 @@ public class InterpretadorCasino implements IInterpretadorCasino {
 		}
 		
 		if(mensajeObj instanceof MSGAbrirCasino)
-		{
 			SrvAdministracion.abrirCasino((MSGAbrirCasino)mensajeObj);
-		}
+		if(mensajeObj instanceof MSGCerrarCasino)
+			SrvAdministracion.cerrarCasino((MSGCerrarCasino)mensajeObj);
 		
 		// FALTA RESTO
 		

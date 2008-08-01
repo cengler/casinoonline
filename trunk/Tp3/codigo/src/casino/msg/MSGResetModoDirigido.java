@@ -1,6 +1,6 @@
 package casino.msg;
 
-public class MSGResetModoDirigido extends MSGModo {
+public class MSGResetModoDirigido extends MSGAdministracion {
 	
 	
 	

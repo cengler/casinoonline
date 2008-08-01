@@ -7,6 +7,10 @@ import parser.ParserAdministracion;
 import parser.ParserException;
 import servicios.SrvAdministracion;
 import casino.msg.MSGAbrirCasino;
+import casino.msg.MSGAdministracion;
+import casino.msg.MSGCerrarCasino;
+import casino.msg.MSGSetJugada;
+import casino.msg.MSGSetModo;
 import core.IMessage;
 
 /**
@@ -39,7 +43,7 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 	public IMessage interpretar(IMessage mensaje) {
 		
 		Object mensajeObj = null;
-		MSGAbrirCasino rta = null;
+		MSGAdministracion rta = null;
 		String nombreArchivo = mensaje.getName();
 		try 
 		{
@@ -57,10 +61,16 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 		}
 		
 		if(mensajeObj instanceof MSGAbrirCasino)
-		{
 			rta = SrvAdministracion.abrirCasino((MSGAbrirCasino)mensajeObj);
-		}
+		else if(mensajeObj instanceof MSGCerrarCasino)
+			rta = SrvAdministracion.cerrarCasino((MSGCerrarCasino)mensajeObj);
+		else if(mensajeObj instanceof MSGSetJugada)
+			rta = SrvAdministracion.setearJugada((MSGSetJugada)mensajeObj);
+		else if(mensajeObj instanceof MSGSetModo)
+			rta = SrvAdministracion.setModoDirigido((MSGSetModo)mensajeObj);
 		
+
+			
 		logger.debug("rta: ---------> " + rta);
 		
 		try {

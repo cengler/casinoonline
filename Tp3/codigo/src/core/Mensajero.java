@@ -34,7 +34,8 @@ public abstract class Mensajero implements Runnable {
 				if(msg != null)
 				{
 					IMessage rta = onMessage(msg);
-					send(rta, "");
+					logger.debug("Se va a enviar: " + msg);
+					send(rta, rta.getName());
 				}
 			}
 		} catch (MensajeroException e) {

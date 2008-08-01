@@ -14,6 +14,7 @@ import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.core.TipoJugada;
+import casino.msg.estadoCasino.IMSGJuego;
 import casino.msg.estadoCasino.MSGJugador;
 import casino.msg.estadoCasino.MSGMesaCraps;
 import casino.msg.estadoCasino.MSGProximoTiro;
@@ -52,37 +53,35 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		return instance;
 	}
 	
-	public MSGCraps estadoDeCraps(){
-		
+	public IMSGJuego estadoDeJuego()
+	{	
 		MSGCraps mensaje = new MSGCraps();
-		
 		List<MSGMesaCraps> mesasCraps = new ArrayList<MSGMesaCraps>();
+		
 		//seteos de las mesas
-		for(MesaCraps m : mesas){
-			
+		for(MesaCraps m : mesas)
+		{
 			MSGMesaCraps msgC = new MSGMesaCraps();
 			//a MSGMesaCraps le seteo el id
 			msgC.setId(m.getId());
 			//seteo los jugadores de una mesa m
 			List<MSGJugador> jugadores = new ArrayList<MSGJugador>();
 			//una Mesa tiene IJugadores pero MSGMesaCraps tiene MSGJugador
-			for(IJugador j : m.getJugadores()){
-				
+			for(IJugador j : m.getJugadores())
+			{	
 				MSGJugador msgJug = new MSGJugador();
 				msgJug.setNombre(msgJug.getNombre());
-				jugadores.add(msgJug);
-				
+				jugadores.add(msgJug);	
 			}
 			msgC.setJugadores(jugadores);
 			
 			//seteo del proximo tiro de una mesa
 			MSGProximoTiro proximoTiro = new MSGProximoTiro();
 			proximoTiro.setTirador(m.getTirador().getNombre());
-			if (m.isPuck() == true){//no es tiro de salida
-				proximoTiro.setTiroSalida("NO");	
-			}else{
-				proximoTiro.setTiroSalida("SI");
-			}
+			if (m.isPuck() == true) //no es tiro de salida
+				proximoTiro.setTiroSalida("NO"); 	
+			else
+				proximoTiro.setTiroSalida(MSGProximoTiro.SI); //TODO
 			proximoTiro.setPunto(m.getPunto());
 			msgC.setProximoTiro(proximoTiro);
 			
@@ -90,11 +89,9 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			MSGUltimoTiroCraps ultimoTiro = new MSGUltimoTiroCraps();
 			ultimoTiro.setTirador(m.getTiradorAnterior().getNombre());
 			ultimoTiro.setResultado(m.getUltimoResultado());
-			
 			msgC.setUltimoTiro(ultimoTiro);
 			mesasCraps.add(msgC);
 		}
-		
 		mensaje.setMesasCraps(mesasCraps);
 		return mensaje;		
 	}

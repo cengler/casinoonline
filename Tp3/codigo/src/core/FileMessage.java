@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 
 public class FileMessage implements IMessage {
 
-	//private File file;
 	private String data;
 	private String name;
 	private static Logger logger = Logger.getLogger(FileMessage.class);
@@ -28,6 +27,7 @@ public class FileMessage implements IMessage {
 			}
 			br.close();
 			data = sb.toString();
+			name = file.getName();
 		} catch (Exception e) 
 		{
 			logger.error("No se ha podido leer el archivo: " + file.getName() + " por la sig razon: " + e.getMessage());

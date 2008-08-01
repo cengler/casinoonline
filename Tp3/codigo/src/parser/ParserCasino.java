@@ -6,21 +6,10 @@ import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 
-import casino.msg.MSGEntradaCasino;
-import casino.msg.MSGSalidaCasino;
-import casino.msg.estadoCasino.IMSGJuego;
-import casino.msg.estadoCasino.MSGCraps;
-import casino.msg.estadoCasino.MSGEstadoCasino;
-import casino.msg.estadoCasino.MSGJugador;
-import casino.msg.estadoCasino.MSGMesaCraps;
-import casino.msg.estadoCasino.MSGObservador;
-import casino.msg.estadoCasino.MSGPozo;
+import casino.msg.MSGAbrirCasino;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-
-import craps.msg.MSGProxTiro;
-import craps.msg.MSGUltimoTiro;
 
 
 
@@ -33,6 +22,14 @@ public class ParserCasino extends Parser{
 	private ParserCasino()
 	{
 		xstream = new XStream(new DomDriver()); 
+		
+		
+		//ABRIR CASINO
+		xstream.alias("abrirCasino", MSGAbrirCasino.class);
+		
+		
+		
+		/*
 		
 		xstream.alias("estadoCasino", MSGEstadoCasino.class);
 		xstream.aliasAttribute(MSGEstadoCasino.class, "vTerm", "vTerm");
@@ -83,7 +80,7 @@ public class ParserCasino extends Parser{
 		xstream.aliasAttribute(MSGSalidaCasino.class, "usuario", "usuario");
 		xstream.aliasAttribute(MSGSalidaCasino.class, "aceptado", "aceptado");
 		
-		
+		*/
 		
 	
 	}

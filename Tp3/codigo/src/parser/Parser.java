@@ -11,15 +11,19 @@ public abstract class Parser {
 	
 	public Object parse(IMessage is) throws ParserException
 	{	
-		logger.debug("parseando..." + is.getName() );
-		Object message;
-		message = xstream.fromXML(is.getData());
-		
+		logger.debug("parseando... " + is.getName() );
+		Object message; 
+		String s = is.getData();
+		message = xstream.fromXML(s.trim());
 		return message;
 	}
 	
 	/**
-	 * {@inheritDoc}
+	 * Senderiza dentro del IMensaje al mensaje recibido como primer parametro.
+	 * 
+	 * @param msg mensaje a renderizar
+	 * @param imsg IMensaje a llenar con la informacion 
+	 * @throws ParserException en caso de un error en el parser
 	 */
 	public void renderizar(Object msg, IMessage imsg) throws ParserException
 	{

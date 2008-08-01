@@ -2,6 +2,8 @@ package casino;
 
 import java.util.List;
 
+import casino.msg.estadoCasino.IMSGJuego;
+
 import craps.MesaCraps;
 
 /**
@@ -35,7 +37,7 @@ public abstract class ManejadorMesa
 	
 	public abstract String getName();
 
-	
+	public abstract IMSGJuego estadoDeJuego();
 	
 	public abstract IMesa getMesa(int id);
 	

@@ -79,7 +79,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			MSGProximoTiro proximoTiro = new MSGProximoTiro();
 			proximoTiro.setTirador(m.getTirador().getNombre());
 			if (m.isPuck() == true) //no es tiro de salida
-				proximoTiro.setTiroSalida("NO"); 	
+				proximoTiro.setTiroSalida(MSGProximoTiro.NO); 	
 			else
 				proximoTiro.setTiroSalida(MSGProximoTiro.SI); //TODO
 			proximoTiro.setPunto(m.getPunto());

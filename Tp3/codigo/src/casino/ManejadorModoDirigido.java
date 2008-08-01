@@ -105,6 +105,9 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 	 */
 	public MSGSetModo setModoDirigido(MSGSetModo mensaje)
 	{	
+		
+		// TODO validar casino abierto y otras cosas
+		
 		if(mensaje.getModo().equals(MSGSetModo.DIRIGIDO) )
 		{
 			if(!Casino.getInstance().isModoNormal())

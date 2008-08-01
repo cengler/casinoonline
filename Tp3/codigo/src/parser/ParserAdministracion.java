@@ -4,7 +4,6 @@ import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResultadoCrapsModo;
 import casino.msg.MSGResultadosCrapsModo;
-import casino.msg.MSGResultadosModo;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
 
@@ -36,7 +35,8 @@ public class ParserAdministracion extends Parser{
 		xstream.alias("setModo", MSGSetModo.class);
 		xstream.alias("resultadosCraps", MSGResultadosCrapsModo.class);
 		xstream.alias("resultadoCraps", MSGResultadoCrapsModo.class);
-		
+		xstream.aliasAttribute(MSGResultadoCrapsModo.class, "dado1", "dado1");
+		xstream.aliasAttribute(MSGResultadoCrapsModo.class, "dado2", "dado2");
 		
 		
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class MSGResultadosModo {
 
-	public abstract List< ? > getResultados();
+	public abstract List< MSGResultadoModo > getResultados();
 	public abstract String getName();
 	
 }

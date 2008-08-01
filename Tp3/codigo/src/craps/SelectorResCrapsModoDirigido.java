@@ -66,6 +66,11 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 	 */
 	public void setResultados(List< ? > lista) throws CasinoException
 	{	
+		if(lista == null || lista.size() == 0)
+		{
+			logger.error("La lista de resultados a setear debe contener al menos un resultado");
+			throw new CasinoException("La lista de resultados a setear debe contener al menos un resultado");
+		}
 		resultados = new ArrayList<ResultadoCraps>();
 		for(Object o : lista)
 		{

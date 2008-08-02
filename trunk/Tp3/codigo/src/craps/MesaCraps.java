@@ -17,8 +17,8 @@ public class MesaCraps extends Observable implements IMesa {
 	private boolean puck;
 	private int punto;
 	private IJugador tirador;
-	private IJugador tiradorAnterior;//TODO ver en los metodos donde se cambie el tirador.
-	private int ultimoResultado; //TODO setear donde correponda.
+	private IJugador tiradorAnterior;
+	private int ultimoResultado; 
 	private ManejadorDeApuestas pagador;
 	private static Logger logger = Logger.getLogger(MesaCraps.class);
 	
@@ -97,7 +97,32 @@ public class MesaCraps extends Observable implements IMesa {
 	}
 
 	public boolean tieneApuestasActivas(IJugador jugador) {
-		// TODO HACER
+		// TODOMERY revisar
+		
+		ManejadorDeApuestas manAp = this.getPagador();
+		//obtengo las apuestas de la mesa.
+		List<ApuestaCraps> apuestas = manAp.getApuestas();
+		//recorro las apuestas para ver si "jugador" tiene apuestas activas en la mesa
+		int i = 0;
+		boolean res = false;
+		while (i < apuestas.size() && res == false){
+			
+			IJugador apostador = apuestas.get(i).getApostador();
+			boolean activa = apuestas.get(i).isActiva();
+			
+			if(apostador == jugador || activa == true){
+				
+				res = true;
+			}else{
+				
+				i++;
+				
+			}
+			
+			return res;
+		}
+		
+	
 		return false;
 	}
 

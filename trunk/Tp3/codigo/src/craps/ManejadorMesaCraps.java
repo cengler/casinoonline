@@ -11,6 +11,7 @@ import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
+import casino.ManejadorCasino;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.core.TipoJugada;
 import casino.msg.estadoCasino.MSGJugador;
@@ -26,7 +27,7 @@ import craps.msg.MSGOpcionApuesta;
 import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
-
+import craps.msg.MSGValorFicha;
 /**
  * ManejadorMesaCraps.
  * 
@@ -80,7 +81,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			if (m.isPuck() == true) //no es tiro de salida
 				proximoTiro.setTiroSalida(MSGProximoTiro.NO); 	
 			else
-				proximoTiro.setTiroSalida(MSGProximoTiro.SI); //TODO
+				proximoTiro.setTiroSalida(MSGProximoTiro.SI); 
 			proximoTiro.setPunto(m.getPunto());
 			msgC.setProximoTiro(proximoTiro);
 			
@@ -95,8 +96,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		return mensaje;		
 	}
 	
-	
-	// METODOS DE SERVICIOS EXTERNOS
+	//metodos de servicios externos
 	
 	/**
 	 * {@inheritDoc}
@@ -235,25 +235,33 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			        	
 			        
 					//VALIDO FICHAS y si son validas calculo el monto a apostar
-								
-					//ManejadorCasino manCas = ManejadorCasino.getInstance();
+		//TODOMERY 	//como el manejador de casino es singleton, lo puedo hacer			
+					ManejadorCasino manCas = ManejadorCasino.getInstance();
 					
-					// TODO NO SE PUEDE PARAR UN MSG CRAPS A CASINO
-					boolean fichasValidas = true;
-					//= manCas.validarFichas(mensaje.getValorApuesta());
-					int calculoAApostar = 0;
-					//= manCas.calcularMontoAApostar(mensaje.getValorApuesta());
+					//separo lo que apuesta en dos listas de igual longitud.
+					List<Integer> fichas = new ArrayList<Integer>();
+					List<Integer> cantidades = new ArrayList<Integer>();
+					for (MSGValorFicha vf : mensaje.getValorApuesta()){
+						
+						fichas.add(vf.getValor());
+						cantidades.add(vf.getCantidad());
+					}
 					
-					
+			        boolean fichasValidas = manCas.validarFichas(fichas);
+						
 				if (fichasValidas == false){
 				
 				mensaje.setAceptado(MSGApostarCraps.NO);
 				mensaje.setDescripcion("Las fichas a apostar no corresponden a fichas validas");
 				logger.info("Las fichas a apostar no corresponden a fichas validas");
 				}else{
-				IJugador jugador = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
-				boolean montoValido = manJug.montoValidoPara(jugador,calculoAApostar);
-				if (montoValido == true){
+					
+					//si las fichas son validas....
+					int calculoAApostar = manCas.calcularMontoAApostar(fichas, cantidades);
+					
+					IJugador jugador = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+					boolean montoValido = manJug.montoValidoPara(jugador,calculoAApostar);
+					if (montoValido == true){
 					MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
 					TipoApuestaCraps tipoAp = opAp.getTipoApuesta();
 					int puntaje = opAp.getPuntajeApostado();
@@ -264,20 +272,20 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					mensaje.setAceptado(MSGApostarCraps.SI);
 					mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
 					logger.info("El jugador ha realizado una apuesta de tipo:" +tipoAp + "y ha apostado:" + calculoAApostar );
-				}else{
+					}else{
 					
-					mensaje.setAceptado(MSGApostarCraps.NO);
-					mensaje.setDescripcion("El jugador no posee fondos para dicha apuesta");
-					logger.info("El jugador no posee fondos para dicha apuesta");
-					}
-			 }
+							mensaje.setAceptado(MSGApostarCraps.NO);
+							mensaje.setDescripcion("El jugador no posee fondos para dicha apuesta");
+							logger.info("El jugador no posee fondos para dicha apuesta");
+						  }
 				}
-		}
+			   }
+			  }
 		
 			}		
 		
 			
-		}
+		   }
 		}
 		return mensaje;
 	}	/**

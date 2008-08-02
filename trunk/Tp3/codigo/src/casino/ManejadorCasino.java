@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+import java.util.Map;
 import org.apache.log4j.Logger;
 
 import casino.msg.MSGAbrirCasino;
@@ -95,11 +95,10 @@ public class ManejadorCasino implements IServiciosCasino {
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 		
-		// TODO ver puede ser cualqueir jugador ( validar invitado)
 		
 		if(jug == null && !(manJug.getInvitados().contains(mensaje.getUsuario())))
 		{
-			// TODO agregar descripcion
+			
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
 			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
 		}
@@ -259,48 +258,47 @@ public class ManejadorCasino implements IServiciosCasino {
 		this.manejadores = manejadores;
 	}*/
 
-	public boolean validarFichas(){  // List<MSGValorFicha> fichas
+	//TODOMERY cheuqear que sea correcto y no rompa dependencias
+	public boolean validarFichas(List<Integer> fichas){  
 		
-		//int i = 0;
+		int i = 0;
 		boolean fichaValida = true;
-		// TODO NO PUEDE RECIBIR MSG DE CRAPS
-		/*Casino cas = Casino.getInstance();
+		Casino cas = Casino.getInstance();
 		Map<Integer, Integer> valores = cas.getValores();
 		while (i < fichas.size() && fichaValida == true){
-			
-			MSGValorFicha vf = fichas.get(i);
-				if(valores.containsKey(vf.getValor())){//chequeo si es una ficha valida
+			int vf = fichas.get(i);
+			if(valores.containsKey(vf)){//chequeo si es una ficha valida
 				
 				i++;
 			}else{
 			  	fichaValida = false;
   					
 			}
-		}*/
+		}
 		return fichaValida;
-	
+		
 	}
 	
-	
-	public int calcularMontoAApostar(){ //List<MSGValorFicha> fichas
 		
-		//int i = 0;
+	public int calcularMontoAApostar(List<Integer> fichas, List<Integer> cantidades){ //List<MSGValorFicha> fichas
+		
+		int i = 0;
 		int calculoAApostar = 0;
-		/*Casino cas = Casino.getInstance();
+		Casino cas = Casino.getInstance();
 		Map<Integer, Integer> valores = cas.getValores();
 		
 		while (i < fichas.size() ){
 						
-			MSGValorFicha vf = fichas.get(i);
-			
-			if(valores.containsKey(vf.getValor())){//chequeo si es una ficha valida
+			int vf = fichas.get(i);
+			int cantFicha = cantidades.get(i);
+			if(valores.containsKey(vf)){//chequeo si es una ficha valida
 				//obtengo el significado de esa clave
-				int valor = valores.get(vf.getValor());
-				calculoAApostar = calculoAApostar + (vf.getCantidad()* valor);
+				int valor = valores.get(vf);
+				calculoAApostar = calculoAApostar + (cantFicha* valor);
 				i++;
 					
 			}
-		}*/
+		}
 		
 		return calculoAApostar;
 	

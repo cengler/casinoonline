@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  */
 public class Jugador implements IJugador {
 
-	private int IdVirt;
+	private String IdVirt;
 	private boolean logeado;
 	private boolean vip;
 	private boolean modoObservador;
@@ -27,11 +27,11 @@ public class Jugador implements IJugador {
 		logeado = false;
 	}
 
-	public int getIdVirt() {
+	public String getIdVirt() {
 		return IdVirt;
 	}
 
-	public void setIdVirt(int idVirt) {
+	public void setIdVirt(String idVirt) {
 		IdVirt = idVirt;
 	}
 

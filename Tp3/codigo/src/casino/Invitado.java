@@ -9,7 +9,7 @@ package casino;
  */
 public class Invitado implements IInvitado {
 
-	private int idVirt;
+	private String idVirt;
 	private String nombre;
 	//private Logger logger = Logger.getLogger(Jugador.class);
 	
@@ -21,11 +21,11 @@ public class Invitado implements IInvitado {
 	/**
 	 * {@inheritDoc}
 	 */
-	public int getIdVirt() {
+	public String getIdVirt() {
 		return idVirt;
 	}
 
-	public void setIdVirt(int idVirt) {
+	public void setIdVirt(String idVirt) {
 		this.idVirt = idVirt;
 	}
 

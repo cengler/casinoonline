@@ -31,7 +31,7 @@ public class TestServiciosCraps {
 	{
 		MSGEntradaCraps mensaje = new MSGEntradaCraps();
 		mensaje.setUsuario("pepe");
-		mensaje.setVTerm(50);
+		mensaje.setVTerm("50");
 		
 		
 		SrvCraps.entrarCraps(mensaje);
@@ -57,13 +57,13 @@ public class TestServiciosCraps {
 	{
 		MSGEntradaCraps mensaje = new MSGEntradaCraps();
 		mensaje.setUsuario("pepe");
-		mensaje.setVTerm(50);
+		mensaje.setVTerm("50");
 		mensaje.setMesa(20);
 		
 		// agrego a pepe
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
-		pepe.setIdVirt(50);
+		pepe.setIdVirt("50");
 		pepe.setLogeado(true);
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
 		
@@ -81,20 +81,20 @@ public class TestServiciosCraps {
 		
 		MSGTiroCraps mensaje = new MSGTiroCraps();
 		mensaje.setUsuario("pepe");
-		mensaje.setVTerm(50);
+		mensaje.setVTerm("50");
 		mensaje.setMesa(20);
 		
 		SrvCraps.tirarCraps(mensaje);
 		
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
-		pepe.setIdVirt(50);
+		pepe.setIdVirt("50");
 		pepe.setLogeado(true);
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
 		
 		Jugador juana = new Jugador();
 		juana.setNombre("juana");
-		juana.setIdVirt(50);
+		juana.setIdVirt("50");
 		juana.setLogeado(true);
 		ManejadorJugador.getInstance().getJugadores().add(juana);
 		
@@ -135,7 +135,7 @@ public class TestServiciosCraps {
 		
 		MSGApostarCraps mensaje = new MSGApostarCraps();
 		mensaje.setUsuario("pepe");
-		mensaje.setVTerm(50);
+		mensaje.setVTerm("50");
 		mensaje.setMesa(20);
 		
 		SrvCraps.apostarCraps(mensaje);
@@ -144,14 +144,14 @@ public class TestServiciosCraps {
 		
 		Jugador pepe = new Jugador();
 		pepe.setNombre("pepe");
-		pepe.setIdVirt(50);
+		pepe.setIdVirt("50");
 		pepe.setLogeado(true);
 		ManejadorJugador.getInstance().getJugadores().add(pepe);
 		
 		
 		Jugador juana = new Jugador();
 		juana.setNombre("juana");
-		juana.setIdVirt(50);
+		juana.setIdVirt("50");
 		juana.setLogeado(true);
 		
 		ManejadorJugador.getInstance().getJugadores().add(juana);

@@ -28,7 +28,6 @@ public class SeleccionadorTipoJugadaPorModo implements ISeleccionadorTipoJugada 
 	 */
 	public TipoJugada getTipoJugada(IMesa mesa) 
 	{
-		// TODO VER SI CAMBIAR DISEÑO
 		ICasino c = Casino.getInstance();
 		TipoJugada tj = null;
 		if(c.isModoNormal())

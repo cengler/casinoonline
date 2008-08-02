@@ -22,8 +22,8 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class ConfigurationParser {
 
 	private XStream xstream;
-	private static String LISTA_JUG = "I:/- 21-07-08/TPPP/Tp3/codigo/xml/abrir.xml" ; 
-	// TODO ruta relativa ^
+	private static String LISTA_JUG = "configuration/listaJugadores.xml" ; 
+	//private static String LISTA_JUG = "." ;
 	private static Logger logger = Logger.getLogger(ConfigurationParser.class);
 	private static ConfigurationParser instance; 
 	

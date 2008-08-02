@@ -2,11 +2,13 @@ package casino;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import casino.msg.MSGCasino;
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
 
@@ -45,8 +47,86 @@ public class ManejadorJugador implements IServiciosJugador {
 	 * {@inheritDoc}
 	 */
 	public MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
-		//TODO
-		return null;
+		
+		if(!Casino.getInstance().isAbierto())
+		{
+			mensaje.setAceptado(MSGCasino.NO);
+			mensaje.setDescripcion("El casino no esta abierto");
+		}
+		else
+		{
+			if( mensaje.getModoAcceso().equals(MSGEntradaCasino.MODO_JUGADOR) )
+			{
+				IJugador jugador = getJugador(mensaje.getUsuario());
+				
+				if(jugador == null)
+				{
+					mensaje.setAceptado(MSGCasino.NO);
+					mensaje.setDescripcion("El jugador no esta registrado en el casino");
+				}
+				else if (jugador.isLogeado())
+				{
+					mensaje.setAceptado(MSGCasino.NO);
+					mensaje.setDescripcion("El jugador ya esta logeado en el casino");
+				}
+				else
+				{
+					Jugador jugadorImpl = (Jugador)jugador;
+					jugadorImpl.setLogeado(true);
+					jugadorImpl.setModoObservador(false);
+					jugadorImpl.setIdVirt(mensaje.getVTerm());
+					
+					mensaje.setAceptado(MSGCasino.SI);
+					mensaje.setDescripcion("El jugador ha sido logeado");
+					mensaje.setSaldo(jugadorImpl.getSaldo());
+				}
+			}
+			else if( mensaje.getModoAcceso().equals(MSGEntradaCasino.MODO_OBSERVADOR) )
+			{
+				IJugador jugador = getJugador(mensaje.getUsuario());
+				
+				if(jugador == null)
+				{
+					// NO ES JUGADOR ES SOLO OBSERVADOR
+					if (getInvitado(mensaje.getUsuario()) == null)
+					{
+						Invitado inv = new Invitado();
+						inv.setIdVirt(mensaje.getVTerm());
+						inv.setNombre(mensaje.getUsuario());
+						invitados.add(inv);
+					}
+					else
+					{
+						// YA ESTA LOGEADO COMO OBSERVADOR
+						mensaje.setAceptado(MSGCasino.NO);
+						mensaje.setDescripcion("El cliente ya se encuentra logeado como invitado");
+					}
+				}
+				else if (jugador.isLogeado())
+				{
+					mensaje.setAceptado(MSGCasino.NO);
+					mensaje.setDescripcion("El jugador ya esta logeado en el casino");
+				}
+				else
+				{
+					// ES UN JUGADOR ENTRANDO CONO OBSERVADOR
+					Jugador jugadorImpl = (Jugador)jugador;
+					jugadorImpl.setLogeado(true);
+					jugadorImpl.setModoObservador(true);
+					jugadorImpl.setIdVirt(mensaje.getVTerm());
+					
+					mensaje.setAceptado(MSGCasino.SI);
+					mensaje.setDescripcion("El jugador ha sido logeado como observaror");
+					mensaje.setSaldo(jugadorImpl.getSaldo());
+				}
+			}
+			else
+			{
+				mensaje.setAceptado(MSGCasino.NO);
+				mensaje.setDescripcion("El modo de acceso no existe");
+			}
+		}
+		return mensaje;
 	}
 
 	/**
@@ -87,28 +167,29 @@ public class ManejadorJugador implements IServiciosJugador {
 	
 	// FUNCIONES VARIAS
 	
-	public IJugador getJugadorLoggeado(String nombreJugador, int idTerm)
+	public IJugador getJugadorLoggeado(String nombreJugador, String idTerm)
 	{
 		for(IJugador jug : jugadores)
 		{
 			if( (jug.getNombre().equals(nombreJugador)) ) 
 			{
 				
-				if( ((jug.getIdVirt() == idTerm) && (jug.isLogeado())) )
+				if( ((jug.getIdVirt().equals(idTerm)) && (jug.isLogeado()) && !jug.isModoObservador()) )
 					return jug;
 			}	
-			else
-				return null;
 		}
 		return null;
 	}
 	
 	
-	public void acreditar(IJugador jugador, int b){}
+	/*public void acreditar(IJugador jugador, int b){}
 
-	public void AcreditarSaldo(Jugador jugador, int a, int b){}
+	public void AcreditarSaldo(Jugador jugador, int a, int b){}*/
 
-	public void debitarMonto(IJugador jugador, int a){	}
+	public void debitarMonto(IJugador jugador, int a)
+	{
+		//TODO
+	}
 
 	public boolean estaJugando(IJugador jugador)
 	{
@@ -123,14 +204,42 @@ public class ManejadorJugador implements IServiciosJugador {
 	}
 
 	public ICliente getCliente(int idVitrual, String nombre){
+		// TODO
 		return null;
 	}
 
-	public boolean getJugador(String jugador){
-		return false;
+	public IJugador getJugador(String jugador)
+	{
+		boolean res = false;
+		IJugador jug = null;
+		Iterator<IJugador> i = jugadores.iterator();
+		while(i.hasNext() && !res)
+		{
+			jug = i.next();
+			res = jug.getNombre().equals(jugador);
+		}
+		if(res)
+			return jug;
+		return null;
+	}
+	
+	public IInvitado getInvitado(String invitado)
+	{
+		boolean res = false;
+		IInvitado inv = null;
+		Iterator<IInvitado> i = invitados.iterator();
+		while(i.hasNext() && !res)
+		{
+			inv = i.next();
+			res = inv.getNombre().equals(invitado);
+		}
+		if(res)
+			return inv;
+		return null;
 	}
 
 	public boolean montoValidoPara(IJugador jugador, int monto){
+		//TODO
 		return false;
 	}
 	

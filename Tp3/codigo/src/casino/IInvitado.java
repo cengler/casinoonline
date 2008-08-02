@@ -15,7 +15,7 @@ public interface IInvitado extends ICliente {
 	 * 
 	 * @return el id de la terminal virtual
 	 */
-	int getIdVirt();
+	String getIdVirt();
 	
 	/**
 	 * Geter del nombre del invitado.

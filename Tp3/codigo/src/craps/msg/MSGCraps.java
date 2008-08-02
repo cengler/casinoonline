@@ -5,7 +5,7 @@ public class MSGCraps {
 	public static String SI = "SI";
 	public static String NO = "NO";
 	
-	private int vTerm;
+	private String vTerm;
 	private String usuario;
 	
 	/**
@@ -57,11 +57,11 @@ public class MSGCraps {
 		this.usuario = usuario;
 	}
 	
-	public int getVTerm() {
+	public String getVTerm() {
 		return vTerm;
 	}
 	
-	public void setVTerm(int term) {
+	public void setVTerm(String term) {
 		vTerm = term;
 	}
 	

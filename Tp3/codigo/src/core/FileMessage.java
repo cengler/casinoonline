@@ -8,13 +8,25 @@ import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
 
+/**
+ * FileMessage. Representa un mensaje que llega el casino y es entregado al interpretador.
+ * Esta implementacion de IMessage, obtiene la informacion de un archivo.
+ * 
+ * @author Grupo2
+ *
+ */
 public class FileMessage implements IMessage {
 
 	private String data;
 	private String name;
 	private static Logger logger = Logger.getLogger(FileMessage.class);
 	
-	
+	/**
+	 * Constructor.
+	 * 
+	 * @param file Archivo del cuan obtener la informacion.
+	 * @throws MensajeroException En caso de tener problemas con el archivo. (Lectura)
+	 */
 	public FileMessage(File file) throws MensajeroException
 	{
 		try {
@@ -36,73 +48,31 @@ public class FileMessage implements IMessage {
 		
 	}
 
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public String getData() {
 		return data;
 	}
 
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public void setData(String data) {
 		this.data = data;
 	}
 
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public String getName() {
 		return name;
 	}
-
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
-	
-	
-	/*public File getFile()
-	{
-		return file;
-	}*/
-
-	/*public InputStream getInputStream() throws NoDataException {
-		
-		InputStream is = null;
-		try {
-			is = new FileInputStream(file);
-		} catch (FileNotFoundException e) {
-			logger.error("No se ha encontrado el archivo " + name, e);
-			throw new NoDataException(e);
-		}
-		
-		return is;
-	}*/
-
-	/*public Date getDate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getFrom() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getTo() {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-
-	/*public OutputStream getOutputStream()
-	{
-		OutputStream os = null;
-		try {
-			os = new FileOutputStream(file, false);
-		} catch (FileNotFoundException e) {
-			logger.error("No se ha encontrado el archivo " + name, e);
-			// TODO ex
-		}
-		return os;
-	}*/
 }

@@ -1,26 +1,12 @@
 package parser;
 
-import casino.msg.MSGJugador;
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import craps.msg.MSGApostarCraps;
-import craps.msg.MSGApuesta;
-import craps.msg.MSGApuestasVigentes;
 import craps.msg.MSGCraps;
 import craps.msg.MSGEntradaCraps;
-import craps.msg.MSGEstadoCraps;
-import craps.msg.MSGOpcionApuesta;
-import craps.msg.MSGPremio;
-import craps.msg.MSGProxTiro;
-import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
-import craps.msg.MSGTiroCraps;
-import craps.msg.MSGUltimoTiro;
-import craps.msg.MSGValorFicha;
-
-
 
 public class ParserCraps extends Parser {
 	
@@ -35,8 +21,6 @@ public class ParserCraps extends Parser {
 		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
 		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
 		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
-		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
-		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
 		
 		// ENTRADA CRAPS
 		xstream.alias("entradaCraps", MSGEntradaCraps.class);
@@ -48,7 +32,11 @@ public class ParserCraps extends Parser {
 		xstream.alias("apostarCraps", MSGApostarCraps.class);
 		xstream.aliasAttribute(MSGApostarCraps.class, "valorApuesta", "valorApuesta");
 		
-		xstream.alias("valorFicha", MSGValorFicha.class);
+		
+		
+		
+		
+		/*xstream.alias("valorFicha", MSGValorFicha.class);
 		xstream.aliasAttribute(MSGValorFicha.class, "cantidad", "cantidad");
 		xstream.aliasAttribute(MSGValorFicha.class, "valor", "valor");
 		xstream.aliasAttribute(MSGApostarCraps.class, "opcionApuesta", "opcionApuesta");
@@ -93,7 +81,7 @@ public class ParserCraps extends Parser {
 		xstream.aliasAttribute(MSGApuesta.class, "opcionApuesta", "opcionApuesta");
 		xstream.alias("opcionApuesta", MSGOpcionApuesta.class);
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
-		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
+		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");*/
 	}
 	
 	public static ParserCraps getInstance()

@@ -1,48 +1,53 @@
 package parser;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import craps.msg.*;
-import org.apache.log4j.Logger;
-
 import casino.msg.MSGJugador;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+import craps.msg.MSGApostarCraps;
+import craps.msg.MSGApuesta;
+import craps.msg.MSGApuestasVigentes;
+import craps.msg.MSGCraps;
+import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGEstadoCraps;
+import craps.msg.MSGOpcionApuesta;
+import craps.msg.MSGPremio;
+import craps.msg.MSGProxTiro;
+import craps.msg.MSGResultadoCraps;
+import craps.msg.MSGSalidaCraps;
+import craps.msg.MSGTiroCraps;
+import craps.msg.MSGUltimoTiro;
+import craps.msg.MSGValorFicha;
 
 
-public class ParserCraps {
+
+public class ParserCraps extends Parser {
 	
-	private static Logger logger = Logger.getLogger(ParserCasino.class);
-	private static XStream xstream;
+	//private static Logger logger = Logger.getLogger(ParserCasino.class);
 	private static ParserCraps instance;
 	
 	private ParserCraps()
 	{
 		xstream = new XStream(new DomDriver()); 
 		
+		// MSG CRAPS
+		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
+		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
+		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
+		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
+		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
+		
+		// ENTRADA CRAPS
 		xstream.alias("entradaCraps", MSGEntradaCraps.class);
-		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
-		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
-		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
-		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
-		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
 		
+		// SALIDA CRAPS
 		xstream.alias("salidaCraps", MSGSalidaCraps.class);
-		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
-		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
-		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
-		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
-		xstream.aliasAttribute(MSGCraps.class, "descripcion", "descripcion");
 		
+		// APOSTAR CRAPS
 		xstream.alias("apostarCraps", MSGApostarCraps.class);
-		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
-		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
-		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
-		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
 		xstream.aliasAttribute(MSGApostarCraps.class, "valorApuesta", "valorApuesta");
+		
 		xstream.alias("valorFicha", MSGValorFicha.class);
 		xstream.aliasAttribute(MSGValorFicha.class, "cantidad", "cantidad");
 		xstream.aliasAttribute(MSGValorFicha.class, "valor", "valor");
@@ -51,20 +56,13 @@ public class ParserCraps {
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
 		
-		
+		// TIRAR CRAPS
 		xstream.alias("tiroCraps", MSGTiroCraps.class);
-		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
-		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
-		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
-		xstream.aliasAttribute(MSGCraps.class, "aceptado", "aceptado");
 		xstream.aliasAttribute(MSGTiroCraps.class, "tipoJugada", "tipoJugada");
 		xstream.aliasAttribute(MSGTiroCraps.class, "resultado", "resultado");
 		xstream.alias("resultado", MSGResultadoCraps.class);
 		
 		xstream.alias("estadoMesaCraps", MSGEstadoCraps.class);
-		xstream.aliasAttribute(MSGCraps.class, "vTerm", "vTerm");
-		xstream.aliasAttribute(MSGCraps.class, "usuario", "usuario");
-		xstream.aliasAttribute(MSGCraps.class, "mesa", "mesa");
 		xstream.aliasAttribute(MSGEstadoCraps.class, "jugadores", "jugadores");
 		xstream.alias("jugador", MSGJugador.class);
 		xstream.aliasAttribute(MSGJugador.class, "nombre", "nombre");
@@ -96,9 +94,6 @@ public class ParserCraps {
 		xstream.alias("opcionApuesta", MSGOpcionApuesta.class);
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
 		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
-		
-		
-		
 	}
 	
 	public static ParserCraps getInstance()
@@ -106,21 +101,5 @@ public class ParserCraps {
 		if(instance == null)
 			instance = new ParserCraps();
 		return instance;
-	}
-	
-	public Object parse(InputStream is)
-	{	
-		logger.debug("parseando...");
-		Object message = xstream.fromXML(is);
-		return message;
-		
-	}
-	
-	public void renderizar(Object msg, String path) throws FileNotFoundException
-	{	
-		FileOutputStream fos = new FileOutputStream(path);  
-		
-		xstream.toXML(msg, fos);
-		
 	}
 }

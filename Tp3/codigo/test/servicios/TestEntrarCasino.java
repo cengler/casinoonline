@@ -1,11 +1,5 @@
 package servicios;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
-import parser.ParserCraps;
-import craps.msg.MSGEntradaCraps;
 
 public class TestEntrarCasino {
 
@@ -23,7 +17,7 @@ public class TestEntrarCasino {
 			e.printStackTrace();
 		}
 		*/
-		InputStream is1;
+		/*InputStream is1;
 		try 
 		{
 			is1 = new FileInputStream("D:/casino/codigo/xml/entradaCraps.xml");
@@ -34,6 +28,6 @@ public class TestEntrarCasino {
 		catch (FileNotFoundException e) 
 		{
 			e.printStackTrace();
-		}
+		}*/
 	}
 }

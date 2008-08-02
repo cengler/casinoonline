@@ -94,11 +94,10 @@ public class ManejadorCasino implements IServiciosCasino {
 		
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
-		ManejadorInvitado manInv = ManejadorInvitado.getInstance();
 		
 		// TODO ver puede ser cualqueir jugador ( validar invitado)
 		
-		if(jug == null && !(manInv.getInvitados().contains(mensaje.getUsuario())))
+		if(jug == null && !(manJug.getInvitados().contains(mensaje.getUsuario())))
 		{
 			// TODO agregar descripcion
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");

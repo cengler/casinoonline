@@ -3,6 +3,8 @@ package server;
 import java.util.Date;
 
 import mensajero.MessageListenerAdministracion;
+import mensajero.MessageListenerCasino;
+import mensajero.MessageListenerCraps;
 
 import org.apache.log4j.Logger;
 
@@ -13,14 +15,13 @@ import core.MensajeroXArchivos;
 import craps.ManejadorMesaCraps;
 import craps.SelectorResCrapsModoDirigido;
 
-public class Start {
-
+public class Start
+{
 	Logger logger = Logger.getLogger(Start.class);
 	
+	Mensajero mAdministracion = null;
 	Mensajero mCasino = null; 
 	Mensajero mCraps = null;
-	Mensajero mAdministracion = null; 
-	Mensajero mTraga = null; 
 	Mensajero mEstadoCraps = null;
 	
 	public Start()
@@ -43,8 +44,18 @@ public class Start {
 			mAdministracion.setListener(new MessageListenerAdministracion()); 
 			mAdministracion.openConnection(); 
 			
+			mCasino = new MensajeroXArchivos(dir,"entradaCasino.*|salidaCasino.*|estadoCasino.*"); 
+			mCasino.setListener(new MessageListenerCasino()); 
+			mCasino.openConnection(); 
+			
+			mCraps = new MensajeroXArchivos(dir, "entradaCraps.*|salidaCraps.*|tirarCraps.*|apostarCraps.*");
+			mCraps.setListener(new MessageListenerCraps()); 
+			mCraps.openConnection();
+			
 			logger.debug("Iniciando mensajeros...");
 			new Thread(mAdministracion).start();
+			new Thread(mCasino).start();
+			new Thread(mCraps).start();
 			
 			logger.info("Servidor iniciado en: " + (new Date().getTime() - d.getTime()) + " milisegundos");
 			

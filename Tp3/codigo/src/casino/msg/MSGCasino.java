@@ -2,29 +2,34 @@ package casino.msg;
 
 public abstract class MSGCasino {
 
-	/*private boolean aceptado;
-	private int idVirt;
-	private String nombre;
+	private int vTerm;
+	private String usuario;
+	private String descripcion;
+	private String aceptado;
 	
-	public boolean isAceptado() {
+	public String getAceptado() {
 		return aceptado;
 	}
-	public void setAceptado(boolean aceptado) {
+	public void setAceptado(String aceptado) {
 		this.aceptado = aceptado;
 	}
-	public int getIdVirt() {
-		return idVirt;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setIdVirt(int idVirt) {
-		this.idVirt = idVirt;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-	public String getNombre() {
-		return nombre;
+	
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}*/
-
-
-
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public int getVTerm() {
+		return vTerm;
+	}
+	public void setVTerm(int term) {
+		vTerm = term;
+	}
 }

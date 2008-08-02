@@ -51,13 +51,9 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 		} 
 		catch (ParserException e) 
 		{
-			logger.error("Error en el parser");
+			logger.error("Error en el parser", e);
 			// TODO Auto-generated catch block
 			// ver como responder al error al usuario
-		}
-		catch(RuntimeException re)
-		{
-			logger.error("SE RE COLGO!", re);
 		}
 		
 		//logger.fatal("FATAL---*-*****> " + ((MSGResultadosCrapsModo)(((MSGSetModo)mensajeObj).getResultados().get(0))).getResultados());

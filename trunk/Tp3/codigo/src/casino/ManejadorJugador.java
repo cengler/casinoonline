@@ -299,8 +299,29 @@ public class ManejadorJugador implements IServiciosJugador {
 		while(i.hasNext() && !res)
 		{
 			inv = i.next();
-			res = inv.getNombre().equals(invitado);
+			if (inv.getNombre().equals(invitado)== true){
+			//res = inv.getNombre().equals(invitado);
+			  res = true;
+			}
 		}
+		if (res == false){
+				
+			if (this.jugadores.contains(invitado)){
+					
+				for(IJugador j : jugadores){
+						
+					if (j.getNombre()== invitado && j.isLogeado()== false){
+							
+						res = true;
+							
+					}
+						
+				}
+					
+			}
+				
+		}
+		
 		if(res)
 			return inv;
 		return null;

@@ -35,7 +35,6 @@ public class ParserCraps extends Parser {
 		
 		
 		
-		
 		/*xstream.alias("valorFicha", MSGValorFicha.class);
 		xstream.aliasAttribute(MSGValorFicha.class, "cantidad", "cantidad");
 		xstream.aliasAttribute(MSGValorFicha.class, "valor", "valor");
@@ -53,7 +52,7 @@ public class ParserCraps extends Parser {
 		xstream.alias("estadoMesaCraps", MSGEstadoCraps.class);
 		xstream.aliasAttribute(MSGEstadoCraps.class, "jugadores", "jugadores");
 		xstream.alias("jugador", MSGJugador.class);
-		xstream.aliasAttribute(MSGJugador.class, "nombre", "nombre");
+		
 		xstream.aliasAttribute(MSGEstadoCraps.class, "proximoTiro", "proximoTiro");
 		xstream.alias("proximoTiro", MSGProxTiro.class);
 		xstream.aliasAttribute(MSGProxTiro.class, "tirador", "tirador");

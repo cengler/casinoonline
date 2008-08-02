@@ -1,22 +1,10 @@
 package mensajes;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import parser.ParserCraps;
-import craps.msg.MSGSalidaCraps;
-import craps.msg.MSGApostarCraps;
-import craps.msg.MSGTiroCraps;
-import craps.msg.MSGEstadoCraps;
-import casino.msg.MSGEntradaCasino;
-import casino.msg.MSGSalidaCasino;
-import casino.msg.estadoCasino.MSGEstadoCasino;
-import parser.ParserCasino;
 
 public class Mensajes {
 
 	public static void main(String[] args) {
-		
+	}
 		
 		/*	InputStream is;
 			try 
@@ -55,7 +43,7 @@ public class Mensajes {
 			
 		}
 		
-		*/	
+	
 		InputStream is8;
 		try 
 		{
@@ -144,7 +132,7 @@ public class Mensajes {
 			e.printStackTrace();
 		}
 		
-	}
+	}*/
 	
 }	
 

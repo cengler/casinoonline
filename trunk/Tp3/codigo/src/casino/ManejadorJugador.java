@@ -45,6 +45,7 @@ public class ManejadorJugador implements IServiciosJugador {
 	 * {@inheritDoc}
 	 */
 	public MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
+		//TODO
 		return null;
 	}
 
@@ -52,6 +53,7 @@ public class ManejadorJugador implements IServiciosJugador {
 	 * {@inheritDoc}
 	 */
 	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
+		//TODO
 		return null;
 	}
 	

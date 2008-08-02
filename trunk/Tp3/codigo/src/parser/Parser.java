@@ -11,14 +11,21 @@ public abstract class Parser {
 	
 	public Object parse(IMessage is) throws ParserException
 	{	
-		logger.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
-				is.getData() + " ------------------- ");
-		Object message; 
-		String s = is.getData();
-		message = xstream.fromXML(s.trim());
-		logger.debug("parseando: " + message + "\n P>------------------ \n" + 
-				is.getData() + " P>------------------ ");
-		return message;
+		try
+		{
+			logger.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
+					is.getData() + " ------------------- ");
+			Object message; 
+			String s = is.getData();
+			message = xstream.fromXML(s.trim());
+			logger.debug("parseando: " + message + "\n P>------------------ \n" + 
+					is.getData() + " P>------------------ ");
+			return message;
+		}catch(RuntimeException re)
+		{
+			logger.error("SE RE COLGO! " + re.getMessage() + " "+ re.getCause(), re);
+			throw new ParserException(re) ;
+		}
 	}
 	
 	/**

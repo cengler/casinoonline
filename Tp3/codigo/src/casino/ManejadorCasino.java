@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import casino.msg.MSGAbrirCasino;
+import casino.msg.MSGCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.estadoCasino.IMSGJuego;
 import casino.msg.estadoCasino.MSGEstadoCasino;
@@ -17,7 +18,6 @@ import casino.msg.estadoCasino.MSGPozo;
 
 public class ManejadorCasino implements IServiciosCasino {
 
-	//private static IServiciosCasino instance;
 	private static ManejadorCasino instance;
 	private static Logger logger = Logger.getLogger(ManejadorCasino.class);
 
@@ -95,12 +95,11 @@ public class ManejadorCasino implements IServiciosCasino {
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 		
-		
-		if( jug == null || manJug.getInvitado(mensaje.getUsuario()) == null )
+		if( jug == null && manJug.getInvitado(mensaje.getUsuario()) == null )
 		{
-			
+			mensaje.setAceptado(MSGCasino.NO);
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
-			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
+			logger.debug("El jugador no esta registrado como jugando en dicha terminal virtual");
 		}
 		else
 		{	
@@ -109,12 +108,24 @@ public class ManejadorCasino implements IServiciosCasino {
 			List<MSGJugador> losJugs = new ArrayList<MSGJugador>();
 			List<MSGObservador> losInvitados = new ArrayList<MSGObservador>();
 			
-			//seteo los nombres de los jugadores
+			//seteo los nombres de los jugadores TANTO OBSERVADORES COMO JUGADORES
 			for ( IJugador j : jugadores )
 			{	
-				MSGJugador msgJug = new MSGJugador();
-				msgJug.setNombre(j.getNombre());
-				losJugs.add(msgJug);						
+				if(j.isLogeado())
+				{
+					if(j.isModoObservador())
+					{
+						MSGObservador msgObs = new MSGObservador();
+						msgObs.setNombre(j.getNombre());
+						losInvitados.add(msgObs);	
+					}
+					else
+					{
+						MSGJugador msgJug = new MSGJugador();
+						msgJug.setNombre(j.getNombre());
+						losJugs.add(msgJug);						
+					}
+				}
 			}
 			mensaje.setJugadores(losJugs);
 			
@@ -140,7 +151,16 @@ public class ManejadorCasino implements IServiciosCasino {
 			MSGPozo pozo = new MSGPozo();
 			pozo.setPozoFeliz(cas.getPozoFeliz());
 			mensaje.setPozosCasino(pozo);
+			
+			mensaje.setAceptado(MSGCasino.SI);
+			mensaje.setDescripcion("Se entraga el reporte del estado del casino");
 		}
+		
+		logger.info("ESTADO CASINO jug: " + mensaje.getUsuario() + 
+				" idTV: " + mensaje.getVTerm() +
+				" aceptado: " + mensaje.getAceptado() +
+				" descripcion: " + mensaje.getDescripcion() );	
+		
 		return mensaje;
 	}
 

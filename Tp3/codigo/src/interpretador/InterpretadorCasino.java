@@ -43,6 +43,7 @@ public class InterpretadorCasino implements IInterpretadorCasino
 			logger.error("SE RE COLGO!", re);
 		}
 		
+		logger.debug("TTT"  + mensajeObj);
 		//logger.fatal("FATAL---*-*****> " + ((MSGResultadosCrapsModo)(((MSGSetModo)mensajeObj).getResultados().get(0))).getResultados());
 		
 		if(mensajeObj instanceof MSGEntradaCasino)

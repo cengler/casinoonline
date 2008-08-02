@@ -126,6 +126,11 @@ public class ManejadorJugador implements IServiciosJugador {
 				mensaje.setDescripcion("El modo de acceso no existe");
 			}
 		}
+		
+		logger.info("ENTRAR CASINO jug: " + mensaje.getUsuario() + 
+				" idTV: " + mensaje.getVTerm() +
+				" aceptado: " + mensaje.getAceptado() +
+				" descripcion: " + mensaje.getDescripcion() );	
 		return mensaje;
 	}
 
@@ -133,8 +138,15 @@ public class ManejadorJugador implements IServiciosJugador {
 	 * {@inheritDoc}
 	 */
 	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
-		//TODO
-		return null;
+
+		// TODO HACER METODO MIRAR ENTRAR
+		
+		logger.info("SALIR CASINO jug: " + mensaje.getUsuario() + 
+				" idTV: " + mensaje.getVTerm() +
+				" aceptado: " + mensaje.getAceptado() +
+				" descripcion: " + mensaje.getDescripcion() );
+		
+		return mensaje;
 	}
 	
 	// GETERS Y SETERS

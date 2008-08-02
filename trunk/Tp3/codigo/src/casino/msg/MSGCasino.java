@@ -2,7 +2,9 @@ package casino.msg;
 
 public abstract class MSGCasino {
 
-	private int vTerm;
+	public static String SI = "Si";
+	public static String NO = "No";
+	private String vTerm;
 	private String usuario;
 	private String descripcion;
 	private String aceptado;
@@ -26,10 +28,10 @@ public abstract class MSGCasino {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public int getVTerm() {
+	public String getVTerm() {
 		return vTerm;
 	}
-	public void setVTerm(int term) {
+	public void setVTerm(String term) {
 		vTerm = term;
 	}
 }

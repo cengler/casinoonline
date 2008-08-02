@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
-<entradaCraps vTerm="20" 
-	usuario="nombre del usuario" 
-	mesa="30" > 
-	<aceptado>si</aceptado> 
-	<descripcion>"descripcion de la respuesta o vacío</descripcion> 
-</entradaCraps> 

@@ -24,8 +24,7 @@ public class ParserCasino extends Parser {
 		// MSGCasino
 		xstream.aliasAttribute(MSGCasino.class, "vTerm", "vTerm");
 		xstream.aliasAttribute(MSGCasino.class, "usuario", "usuario");
-		
-		
+
 		// ENTRADA CASINO  TODO FALTAN PARTES
 		xstream.alias("entradaCasino", MSGEntradaCasino.class);
 

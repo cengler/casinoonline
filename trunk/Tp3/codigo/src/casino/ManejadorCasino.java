@@ -96,7 +96,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 		
 		
-		if(jug == null && !(manJug.getInvitados().contains(mensaje.getUsuario())))
+		if( jug == null || manJug.getInvitado(mensaje.getUsuario()) == null )
 		{
 			
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
@@ -239,24 +239,6 @@ public class ManejadorCasino implements IServiciosCasino {
 			throw new CasinoException(e);
 		}
 	}
-
-	/**
-	 * Obtiene los manejadores disponibles del casino.
-	 * 
-	 * @return los manejadores disponibles del casino.
-	 */
-	/*public List<ManejadorMesa> getManejadores() {
-		return manejadores;
-	}*/
-
-	/**
-	 * Setea la lista de manejadores para el casino.
-	 * 
-	 * @param manejadores la lista de manejadores para el casino.
-	 */
-	/*public void setManejadores(List<ManejadorMesa> manejadores) {
-		this.manejadores = manejadores;
-	}*/
 
 	//TODOMERY cheuqear que sea correcto y no rompa dependencias
 	public boolean validarFichas(List<Integer> fichas){  

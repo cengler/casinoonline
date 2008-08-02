@@ -483,7 +483,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					}
 					mesa.getJugadores().remove(jug);
 					
-					mensaje.setAceptado(MSGSalidaCraps.NO);
+					mensaje.setAceptado(MSGSalidaCraps.SI);
 					mensaje.setDescripcion("El jugador se ha retirado correctament de la mesa");
 					logger.info("El jugador se ha retirado correctament de la mesa");
 				}	

@@ -13,7 +13,7 @@ public interface ICliente {
 	 * 
 	 * @return el id virtual
 	 */
-	int getIdVirt();
+	String getIdVirt();
 
 	/**
 	 * Obtiene el nombre del cliente.

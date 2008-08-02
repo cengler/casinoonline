@@ -46,7 +46,6 @@ public class MensajeroXArchivos extends Mensajero {
 			File[] files = dir.listFiles();
 			if(files!=null && files.length > 0) // si hay archivos
 			{
-				//logger.debug("Hay " + files.length + " para procesar.");
 				for ( File f : files )
 				{
 					Matcher m = filtro.matcher(f.getName());
@@ -57,8 +56,7 @@ public class MensajeroXArchivos extends Mensajero {
 						try {
 							fm = new FileMessage(f);
 						} catch (MensajeroException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							logger.error(e1); //TODOCAEMENOS revisar logica de catch
 						}
 
 						int retries = 0;
@@ -79,9 +77,7 @@ public class MensajeroXArchivos extends Mensajero {
 						}
 						if(!fileDeleted)
 						{
-							logger.error("No pudo borrar " + f.getName());
-							//throw new MensajeroException("No pudo borrar " + f.getName());
-							//TODO
+							logger.error("No pudo borrar " + f.getName()); //TODOCAEMENOS revisar logica de catch
 						}
 						return fm;
 					}
@@ -104,8 +100,7 @@ public class MensajeroXArchivos extends Mensajero {
 			fr.close();
 			logger.debug("MENSAJE ENVIADO");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			logger.error("ERROR EN SEND: ",e);
+			logger.error("ERROR EN SEND: ",e); //TODOCAEMENOS revisar logica de catch
 		}
 	}
 	

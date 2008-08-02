@@ -5,13 +5,13 @@ import org.apache.log4j.Logger;
 import parser.Parser;
 import parser.ParserCraps;
 import parser.ParserException;
-import servicios.SrvCasino;
-import casino.msg.MSGCasino;
-import casino.msg.MSGEntradaCasino;
-import casino.msg.MSGSalidaCasino;
-import casino.msg.estadoCasino.MSGEstadoCasino;
+import servicios.SrvCraps;
 import core.IMessage;
-import interpretador.IInterpretadorCasino;
+import craps.msg.MSGApostarCraps;
+import craps.msg.MSGCraps;
+import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGSalidaCraps;
+import craps.msg.MSGTiroCraps;
 
 public class InterpretadorCraps implements IInterpretadorCasino {
 
@@ -27,7 +27,7 @@ public class InterpretadorCraps implements IInterpretadorCasino {
 	public IMessage interpretar(IMessage mensaje){
 		
 		Object mensajeObj = null;
-		MSGCasino rta = null;
+		MSGCraps rta = null;
 		String nombreArchivo = mensaje.getName();
 		try 
 		{
@@ -46,12 +46,16 @@ public class InterpretadorCraps implements IInterpretadorCasino {
 		
 		//logger.fatal("FATAL---*-*****> " + ((MSGResultadosCrapsModo)(((MSGSetModo)mensajeObj).getResultados().get(0))).getResultados());
 		
-		if(mensajeObj instanceof MSGEntradaCasino)
-			rta = SrvCasino.entrarCasino((MSGEntradaCasino)mensajeObj);
-		else if(mensajeObj instanceof MSGSalidaCasino)
-			rta = SrvCasino.salirCasino((MSGSalidaCasino)mensajeObj);
-		else if(mensajeObj instanceof MSGEstadoCasino)
-			rta = SrvCasino.estadoCasino((MSGEstadoCasino)mensajeObj);
+		if(mensajeObj instanceof MSGEntradaCraps)
+			rta = SrvCraps.entrarCraps((MSGEntradaCraps)mensajeObj);
+		else if(mensajeObj instanceof MSGSalidaCraps)
+			rta = SrvCraps.salirCraps((MSGSalidaCraps)mensajeObj);
+		else if(mensajeObj instanceof MSGApostarCraps)
+			rta = SrvCraps.apostarCraps((MSGApostarCraps)mensajeObj);
+		else if(mensajeObj instanceof MSGTiroCraps)
+			rta = SrvCraps.tirarCraps((MSGTiroCraps)mensajeObj);
+		else
+			logger.error("El mensaje no podra ser porcesado por este interpretador"); // TODO
 
 		logger.debug("rta: ---------> " + rta);
 		

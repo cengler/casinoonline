@@ -122,7 +122,7 @@ public class ManejadorDeApuestas {
 		
 		logger.debug("ajusto ganancia segun tipo de jugada y pago..." );
 		// AJUSTO LA LA GANANCIA SEGUN LAS MODIFICACIONES DE CADA TIPO DE JUGADA
-		if(jugada.equals(TipoJugada.todosponen)) // TODOSPONEN
+		if(jugada.equals(TipoJugada.todosponen)) // TOD OSPONEN
 		{
 			
 			for (ApuestaCraps apuesta : apuestas)

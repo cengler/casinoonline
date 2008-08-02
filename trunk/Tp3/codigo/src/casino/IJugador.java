@@ -12,7 +12,7 @@ public interface IJugador extends ICliente{
 	/**
 	 * {@inheritDoc}
 	 */
-	int getIdVirt();
+	String getIdVirt();
 
 	/**
 	 * Informa si el jugador esta logeado en el casino.

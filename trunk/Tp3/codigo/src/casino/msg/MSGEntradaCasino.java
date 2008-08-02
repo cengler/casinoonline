@@ -3,6 +3,8 @@ package casino.msg;
 
 public class MSGEntradaCasino extends MSGCasino {
 
+	public static String MODO_JUGADOR = "jugador";
+	public static String MODO_OBSERVADOR = "observador";
 	private String modoAcceso;
 	private int saldo;
 

@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import craps.msg.MSGResultadoCraps;
-
 import casino.CasinoException;
 import casino.ISeteadorResultado;
 import casino.msg.MSGResultadoCrapsModo;

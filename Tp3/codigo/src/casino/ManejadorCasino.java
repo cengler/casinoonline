@@ -20,16 +20,11 @@ public class ManejadorCasino implements IServiciosCasino {
 	//private static IServiciosCasino instance;
 	private static ManejadorCasino instance;
 	private static Logger logger = Logger.getLogger(ManejadorCasino.class);
-	
-	//private List<ManejadorMesa> manejadores; 
 
 	/**
 	 * Constructor.
 	 */
-	private ManejadorCasino()
-	{
-		manejadores = new ArrayList<ManejadorMesa>();
-	}
+	private ManejadorCasino(){}
 	
 	/**
 	 * Obtiene la unica instancia del manejador de casino. 
@@ -57,7 +52,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		else
 		{
 			boolean mesasCerradas = true;
-			for (ManejadorMesa m : getManejadores())
+			for (ManejadorMesa m : ManejadorJugador.getInstance().getManejadores())
 			{
 				mesasCerradas = mesasCerradas && m.mesasCerradas();
 			}
@@ -136,7 +131,7 @@ public class ManejadorCasino implements IServiciosCasino {
 			
 			//seteo los juegos
 			List<IMSGJuego> losJuegos = new ArrayList<IMSGJuego>();
-			for ( ManejadorMesa manMesa : getManejadores() )
+			for ( ManejadorMesa manMesa : ManejadorJugador.getInstance().getManejadores() )
 			{	
 				losJuegos.add(manMesa.estadoDeJuego());
 			}

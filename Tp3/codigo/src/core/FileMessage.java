@@ -45,8 +45,15 @@ public class FileMessage implements IMessage {
 			logger.error("No se ha podido leer el archivo: " + file.getName() + " por la sig razon: " + e.getMessage());
 			throw new MensajeroException("No se ha podido leer el archivo: " + file.getName() + " por la sig razon: " + e.getMessage(), e);
 		}
-		
 	}
+	
+	@Deprecated
+	public FileMessage(String file)
+	{
+		data = "";
+		name = file;
+	}
+	
 
 	/**
 	 * {@inheritDoc}

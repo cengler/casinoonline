@@ -38,10 +38,6 @@ public class InterpretadorCasino implements IInterpretadorCasino
 			// TODO Auto-generated catch block
 			// ver como responder al error al usuario
 		}
-		catch(RuntimeException re)
-		{
-			logger.error("SE RE COLGO!", re);
-		}
 		
 		logger.debug("TTT"  + mensajeObj);
 		//logger.fatal("FATAL---*-*****> " + ((MSGResultadosCrapsModo)(((MSGSetModo)mensajeObj).getResultados().get(0))).getResultados());

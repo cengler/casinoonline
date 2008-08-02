@@ -87,7 +87,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements
 
 			// seteo del ultimoTiro
 			MSGUltimoTiroCraps ultimoTiro = new MSGUltimoTiroCraps();
-			ultimoTiro.setTirador(m.getTiradorAnterior().getNombre());
+			if(m.getTiradorAnterior() != null)
+				ultimoTiro.setTirador(m.getTiradorAnterior().getNombre());
 			ultimoTiro.setResultado(m.getUltimoResultado());
 			msgC.setUltimoTiro(ultimoTiro);
 			mesasCraps.add(msgC);

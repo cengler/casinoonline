@@ -5,13 +5,10 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import casino.Casino;
 import casino.Jugador;
 import casino.ManejadorJugador;
 import craps.ManejadorMesaCraps;
 import craps.MesaCraps;
-import craps.ResultadoCraps;
-import craps.SelectorResCrapsModoDirigido;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGOpcionApuesta;
@@ -115,7 +112,7 @@ public class TestServiciosCraps {
 		mesa.setTirador(pepe);
 		
 		
-		List<ResultadoCraps> l = new ArrayList<ResultadoCraps>();
+		//List<ResultadoCraps> l = new ArrayList<ResultadoCraps>();
 		
 		/*try {
 			Casino.getInstance().setModoNormal(false);

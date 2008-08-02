@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 
 import casino.core.TipoJugada;
 import casino.msg.MSGResetModoDirigido;
-import casino.msg.MSGResultadoModo;
 import casino.msg.MSGResultadosModo;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;

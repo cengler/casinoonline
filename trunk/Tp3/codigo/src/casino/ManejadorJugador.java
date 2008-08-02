@@ -140,12 +140,68 @@ public class ManejadorJugador implements IServiciosJugador {
 	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
 
 		// TODO HACER METODO MIRAR ENTRAR
+		//para salir del casino, el mismo debe estar abierto.
+		if(!Casino.getInstance().isAbierto())
+		{
+			mensaje.setAceptado(MSGCasino.NO);
+			mensaje.setDescripcion("El casino no esta abierto");
+		}else
 		
+		{
+			
+			
+				IJugador jugador = getJugador(mensaje.getUsuario());
+				IInvitado invitado = this.getInvitado(mensaje.getUsuario());
+				
+				if(jugador == null && invitado == null)
+				{
+					mensaje.setAceptado(MSGCasino.NO);
+					mensaje.setDescripcion("El USUARIO no esta registrado en el casino");
+						
+				}else{ 
+					//SI EL USUARIO Q SALE ES UN JUGADOR...
+					if (jugador != null){
+						if (!jugador.isLogeado())
+						{
+							mensaje.setAceptado(MSGCasino.NO);
+							mensaje.setDescripcion("El jugador no esta logeado en el casino");
+						}
+						else
+						{
+							//ver si esta en algun juego
+							boolean estaJugando = false;
+							for (ManejadorMesa manMesa : this.manejadores){
+								
+								estaJugando = manMesa.estaJugando(jugador);
+								
+								
+							}
+							if (estaJugando == true){
+								mensaje.setAceptado(MSGCasino.NO);
+								mensaje.setDescripcion("No se puede desloggear al jugador, pues esta jugando " );
+								
+								
+							}else{
+								mensaje.setAceptado(MSGCasino.SI);
+								mensaje.setDescripcion("El jugador ha salido del casino" );
+							}
+						}	
+					}else{
+						//EL QUE SALE ES UN INVITADO/OBSERVADOR
+						//sacarlo de la lista de invitados.
+						this.invitados.remove(invitado);
+						mensaje.setAceptado(MSGCasino.SI);
+						mensaje.setDescripcion("El invitado ha salido del casino");
+					
+					}
+					
+			}
+			
 		logger.info("SALIR CASINO jug: " + mensaje.getUsuario() + 
 				" idTV: " + mensaje.getVTerm() +
 				" aceptado: " + mensaje.getAceptado() +
 				" descripcion: " + mensaje.getDescripcion() );
-		
+		}
 		return mensaje;
 	}
 	
@@ -251,8 +307,9 @@ public class ManejadorJugador implements IServiciosJugador {
 	}
 
 	public boolean montoValidoPara(IJugador jugador, int monto){
-		//TODO
-		return false;
+		
+		return (jugador.getSaldo() >= monto);
+				
 	}
 	
 	public ManejadorMesa getManejador(String name)

@@ -34,4 +34,6 @@ public abstract class MSGCasino {
 	public void setVTerm(String term) {
 		vTerm = term;
 	}
+	
+	public abstract String getName();
 }

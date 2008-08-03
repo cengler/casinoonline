@@ -44,7 +44,6 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 		
 		Object mensajeObj = null;
 		MSGAdministracion rta = null;
-		String nombreArchivo = mensaje.getName();
 		try 
 		{
 			mensajeObj = parser.parse(mensaje);
@@ -78,7 +77,7 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 			e.printStackTrace();
 		}
 		
-		mensaje.setName("rta"+nombreArchivo);
+		mensaje.setName("rta"+rta.getName()+"02.xml");
 		return mensaje;
 	}
 

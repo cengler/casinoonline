@@ -9,6 +9,11 @@ public class MSGEstadoCasino extends MSGCasino {
 	private List<MSGObservador> observadores;
 	private List<IMSGJuego> juegos;
 	private MSGPozo pozosCasino;
+	private static String NAME = "EstadoCasino";
+
+	public String getName() {
+		return NAME;
+	}
 
 	public List<MSGEstadoJugador> getJugadores() {
 		return jugadores;

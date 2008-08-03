@@ -84,6 +84,8 @@ public class ParserCasino extends Parser {
 	public void renderizar(Object msg, IMessage imsg) throws ParserException
 	{
 		imsg.setData(xstream.toXML(msg));
+		messageParser.debug("renderizando: " + "\n ------------------- \n" + 
+				imsg.getData() + "\n ------------------- ");
 	}
 	
 	public static ParserCasino getInstance()

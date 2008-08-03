@@ -3,6 +3,8 @@ package observerCraps;
 import java.util.List;
 import java.util.Observable;
 
+import org.apache.log4j.Logger;
+
 import craps.IManejadorObservadoresCraps;
 
 /**
@@ -14,6 +16,7 @@ import craps.IManejadorObservadoresCraps;
  */
 public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 
+	private static Logger logger = Logger.getLogger(ManejadorObservadoresCraps.class);
 	private static ManejadorObservadoresCraps instance;
 	private List<ObservadorCraps> observers;
 
@@ -25,13 +28,15 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void agregarObservador(String idJugador, String idTVirt, Observable mesa){
-		
+	public void agregarObservador(String idJugador, String idTVirt, Observable mesa)
+	{
 		ObservadorCraps obs = new ObservadorCraps();
 		obs.setMesa(mesa);
 		obs.setIdJugador(idJugador);
 		obs.setIdTVirt(idTVirt);
-		observers.add(obs);
+		mesa.addObserver(obs);
+		
+		logger.info("Agregado Observador " + idJugador + " con idVirt: " + idTVirt);
 	}
 
 	/**
@@ -47,29 +52,27 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void quitarObservador(String idJugador, ObservadorCraps mesa)
+	public void quitarObservador(String idJugador, Observable mesa)
 	{
 		ObservadorCraps observerSel = null;
 		
 		for (ObservadorCraps o : observers)
 		{
-			if(o.getIdJugador().equals(mesa.getIdJugador()))
+			if(o.getIdJugador().equals(idJugador))
 			{
 				observerSel = o;
 			}
 		}
-		observerSel.getClass();
 		
-		//TODO
-		
-		//observers.remove(()o);
-		//TODO
+		if(observerSel == null)
+		{
+			mesa.deleteObserver(observerSel);
+			observers.remove(observerSel);
+		}
+		else
+		{
+			logger.error("No existe observador asociado al jugador dado");
+			// TODO
+		}
 	}
-
-	public void quitarObservador(String idJugador, Observable mesa) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 }

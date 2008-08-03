@@ -5,13 +5,17 @@ import java.util.List;
 
 import craps.msg.MSGJugadorCraps;
 
-public class MSGEstadoCraps extends MSGCraps {
-
-	
+public class MSGEstadoCraps extends MSGCraps
+{
 	private List<MSGJugadorCraps> jugadores;
 	private MSGProxTiro proximoTiro;
 	private MSGUltimoTiro ultimoTiro;
 	private MSGApuestasVigentes apuestasVigentes;
+	private static String NAME = "EstadoCraps";
+
+	public String getName() {
+		return NAME;
+	}
 	
 	
 	public MSGApuestasVigentes getApuestasVigentes() {

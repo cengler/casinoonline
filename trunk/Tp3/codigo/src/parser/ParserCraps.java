@@ -101,7 +101,7 @@ public class ParserCraps extends Parser {
 	{	
 		try
 		{
-			messageParser.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
+			messageParser.debug("parseando... " + "\n ------------------- \n" + 
 					is.getData() + " ------------------- ");
 			Object message; 
 			String s = is.getData();
@@ -124,5 +124,8 @@ public class ParserCraps extends Parser {
 	public void renderizar(Object msg, IMessage imsg) throws ParserException
 	{
 		imsg.setData(xstream.toXML(msg));
+		
+		messageParser.debug("renderizando: " + "\n ------------------- \n" + 
+				imsg.getData() + "\n ------------------- ");
 	}
 }

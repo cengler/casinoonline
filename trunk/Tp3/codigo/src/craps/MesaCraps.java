@@ -44,6 +44,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 	
 	public void setAbierta(boolean abierta) {
 		this.abierta = abierta;
+		setChanged();
 	}
 	
 	public int getId() {
@@ -52,13 +53,16 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 	
 	public void setId(int id) {
 		this.id = id;
+		setChanged();
 	}
 	
 	public List<IJugador> getJugadores() {
+		setChanged();
 		return jugadores;
 	}
 	
 	public void setJugadores(List<IJugador> jugadores) {
+		setChanged();
 		this.jugadores = jugadores;
 	}
 	
@@ -68,6 +72,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 	
 	public void setPuck(boolean puck) {
 		this.puck = puck;
+		setChanged();
 	}
 	
 	public int getPunto() {
@@ -76,6 +81,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 	
 	public void setPunto(int punto) {
 		this.punto = punto;
+		setChanged();
 	}
 	
 	public IJugador getTirador() {
@@ -84,6 +90,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 	
 	public void setTirador(IJugador tirador) {
 		this.tirador = tirador;
+		setChanged();
 	}
 
 	public boolean estaJugando(IJugador jugador) {
@@ -181,6 +188,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 	}
 
 	public ManejadorDeApuestas getPagador() {
+		setChanged();
 		return pagador;
 	}
 
@@ -190,6 +198,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 
 	public void setTiradorAnterior(IJugador tiradorAnterior) {
 		this.tiradorAnterior = tiradorAnterior;
+		setChanged();
 	}
 
 	public int getUltimoResultado() {
@@ -198,6 +207,7 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 
 	public void setUltimoResultado(int ultimoResultado) {
 		this.ultimoResultado = ultimoResultado;
+		setChanged();
 	}
 	
 	//este metodo lo va a llamar un jugador desde una mesa.

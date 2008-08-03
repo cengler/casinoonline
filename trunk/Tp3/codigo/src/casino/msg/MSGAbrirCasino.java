@@ -8,11 +8,11 @@ package casino.msg;
  */
 public class MSGAbrirCasino extends MSGAdministracion {
 
-	/**
-	 * Constructor.
-	 */
-	public MSGAbrirCasino(){
+	private static String NAME = "AbrirCasino";
 
-		
+	public String getName() {
+		return NAME;
 	}
+	
+	
 }

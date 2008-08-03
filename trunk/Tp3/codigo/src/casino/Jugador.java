@@ -25,6 +25,7 @@ public class Jugador implements IJugador {
 	 */
 	public Jugador(){
 		logeado = false;
+		IdVirt = "";
 	}
 
 	public String getIdVirt() {

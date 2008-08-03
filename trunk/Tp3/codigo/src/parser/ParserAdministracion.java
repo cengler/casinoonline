@@ -1,5 +1,7 @@
 package parser;
 
+import org.apache.log4j.Logger;
+
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResultadoCrapsModo;
@@ -10,6 +12,8 @@ import casino.msg.MSGSetModo;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+import core.IMessage;
+
 /**
  * Parser de mensajes apministrativos. 
  * AbrirCasino, CerrarCasino
@@ -19,7 +23,9 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  */
 public class ParserAdministracion extends Parser{
 	
+	private static Logger logger = Logger.getLogger(ParserAdministracion.class);
 	private static ParserAdministracion instance;
+	private static XStream xstream;
 	
 	private ParserAdministracion()
 	{
@@ -48,5 +54,34 @@ public class ParserAdministracion extends Parser{
 		return instance;
 	}
 	
-
+	public Object parse(IMessage is) throws ParserException
+	{	
+		try
+		{
+			logger.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
+					is.getData() + " ------------------- ");
+			Object message; 
+			String s = is.getData();
+			message = xstream.fromXML(s.trim());
+			logger.debug("parseando: " + message + "\n P>------------------ \n" + 
+					is.getData() + " P>------------------ ");
+			return message;
+		}catch(RuntimeException re)
+		{
+			logger.error("SE RE COLGO! " + re.getMessage() + " "+ re.getCause(), re);
+			throw new ParserException(re) ;
+		}
+	}
+	
+	/**
+	 * Senderiza dentro del IMensaje al mensaje recibido como primer parametro.
+	 * 
+	 * @param msg mensaje a renderizar
+	 * @param imsg IMensaje a llenar con la informacion 
+	 * @throws ParserException en caso de un error en el parser
+	 */
+	public void renderizar(Object msg, IMessage imsg) throws ParserException
+	{
+		imsg.setData(xstream.toXML(msg));
+	}
 }

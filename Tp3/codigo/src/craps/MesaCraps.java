@@ -8,9 +8,17 @@ import org.apache.log4j.Logger;
 
 import casino.IJugador;
 import casino.IMesa;
+import craps.msg.MSGEstadoCraps;
+import craps.msg.MSGJugadorCraps;
+import craps.msg.MSGProxTiro;
+import craps.msg.MSGUltimoTiro;
 
 public class MesaCraps extends Observable implements IMesa {
 
+
+	public static String PUCK_APAGADO = "Si";
+	public static String PUCK_PRENDIDO = "No";
+		
 	private boolean abierta;
 	private int id;
 	private List<IJugador> jugadores;
@@ -192,4 +200,44 @@ public class MesaCraps extends Observable implements IMesa {
 	public void setUltimoResultado(int ultimoResultado) {
 		this.ultimoResultado = ultimoResultado;
 	}
+	
+	//este metodo lo va a llamar un jugador desde una mesa.
+	public MSGEstadoCraps sacarFoto(){
+		
+		MSGEstadoCraps msgEstCraps = new MSGEstadoCraps();  
+		List<MSGJugadorCraps> lsJugC = new ArrayList<MSGJugadorCraps>();
+		//seteo los jugadores de la mesa
+		for (IJugador j : this.jugadores){
+			
+			MSGJugadorCraps msgJug = new MSGJugadorCraps(); 
+				msgJug.setJugador(j.getNombre());
+			lsJugC.add(msgJug);
+		}
+		msgEstCraps.setJugadores(lsJugC);
+		//seteo proximo  tiro (MSGProxTiro)
+		MSGProxTiro proxTiro = new MSGProxTiro();
+		
+			proxTiro.setTirador(this.getTirador().getNombre());
+			if (this.isPuck()== true){ //puck prendido
+				proxTiro.setTiroSalida(this.PUCK_PRENDIDO);
+				
+			}else{proxTiro.setTiroSalida(this.PUCK_APAGADO);}
+		//private String tirador;
+		//private String tiroSalida;
+		//private int punto;
+		
+		//seteo tirador
+		// seteo si es tiro de salida
+		// seteo si es punto
+		
+		//seteo ultimo tiro (MSGUltimoTiro)
+			//tirador
+			//resultado
+			//premios (ver como es)
+		
+		//seteo apuestas vigentes (MSGApuestasVigentes)
+		
+		return msgEstCraps;
+	}
+	
 }

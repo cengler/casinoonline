@@ -7,7 +7,11 @@ public class MSGApostarCraps extends MSGCraps {
 
 	private MSGOpcionApuesta opcionApuesta;
 	private List<MSGValorFicha> valorApuesta;
-	
+	private static String NAME = "ApostarCraps";
+
+	public String getName() {
+		return NAME;
+	}
 	public MSGOpcionApuesta getOpcionApuesta() {
 		return opcionApuesta;
 	}

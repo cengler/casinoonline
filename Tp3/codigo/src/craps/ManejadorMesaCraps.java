@@ -2,17 +2,17 @@ package craps;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
+
+import observerCraps.ManejadorObservadoresCraps;
 
 import org.apache.log4j.Logger;
-
 
 import casino.IJugador;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
+import casino.ManejadorCasino;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
-import casino.ManejadorCasino;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.msg.IMSGJuego;
 import casino.msg.MSGCrapsEstado;
@@ -130,6 +130,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				// ME GUARDO LA MESA PARA MANEJARLA
 				mesas.add(mesa);
 
+				// LO AGREGO COMO OBSERVADOR
+				ManejadorObservadoresCraps.getInstance().agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), mesa);
+				logger.info("Notificando: " + mesa.countObservers() + " observadores");
+				mesa.notifyObservers(mesa);
+
+				
 				// SETEO RESPUESTA
 				mensaje.setAceptado(MSGEntradaCraps.SI);
 				mensaje.setMesa(mesa.getId());
@@ -149,6 +155,11 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						// AGREGO AL JUGADOR
 						mesa.getJugadores().add(jug);
 
+						// LO AGREGO COMO OBSERVADOR
+						ManejadorObservadoresCraps.getInstance().agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), (MesaCraps)mesa);
+						((MesaCraps)mesa).hasChanged();
+						((MesaCraps)mesa).notifyObservers(mesa);
+						
 						// SETEO RESPUESTA
 						mensaje.setAceptado(MSGEntradaCraps.SI);
 						mensaje.setDescripcion("El jugador ha sido ingresado a la mesa solicitada");
@@ -161,6 +172,9 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				}
 			}
 		}
+		
+		
+		
 		return mensaje;
 	}
 
@@ -248,6 +262,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						manApCr.crearNuevaApuesta(jugador, puntaje, tipoAp, calculoAApostar);
 						manJug.debitarMonto(jugador, calculoAApostar);
 
+						// NOTIFICO A TODOS LOS OBSERVADORES
+						mesa.hasChanged();
+						mesa.notifyObservers(mesa);
+						
 						mensaje.setAceptado(MSGApostarCraps.SI);
 						mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo: " + tipoAp + " y ha apostado:" + calculoAApostar);
 						logger.info("El jugador ha realizado una apuesta de tipo: " + tipoAp + " y ha apostado:" + calculoAApostar);
@@ -367,6 +385,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							}
 						}
 
+						// NOTIFICO A TODOS LOS OBSERVADORES
+						laMesa.hasChanged();
+						laMesa.notifyObservers(laMesa);
+						
 						// SETEO MENSAJE DE RTA
 						unMSG.setAceptado(MSGTiroCraps.SI);
 						unMSG.setTipoJugada(jugada);
@@ -382,12 +404,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 							unMSG.setDescripcion("El jugador ha tirado los dados y NO sigue tirando Puck: " + laMesa.isPuck());
 							logger.info("El jugador ha tirado los dados y NO sigue tirando Puck: " + laMesa.isPuck());
 						}
-
-						// NO PARECE QUE SEA EL MENSAJE EL QUE PAGA
-
-						// unMSG.pagarApuestas(jugada, resultado,
-						// laMesa.getId()); TODO
-						laMesa.notifyObservers();
 					}
 				}
 			}
@@ -436,6 +452,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 					}
 					mesa.getJugadores().remove(jug);
 
+					// LO AGREGO COMO OBSERVADOR
+					ManejadorObservadoresCraps.getInstance().quitarObservador(mensaje.getUsuario(), (MesaCraps)mesa);
+					mesa.hasChanged();
+					mesa.notifyObservers(mesa);
+					
+					// SETEO RESPUESTA
 					mensaje.setAceptado(MSGSalidaCraps.SI);
 					mensaje.setDescripcion("El jugador se ha retirado correctament de la mesa");
 					logger.info("El jugador se ha retirado correctament de la mesa");
@@ -502,17 +524,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 	// METODOS INTERNOS
 
-	public void agregarObservador(String idJugador, String idTVirt, Observable mesa) {
 
-	}
-
-	public List<MesaCraps> getMesasAbiertas() {
-		return null;
-	}
-
-	public void quitarObservador(String idJugador, IMesa mesa) {
-
-	}
+	/*public List<MesaCraps> getMesasAbiertas() {
+		return null; //TODO
+	}*/
 
 	/*
 	 * public void repitioPunto(int a, <int, int> b){ }

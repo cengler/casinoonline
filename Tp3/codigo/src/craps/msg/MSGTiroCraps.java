@@ -8,6 +8,11 @@ public class MSGTiroCraps extends MSGCraps {
 
 	private TipoJugada tipoJugada;
 	private MSGResultadoCraps  resultado;
+	private static String NAME = "TiroCraps";
+
+	public String getName() {
+		return NAME;
+	}
 	
 	public MSGResultadoCraps getResultado() {
 		return resultado;

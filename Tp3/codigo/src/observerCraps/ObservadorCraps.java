@@ -34,8 +34,11 @@ public class ObservadorCraps implements Observer {
 	
 	public void update(Observable o, Object obj) 
 	{
+		//logger.info("Recibida notificacion de cambio para el jugador: " + idJugador + " " + obj + " " + obj.getClass() );
+		
 		if(obj instanceof IFotografiable)
 		{
+			logger.info("Recibida notificacion de cambio para el jugador: " + idJugador);
 			MSGEstadoCraps mensaje = ((IFotografiable)obj).sacarFoto();
 			mensaje.setUsuario(getIdJugador());
 			mensaje.setVTerm(getIdTVirt());
@@ -43,7 +46,7 @@ public class ObservadorCraps implements Observer {
 		}
 		else
 		{
-			logger.debug("La notificacion so es de interes para: " + getClass().getName() + ".");
+			logger.info("La notificacion no es de interes para: " + getClass().getName() + ".");
 		}
 	}
 

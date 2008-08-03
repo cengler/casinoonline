@@ -28,7 +28,6 @@ public class InterpretadorCraps implements IInterpretadorCasino {
 		
 		Object mensajeObj = null;
 		MSGCraps rta = null;
-		String nombreArchivo = mensaje.getName();
 		try 
 		{
 			mensajeObj = parser.parse(mensaje);
@@ -66,7 +65,7 @@ public class InterpretadorCraps implements IInterpretadorCasino {
 			e.printStackTrace();
 		}
 		
-		mensaje.setName("rta"+nombreArchivo);
+		mensaje.setName("rta"+rta.getName()+"02"+rta.getVTerm()+".xml");
 		return mensaje;
 	}
 

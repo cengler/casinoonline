@@ -7,6 +7,11 @@ public class MSGSetModo extends MSGAdministracion {
 
 	private String modo = "";
 	private List<MSGResultadosModo> resultados;
+	private static String NAME = "SetModo";
+
+	public String getName() {
+		return NAME;
+	}
 	
 	public MSGSetModo()
 	{

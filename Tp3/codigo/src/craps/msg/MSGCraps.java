@@ -1,6 +1,6 @@
 package craps.msg;
 
-public class MSGCraps {
+public abstract class MSGCraps {
 
 	public static String SI = "SI";
 	public static String NO = "NO";
@@ -65,6 +65,7 @@ public class MSGCraps {
 		vTerm = term;
 	}
 	
+	public abstract String getName();
 	
 	
 }

@@ -11,6 +11,11 @@ public class MSGSetJugada extends MSGAdministracion {
 	private TipoJugada tipo;
 	private String juego;
 	private int mesa;
+	private static String NAME = "SetJugada";
+
+	public String getName() {
+		return NAME;
+	}
 	
 	/**
 	 * Geter del tipo de jugada a setear.

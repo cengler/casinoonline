@@ -54,7 +54,8 @@ public class MensajeroXArchivos extends Mensajero {
 						
 						FileMessage fm = null;
 						try {
-							fm = new FileMessage(f);
+							fm = new FileMessage();
+							fm.read(f);
 						} catch (MensajeroException e) {
 							logger.error(e);
 							throw e;

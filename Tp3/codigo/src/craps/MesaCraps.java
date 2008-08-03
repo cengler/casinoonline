@@ -12,7 +12,7 @@ import craps.msg.MSGEstadoCraps;
 import craps.msg.MSGJugadorCraps;
 import craps.msg.MSGProxTiro;
 
-public class MesaCraps extends Observable implements IMesa {
+public class MesaCraps extends Observable implements IMesa, IFotografiable {
 
 
 	public static String PUCK_APAGADO = "Si";

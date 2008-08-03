@@ -1,5 +1,7 @@
 package craps;
 
+import java.util.Date;
+
 import craps.msg.TipoApuestaCraps;
 import casino.IJugador;
 
@@ -16,7 +18,11 @@ public class ApuestaCraps {
 	private TipoApuestaCraps tipo;
 	private int valor;
 	private boolean activa;
-	private int ganancia;
+	private int gananciaBruta;
+	private Date fechaCreacion;
+	private Date fechaCierre;
+	private int montoPremioJugadaFeliz;
+	private int montoRetenidoJugadaTodosPonen;
 		
 	/**
 	 * Constructor sin parametros.
@@ -81,18 +87,48 @@ public class ApuestaCraps {
 		this.valor = valor;
 	}
 
-	public int getGanancia() {
-		return ganancia;
+	public int getGananciaBruta() {
+		return gananciaBruta;
 	}
 
-	public void setGanancia(int ganancia) {
-		this.ganancia = ganancia;
+	public void setGananciaBruta(int ganancia) {
+		this.gananciaBruta = ganancia;
 	}
 
 	@Override
 	public String toString() {
-		return "{ JUG: " + apostador + ", TIPO: " + tipo + ", PUNT: " + puntaje + ", GAN: " + ganancia + ", ACT: "+ activa+ " }";
+		return "{ JUG: " + apostador + ", TIPO: " + tipo + ", PUNT: " + puntaje + ", GANBR: " + gananciaBruta + ", ACT: "+ activa+ " }";
 	}
-	
 
+	public Date getFechaCierre() {
+		return fechaCierre;
+	}
+
+	public void setFechaCierre(Date fechaCierre) {
+		this.fechaCierre = fechaCierre;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public int getMontoPremioJugadaFeliz() {
+		return montoPremioJugadaFeliz;
+	}
+
+	public void setMontoPremioJugadaFeliz(int montoPremioJugadaFeliz) {
+		this.montoPremioJugadaFeliz = montoPremioJugadaFeliz;
+	}
+
+	public int getMontoRetenidoJugadaTodosPonen() {
+		return montoRetenidoJugadaTodosPonen;
+	}
+
+	public void setMontoRetenidoJugadaTodosPonen(int montoRetenidoJugadaTodosPonen) {
+		this.montoRetenidoJugadaTodosPonen = montoRetenidoJugadaTodosPonen;
+	}
 }

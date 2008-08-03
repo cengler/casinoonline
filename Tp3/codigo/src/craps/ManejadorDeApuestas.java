@@ -137,7 +137,7 @@ public class ManejadorDeApuestas {
 	 */
 	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
 	{
-		logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
+		/*logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
 		
 		int gananciaTotal = 0;
 		Casino casino = Casino.getInstance();
@@ -152,7 +152,7 @@ public class ManejadorDeApuestas {
 			{
 				logger.info("Termina la apuesta " + apuesta);
 				int ganancia = obtenerGanancia(apuesta, resultado, puck);
-				apuesta.setGanancia(ganancia);
+				apuesta.setGananciaBruta(ganancia);
 				gananciaTotal += ganancia;
 			}
 		}
@@ -220,7 +220,7 @@ public class ManejadorDeApuestas {
 				}
 			}
 		}
-		logger.debug("Fin de pagar apuestas. Se han pagado del saldo del casino: " + gananciaTotal + " pesos");
+		logger.debug("Fin de pagar apuestas. Se han pagado del saldo del casino: " + gananciaTotal + " pesos");*/
 	}
 
 	/**

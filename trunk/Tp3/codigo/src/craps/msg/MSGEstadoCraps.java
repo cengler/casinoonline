@@ -3,12 +3,12 @@ package craps.msg;
 
 import java.util.List;
 
-import casino.msg.MSGJugador;
+import craps.msg.MSGJugadorCraps;
 
 public class MSGEstadoCraps extends MSGCraps {
 
 	
-	private List<MSGJugador> jugadores;
+	private List<MSGJugadorCraps> jugadores;//TODO ver parser de craps 
 	private MSGProxTiro proximoTiro;
 	private MSGUltimoTiro ultimoTiro;
 	private MSGApuestasVigentes apuestasVigentes;
@@ -20,10 +20,10 @@ public class MSGEstadoCraps extends MSGCraps {
 	public void setApuestasVigentes(MSGApuestasVigentes apuestasVigentes) {
 		this.apuestasVigentes = apuestasVigentes;
 	}
-	public List<MSGJugador> getJugadores() {
+	public List<MSGJugadorCraps> getJugadores() {
 		return jugadores;
 	}
-	public void setJugadores(List<MSGJugador> jugadores) {
+	public void setJugadores(List<MSGJugadorCraps> jugadores) {
 		this.jugadores = jugadores;
 	}
 	public MSGProxTiro getProximoTiro() {

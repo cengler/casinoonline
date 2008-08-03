@@ -2,6 +2,10 @@ package craps;
 
 public final class PagoApuesta {
 
+	
+	public static String TRUE = "true";
+	public static String FALSE = "false";
+	public static String BOTTOM = "bottom";
 	private int fichas;
 	private int pago;
 

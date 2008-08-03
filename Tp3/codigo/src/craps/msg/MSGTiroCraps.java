@@ -1,6 +1,6 @@
 package craps.msg;
 
-import casino.core.TipoJugada;
+import casino.msg.TipoJugada;
 import craps.msg.MSGResultadoCraps;
 
 

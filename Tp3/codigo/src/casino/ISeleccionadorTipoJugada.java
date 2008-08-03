@@ -1,6 +1,6 @@
 package casino;
 
-import casino.core.TipoJugada;
+import casino.msg.TipoJugada;
 
 /**
  *  ISeleccionadorTipoJugada especifica la manera de seleccionar el tipo de jugada.

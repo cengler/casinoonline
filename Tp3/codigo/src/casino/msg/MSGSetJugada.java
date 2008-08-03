@@ -1,5 +1,4 @@
 package casino.msg;
-import casino.core.TipoJugada;
 
 /**
  * MSGSetJugada.

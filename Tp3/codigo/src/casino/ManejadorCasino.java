@@ -1,20 +1,22 @@
 package casino;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
 
+
+import casino.msg.IMSGJuego;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCasino;
 import casino.msg.MSGCerrarCasino;
-import casino.msg.estadoCasino.IMSGJuego;
-import casino.msg.estadoCasino.MSGEstadoCasino;
-import casino.msg.estadoCasino.MSGJugador;
-import casino.msg.estadoCasino.MSGObservador;
-import casino.msg.estadoCasino.MSGPozo;
+import casino.msg.MSGEstadoCasino;
+import casino.msg.MSGEstadoJugador;
+import casino.msg.MSGObservador;
+import casino.msg.MSGPozo;
 
 public class ManejadorCasino implements IServiciosCasino {
 
@@ -105,7 +107,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		{	
 			Set<IJugador> jugadores = manJug.getJugadores();
 			Set<IInvitado> invitados = manJug.getInvitados();
-			List<MSGJugador> losJugs = new ArrayList<MSGJugador>();
+			List<MSGEstadoJugador> losJugs = new ArrayList<MSGEstadoJugador>();
 			List<MSGObservador> losInvitados = new ArrayList<MSGObservador>();
 			
 			//seteo los nombres de los jugadores TANTO OBSERVADORES COMO JUGADORES
@@ -121,7 +123,7 @@ public class ManejadorCasino implements IServiciosCasino {
 					}
 					else
 					{
-						MSGJugador msgJug = new MSGJugador();
+						MSGEstadoJugador msgJug = new MSGEstadoJugador();
 						msgJug.setNombre(j.getNombre());
 						losJugs.add(msgJug);						
 					}
@@ -183,6 +185,7 @@ public class ManejadorCasino implements IServiciosCasino {
 			try 
 			{
 				cargarListaJugadores();
+				cargarGeneralidades();
 				
 				casino.setAbierto(true);
 				mensaje.setAceptado(true);
@@ -231,6 +234,26 @@ public class ManejadorCasino implements IServiciosCasino {
 		}
 	}
 	
+	private void cargarGeneralidades() throws CasinoException
+	{
+		Properties prop = ConfigurationParser.getInstance().cargarGeneralidades();
+		
+		String minimoMontoPozoFeliz = prop.getProperty("minimoMontoPozoFeliz");
+		String porcentajePozoFeliz = prop.getProperty("porcentajePozoFeliz");
+		
+		
+		if( minimoMontoPozoFeliz != null && minimoMontoPozoFeliz.length() != 0)
+			Casino.getInstance().setMinPozoFeliz(Integer.parseInt(minimoMontoPozoFeliz.trim()));
+		else
+			throw new CasinoException("No se encuentra la property: minimoMontoPozoFeliz" );
+			
+		if( porcentajePozoFeliz != null && porcentajePozoFeliz.length() != 0)
+			Casino.getInstance().setPorcentajePozoFeliz(Integer.parseInt(porcentajePozoFeliz.trim()));
+		else
+			throw new CasinoException("No se encuentra la property: porcentajePozoFeliz" );
+			
+	}
+	
 	/**
 	 * guardarListaJugadores.
 	 * 
@@ -254,9 +277,9 @@ public class ManejadorCasino implements IServiciosCasino {
 		}
 		try {
 			ConfigurationParser.getInstance().guardarListaJugadores(listajug);
-		} catch (FileNotFoundException e) {
+		} catch (CasinoException e) {
 			logger.error(e.getMessage());
-			throw new CasinoException(e);
+			throw e;
 		}
 	}
 

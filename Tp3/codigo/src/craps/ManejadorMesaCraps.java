@@ -6,6 +6,7 @@ import java.util.Observable;
 
 import org.apache.log4j.Logger;
 
+
 import casino.IJugador;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
@@ -13,14 +14,13 @@ import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.ManejadorCasino;
 import casino.SeleccionadorTipoJugadaPorModo;
-import casino.core.TipoJugada;
-import casino.msg.estadoCasino.MSGJugador;
-import casino.msg.estadoCasino.IMSGJuego;
-import casino.msg.estadoCasino.MSGCraps;
-import casino.msg.estadoCasino.MSGMesaCraps;
-import casino.msg.estadoCasino.MSGProximoTiro;
-import casino.msg.estadoCasino.MSGUltimoTiroCraps;
-import craps.core.TipoApuestaCraps;
+import casino.msg.IMSGJuego;
+import casino.msg.MSGEstadoCraps;
+import casino.msg.MSGEstadoJugador;
+import casino.msg.MSGMesaCraps;
+import casino.msg.MSGProximoTiro;
+import casino.msg.MSGUltimoTiroCraps;
+import casino.msg.TipoJugada;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGOpcionApuesta;
@@ -28,6 +28,7 @@ import craps.msg.MSGResultadoCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
 import craps.msg.MSGValorFicha;
+import craps.msg.TipoApuestaCraps;
 
 /**
  * ManejadorMesaCraps.
@@ -56,7 +57,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	}
 
 	public IMSGJuego estadoDeJuego() {
-		MSGCraps mensaje = new MSGCraps();
+		MSGEstadoCraps mensaje = new MSGEstadoCraps();
 		List<MSGMesaCraps> mesasCraps = new ArrayList<MSGMesaCraps>();
 
 		// seteos de las mesas
@@ -65,10 +66,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			// a MSGMesaCraps le seteo el id
 			msgC.setId(m.getId());
 			// seteo los jugadores de una mesa m
-			List<MSGJugador> jugadores = new ArrayList<MSGJugador>();
+			List<MSGEstadoJugador> jugadores = new ArrayList<MSGEstadoJugador>();
 			// una Mesa tiene IJugadores pero MSGMesaCraps tiene MSGJugador
 			for (IJugador j : m.getJugadores()) {
-				MSGJugador msgJug = new MSGJugador();
+				MSGEstadoJugador msgJug = new MSGEstadoJugador();
 				msgJug.setNombre(j.getNombre());
 				jugadores.add(msgJug);
 			}
@@ -211,10 +212,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 			} else {
 
-				// VALIDO FICHAS y si son validas calculo el monto a
-				// apostar
-				// TODOMERY //como el manejador de casino es
-				// singleton, lo puedo hacer
+				// VALIDO FICHAS y si son validas calculo el monto a apostar
 				ManejadorCasino manCas = ManejadorCasino.getInstance();
 
 				// separo lo que apuesta en dos listas de igual

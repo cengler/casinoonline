@@ -16,6 +16,10 @@ public final class Casino implements ICasino {
 	private boolean modoNormal;
 	private int pozoFeliz;
 	private long saldo;
+	
+	private int minPozoFeliz;
+	private int porcentajePozoFeliz;
+	
 	private Map<Integer, Integer> valores;
 
 	/**
@@ -129,20 +133,23 @@ public final class Casino implements ICasino {
 		this.saldo = saldo;
 	}
 
+	public int getMinPozoFeliz() {
+		return minPozoFeliz;
+	}
+
+	public void setMinPozoFeliz(int minPozoFeliz) {
+		this.minPozoFeliz = minPozoFeliz;
+	}
+
+	public int getPorcentajePozoFeliz() {
+		return porcentajePozoFeliz;
+	}
+
+	public void setPorcentajePozoFeliz(int porcentajePozoFeliz) {
+		this.porcentajePozoFeliz = porcentajePozoFeliz;
+	}
+
 	
 	
-	/*Error Description Line 
-	Parameter valores should be final. 43 
-	'valores' hides a field. 43 
-	'if' construct must use '{}'s. 53 
-	Parameter abierto should be final. 70 
-	'abierto' hides a field. 70 
-	First sentence should end with a period. 81 
-	Parameter modoNormal should be final. 86 
-	'modoNormal' hides a field. 86 
-	Parameter pozoFeliz should be final. 102 
-	'pozoFeliz' hides a field. 102 
-	Parameter saldo should be final. 118 
-	'saldo' hides a field. 118 */
 
 }

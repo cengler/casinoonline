@@ -1,13 +1,12 @@
-package casino.msg.estadoCasino;
+package casino.msg;
 
 import java.util.List;
 public class MSGMesaCraps {
 
 	private int id;
-	private List<MSGJugador> jugadores;
+	private List<MSGEstadoJugador> jugadores;
 	private MSGProximoTiro proximoTiro;
 	private MSGUltimoTiroCraps ultimoTiro;
-	// TODO VER ^ SI ESTA BIEN ACA SE USABA DE CRAPS MAL
 	
 	public int getId() {
 		return id;
@@ -15,10 +14,10 @@ public class MSGMesaCraps {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public List<MSGJugador> getJugadores() {
+	public List<MSGEstadoJugador> getJugadores() {
 		return jugadores;
 	}
-	public void setJugadores(List<MSGJugador> jugadores) {
+	public void setJugadores(List<MSGEstadoJugador> jugadores) {
 		this.jugadores = jugadores;
 	}
 	public MSGProximoTiro getProximoTiro() {

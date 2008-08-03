@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
@@ -22,8 +23,8 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class ConfigurationParser {
 
 	private XStream xstream;
-	private static String LISTA_JUG = "configuration/listaJugadores.xml" ; 
-	//private static String LISTA_JUG = "." ;
+	private static String LISTA_JUG = "configuration/listaJugadores.xml" ;
+	private static String GENERAL_CONFIG_PROPERTIES = "configuration/generalConfig.properties" ;
 	private static Logger logger = Logger.getLogger(ConfigurationParser.class);
 	private static ConfigurationParser instance; 
 	
@@ -58,11 +59,11 @@ public class ConfigurationParser {
 	 */
 	public List<LSTJugador> cargarListaJugadores() throws CasinoException
 	{
-		List<LSTJugador> lista = null;
+		Object lista = null;
 		try 
 		{
 			InputStream is = new FileInputStream(LISTA_JUG);
-			lista = (List<LSTJugador>)xstream.fromXML(is);
+			lista = xstream.fromXML(is);
 			is.close();
 		} 
 		catch (IOException e) 
@@ -70,7 +71,8 @@ public class ConfigurationParser {
 			logger.error("No se pudo cagar correctamente la lista de jugadores de: " + LISTA_JUG);
 			throw new CasinoException("No se pudo cagar correctamente la lista de jugadores", e);
 		}
-		return lista;
+		List<LSTJugador> l = (List<LSTJugador>)lista;
+		return l;
 	}
 		
 	/**
@@ -80,8 +82,46 @@ public class ConfigurationParser {
 	 * @param lista lista de jugadores que es encuentran en el casino.
 	 * @throws FileNotFoundException si no esta el archivo de configuracion: ListaDeJugadores
 	 */
-	public void guardarListaJugadores(List<LSTJugador> lista) throws FileNotFoundException
+	public void guardarListaJugadores(List<LSTJugador> lista) throws CasinoException
 	{
-		xstream.toXML(lista, new FileOutputStream(LISTA_JUG));
+		try {
+			xstream.toXML(lista, new FileOutputStream(LISTA_JUG));
+		} catch (FileNotFoundException e) {
+			logger.error("El archivo: " + LISTA_JUG + " no se encuentra.");
+			throw new CasinoException(e);
+		}
 	}
+	
+	public Properties cargarGeneralidades() throws CasinoException 
+	{
+		Properties properties = new Properties();
+		InputStream is = null;
+		try {
+			logger.debug("Va a leer las cargarGeneralidades del archivo " + GENERAL_CONFIG_PROPERTIES);
+			is = new FileInputStream(GENERAL_CONFIG_PROPERTIES);
+			if(is!=null)
+				properties.load(is);
+			else
+			{
+				logger.debug("Propiedades leidas: ");
+				for(Object o : properties.keySet())
+					logger.debug("\t" + o.toString() + " = " + properties.getProperty(o.toString()));
+			}
+		} 
+		catch (Exception e)
+		{
+			logger.error("El archivo: " + LISTA_JUG + " no se encuentra.");
+			throw new CasinoException(e);
+		}
+		finally
+		{
+			try {
+				is.close();
+			} catch (IOException e) {
+				logger.debug("No se pude cerrar el archivo");
+			}
+		}
+		return properties;
+	}
+	
 }

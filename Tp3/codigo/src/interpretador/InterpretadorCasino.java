@@ -8,8 +8,8 @@ import parser.ParserException;
 import servicios.SrvCasino;
 import casino.msg.MSGCasino;
 import casino.msg.MSGEntradaCasino;
+import casino.msg.MSGEstadoCasino;
 import casino.msg.MSGSalidaCasino;
-import casino.msg.estadoCasino.MSGEstadoCasino;
 import core.IMessage;
 
 public class InterpretadorCasino implements IInterpretadorCasino

@@ -4,12 +4,12 @@ import org.apache.log4j.Logger;
 
 import casino.msg.MSGCasino;
 import casino.msg.MSGEntradaCasino;
+import casino.msg.MSGEstadoCasino;
+import casino.msg.MSGEstadoCraps;
+import casino.msg.MSGEstadoJugador;
+import casino.msg.MSGMesaCraps;
+import casino.msg.MSGObservador;
 import casino.msg.MSGSalidaCasino;
-import casino.msg.estadoCasino.MSGCraps;
-import casino.msg.estadoCasino.MSGEstadoCasino;
-import casino.msg.estadoCasino.MSGJugador;
-import casino.msg.estadoCasino.MSGMesaCraps;
-import casino.msg.estadoCasino.MSGObservador;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -39,14 +39,14 @@ public class ParserCasino extends Parser {
 
 		// ESTADO CASINO
 		xstream.alias("estadoCasino", MSGEstadoCasino.class);
-		xstream.alias("jugador", MSGJugador.class);
+		xstream.alias("jugador", MSGEstadoJugador.class);
 		xstream.alias("observador", MSGObservador.class);
-		xstream.alias("craps", MSGCraps.class);
+		xstream.alias("craps", MSGEstadoCraps.class);
 		xstream.alias("mesaCraps", MSGMesaCraps.class);
 		xstream.aliasAttribute(MSGMesaCraps.class, "id", "id");	
 		xstream.alias("proximoTiro", MSGProxTiro.class);
 		xstream.alias("ultimoTiro", MSGUltimoTiro.class);
-		xstream.aliasAttribute(MSGJugador.class, "nombre", "nombre");
+		xstream.aliasAttribute(MSGEstadoJugador.class, "nombre", "nombre");
 		
 		// SALIDA CASINO
 		xstream.alias("salidaCasino", MSGSalidaCasino.class);

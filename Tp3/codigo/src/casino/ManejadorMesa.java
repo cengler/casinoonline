@@ -2,7 +2,7 @@ package casino;
 
 import java.util.List;
 
-import casino.msg.estadoCasino.IMSGJuego;
+import casino.msg.IMSGJuego;
 
 /**
  * ManejadorMesa

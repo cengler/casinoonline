@@ -1,7 +1,7 @@
-package casino.msg.estadoCasino;
+package casino.msg;
 
-public class MSGObservador {
-
+public class MSGEstadoJugador {
+	
 	private String nombre;
 
 	public String getNombre() {
@@ -11,4 +11,7 @@ public class MSGObservador {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	
+
 }

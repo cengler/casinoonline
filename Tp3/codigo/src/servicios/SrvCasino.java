@@ -1,10 +1,12 @@
 package servicios;
 
-import casino.ManejadorJugador;
+import org.apache.log4j.Logger;
+
+import casino.IServiciosCasino;
+import casino.IServiciosJugador;
 import casino.msg.MSGEntradaCasino;
-import casino.ManejadorCasino;
+import casino.msg.MSGEstadoCasino;
 import casino.msg.MSGSalidaCasino;
-import casino.msg.estadoCasino.MSGEstadoCasino;
 
 /**
  * Servicios Casino. Ver 1.0
@@ -14,6 +16,7 @@ import casino.msg.estadoCasino.MSGEstadoCasino;
  */
 public class SrvCasino {
 
+	private static Logger logger = Logger.getLogger(SrvCasino.class);
 	/**
 	 * Constructor.
 	 */
@@ -21,32 +24,56 @@ public class SrvCasino {
 
 	/**
 	 * EntrarCasino.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje){
-		return ManejadorJugador.getInstance().entrarCasino(mensaje);
+	public static MSGEntradaCasino entrarCasino(MSGEntradaCasino mensaje)
+	{
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosJugador.class, true).entrarCasino(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGEntradaCasino.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
 	 * EstadoCasino.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGEstadoCasino estadoCasino(MSGEstadoCasino mensaje){
-		return ManejadorCasino.getInstance().estadoCasino(mensaje);
+		
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosCasino.class, true).estadoCasino(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGEntradaCasino.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
 	 * SalirCasino.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
-		return ManejadorJugador.getInstance().salirCasino(mensaje);
+	public static MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje)
+	{
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosJugador.class, true).salirCasino(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGEntradaCasino.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 }

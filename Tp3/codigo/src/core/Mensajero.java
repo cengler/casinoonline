@@ -20,9 +20,9 @@ public abstract class Mensajero implements Runnable {
 		con = true;
 	}
 	
-	public abstract void send(IMessage msg, String name);
+	public abstract void send(IMessage msg, String name) throws MensajeroException;
 	
-	public abstract IMessage read();
+	public abstract IMessage read() throws MensajeroException;
 	
 	public void run()
 	{

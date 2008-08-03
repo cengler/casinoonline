@@ -1,4 +1,4 @@
-package casino.msg.estadoCasino;
+package casino.msg;
 
 public class MSGPozo {
 

@@ -34,8 +34,6 @@ public interface IJugador extends ICliente{
 	 * @return
 	 */
 	boolean isModoObservador();
-	// TODO VER SI AL OBTENER JUGADOR LOGEADO 
-	// VERIFICAMOS QUE NO ESTE DE MODO OBSERVADOR
 	
 	/**
 	 * {@inheritDoc}

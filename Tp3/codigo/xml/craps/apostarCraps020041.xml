@@ -1,0 +1,14 @@
+<apostarCraps vTerm="0041"
+	usuario="Ignacio"
+	mesa="1">
+	<opcionApuesta>
+		<tipoApuesta>pase</tipoApuesta>
+		<puntajeApostado>10</puntajeApostado>
+	</opcionApuesta>
+	<valorApuesta>
+		<valorFicha>
+			<cantidad>3</cantidad>
+			<valor>25</valor>
+		</valorFicha>
+	</valorApuesta>
+</apostarCraps>

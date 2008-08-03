@@ -260,7 +260,6 @@ public class ManejadorCasino implements IServiciosCasino {
 		}
 	}
 
-	//TODOMERY cheuqear que sea correcto y no rompa dependencias
 	public boolean validarFichas(List<Integer> fichas){  
 		
 		int i = 0;

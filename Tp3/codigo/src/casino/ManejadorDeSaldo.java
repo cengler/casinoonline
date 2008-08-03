@@ -35,7 +35,6 @@ public class ManejadorDeSaldo {
 		return montoFeliz;
 	}
 
-	//TODO ver si esta bien tener el set
 	public void setMontoFeliz(int montoFeliz) {
 		this.montoFeliz = montoFeliz;
 	}

@@ -3,6 +3,11 @@ package observerCraps;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.log4j.Logger;
+
+import craps.IFotografiable;
+import craps.msg.MSGEstadoCraps;
+
 /**
  * ObservadorCraps. Representa la asociacion de un jugador con una
  * mesa de craps para el envio de mensajes de notificacion.
@@ -12,9 +17,10 @@ import java.util.Observer;
  */
 public class ObservadorCraps implements Observer {
 
+	private static Logger logger = Logger.getLogger(ObservadorCraps.class);
 	private Observable observable;
 	private String idJugador;
-	private int idTVirt;
+	private String idTVirt;
 	
 	public ObservadorCraps(){}
 
@@ -26,8 +32,19 @@ public class ObservadorCraps implements Observer {
 		return observable;
 	}
 	
-	public void update(Observable o, Object obj) {
-		//TODO
+	public void update(Observable o, Object obj) 
+	{
+		if(obj instanceof IFotografiable)
+		{
+			MSGEstadoCraps mensaje = ((IFotografiable)obj).sacarFoto();
+			mensaje.setUsuario(getIdJugador());
+			mensaje.setVTerm(getIdTVirt());
+			InterpretadorCrapsSalida.getInstance().interpretar(mensaje);
+		}
+		else
+		{
+			logger.debug("La notificacion so es de interes para: " + getClass().getName() + ".");
+		}
 	}
 
 	public String getIdJugador() {
@@ -38,11 +55,11 @@ public class ObservadorCraps implements Observer {
 		this.idJugador = idJugador;
 	}
 
-	public int getIdTVirt() {
+	public String getIdTVirt() {
 		return idTVirt;
 	}
 
-	public void setIdTVirt(int idTVirt) {
+	public void setIdTVirt(String idTVirt) {
 		this.idTVirt = idTVirt;
 	}
 	

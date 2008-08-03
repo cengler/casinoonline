@@ -25,7 +25,7 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void agregarObservador(String idJugador, int idTVirt, Observable mesa){
+	public void agregarObservador(String idJugador, String idTVirt, Observable mesa){
 		
 		ObservadorCraps obs = new ObservadorCraps();
 		obs.setMesa(mesa);
@@ -64,11 +64,6 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 		
 		//observers.remove(()o);
 		//TODO
-	}
-
-	public void agregarObservador(String idJugador, String idTVirt, Observable mesa) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void quitarObservador(String idJugador, Observable mesa) {

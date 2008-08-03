@@ -20,7 +20,7 @@ public abstract class Mensajero implements Runnable {
 		con = true;
 	}
 	
-	public abstract void send(IMessage msg, String name) throws MensajeroException;
+	public abstract void send(IMessage msg) throws MensajeroException;
 	
 	public abstract IMessage read() throws MensajeroException;
 	
@@ -35,7 +35,7 @@ public abstract class Mensajero implements Runnable {
 				{
 					IMessage rta = onMessage(msg);
 					logger.debug("Se va a enviar: " + msg);
-					send(rta, rta.getName());
+					send(rta);
 				}
 			}
 		} catch (MensajeroException e) {

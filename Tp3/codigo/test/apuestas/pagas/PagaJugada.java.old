@@ -1,0 +1,22 @@
+package apuestas.pagas;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import core.Tuple2;
+
+public class PagaJugada {
+
+	// LINEA DE PASE --------------------------------------
+	Map<Tuple2<Integer, Boolean>, Paga> ldp = new HashMap<Tuple2<Integer, Boolean>, Paga>();
+	
+	// BARRA NO PASE --------------------------------------
+	Map<Tuple2<Integer, Boolean>, Paga> bnp = new HashMap<Tuple2<Integer, Boolean>, Paga>();
+	
+	// APUESTAS DE CAMPO
+	Map<Integer, Paga> adc = new HashMap<Integer, Paga>();
+	
+	// APUESTAS DE SITIO
+	
+	
+}

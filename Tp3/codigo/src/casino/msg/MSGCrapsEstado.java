@@ -2,7 +2,7 @@ package casino.msg;
 
 import java.util.List;
 
-public class MSGEstadoCraps implements IMSGJuego {
+public class MSGCrapsEstado implements IMSGJuego {
 
 	private List<MSGMesaCraps> mesasCraps;
 

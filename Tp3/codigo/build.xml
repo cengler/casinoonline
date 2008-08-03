@@ -86,8 +86,6 @@
 		<arg value="${dir.rep}/jdepend-report.png"/>
 		<arg value="${dir.rep}/jdepend-report.dot"/>
 	</exec>
-	
-	<!--dot -Tpng -o jdepend.png jdepend-report.dot-->
 </target>
 
 <target name="check" depends="dot" description="Genera reporte de violaciones de convenciones de codigo.">

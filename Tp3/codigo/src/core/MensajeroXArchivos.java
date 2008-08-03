@@ -94,16 +94,16 @@ public class MensajeroXArchivos extends Mensajero {
 		return null;
 	}
 
-	public void send(IMessage msg, String name) throws MensajeroException {
+	public void send(IMessage msg) throws MensajeroException {
 		
 		try {
-			FileWriter fr = new FileWriter(dirName+"/"+name);
+			FileWriter fr = new FileWriter(dirName+"/"+msg.getName());
 			fr.write(msg.getData());
 			fr.close();
 			logger.debug("MENSAJE ENVIADO");
 		} catch (Exception e) {
 			logger.error("ERROR EN SEND: ",e);
-			throw new MensajeroException("Error al enviar el archivo: " + name);
+			throw new MensajeroException("Error al enviar el archivo: " + msg.getName());
 		}
 	}
 	

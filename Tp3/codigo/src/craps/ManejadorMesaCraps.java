@@ -15,7 +15,7 @@ import casino.ManejadorMesa;
 import casino.ManejadorCasino;
 import casino.SeleccionadorTipoJugadaPorModo;
 import casino.msg.IMSGJuego;
-import casino.msg.MSGEstadoCraps;
+import casino.msg.MSGCrapsEstado;
 import casino.msg.MSGEstadoJugador;
 import casino.msg.MSGMesaCraps;
 import casino.msg.MSGProximoTiro;
@@ -57,7 +57,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	}
 
 	public IMSGJuego estadoDeJuego() {
-		MSGEstadoCraps mensaje = new MSGEstadoCraps();
+		MSGCrapsEstado mensaje = new MSGCrapsEstado();
 		List<MSGMesaCraps> mesasCraps = new ArrayList<MSGMesaCraps>();
 
 		// seteos de las mesas

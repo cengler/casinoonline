@@ -10,7 +10,7 @@ import parser.ParserException;
 import casino.Jugador;
 import casino.ManejadorCasino;
 import casino.ManejadorJugador;
-import casino.msg.estadoCasino.MSGEstadoCasino;
+import casino.msg.MSGEstadoCasino;
 
 
 public class TestEstadoCasino {

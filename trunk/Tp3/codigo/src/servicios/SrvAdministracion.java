@@ -3,13 +3,12 @@ package servicios;
 import org.apache.log4j.Logger;
 
 import casino.IServiciosCasino;
-import casino.ManejadorModoDirigido;
+import casino.IServiciosModoDirigido;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
-import core.ImplementationFactory;
 
 /**
  * Servicios Administracion. Ver 1.0
@@ -27,9 +26,6 @@ public class SrvAdministracion {
 
 	/**
 	 * AbrirCasino.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGAbrirCasino abrirCasino(MSGAbrirCasino mensaje)
 	{
@@ -48,9 +44,6 @@ public class SrvAdministracion {
 
 	/**
 	 * CerrarCasino.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGCerrarCasino cerrarCasino(MSGCerrarCasino mensaje)
 	{
@@ -69,32 +62,56 @@ public class SrvAdministracion {
 
 	/**
 	 * ResetModoDirigido.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGResetModoDirigido resetModoDirigido(MSGResetModoDirigido mensaje){
-		return ManejadorModoDirigido.getInstance().resetModoDirigido(mensaje);
+		
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosModoDirigido.class, true).resetModoDirigido(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
 	 * SetearJugada.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGSetJugada setearJugada(MSGSetJugada mensaje){
-		return ManejadorModoDirigido.getInstance().setearJugada(mensaje);
+		
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosModoDirigido.class, true).setearJugada(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
 	 * SetModoDirigido.
-	 * 
-	 * @param mensaje mensaje de pedido del jugadore de craps
-	 * @return mensaje de respusta al pedido
 	 */
 	public static MSGSetModo setModoDirigido(MSGSetModo mensaje){
-		return ManejadorModoDirigido.getInstance().setModoDirigido(mensaje);
+		
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosModoDirigido.class, true).setModoDirigido(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 }

@@ -8,7 +8,7 @@ import craps.msg.MSGJugadorCraps;
 public class MSGEstadoCraps extends MSGCraps {
 
 	
-	private List<MSGJugadorCraps> jugadores;//TODO ver parser de craps 
+	private List<MSGJugadorCraps> jugadores;
 	private MSGProxTiro proximoTiro;
 	private MSGUltimoTiro ultimoTiro;
 	private MSGApuestasVigentes apuestasVigentes;

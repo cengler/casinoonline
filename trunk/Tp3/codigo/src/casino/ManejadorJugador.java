@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+
 import casino.msg.MSGCasino;
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
@@ -244,15 +245,18 @@ public class ManejadorJugador implements IServiciosJugador {
 		}
 		return null;
 	}
-	
-	
-	/*public void acreditar(IJugador jugador, int b){}
 
-	public void AcreditarSaldo(Jugador jugador, int a, int b){}*/
-
+	/**
+	 * Debita el monto indicado de la cuenta del jugador.
+	 * NOTA: no verifica que al jugador le sea posible.
+	 * (verificar antes si el jugador es VIP)
+	 * 
+	 * @param jugador jugador al que debitará el monto
+	 * @param a monto a debitar.
+	 */
 	public void debitarMonto(IJugador jugador, int a)
 	{
-		//TODO
+		((Jugador)jugador).setSaldo(jugador.getSaldo() - a);
 	}
 
 	public boolean estaJugando(IJugador jugador)
@@ -266,10 +270,6 @@ public class ManejadorJugador implements IServiciosJugador {
 		
 		return estaJugando;
 	}
-
-	/*public ICliente getCliente(int idVitrual, String nombre){
-		return null;
-	}*/
 
 	public IJugador getJugador(String jugador)
 	{

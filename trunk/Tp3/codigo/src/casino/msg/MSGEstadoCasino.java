@@ -1,20 +1,19 @@
-package casino.msg.estadoCasino;
+package casino.msg;
 
 import java.util.List;
 
-import casino.msg.MSGCasino;
 
 public class MSGEstadoCasino extends MSGCasino {
 
-	private List<MSGJugador> jugadores;
+	private List<MSGEstadoJugador> jugadores;
 	private List<MSGObservador> observadores;
 	private List<IMSGJuego> juegos;
 	private MSGPozo pozosCasino;
 
-	public List<MSGJugador> getJugadores() {
+	public List<MSGEstadoJugador> getJugadores() {
 		return jugadores;
 	}
-	public void setJugadores(List<MSGJugador> jugadores) {
+	public void setJugadores(List<MSGEstadoJugador> jugadores) {
 		this.jugadores = jugadores;
 	}
 	public List<IMSGJuego> getJuegos() {

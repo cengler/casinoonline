@@ -5,7 +5,6 @@ public class ModificacionApuestaCraps {
 	public static String TRUE = "true";
 	public static String FALSE = "false";
 	public static String BOTTOM = "bottom";
-	
 	private String tipo;
 	private String puck;
 	private int resultado;

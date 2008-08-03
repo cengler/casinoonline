@@ -1,7 +1,10 @@
 package servicios;
 
-import craps.ManejadorMesaCraps;
+import org.apache.log4j.Logger;
+
+import craps.IServiciosCraps;
 import craps.msg.MSGApostarCraps;
+import craps.msg.MSGCraps;
 import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
@@ -14,6 +17,8 @@ import craps.msg.MSGTiroCraps;
  */
 public class SrvCraps {
 
+	private static Logger logger = Logger.getLogger(SrvCraps.class);
+	
 	/**
 	 * Constructor.
 	 */
@@ -25,8 +30,19 @@ public class SrvCraps {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGApostarCraps apostarCraps(MSGApostarCraps mensaje){
-		return ManejadorMesaCraps.getInstance().apostarCraps(mensaje);
+	public static MSGApostarCraps apostarCraps(MSGApostarCraps mensaje)
+	{
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosCraps.class, true).apostarCraps(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGCraps.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
@@ -35,8 +51,19 @@ public class SrvCraps {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje){
-		return ManejadorMesaCraps.getInstance().entrarCraps(mensaje);
+	public static MSGEntradaCraps entrarCraps(MSGEntradaCraps mensaje)
+	{
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosCraps.class, true).entrarCraps(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGCraps.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
@@ -45,8 +72,19 @@ public class SrvCraps {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje){
-		return ManejadorMesaCraps.getInstance().salirCraps(mensaje);
+	public static MSGSalidaCraps salirCraps(MSGSalidaCraps mensaje)
+	{
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosCraps.class, true).salirCraps(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGCraps.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 	/**
@@ -55,8 +93,19 @@ public class SrvCraps {
 	 * @param mensaje mensaje de pedido del jugadore de craps
 	 * @return mensaje de respusta al pedido
 	 */
-	public static MSGTiroCraps tirarCraps(MSGTiroCraps mensaje){
-		return ManejadorMesaCraps.getInstance().tirarCraps(mensaje);
+	public static MSGTiroCraps tirarCraps(MSGTiroCraps mensaje)
+	{
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosCraps.class, true).tirarCraps(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(MSGCraps.NO);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
 	}
 
 }

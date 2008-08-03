@@ -11,7 +11,6 @@ import casino.IMesa;
 import craps.msg.MSGEstadoCraps;
 import craps.msg.MSGJugadorCraps;
 import craps.msg.MSGProxTiro;
-import craps.msg.MSGUltimoTiro;
 
 public class MesaCraps extends Observable implements IMesa {
 
@@ -219,9 +218,9 @@ public class MesaCraps extends Observable implements IMesa {
 		
 			proxTiro.setTirador(this.getTirador().getNombre());
 			if (this.isPuck()== true){ //puck prendido
-				proxTiro.setTiroSalida(this.PUCK_PRENDIDO);
+				proxTiro.setTiroSalida(PUCK_PRENDIDO);
 				
-			}else{proxTiro.setTiroSalida(this.PUCK_APAGADO);}
+			}else{proxTiro.setTiroSalida(PUCK_APAGADO);}
 		//private String tirador;
 		//private String tiroSalida;
 		//private int punto;

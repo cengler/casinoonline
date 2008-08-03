@@ -1,6 +1,6 @@
 package casino;
 
-import casino.core.TipoJugada;
+import casino.msg.TipoJugada;
 
 /**
  * ISelectorTipoJugada.

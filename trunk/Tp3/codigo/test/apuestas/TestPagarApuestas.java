@@ -4,13 +4,13 @@ import org.apache.log4j.Logger;
 
 import casino.Casino;
 import casino.Jugador;
-import casino.core.TipoJugada;
+import casino.msg.TipoJugada;
 
 import craps.ApuestaCraps;
 import craps.CrapsException;
 import craps.ManejadorDeApuestas;
 import craps.ResultadoCraps;
-import craps.core.TipoApuestaCraps;
+import craps.msg.TipoApuestaCraps;
 
 public class TestPagarApuestas {
 

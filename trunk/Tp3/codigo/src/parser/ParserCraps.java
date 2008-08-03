@@ -49,7 +49,7 @@ public class ParserCraps extends Parser {
 		
 		
 		/*
-		
+		TODO ver todo estadoCraps
 		// TIRAR CRAPS
 		
 		xstream.aliasAttribute(MSGTiroCraps.class, "tipoJugada", "tipoJugada");

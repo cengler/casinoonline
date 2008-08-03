@@ -2,7 +2,8 @@ package implementations;
 
 import java.io.IOException;
 
-import core.ImplementationFactory;
+import servicios.ImplementationFactory;
+
 
 public class Test {
 

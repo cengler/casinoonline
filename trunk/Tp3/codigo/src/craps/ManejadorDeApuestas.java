@@ -9,13 +9,12 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import craps.core.TipoApuestaCraps;
-
 import au.com.bytecode.opencsv.CSVReader;
-
 import casino.Casino;
 import casino.IJugador;
-import casino.core.TipoJugada;
+import casino.Jugador;
+import casino.msg.TipoJugada;
+import craps.msg.TipoApuestaCraps;
 
 /**
  * PagadorDeApuestas de una mesa en particular.
@@ -158,6 +157,8 @@ public class ManejadorDeApuestas {
 			}
 		}
 		
+		int pozoFeliz = casino.getPozoFeliz();
+		
 		logger.debug("ajusto ganancia segun tipo de jugada y pago..." );
 		// AJUSTO LA LA GANANCIA SEGUN LAS MODIFICACIONES DE CADA TIPO DE JUGADA
 		if(jugada.equals(TipoJugada.todosponen)) // TOD OSPONEN
@@ -181,11 +182,8 @@ public class ManejadorDeApuestas {
 				}
 			}
 		}
-		else if (jugada.equals(TipoJugada.feliz))
+		else if (jugada.equals(TipoJugada.feliz) && casino.getMinPozoFeliz() > pozoFeliz )
 		{
-			int pozoFeliz = casino.getPozoFeliz();
-			// TODO VER VALIDACION POZO FELIZ
-			
 			for (ApuestaCraps apuesta : apuestas)
 			{
 				if( correspondePagar(apuesta, resultado, puck) )
@@ -207,7 +205,7 @@ public class ManejadorDeApuestas {
 			// SE RESETEA EL POZO FELIZ
 			casino.setPozoFeliz(0);
 		}
-		else
+		else // JUGADA NORMAL o EL MONTO FELIZ NO ALCANZABA EL MINIMO
 		{
 			for (ApuestaCraps apuesta : apuestas)
 			{
@@ -265,9 +263,10 @@ public class ManejadorDeApuestas {
 	 * @param apostador jugador que realizó la apuesta
 	 * @param ganancia monto a acreditar
 	 */
-	private void acreditarGanancia(IJugador apostador, int ganancia) {
-		// TODO Auto-generated method stub
-		
+	private void acreditarGanancia(IJugador apostador, int ganancia)
+	{
+		Casino.getInstance().setSaldo(Casino.getInstance().getSaldo() - ganancia);
+		((Jugador)apostador).setSaldo(apostador.getSaldo()+ganancia);
 	}
 
 	/**

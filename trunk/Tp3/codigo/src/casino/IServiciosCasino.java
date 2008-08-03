@@ -2,7 +2,7 @@ package casino;
 
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
-import casino.msg.estadoCasino.MSGEstadoCasino;
+import casino.msg.MSGEstadoCasino;
 
 /**
  * IServiciosCasino.

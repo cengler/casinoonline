@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import casino.core.TipoJugada;
+
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGResultadosModo;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
+import casino.msg.TipoJugada;
 
 /**
  * ManejadorModoDirigido.
@@ -170,9 +171,6 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 				{
 					is.borrarResultadosSeteados();
 				}
-				
-				
-				// TODO BORRAR SETEOS DE JUGADAS Y RESULTADOS
 			}
 		}
 		else

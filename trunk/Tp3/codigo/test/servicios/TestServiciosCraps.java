@@ -14,6 +14,7 @@ import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGOpcionApuesta;
 import craps.msg.MSGTiroCraps;
 import craps.msg.MSGValorFicha;
+import craps.msg.TipoApuestaCraps;
 
 
 public class TestServiciosCraps {
@@ -169,7 +170,7 @@ public class TestServiciosCraps {
 		//seteo las fichas
 		MSGOpcionApuesta op = new MSGOpcionApuesta();
 		op.setPuntajeApostado(0);
-		op.setTipoApuesta("pase");
+		op.setTipoApuesta(TipoApuestaCraps.pase);
 		mensaje.setOpcionApuesta(op);
 		logger.info("antes de la lista");
 		List<MSGValorFicha> list = new ArrayList<MSGValorFicha>();

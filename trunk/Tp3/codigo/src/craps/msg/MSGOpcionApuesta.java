@@ -1,5 +1,4 @@
 package craps.msg;
-import craps.core.TipoApuestaCraps;
 
 public class MSGOpcionApuesta {
 
@@ -15,16 +14,8 @@ public class MSGOpcionApuesta {
 	public TipoApuestaCraps getTipoApuesta() {
 		return tipoApuesta;
 	}
-	/*public void setTipoApuesta(TipoApuestaCraps tipoApuesta) {
+	public void setTipoApuesta(TipoApuestaCraps tipoApuesta) {
 		this.tipoApuesta = tipoApuesta;
-		// TODO
-	}
-	*/
-	public void setTipoApuesta(String tipoApuesta) {
-				
-		this.tipoApuesta = TipoApuestaCraps.valueOf(tipoApuesta);
-	
-	
 	}
 	
 }

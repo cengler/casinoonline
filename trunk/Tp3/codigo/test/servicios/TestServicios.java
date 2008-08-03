@@ -1,9 +1,9 @@
 package servicios;
 
-import casino.core.TipoJugada;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGSetJugada;
+import casino.msg.TipoJugada;
 
 public class TestServicios {
 

@@ -16,7 +16,11 @@ public class Invitado implements IInvitado {
 	/**
 	 * Constructor.
 	 */
-	public Invitado(){}
+	public Invitado()
+	{
+		idVirt = "";
+		nombre = "";
+	}
 
 	/**
 	 * {@inheritDoc}

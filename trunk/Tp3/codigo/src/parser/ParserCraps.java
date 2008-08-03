@@ -10,10 +10,14 @@ import core.IMessage;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGCraps;
 import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGOpcionApuesta;
 import craps.msg.MSGSalidaCraps;
+import craps.msg.MSGTiroCraps;
+import craps.msg.MSGValorFicha;
 
 public class ParserCraps extends Parser {
 	
+	private static Logger messageParser = Logger.getLogger("MessageParser");
 	private static Logger logger = Logger.getLogger(ParserCasino.class);
 	private static ParserCraps instance;
 	private static XStream xstream;
@@ -36,20 +40,18 @@ public class ParserCraps extends Parser {
 		// APOSTAR CRAPS
 		xstream.alias("apostarCraps", MSGApostarCraps.class);
 		xstream.aliasAttribute(MSGApostarCraps.class, "valorApuesta", "valorApuesta");
-		
-		
-		
-		
-		/*xstream.alias("valorFicha", MSGValorFicha.class);
-		xstream.aliasAttribute(MSGValorFicha.class, "cantidad", "cantidad");
-		xstream.aliasAttribute(MSGValorFicha.class, "valor", "valor");
-		xstream.aliasAttribute(MSGApostarCraps.class, "opcionApuesta", "opcionApuesta");
+		xstream.alias("valorFicha", MSGValorFicha.class);
 		xstream.alias("opcionApuesta", MSGOpcionApuesta.class);
-		xstream.aliasAttribute(MSGOpcionApuesta.class, "tipoApuesta", "tipoApuesta");
-		xstream.aliasAttribute(MSGOpcionApuesta.class, "puntajeApostado", "puntajeApostado");
+		
+		
+		// TIRO CRAPS
+		xstream.alias("tiroCraps", MSGTiroCraps.class);
+		
+		
+		/*
 		
 		// TIRAR CRAPS
-		xstream.alias("tiroCraps", MSGTiroCraps.class);
+		
 		xstream.aliasAttribute(MSGTiroCraps.class, "tipoJugada", "tipoJugada");
 		xstream.aliasAttribute(MSGTiroCraps.class, "resultado", "resultado");
 		xstream.alias("resultado", MSGResultadoCraps.class);
@@ -99,13 +101,11 @@ public class ParserCraps extends Parser {
 	{	
 		try
 		{
-			logger.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
+			messageParser.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
 					is.getData() + " ------------------- ");
 			Object message; 
 			String s = is.getData();
 			message = xstream.fromXML(s.trim());
-			logger.debug("parseando: " + message + "\n P>------------------ \n" + 
-					is.getData() + " P>------------------ ");
 			return message;
 		}catch(RuntimeException re)
 		{

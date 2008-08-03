@@ -137,64 +137,60 @@ public class ManejadorJugador implements IServiciosJugador {
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje){
-
-		// TODO HACER METODO MIRAR ENTRAR
+	public MSGSalidaCasino salirCasino(MSGSalidaCasino mensaje)
+	{
 		//para salir del casino, el mismo debe estar abierto.
 		if(!Casino.getInstance().isAbierto())
 		{
 			mensaje.setAceptado(MSGCasino.NO);
 			mensaje.setDescripcion("El casino no esta abierto");
-		}else
-		
+		}
+		else
 		{
-			
-			
-				IJugador jugador = getJugador(mensaje.getUsuario());
-				IInvitado invitado = this.getInvitado(mensaje.getUsuario());
+			IJugador jugador = getJugador(mensaje.getUsuario());
+			IInvitado invitado = this.getInvitado(mensaje.getUsuario());
 				
-				if(jugador == null && invitado == null)
-				{
-					mensaje.setAceptado(MSGCasino.NO);
-					mensaje.setDescripcion("El USUARIO no esta registrado en el casino");
-						
-				}else{ 
-					//SI EL USUARIO Q SALE ES UN JUGADOR...
-					if (jugador != null){
-						if (!jugador.isLogeado())
+			if(jugador == null && invitado == null)
+			{
+				mensaje.setAceptado(MSGCasino.NO);
+				mensaje.setDescripcion("El USUARIO no esta registrado en el casino");
+			}
+			else
+			{ 
+				//SI EL USUARIO Q SALE ES UN JUGADOR...
+				if (jugador != null){
+					if (!jugador.isLogeado())
+					{
+						mensaje.setAceptado(MSGCasino.NO);
+						mensaje.setDescripcion("El jugador no esta logeado en el casino");
+					}
+					else
+					{
+						//ver si esta en algun juego
+						boolean estaJugando = false;
+						for (ManejadorMesa manMesa : this.manejadores)
+						{
+							estaJugando = manMesa.estaJugando(jugador);
+						}
+						if (estaJugando == true)
 						{
 							mensaje.setAceptado(MSGCasino.NO);
-							mensaje.setDescripcion("El jugador no esta logeado en el casino");
+							mensaje.setDescripcion("No se puede desloggear al jugador, pues esta jugando " );
 						}
 						else
 						{
-							//ver si esta en algun juego
-							boolean estaJugando = false;
-							for (ManejadorMesa manMesa : this.manejadores){
-								
-								estaJugando = manMesa.estaJugando(jugador);
-								
-								
-							}
-							if (estaJugando == true){
-								mensaje.setAceptado(MSGCasino.NO);
-								mensaje.setDescripcion("No se puede desloggear al jugador, pues esta jugando " );
-								
-								
-							}else{
-								mensaje.setAceptado(MSGCasino.SI);
-								mensaje.setDescripcion("El jugador ha salido del casino" );
-							}
-						}	
-					}else{
-						//EL QUE SALE ES UN INVITADO/OBSERVADOR
-						//sacarlo de la lista de invitados.
-						this.invitados.remove(invitado);
-						mensaje.setAceptado(MSGCasino.SI);
-						mensaje.setDescripcion("El invitado ha salido del casino");
-					
-					}
-					
+							((Jugador)jugador).setLogeado(false);
+							mensaje.setAceptado(MSGCasino.SI);
+							mensaje.setDescripcion("El jugador ha salido del casino" );
+						}
+					}	
+				}else{
+					//EL QUE SALE ES UN INVITADO/OBSERVADOR
+					//sacarlo de la lista de invitados.
+					this.invitados.remove(invitado);
+					mensaje.setAceptado(MSGCasino.SI);
+					mensaje.setDescripcion("El invitado ha salido del casino");
+				}		
 			}
 			
 		logger.info("SALIR CASINO jug: " + mensaje.getUsuario() + 
@@ -224,8 +220,8 @@ public class ManejadorJugador implements IServiciosJugador {
 	}
 
 	public List<ManejadorMesa> getManejadores() {
-		if(manejadores.size() == 0)
-			logger.warn("REVISAR CONFIGURACION... NO HAY MANEJADORES DE JUEGO");
+		//if(manejadores.size() == 0)
+		//	logger.warn("REVISAR CONFIGURACION... NO HAY MANEJADORES DE JUEGO");
 		return manejadores;
 	}
 
@@ -271,10 +267,9 @@ public class ManejadorJugador implements IServiciosJugador {
 		return estaJugando;
 	}
 
-	public ICliente getCliente(int idVitrual, String nombre){
-		// TODO
+	/*public ICliente getCliente(int idVitrual, String nombre){
 		return null;
-	}
+	}*/
 
 	public IJugador getJugador(String jugador)
 	{

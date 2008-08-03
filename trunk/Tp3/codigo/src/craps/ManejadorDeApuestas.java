@@ -28,10 +28,15 @@ public class ManejadorDeApuestas {
 	private List<ApuestaCraps> apuestas;
 	private Logger logger = Logger.getLogger(ManejadorDeApuestas.class);
 	
+	private static String RES_POS_FILE = "configuration/pagos.csv";
+	private static String MOD_FILE = "configuration/modificaciones.csv";
 	private static boolean loadConf = false;
-	private static Map<ResultadoApuestaCraps, String> pagos;
+	private static Map<ResultadoApuestaCraps, PagoApuesta> pagos;
 	private static Map<ModificacionApuestaCraps, Integer> modificaciones;
 	
+	/**
+	 * Constructor.
+	 */
 	public ManejadorDeApuestas()
 	{	
 		apuestas = new ArrayList<ApuestaCraps>();
@@ -39,14 +44,17 @@ public class ManejadorDeApuestas {
 			loadConfiguration();
 	}
 	
+	/**
+	 * Carga la configuracion de los resultados y modificaciones a apuestas.
+	 */
 	private void loadConfiguration()
 	{
 		logger.info("Cargando informacion de modificaciones y pagos de apuestas...");
 		try {
-			pagos = new HashMap<ResultadoApuestaCraps, String>();
+			pagos = new HashMap<ResultadoApuestaCraps, PagoApuesta>();
 			modificaciones = new HashMap<ModificacionApuestaCraps, Integer>();
-			loadModificaciones();
 			loadResultadosPosibles();
+			loadModificaciones();
 		} catch (CrapsException e) {
 			logger.fatal("No se pudo cargar el manejador de apuestas," +
 				" problemas en la configuracion de modificaciones y pagos de apuestas", e);
@@ -54,16 +62,24 @@ public class ManejadorDeApuestas {
 		
 	}
 
+	/**
+	 * Carga la configuracion de los resultados posibles.
+	 * 
+	 * @throws CrapsException en caso de no encontrar el archivo de configuracion
+	 */
 	public void loadResultadosPosibles() throws CrapsException
 	{
 		try {
-			CSVReader reader = new CSVReader(new FileReader(new File("D:/casino/codigo/test/apuestas/csv/pagos.csv")));
+			CSVReader reader = new CSVReader(new FileReader(new File(RES_POS_FILE)));
 		    String [] line;
 		    while ((line = reader.readNext()) != null)
 		    {
 		    	ResultadoApuestaCraps res = new ResultadoApuestaCraps(line[0].trim(), line[1].trim(), 
 		    			Integer.parseInt(line[2].trim()), Integer.parseInt(line[3].trim()));
-		    	pagos.put(res, line[4].trim());
+		    	
+		    	PagoApuesta pago = new PagoApuesta(Integer.parseInt(line[4].trim()), Integer.parseInt(line[4].trim()));
+		    	
+		    	pagos.put(res, pago);
 		    }
 		} catch (Exception e) {
 			logger.fatal("No se han podido cargar los resultados posibles para las apuestas de craps: ", e);
@@ -72,10 +88,15 @@ public class ManejadorDeApuestas {
 		logger.debug("PAGOS A APUESTAS CARGADAS: " + pagos);
 	}
 	
+	/**
+	 * Carga la configuracion de las modificaciones a apuestas.
+	 * 
+	 * @throws CrapsException en caso de no encontrar el archivo de configuracion
+	 */
 	public void loadModificaciones() throws CrapsException
 	{
 		try {
-			CSVReader reader = new CSVReader(new FileReader(new File("D:/casino/codigo/test/apuestas/csv/modificaciones.csv")));
+			CSVReader reader = new CSVReader(new FileReader(new File(MOD_FILE)));
 		    String [] line;
 		    while ((line = reader.readNext()) != null)
 		    {
@@ -90,14 +111,31 @@ public class ManejadorDeApuestas {
 		logger.debug("MOD A APUESTAS CARGADAS: " + modificaciones);
 	}
 	
+	/**
+	 * Obtiene la lista de apuestas.
+	 * 
+	 * @return la lista de apuestas
+	 */
 	public List<ApuestaCraps> getApuestas() {
 		return apuestas;
 	}
 
+	/**
+	 * Setea la lista de apuestas.
+	 * 
+	 * @param apuestas la lista de apuestas a setear
+	 */
 	public void setApuestas(List<ApuestaCraps> apuestas) {
 		this.apuestas = apuestas;
 	}
 
+	/**
+	 * Paga tadas las apuestas que se puedan solucionar con el tiro realizado.
+	 * 
+	 * @param jugada tipo de jugada que se esta pagando
+	 * @param resultado resultado que salieron en los dados
+	 * @param puck estado del puck antes de computar el tiro
+	 */
 	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
 	{
 		logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
@@ -201,10 +239,23 @@ public class ManejadorDeApuestas {
 	{
 		String pck = Boolean.toString(puck);
 		ResultadoApuestaCraps res = new ResultadoApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje());
-		logger.debug("Ganancia Bruta pagar a: " + res + " --> "+ pagos.get( res ));
-		// TODO RELACION 2:1
-		// TODO  pagos.get( res 
-		return a.getValor();
+		return getPago(pagos.get( res ), a.getValor());
+	}
+	
+	/**
+	 * El jugador Pepe apuesta una ficha de $ 2 y una de $ 5 en una apuesta 5:11. 
+	 * El casino le debita $7 de su cuenta y registra la apuesta (con un valor total de $7)
+	 * 
+	 * Si la apuesta resulta ganadora, el casino acreditará en la cuenta del jugador 
+	 * Pepe los $7 de la apuesta original más el pago calculado según la regla 5:11 
+	 * ( $7 * 5 / 11 ).  O sea, el casino acredita $ 10,18 en la cuenta de Pepe. 
+	 * @param pago
+	 * @param valor
+	 * @return
+	 */
+	private int getPago(PagoApuesta pago, int valor)
+	{
+		return valor + (valor * pago.getFichas() / pago.getPago()); 
 	}
 
 	/**

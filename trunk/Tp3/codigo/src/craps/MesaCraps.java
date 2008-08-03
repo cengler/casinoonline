@@ -25,7 +25,7 @@ public class MesaCraps extends Observable implements IMesa {
 	private boolean puck;
 	private int punto;
 	private IJugador tirador;
-	private IJugador tiradorAnterior;
+	private IJugador tiradorAnterior; //TODO
 	private int ultimoResultado; 
 	private ManejadorDeApuestas pagador;
 	private static Logger logger = Logger.getLogger(MesaCraps.class);

@@ -58,7 +58,8 @@
 		<exclude name="java.*"/>
 		<exclude name="javax.*"/>
 		<exclude name="org.apache.*"/>
-		<exclude name="com.thoughtworks.*"/>		
+		<exclude name="com.thoughtworks.*"/>	<br/>
+		<exclude name="au.com.*"/>		
 		<classespath>
 			<pathelement location="${dir.bin}" />
 		</classespath>

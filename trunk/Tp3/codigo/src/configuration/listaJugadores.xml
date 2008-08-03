@@ -4,5 +4,5 @@
   <jugador nombre="Pablo" saldo="123456789" vip="false"/>
   <jugador nombre="Pepe" saldo="100" vip="true"/>
   <jugador nombre="Andres" saldo="1550" vip="false"/>
-  <jugador nombre="Ignacio" saldo="0" vip="false"/>
+  <jugador nombre="Ignacio" saldo="10000" vip="false"/>
 </list>

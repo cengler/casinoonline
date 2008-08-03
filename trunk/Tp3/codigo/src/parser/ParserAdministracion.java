@@ -23,6 +23,7 @@ import core.IMessage;
  */
 public class ParserAdministracion extends Parser{
 	
+	private static Logger messageParser = Logger.getLogger("MessageParser");
 	private static Logger logger = Logger.getLogger(ParserAdministracion.class);
 	private static ParserAdministracion instance;
 	private static XStream xstream;
@@ -58,13 +59,11 @@ public class ParserAdministracion extends Parser{
 	{	
 		try
 		{
-			logger.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
+			messageParser.debug("parseando... " + is.getName() + "\n ------------------- \n" + 
 					is.getData() + " ------------------- ");
 			Object message; 
 			String s = is.getData();
 			message = xstream.fromXML(s.trim());
-			logger.debug("parseando: " + message + "\n P>------------------ \n" + 
-					is.getData() + " P>------------------ ");
 			return message;
 		}catch(RuntimeException re)
 		{

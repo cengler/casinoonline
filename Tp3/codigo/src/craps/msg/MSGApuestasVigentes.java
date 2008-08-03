@@ -1,18 +1,17 @@
 package craps.msg;
-
+import java.util.List;
 
 
 public class MSGApuestasVigentes {
 
-	private MSGApuesta apuesta;
+	private List<MSGApuesta> apuestas;
 
-	public MSGApuesta getApuesta() {
-		return apuesta;
+	public List<MSGApuesta> getApuestas() {
+		return apuestas;
 	}
 
-	public void setApuesta(MSGApuesta apuesta) {
-		this.apuesta = apuesta;
+	public void setApuestas(List<MSGApuesta> apuestas) {
+		this.apuestas = apuestas;
 	}
-	
 	
 }

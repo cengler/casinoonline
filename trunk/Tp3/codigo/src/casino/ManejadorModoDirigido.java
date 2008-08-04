@@ -87,7 +87,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 			}
 			else if( !mesa.isAbierta() )
 			{
-				logger.info("La mesa esta cerrada, el seteo de una jugada es initil");
+				logger.info("La mesa esta cerrada, el seteo de una jugada es inutil");
 				mensaje.setAceptado(false);
 				mensaje.setDescripcion("La mesa esta cerrada, el seteo de una jugada es initil");
 			}
@@ -95,7 +95,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 			{
 				SelectorTipoJugadaMD.getInstance().addJugadaSeteada(mesa, mensaje.getTipo());
 				logger.info("El seteo de la jugada se completo corectamente");
-				mensaje.setAceptado(false);
+				mensaje.setAceptado(true);
 				mensaje.setDescripcion("El seteo de la jugada se completo corectamente");
 			}
 		}
@@ -117,7 +117,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 			}
 			else
 			{
-				for (MSGResultadosModo r : mensaje.getResultados())
+				for (MSGResultadosModo r : mensaje.getResultados()) // TODO bug cuando no me pasan resultados para todos los manejadores
 				{
 					ISeteadorResultado s = getSeteador(r.getName());
 					if(s == null)
@@ -132,6 +132,7 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 						logger.debug("Seteando resultados para " + r.getName() + " resultados: " + r.getResultados());
 						try 
 						{
+							s.borrarResultadosSeteados();
 							s.setResultados(r.getResultados());
 						} catch (CasinoException e) {
 							mensaje.setAceptado(false);
@@ -157,7 +158,8 @@ public class ManejadorModoDirigido implements IServiciosModoDirigido
 			}
 			else
 			{
-				
+				for(ISeteadorResultado s : seteadoresRes)
+					s.borrarResultadosSeteados();
 				Casino.getInstance().setModoNormal(true);
 				mensaje.setAceptado(true);
 				mensaje.setDescripcion("El casino seteo al casino en modo: " + mensaje.getModo());

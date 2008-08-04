@@ -8,6 +8,7 @@ import casino.IServiciosCasino;
 import casino.IServiciosModoDirigido;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
+import casino.msg.MSGReporteRankingJugadores;
 import casino.msg.MSGResetModoDirigido;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
@@ -106,6 +107,24 @@ public class SrvAdministracion {
 		try 
 		{
 			return ImplementationFactory.getImplementation(IServiciosModoDirigido.class, true).setModoDirigido(mensaje);
+		} 
+		catch (Exception e) 
+		{
+			logger.error(e);
+			mensaje.setAceptado(false);
+			mensaje.setDescripcion(e.getMessage());
+		}
+		return mensaje;
+	}
+	
+	/**
+	 * reporteRanking.
+	 */
+	public static MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores mensaje){
+		
+		try 
+		{
+			return ImplementationFactory.getImplementation(IServiciosCasino.class, true).reporteRanking(mensaje);
 		} 
 		catch (Exception e) 
 		{

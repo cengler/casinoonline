@@ -7,6 +7,9 @@ revisar...
 - ver reporte en servicios
 - ver tirar de craps
 - descripcion task ant
+- resetear el punto cuando se pierde
+- cargar valores de fichas validas
+- estado casino parser... no veo saldo de casino
 
 
 - si no fuera por el ImplementionFact ManejadordeObservers haria un ciclo en la instanciacion

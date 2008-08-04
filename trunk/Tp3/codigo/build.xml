@@ -173,7 +173,7 @@
 <!--http://www.umlgraph.org/doc/ant.html
 http://www.mekwin.com/mekwin/software/developers.html-->
    
-<target name="javadoc" depends="uml" description="Realiza todo.">
+<target name="all" depends="javadoc" description="Realiza todo.">
 	<echo>All Actions: ..................................... </echo>
 </target>
 

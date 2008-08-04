@@ -117,6 +117,9 @@ public final class ImplementationFactory
             instance = implementationClass.newInstance(); 
         }
         
+        if(instance == null)
+        	throw new InstantiationException("ERROR, no se encontro la implementacion");
+        
         return (T)instance;
 	}
 }

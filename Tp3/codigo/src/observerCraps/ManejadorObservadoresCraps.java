@@ -1,5 +1,6 @@
 package observerCraps;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -23,7 +24,10 @@ public class ManejadorObservadoresCraps implements IManejadorObservadoresCraps {
 	/**
 	 * Constructor privado.
 	 */
-	private ManejadorObservadoresCraps(){}
+	private ManejadorObservadoresCraps()
+	{
+		observers = new ArrayList<ObservadorCraps>();
+	}
 
 	/**
 	 * {@inheritDoc}

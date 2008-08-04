@@ -117,34 +117,28 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 		return (new Integer(this.id)).compareTo(new Integer(mesa.getId()));
 	}
 
-	public boolean tieneApuestasActivas(IJugador jugador) {
-		// TODOMERY revisar
-		
+	public boolean tieneApuestasActivas(IJugador jugador)
+	{
 		ManejadorDeApuestas manAp = this.getPagador();
 		//obtengo las apuestas de la mesa.
 		List<ApuestaCraps> apuestas = manAp.getApuestas();
 		//recorro las apuestas para ver si "jugador" tiene apuestas activas en la mesa
 		int i = 0;
 		boolean res = false;
-		while (i < apuestas.size() && res == false){
-			
+		while (i < apuestas.size() && res == false)
+		{
 			IJugador apostador = apuestas.get(i).getApostador();
 			boolean activa = apuestas.get(i).isActiva();
 			
 			if(apostador == jugador || activa == true){
-				
 				res = true;
-			}else{
-				
-				i++;
-				
 			}
-			
-			return res;
+			else
+			{
+				i++;
+			}
 		}
-		
-	
-		return false;
+		return res;
 	}
 
 	public boolean saleCraps(ResultadoCraps resCraps)

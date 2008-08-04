@@ -6,16 +6,19 @@ public class MSGEntradaCasino extends MSGCasino {
 	public static String MODO_JUGADOR = "jugador";
 	public static String MODO_OBSERVADOR = "observador";
 	private String modoAcceso;
-	private int saldo;
+	private float saldo;
 	private static String NAME = "EntradaCasino";
 
 	public String getName() {
 		return NAME;
 	}
 
-	public int getSaldo() {
-		return saldo;	}
-	public void setSaldo(int saldo) {
+	public float getSaldo()
+	{
+		return saldo;
+	}
+	
+	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
 	

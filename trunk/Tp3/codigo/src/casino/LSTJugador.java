@@ -3,7 +3,7 @@ package casino;
 public class LSTJugador {
 
 	private String nombre;
-	private int saldo;
+	private float saldo;
 	private boolean vip;
 
 	public String getNombre() {
@@ -14,11 +14,11 @@ public class LSTJugador {
 		this.nombre = nombre;
 	}
 
-	public int getSaldo() {
+	public float getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(int saldo) {
+	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
 

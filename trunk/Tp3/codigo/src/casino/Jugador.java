@@ -16,8 +16,8 @@ public class Jugador implements IJugador {
 	private boolean vip;
 	private boolean modoObservador;
 	private String nombre;
-	private int saldo;
-	private int saldoInicial; //TODO hay q setearlo.
+	private float saldo;
+	private float saldoInicial;
 	
 	private Logger logger = Logger.getLogger(Jugador.class);
 
@@ -61,7 +61,7 @@ public class Jugador implements IJugador {
 		this.nombre = nombre;
 	}
 
-	public int getSaldo() {
+	public float getSaldo() {
 		return saldo;
 	}
 
@@ -70,7 +70,7 @@ public class Jugador implements IJugador {
 	 * 
 	 * @param saldo saldo a setear al jugador
 	 */
-	public void setSaldo(int saldo) {
+	public void setSaldo(float saldo) {
 		if(!isVip())
 			if(saldo<0)
 				logger.error("El saldo de un jugador no VIP no pude ser negativo");
@@ -108,11 +108,11 @@ public class Jugador implements IJugador {
 		return "[J: "+nombre+" saldo: "+saldo+" ]";
 	}
 
-	public int getSaldoInicial() {
+	public float getSaldoInicial() {
 		return saldoInicial;
 	}
 
-	public void setSaldoInicial(int saldoInicial) {
+	public void setSaldoInicial(float saldoInicial) {
 		this.saldoInicial = saldoInicial;
 	}
 	

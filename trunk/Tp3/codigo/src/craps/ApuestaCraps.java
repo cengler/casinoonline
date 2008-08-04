@@ -18,11 +18,11 @@ public class ApuestaCraps {
 	private TipoApuestaCraps tipo;
 	private int valor;
 	private boolean activa;
-	private int gananciaBruta;
+	private float gananciaBruta;
 	private Date fechaCreacion;
 	private Date fechaCierre;
-	private int montoPremioJugadaFeliz;
-	private int montoRetenidoJugadaTodosPonen;
+	private float montoPremioJugadaFeliz;
+	private float montoRetenidoJugadaTodosPonen;
 		
 	/**
 	 * Constructor sin parametros.
@@ -94,11 +94,11 @@ public class ApuestaCraps {
 		this.valor = valor;
 	}
 
-	public int getGananciaBruta() {
+	public float getGananciaBruta() {
 		return gananciaBruta;
 	}
 
-	public void setGananciaBruta(int ganancia) {
+	public void setGananciaBruta(float ganancia) {
 		this.gananciaBruta = ganancia;
 	}
 
@@ -123,19 +123,19 @@ public class ApuestaCraps {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-	public int getMontoPremioJugadaFeliz() {
+	public float getMontoPremioJugadaFeliz() {
 		return montoPremioJugadaFeliz;
 	}
 
-	public void setMontoPremioJugadaFeliz(int montoPremioJugadaFeliz) {
+	public void setMontoPremioJugadaFeliz(float montoPremioJugadaFeliz) {
 		this.montoPremioJugadaFeliz = montoPremioJugadaFeliz;
 	}
 
-	public int getMontoRetenidoJugadaTodosPonen() {
+	public float getMontoRetenidoJugadaTodosPonen() {
 		return montoRetenidoJugadaTodosPonen;
 	}
 
-	public void setMontoRetenidoJugadaTodosPonen(int montoRetenidoJugadaTodosPonen) {
+	public void setMontoRetenidoJugadaTodosPonen(float montoRetenidoJugadaTodosPonen) {
 		this.montoRetenidoJugadaTodosPonen = montoRetenidoJugadaTodosPonen;
 	}
 }

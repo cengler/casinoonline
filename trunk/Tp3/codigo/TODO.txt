@@ -4,3 +4,7 @@ revisar...
 
 - ver tema apuesta de sitio
 - validar que no es pueda unir un jugador desde la misma terminal que otro
+- ver reporte en servicios
+- ver tirar de craps
+
+- si no fuera por el ImplementionFact ManejadordeObservers haria un ciclo en la instanciacion

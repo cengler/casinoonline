@@ -5,6 +5,7 @@ public class MSGJugador {
 	private String jugador;
 	private int saldo;
 	
+	
 	public String getJugador() {
 		return jugador;
 	}

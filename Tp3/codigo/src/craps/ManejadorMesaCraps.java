@@ -3,9 +3,9 @@ package craps;
 import java.util.ArrayList;
 import java.util.List;
 
-import observerCraps.ManejadorObservadoresCraps;
-
 import org.apache.log4j.Logger;
+
+import core.ImplementationFactory;
 
 import casino.IJugador;
 import casino.IMesa;
@@ -40,15 +40,21 @@ import craps.msg.TipoApuestaCraps;
 public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps {
 
 	private Logger logger = Logger.getLogger(ManejadorMesaCraps.class);
-
 	private static ManejadorMesaCraps instance;
-
 	private List<MesaCraps> mesas;
-
 	private static String GAME_NAME = "craps";
+	private IManejadorObservadoresCraps manejadorObs;
 
 	private ManejadorMesaCraps() {
 		mesas = new ArrayList<MesaCraps>();
+		try 
+		{
+			manejadorObs = ImplementationFactory.getImplementation(IManejadorObservadoresCraps.class, true);
+		} 
+		catch (Exception e) 
+		{
+			logger.error("No se pudo obtener la implementacion de IManejadorObservadoresCraps", e);
+		}
 	}
 
 	public static ManejadorMesaCraps getInstance() {
@@ -98,8 +104,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		return mensaje;
 	}
 
-	// metodos de servicios externos
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -132,7 +136,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				mesas.add(mesa);
 
 				// LO AGREGO COMO OBSERVADOR
-				ManejadorObservadoresCraps.getInstance().agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), mesa);
+				manejadorObs.agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), mesa);
 				logger.info("Notificando: " + mesa.countObservers() + " observadores");
 				mesa.notifyObservers(mesa);
 
@@ -157,7 +161,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						mesa.getJugadores().add(jug);
 
 						// LO AGREGO COMO OBSERVADOR
-						ManejadorObservadoresCraps.getInstance().agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), (MesaCraps)mesa);
+						manejadorObs.agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), (MesaCraps)mesa);
 						((MesaCraps)mesa).notifyObservers(mesa);
 						
 						// SETEO RESPUESTA
@@ -396,54 +400,55 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+		MesaCraps mesa = getMesa(mensaje.getMesa());
 
-		if (jug == null) {
+		if (jug == null) 
+		{
 			mensaje.setAceptado(MSGSalidaCraps.NO);
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
-			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
-		} else if (!estaJugando(jug)) {
+		} 
+		else if (!estaJugando(jug)) 
+		{
 			mensaje.setAceptado(MSGSalidaCraps.NO);
 			mensaje.setDescripcion("El jugador no esta jugando en dicho juego");
-			logger.info("El jugador no esta jugando en dicho juego");
-		} else if (getMesa(mensaje.getMesa()) == null) {
+		} 
+		else if ( mesa == null)
+		{
 			mensaje.setAceptado(MSGSalidaCraps.NO);
 			mensaje.setDescripcion("La mesa de la que esta intentando retirarse no existe");
 			logger.info("La mesa de la que esta intentando retirarse no existe");
-		} else {
-			MesaCraps mesa = getMesa(mensaje.getMesa());
-
-			/* INTENTO QUITAR AL JUGADOR */
-			if (mesa.getJugadores().contains(jug)) {
-				if (mesa.tieneApuestasActivas(jug)) {
-					mensaje.setAceptado(MSGSalidaCraps.NO);
-					mensaje.setDescripcion("El jugador tiene apuestas activas no puede retirarse");
-					logger.info("El jugador tiene apuestas activas no puede retirarse");
-				} else {
-					if (mesa.getJugadores().size() == 1) {
-						// SE DEBE CERRAR LA MESA
-						mesa.setAbierta(false);
-					}
-					mesa.getJugadores().remove(jug);
-
-					// LO AGREGO COMO OBSERVADOR
-					ManejadorObservadoresCraps.getInstance().quitarObservador(mensaje.getUsuario(), (MesaCraps)mesa);
-					mesa.notifyObservers(mesa);
-					
-					// SETEO RESPUESTA
-					mensaje.setAceptado(MSGSalidaCraps.SI);
-					mensaje.setDescripcion("El jugador se ha retirado correctament de la mesa");
-					logger.info("El jugador se ha retirado correctament de la mesa");
-				}
-			} else {
-				mensaje.setAceptado(MSGSalidaCraps.NO);
-				mensaje.setDescripcion("El jugador no se encuentra en la mesa de la que esta intentando retirarse");
-				logger.info("El jugador no se encuentra en la mesa de la que esta intentando retirarse");
+		} 
+		else if ( !mesa.getJugadores().contains(jug))
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El jugador no se encuentra en la mesa de la que esta intentando retirarse");
+			logger.info("El jugador no se encuentra en la mesa de la que esta intentando retirarse");
+		}
+		else if (mesa.tieneApuestasActivas(jug)) 
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El jugador tiene apuestas activas no puede retirarse");
+			logger.info("El jugador tiene apuestas activas no puede retirarse");
+		} 
+		else
+		{
+			if (mesa.getJugadores().size() == 1) {
+				// SE DEBE CERRAR LA MESA
+				mesa.setAbierta(false);
 			}
+			mesa.getJugadores().remove(jug);
+
+			// QUITO AL JUGADOR COMO OBSERVADOR
+			manejadorObs.quitarObservador(mensaje.getUsuario(), (MesaCraps)mesa);
+			mesa.notifyObservers(mesa);
+			
+			// SETEO RESPUESTA
+			mensaje.setAceptado(MSGSalidaCraps.SI);
+			mensaje.setDescripcion("El jugador se ha retirado correctament de la mesa");
+			logger.info("El jugador se ha retirado correctament de la mesa");
 		}
 		return mensaje;
 	}
-
-	// METODOS DE MANEJADORE DE MESA
 
 	/**
 	 * {@inheritDoc}
@@ -492,8 +497,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public void setMesas(List<MesaCraps> mesas) {
 		this.mesas = mesas;
 	}
-
-	// METODOS INTERNOS
 
 	public boolean saleNatural(int dado, int dado2) {
 		return false;

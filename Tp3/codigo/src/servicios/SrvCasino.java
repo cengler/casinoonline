@@ -2,6 +2,8 @@ package servicios;
 
 import org.apache.log4j.Logger;
 
+import core.ImplementationFactory;
+
 import casino.IServiciosCasino;
 import casino.IServiciosJugador;
 import casino.msg.MSGEntradaCasino;

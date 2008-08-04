@@ -39,7 +39,7 @@ public class Start
 	public Start()
 	{}
 	
-	public void iniciar(String dir)
+	public void iniciar()
 	{
 		try {
 			logger.info("Iniciando servidor...");
@@ -118,7 +118,7 @@ public class Start
 	public static void main(String[] args)
 	{
 		Start s = new Start();
-		s.iniciar(args[0]);
+		s.iniciar();
 
 	}
 }

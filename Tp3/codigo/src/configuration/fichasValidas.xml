@@ -1,0 +1,8 @@
+<list>
+	<itemApuesta ficha="5" cantidad="5" />
+	<itemApuesta ficha="10" cantidad="10" />
+	<itemApuesta ficha="25" cantidad="25" />
+	<itemApuesta ficha="50" cantidad="50" />
+	<itemApuesta ficha="75" cantidad="75" />
+	<itemApuesta ficha="100" cantidad="100" />
+</list>

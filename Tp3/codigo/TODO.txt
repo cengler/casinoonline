@@ -2,14 +2,20 @@ si uno une a una persona a una mesa de craps
 e intenta tirar en otra mesa TIRA: no esta jugando en el juego....
 revisar...
 
-- ver tema apuesta de sitio
 - validar que no es pueda unir un jugador desde la misma terminal que otro
 - ver reporte en servicios
-- ver tirar de craps
-- descripcion task ant
-- resetear el punto cuando se pierde
 - cargar valores de fichas validas
 - estado casino parser... no veo saldo de casino
 
 
-- si no fuera por el ImplementionFact ManejadordeObservers haria un ciclo en la instanciacion
+// PREG -----------------------------------------------------
+- ver tema apuesta de sitio
+- si no fuera por el ImplementionFact ManejadordeObservers 
+haria un ciclo en la instanciacion
+- dependencias de SERVER
+
+
+// PIORIDAD BAJA --------------------------------------------
+- descripcion task ant
+- checkstyle
+- ver tirar de craps

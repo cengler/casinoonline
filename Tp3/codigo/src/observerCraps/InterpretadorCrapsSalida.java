@@ -32,7 +32,7 @@ public class InterpretadorCrapsSalida {
 		try {
 			Properties prop = cargarPropMensajero();
 			
-			mensajero = new MensajeroXArchivos(prop.getProperty(DIR_CRAPS_SAL), prop.getProperty(FIL_CRAPS_SAL));
+			mensajero = new MensajeroXArchivos(prop.getProperty(DIR_CRAPS_SAL).trim(), prop.getProperty(FIL_CRAPS_SAL));
 			
 			mensajero.setListener(new MessageListenerCrapsOut());
 		} catch (Exception e) {

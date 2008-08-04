@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import au.com.bytecode.opencsv.CSVReader;
 import casino.Casino;
 import casino.IJugador;
+import casino.ItemApuesta;
 import casino.ManejadorJugador;
 import casino.msg.TipoJugada;
 import craps.msg.TipoApuestaCraps;
@@ -246,9 +247,9 @@ public class ManejadorDeApuestas {
 		return valor + (valor * pago.getFichas() / pago.getPago()); 
 	}
 	
-	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor){
-		
-		ApuestaCraps apc = new ApuestaCraps( jug,  puntaje, tipoAp, valor);
+	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor, List<ItemApuesta> fichas)
+	{
+		ApuestaCraps apc = new ApuestaCraps( jug,  puntaje, tipoAp, valor, fichas);
 		this.getApuestas().add(apc);
 	}
 	

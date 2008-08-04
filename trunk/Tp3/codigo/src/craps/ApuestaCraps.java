@@ -2,8 +2,8 @@ package craps;
 
 import java.util.Date;
 
-import craps.msg.TipoApuestaCraps;
 import casino.IJugador;
+import craps.msg.TipoApuestaCraps;
 
 /**
  * Clase ApuestaCraps.
@@ -45,13 +45,20 @@ public class ApuestaCraps {
 		this.tipo = tipo;
 		this.valor = valor;
 		this.activa = true;
+		gananciaBruta = 0;
+		fechaCreacion = new Date(System.currentTimeMillis());
+		fechaCierre = null;
+		montoPremioJugadaFeliz = 0;
+		montoRetenidoJugadaTodosPonen = 0;
 	}
 
 	public boolean isActiva() {
 		return activa;
 	}
 
-	public void setActiva(boolean activa) {
+	public void setActiva(boolean activa)
+	{
+		fechaCierre = new Date(System.currentTimeMillis());
 		this.activa = activa;
 	}
 

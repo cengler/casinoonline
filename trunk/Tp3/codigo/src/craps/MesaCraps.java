@@ -236,10 +236,10 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 			
 				proxTiro.setTirador(this.getTirador().getNombre());
 				if (this.isPuck()== true){ //puck prendido
-					proxTiro.setTiroSalida(this.PUCK_PRENDIDO);
+					proxTiro.setTiroSalida(PUCK_PRENDIDO);
 					
 				}else{
-					proxTiro.setTiroSalida(this.PUCK_APAGADO);
+					proxTiro.setTiroSalida(PUCK_APAGADO);
 				}
 				proxTiro.setPunto(this.punto);
 			msgEstCraps.setProximoTiro(proxTiro);

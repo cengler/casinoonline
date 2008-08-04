@@ -332,6 +332,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 						// PAGO APUESTAS
 						laMesa.getPagador().pagarApuestas(jugada, resultado, laMesa.isPuck());
+						laMesa.getPagador().modificarApuestas(jugada, resultado, laMesa.isPuck());
 
 						// MODIFICO APUESTAS
 						// TODO

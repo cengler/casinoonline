@@ -1,8 +1,8 @@
 <list>
-  <jugador nombre="Miguel" saldo="10000" vip="true"/>
-  <jugador nombre="Martin" saldo="4648" vip="true"/>
-  <jugador nombre="Pablo" saldo="123456789" vip="false"/>
-  <jugador nombre="Pepe" saldo="100" vip="true"/>
-  <jugador nombre="Andres" saldo="1550" vip="false"/>
-  <jugador nombre="Ignacio" saldo="10000" vip="false"/>
+  <jugador nombre="Pablo" saldo="1.23456792E8" vip="false"/>
+  <jugador nombre="Miguel" saldo="10000.0" vip="true"/>
+  <jugador nombre="Martin" saldo="4648.0" vip="true"/>
+  <jugador nombre="Pepe" saldo="100.0" vip="true"/>
+  <jugador nombre="Ignacio" saldo="10000.0" vip="false"/>
+  <jugador nombre="Andres" saldo="1550.0" vip="false"/>
 </list>

@@ -3,6 +3,7 @@ package casino;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -187,6 +188,7 @@ public class ManejadorCasino implements IServiciosCasino {
 			{
 				cargarListaJugadores();
 				cargarGeneralidades();
+				cargarFichasValidas();
 				
 				casino.setAbierto(true);
 				mensaje.setAceptado(true);
@@ -202,6 +204,27 @@ public class ManejadorCasino implements IServiciosCasino {
 			}
 		}
 		return mensaje;
+	}
+
+	private void cargarFichasValidas() throws CasinoException 
+	{
+		logger.info("Cargando fichas validas...");
+		
+		List<ItemApuesta> fichas;
+		try 
+		{
+			fichas = ConfigurationParser.getInstance().cargarFichasValidas();
+		} 
+		catch (CasinoException e) 
+		{
+			logger.error(e.getMessage());
+			throw new CasinoException(e);
+		}
+		
+		Map<Integer, Integer> valoresValidos = Casino.getInstance().getValores();
+		
+		for (ItemApuesta ia : fichas)
+			valoresValidos.put(ia.getFicha(), ia.getCantidad());
 	}
 
 	/**

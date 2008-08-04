@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+﻿<?xml version="1.0" encoding="ISO-8859-1" ?>
 <project name="Casino Online" default="zip">
 
 <property name="dir.lib" value="lib" />
+<property name="dir.uml" value="uml" />
 <property name="dir.doc" value="doc" />
 <property name="dir.api" value="${dir.doc}/api" />
 <property name="dir.bin" value="bin" />
@@ -17,6 +18,7 @@
 	<fileset dir="${dir.lib}" includes="xstream-1.3.jar"/>
 	<fileset dir="${dir.lib}" includes="checkstyle-all-4.4.jar"/>
 	<fileset dir="${dir.lib}" includes="opencsv-1.8.jar"/>
+	<fileset dir="${dir.lib}" includes="UmlGraph.jar"/>	
 </path>
 
    
@@ -29,7 +31,8 @@
     <delete dir="${dir.bin}" />
     <delete dir="${dir.jar}" />
 	<delete dir="${dir.rep}" />
-	<delete dir="${dir.doc}" />	
+	<delete dir="${dir.doc}" />
+	<delete dir="${dir.uml}" />	
 </target>
 
 <target name="makedir" depends="clear" description="Crea los directorios">
@@ -39,7 +42,8 @@
 	<mkdir dir="${dir.lib}" />
 	<mkdir dir="${dir.rep}" />
 	<mkdir dir="${dir.doc}" />
-	<mkdir dir="${dir.api}" />	
+	<mkdir dir="${dir.api}" />
+	<mkdir dir="${dir.uml}" />
 </target>
 
 <target name="make" depends="makedir" description="Compila el proyecto">
@@ -145,7 +149,31 @@
 	</javadoc>
 </target>
 
-<target name="all" depends="javadoc" description="Realiza todo.">
+<!--depends="javadoc"-->
+<target name="uml">
+	<path id="uml.source.path">
+          <pathelement path="${dir.src}"/>
+	</path>
+	<javadoc sourcepathref="uml.source.path" packagenames="*" package="true">
+		<doclet name="org.umlgraph.doclet.UmlGraph" path="${dir.lib}/UMLGraph.jar">
+			<!--param name="-d" value="${dir.uml}"/-->
+		</doclet>
+	</javadoc>
+	<!--apply executable="dot" dest="${dir.uml}" parallel="false">
+		<arg value="-Tpng"/>
+		<arg value="-o"/>
+		<targetfile/>
+		<srcfile/>
+		<fileset dir="${dir.uml}" includes="*.dot"/>
+		<mapper type="glob" from="*.dot" to="*.png"/>
+	</apply-->
+</target>
+
+
+<!--http://www.umlgraph.org/doc/ant.html
+http://www.mekwin.com/mekwin/software/developers.html-->
+   
+<target name="javadoc" depends="uml" description="Realiza todo.">
 	<echo>All Actions: ..................................... </echo>
 </target>
 

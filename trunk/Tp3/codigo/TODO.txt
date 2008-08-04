@@ -6,5 +6,7 @@ revisar...
 - validar que no es pueda unir un jugador desde la misma terminal que otro
 - ver reporte en servicios
 - ver tirar de craps
+- descripcion task ant
+
 
 - si no fuera por el ImplementionFact ManejadordeObservers haria un ciclo en la instanciacion

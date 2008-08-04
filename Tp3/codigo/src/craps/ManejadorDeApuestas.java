@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import au.com.bytecode.opencsv.CSVReader;
 import casino.Casino;
 import casino.IJugador;
-import casino.Jugador;
+import casino.ManejadorJugador;
 import casino.msg.TipoJugada;
 import craps.msg.TipoApuestaCraps;
 
@@ -137,12 +137,12 @@ public class ManejadorDeApuestas {
 	 */
 	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
 	{
-		/*logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
+		logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
 		
 		int gananciaTotal = 0;
 		Casino casino = Casino.getInstance();
-		
-		
+		List<ApuestaCraps> apuestasAPagar = new ArrayList<ApuestaCraps>();
+
 		logger.debug("Obteniendo ganancia bruta de las apuestas..." );
 		
 		// OBTENGO LA GANANCIA BRUTA DE CADA APUESTA
@@ -154,73 +154,63 @@ public class ManejadorDeApuestas {
 				int ganancia = obtenerGanancia(apuesta, resultado, puck);
 				apuesta.setGananciaBruta(ganancia);
 				gananciaTotal += ganancia;
+				apuesta.setActiva(false);
+				apuestasAPagar.add(apuesta);
 			}
 		}
 		
 		int pozoFeliz = casino.getPozoFeliz();
+		int porcentajeTP = casino.getPorcentajePozoFeliz();
 		
 		logger.debug("ajusto ganancia segun tipo de jugada y pago..." );
 		// AJUSTO LA LA GANANCIA SEGUN LAS MODIFICACIONES DE CADA TIPO DE JUGADA
+		
 		if(jugada.equals(TipoJugada.todosponen)) // TOD OSPONEN
 		{
-			
-			for (ApuestaCraps apuesta : apuestas)
+			for (ApuestaCraps apuesta : apuestasAPagar)
 			{
-				if( correspondePagar(apuesta, resultado, puck) )
-				{
-					apuesta.setActiva(false);
-					
-					// ACTUALIZA LA GANANCIA DE LA APUESTA
-					// INCREMENTA POZO FELIZ
-					// DECREMENTA AL CASINO EL MONTO PARA DICHO POZO
-					apuesta.setGanancia(pagarTodosPonen(apuesta.getGanancia()));
-					
-					// PAGA AL JUGADOR
-					acreditarGanancia(apuesta.getApostador(), apuesta.getGanancia());
-					// DESCUENTA AL CASINO EL PAGO
-					casino.setSaldo(casino.getSaldo() - apuesta.getGanancia());
-				}
+				apuesta.setMontoRetenidoJugadaTodosPonen(apuesta.getGananciaBruta() * porcentajeTP / 100);
 			}
 		}
 		else if (jugada.equals(TipoJugada.feliz) && casino.getMinPozoFeliz() > pozoFeliz )
 		{
-			for (ApuestaCraps apuesta : apuestas)
+			for (ApuestaCraps apuesta : apuestasAPagar)
 			{
-				if( correspondePagar(apuesta, resultado, puck) )
-				{
-					apuesta.setActiva(false);
-					
-					// DESCONTAR AL CASINO LO QUE DEBERA PAGAR AL JUGADOR
-					int ganancaBruta = apuesta.getGanancia();
-					casino.setSaldo(casino.getSaldo() - ganancaBruta);
-					
-					// ACTUALIZA LA GANANCIA DE LA APUESTA
-					int porcentajePozoFeliz = (ganancaBruta / gananciaTotal) * pozoFeliz;
-					apuesta.setGanancia(ganancaBruta + porcentajePozoFeliz);
-					
-					// PAGA AL JUGADOR
-					acreditarGanancia(apuesta.getApostador(), apuesta.getGanancia());			
-				}
+				// ACTUALIZA LA GANANCIA DE LA APUESTA
+				int porcentajePozoFeliz = (apuesta.getGananciaBruta() / gananciaTotal) * pozoFeliz;
+				apuesta.setMontoPremioJugadaFeliz(porcentajePozoFeliz);
 			}
 			// SE RESETEA EL POZO FELIZ
 			casino.setPozoFeliz(0);
 		}
 		else // JUGADA NORMAL o EL MONTO FELIZ NO ALCANZABA EL MINIMO
 		{
-			for (ApuestaCraps apuesta : apuestas)
-			{
-				if( correspondePagar(apuesta, resultado, puck) )
-				{
-					apuesta.setActiva(false);
-					
-					// PAGA AL JUGADOR
-					acreditarGanancia(apuesta.getApostador(), apuesta.getGanancia());
-					// DESCUENTA AL CASINO EL PAGO
-					casino.setSaldo(casino.getSaldo() - apuesta.getGanancia());
-				}
-			}
+			
 		}
-		logger.debug("Fin de pagar apuestas. Se han pagado del saldo del casino: " + gananciaTotal + " pesos");*/
+		
+		for (ApuestaCraps apuesta : apuestasAPagar)
+			pagarApuesta(apuesta);
+		
+		//TODO modificar
+		
+		logger.debug("Fin de pagar apuestas. Se han pagado del saldo del casino: " + gananciaTotal + " pesos");
+	}
+
+	private void pagarApuesta(ApuestaCraps apuesta) {
+		
+		int aJugador = 0;
+		int aCasino = 0;
+		int aPozoFeliz = 0;
+		
+		aJugador += apuesta.getGananciaBruta();
+		aCasino -= apuesta.getGananciaBruta();
+		aJugador += apuesta.getMontoPremioJugadaFeliz();
+		aPozoFeliz += apuesta.getMontoRetenidoJugadaTodosPonen();
+		
+		ManejadorJugador.getInstance().acreditarMonto(apuesta.getApostador(), aJugador);
+		Casino.getInstance().setSaldo(Casino.getInstance().getSaldo() + aCasino);
+		Casino.getInstance().setPozoFeliz(Casino.getInstance().getPozoFeliz() + aPozoFeliz);
+		
 	}
 
 	/**
@@ -255,32 +245,6 @@ public class ManejadorDeApuestas {
 	{
 		return valor + (valor * pago.getFichas() / pago.getPago()); 
 	}
-
-	/**
-	 * acreditarGanancia acredita al jugador y descuenta al casino
-	 * en monto ingresado como parametro.
-	 * 
-	 * @param apostador jugador que realizó la apuesta
-	 * @param ganancia monto a acreditar
-	 */
-	private void acreditarGanancia(IJugador apostador, int ganancia)
-	{
-		Casino.getInstance().setSaldo(Casino.getInstance().getSaldo() - ganancia);
-		((Jugador)apostador).setSaldo(apostador.getSaldo()+ganancia);
-	}
-
-	/**
-	 * pagarTodosPonen incrementa el pozo feliz segun el porcentaje
-	 * seteado (sacandolo del saldo del casino) 
-	 * y devuelve el valor de la ganancia decrementado con el impuesto.
-	 * 
-	 * @param ganancia ganancia bruta de la apuesta
-	 * @return el valor de la ganancia decrementado con el impuesto.
-	 */
-	private int pagarTodosPonen(int ganancia) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor){
 		
@@ -295,4 +259,34 @@ public class ManejadorDeApuestas {
 		logger.debug("Corresponde pagar a: " + res + " --> "+ pagos.containsKey( res ));
 		return pagos.containsKey( res );
     }
+	
+	public void modificarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
+	{
+		logger.debug("modificarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
+
+		for (ApuestaCraps apuesta : apuestas)
+		{
+			if( correspondeModificar(apuesta, resultado, puck) )
+			{
+				logger.info("Termina la apuesta " + apuesta);
+				int modif = obtenerModificacion(apuesta, resultado, puck);
+				apuesta.setPuntaje(modif);
+			}
+		}
+	}
+
+	private boolean correspondeModificar(ApuestaCraps a, ResultadoCraps r, boolean puck) {
+		
+		String pck = Boolean.toString(puck);
+		ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2());
+		logger.debug("Corresponde pagar a: " + res + " --> "+ modificaciones.containsKey( res ));
+		return modificaciones.containsKey( res );
+	}
+
+	private int obtenerModificacion(ApuestaCraps a, ResultadoCraps r, boolean puck) 
+	{
+		String pck = Boolean.toString(puck);
+		ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2());
+		return modificaciones.get(res);
+	}
 }

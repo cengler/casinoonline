@@ -338,5 +338,11 @@ public class ManejadorJugador implements IServiciosJugador {
 		return null;
 	}
 
+	public void acreditarMonto(IJugador apostador, int monto) 
+	{
+		((Jugador)apostador).setSaldo(apostador.getSaldo() + monto);
+		
+	}
+
 	
 }

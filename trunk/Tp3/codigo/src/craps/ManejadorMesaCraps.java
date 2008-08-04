@@ -351,11 +351,13 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 								laMesa.setTiradorAnterior(jug);
 								laMesa.setPuck(false);
 								sigueTirando = false;
+								laMesa.setPunto(0);
 							} else // NO PERDIO!
 							{
 								if (laMesa.repitioPunto(resultado, laMesa.getPunto())) // GANO!
 								{
 									laMesa.setPuck(false);
+									laMesa.setPunto(0);
 								} else // SIGUE INTENTANDO REPETIR PUNTO
 								{
 									// TODO que se hace en este caso? NADA?

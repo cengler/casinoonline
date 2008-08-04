@@ -47,6 +47,22 @@
     <javac srcdir="${dir.src}" destdir="${dir.bin}" classpathref="classpath" />
 </target>
 
+<!--manifest file="MANIFEST.MF">
+    <attribute name="Built-By" value="${user.name}"/>
+    <section name="common">
+      <attribute name="Specification-Title" value="Example"/>
+      <attribute name="Specification-Version" value="${version}"/>
+      <attribute name="Specification-Vendor" value="Example Organization"/>
+      <attribute name="Implementation-Title" value="common"/>
+      <attribute name="Implementation-Version" value="${version} ${TODAY}"/> 
+      <attribute name="Implementation-Vendor" value="Example Corp."/>
+    </section>
+	<section name="common/class1.class">
+		<attribute name="Sealed" value="false"/>
+	</section>
+</manifest-->
+
+
 <target name="zip" depends="make" description="Crea el jar">
 	<echo>Creando Jars: .......................................... </echo>
     <jar jarfile="${dir.jar}/${name.jar}" basedir="${dir.bin}" />

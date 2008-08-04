@@ -1,8 +1,10 @@
 package craps;
 
 import java.util.Date;
+import java.util.List;
 
 import casino.IJugador;
+import casino.ItemApuesta;
 import craps.msg.TipoApuestaCraps;
 
 /**
@@ -23,11 +25,13 @@ public class ApuestaCraps {
 	private Date fechaCierre;
 	private float montoPremioJugadaFeliz;
 	private float montoRetenidoJugadaTodosPonen;
+	private List<ItemApuesta> fichas;
 		
 	/**
 	 * Constructor sin parametros.
 	 *
 	 */
+	@Deprecated
 	public ApuestaCraps(){}
 
 	/**
@@ -38,18 +42,19 @@ public class ApuestaCraps {
 	 * @param tipo tipo de apuesta
 	 * @param valor monto a apostar
 	 */
-	public ApuestaCraps(IJugador apostador, int puntaje, TipoApuestaCraps tipo, int valor) {
+	public ApuestaCraps(IJugador apostador, int puntaje, TipoApuestaCraps tipo, int valor, List<ItemApuesta> fichas) {
 		super();
 		this.apostador = apostador;
 		this.puntaje = puntaje;
 		this.tipo = tipo;
 		this.valor = valor;
 		this.activa = true;
-		gananciaBruta = 0;
-		fechaCreacion = new Date(System.currentTimeMillis());
-		fechaCierre = null;
-		montoPremioJugadaFeliz = 0;
-		montoRetenidoJugadaTodosPonen = 0;
+		this.gananciaBruta = 0;
+		this.fechaCreacion = new Date(System.currentTimeMillis());
+		this.fechaCierre = null;
+		this.montoPremioJugadaFeliz = 0;
+		this.montoRetenidoJugadaTodosPonen = 0;
+		this.fichas = fichas;
 	}
 
 	public boolean isActiva() {
@@ -137,5 +142,13 @@ public class ApuestaCraps {
 
 	public void setMontoRetenidoJugadaTodosPonen(float montoRetenidoJugadaTodosPonen) {
 		this.montoRetenidoJugadaTodosPonen = montoRetenidoJugadaTodosPonen;
+	}
+
+	public List<ItemApuesta> getFichas() {
+		return fichas;
+	}
+
+	public void setFichas(List<ItemApuesta> fichas) {
+		this.fichas = fichas;
 	}
 }

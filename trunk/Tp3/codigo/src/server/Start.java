@@ -55,15 +55,15 @@ public class Start
 			ManejadorModoDirigido.getInstance().getSeteadoresRes().add(SelectorResCrapsModoDirigido.getInstance());
 			
 			logger.debug("Instanciando mensajeros...");
-			mAdministracion = new MensajeroXArchivos(prop.getProperty(DIR_ADMIN), prop.getProperty(FIL_ADMIN)); 
+			mAdministracion = new MensajeroXArchivos(prop.getProperty(DIR_ADMIN).trim(), prop.getProperty(FIL_ADMIN)); 
 			mAdministracion.setListener(new MessageListenerAdministracion()); 
 			mAdministracion.openConnection(); 
 			
-			mCasino = new MensajeroXArchivos(prop.getProperty(DIR_CASINO), prop.getProperty(FIL_CASINO)); 
+			mCasino = new MensajeroXArchivos(prop.getProperty(DIR_CASINO).trim(), prop.getProperty(FIL_CASINO)); 
 			mCasino.setListener(new MessageListenerCasino()); 
 			mCasino.openConnection(); 
 			
-			mCraps = new MensajeroXArchivos(prop.getProperty(DIR_CRAPS), prop.getProperty(FIL_CRAPS));
+			mCraps = new MensajeroXArchivos(prop.getProperty(DIR_CRAPS).trim(), prop.getProperty(FIL_CRAPS));
 			mCraps.setListener(new MessageListenerCraps()); 
 			mCraps.openConnection();
 			

@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import casino.IJugador;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
+import casino.ItemApuesta;
 import casino.ManejadorCasino;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
@@ -157,7 +158,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 						// LO AGREGO COMO OBSERVADOR
 						ManejadorObservadoresCraps.getInstance().agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), (MesaCraps)mesa);
-						((MesaCraps)mesa).hasChanged();
 						((MesaCraps)mesa).notifyObservers(mesa);
 						
 						// SETEO RESPUESTA
@@ -181,10 +181,20 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * {@inheritDoc}
 	 */
-	public MSGApostarCraps apostarCraps(MSGApostarCraps mensaje) {
+	public MSGApostarCraps apostarCraps(MSGApostarCraps mensaje)
+	{	
+		ManejadorCasino manCas = ManejadorCasino.getInstance();
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
-
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
+		MesaCraps mesa = getMesa(mensaje.getMesa());
+		boolean puck = mesa.isPuck();
+		TipoApuestaCraps tipoApu = mensaje.getOpcionApuesta().getTipoApuesta();
+		
+		// LISTA DE VALORES DE FICHA APOSTADOS
+		List<ItemApuesta> fichasAp = new ArrayList<ItemApuesta>();
+		for (MSGValorFicha vf : mensaje.getValorApuesta()) {
+			fichasAp.add(new ItemApuesta(vf.getValor(), vf.getCantidad()));
+		}
 
 		if (jug == null) 
 		{
@@ -198,86 +208,52 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			mensaje.setDescripcion("El jugador no esta jugando en dicho juego");
 			logger.info("El jugador no esta jugando en dicho juego");
 		} 
-		else if (!getMesa(mensaje.getMesa()).getJugadores().contains(jug))
-		{
-			mensaje.setAceptado(MSGApostarCraps.NO);
-			mensaje.setDescripcion("El jugador no esta jugando en la mesa:" + getMesa(mensaje.getMesa()));
-			logger.info("El jugador no esta jugando en la mesa:" + getMesa(mensaje.getMesa()));
-		} 
-		else if (getMesa(mensaje.getMesa()) == null)
+		else if (mesa == null)
 		{
 			mensaje.setAceptado(MSGSalidaCraps.NO);
 			mensaje.setDescripcion("La mesa de la que esta intentando apostar no existe");
 			logger.info("La mesa de la que esta intentando apostar no existe");
 		} 
+		else if (!mesa.estaJugando(jug))
+		{
+			mensaje.setAceptado(MSGApostarCraps.NO);
+			mensaje.setDescripcion("El jugador no esta jugando en la mesa:" + getMesa(mensaje.getMesa()));
+			logger.info("El jugador no esta jugando en la mesa:" + getMesa(mensaje.getMesa()));
+		} 
+		else if( !tipoApuestaValidaParaEstado(puck, tipoApu) )
+		{
+			mensaje.setAceptado(MSGApostarCraps.NO);
+			mensaje.setDescripcion("La apuesta no es valida para el momento del juego");
+			logger.info("La apuesta no es valida para el momento del juego");
+
+		}
+		else if ( manCas.validarFichas(fichasAp) )
+		{
+			mensaje.setAceptado(MSGApostarCraps.NO);
+			mensaje.setDescripcion("Las fichas a apostar no corresponden a fichas validas");
+			logger.info("Las fichas a apostar no corresponden a fichas validas");
+		}
+		else if ( !manJug.montoValidoPara(jug, manCas.calcularMontoAApostar(fichasAp)) ) 
+		{
+			mensaje.setAceptado(MSGApostarCraps.NO);
+			mensaje.setDescripcion("El jugador no posee fondos para dicha apuesta");
+			logger.info("El jugador no posee fondos para dicha apuesta");
+		}
 		else
 		{
-			MesaCraps mesa = getMesa(mensaje.getMesa());
-			boolean puck = mesa.isPuck();
-			TipoApuestaCraps tipoApu = mensaje.getOpcionApuesta().getTipoApuesta();
-			// En el tiro de salida no se puede apostar venir y
-			// noVenir. Asi como tampoco dps del
-			// tiro de salida se puede pase y nopase.
-			if ((puck == false && (tipoApu.toString() == "venir" || tipoApu.toString() == "novenir")) || (puck == true && (tipoApu.toString() == "pase" || tipoApu.toString() == "nopase"))) {
+			int montoAp = manCas.calcularMontoAApostar(fichasAp);
+			MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
+			int puntaje = opAp.getPuntajeApostado();
+			ManejadorDeApuestas manApCr = mesa.getPagador();
+			manApCr.crearNuevaApuesta(jug, puntaje, tipoApu, montoAp, fichasAp);
+			manJug.debitarMonto(jug, montoAp);
 
-				mensaje.setAceptado(MSGApostarCraps.NO);
-				mensaje.setDescripcion("La apuesta no es valida para el momento del juego");
-				logger.info("La apuesta no es valida para el momento del juego");
-
-			} else {
-
-				// VALIDO FICHAS y si son validas calculo el monto a apostar
-				ManejadorCasino manCas = ManejadorCasino.getInstance();
-
-				// separo lo que apuesta en dos listas de igual
-				// longitud.
-				List<Integer> fichas = new ArrayList<Integer>();
-				List<Integer> cantidades = new ArrayList<Integer>();
-				for (MSGValorFicha vf : mensaje.getValorApuesta()) {
-
-					fichas.add(vf.getValor());
-					cantidades.add(vf.getCantidad());
-				}
-
-				boolean fichasValidas = manCas.validarFichas(fichas);
-
-				if (fichasValidas == false) {
-
-					mensaje.setAceptado(MSGApostarCraps.NO);
-					mensaje.setDescripcion("Las fichas a apostar no corresponden a fichas validas");
-					logger.info("Las fichas a apostar no corresponden a fichas validas");
-				} else {
-
-					// si las fichas son validas....
-					int calculoAApostar = manCas.calcularMontoAApostar(fichas, cantidades);
-
-					IJugador jugador = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
-					
-					if (manJug.montoValidoPara(jugador, calculoAApostar)) 
-					{
-						MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
-						TipoApuestaCraps tipoAp = opAp.getTipoApuesta();
-						int puntaje = opAp.getPuntajeApostado();
-						ManejadorDeApuestas manApCr = mesa.getPagador();
-						manApCr.crearNuevaApuesta(jugador, puntaje, tipoAp, calculoAApostar);
-						manJug.debitarMonto(jugador, calculoAApostar);
-
-						// NOTIFICO A TODOS LOS OBSERVADORES
-						mesa.hasChanged();
-						mesa.notifyObservers(mesa);
-						
-						mensaje.setAceptado(MSGApostarCraps.SI);
-						mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo: " + tipoAp + " y ha apostado:" + calculoAApostar);
-						logger.info("El jugador ha realizado una apuesta de tipo: " + tipoAp + " y ha apostado:" + calculoAApostar);
-					} 
-					else 
-					{
-						mensaje.setAceptado(MSGApostarCraps.NO);
-						mensaje.setDescripcion("El jugador no posee fondos para dicha apuesta");
-						logger.info("El jugador no posee fondos para dicha apuesta");
-					}
-				}
-			}
+			// NOTIFICO A TODOS LOS OBSERVADORES
+			mesa.notifyObservers(mesa);
+			
+			mensaje.setAceptado(MSGApostarCraps.SI);
+			mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo: " + tipoApu.name() + " y ha apostado:" + montoAp);
+			logger.info("El jugador ha realizado una apuesta de tipo: " + tipoApu.name() + " y ha apostado:" + montoAp);
 		}
 		return mensaje;
 	}
@@ -334,9 +310,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						laMesa.getPagador().pagarApuestas(jugada, resultado, laMesa.isPuck());
 						laMesa.getPagador().modificarApuestas(jugada, resultado, laMesa.isPuck());
 
-						// MODIFICO APUESTAS
-						// TODO
-
 						// DEFINO DESITNO DE JUGADOR Y SELECCIONO PROXIMO
 						// TIRADOR Y MODIFICO PUCK
 						boolean sigueTirando = true;
@@ -387,7 +360,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						}
 
 						// NOTIFICO A TODOS LOS OBSERVADORES
-						laMesa.hasChanged();
 						laMesa.notifyObservers(laMesa);
 						
 						// SETEO MENSAJE DE RTA
@@ -455,7 +427,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 					// LO AGREGO COMO OBSERVADOR
 					ManejadorObservadoresCraps.getInstance().quitarObservador(mensaje.getUsuario(), (MesaCraps)mesa);
-					mesa.hasChanged();
 					mesa.notifyObservers(mesa);
 					
 					// SETEO RESPUESTA
@@ -515,8 +486,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	/**
 	 * Set mesas.
 	 * 
-	 * @param mesas
-	 *            mesas a setear.
+	 * @param mesas mesas a setear.
 	 */
 
 	public void setMesas(List<MesaCraps> mesas) {
@@ -525,28 +495,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 	// METODOS INTERNOS
 
-
-	/*public List<MesaCraps> getMesasAbiertas() {
-		return null; //TODO
-	}*/
-
-	/*
-	 * public void repitioPunto(int a, <int, int> b){ }
-	 */
-
-	/**
-	 * 
-	 * @param dado
-	 * @param dado2
-	 */
-	// public boolean saleCraps(int dado, int dado2){
-	// return false;
-	// }
-	/**
-	 * 
-	 * @param dado
-	 * @param dado2
-	 */
 	public boolean saleNatural(int dado, int dado2) {
 		return false;
 	}
@@ -563,5 +511,14 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	public String getName() {
 		return GAME_NAME;
 	}
-
+	
+	private static boolean tipoApuestaValidaParaEstado(boolean puck, TipoApuestaCraps tipoApu)
+	{
+		boolean res = true;
+		if(puck)
+			res = !tipoApu.equals(TipoApuestaCraps.pase) && tipoApu.equals(TipoApuestaCraps.nopase);
+		else
+			res = !tipoApu.equals(TipoApuestaCraps.venir) && !tipoApu.equals(TipoApuestaCraps.novenir);
+		return res;
+	}
 }

@@ -2,7 +2,9 @@ package casino.msg;
 
 import java.util.List;
 
-public class MSGReporteRankingJugadores extends MSGReporte{
+public class MSGReporteRankingJugadores extends MSGAdministracion 
+{	
+	private static String NAME = "ReporteRankingJugadores";
 	
 	private List<MSGJugador> jugadores;
 
@@ -13,5 +15,8 @@ public class MSGReporteRankingJugadores extends MSGReporte{
 	public void setJugadores(List<MSGJugador> jugadores) {
 		this.jugadores = jugadores;
 	}
-	
+
+	public String getName() {
+		return NAME;
+	}
 }

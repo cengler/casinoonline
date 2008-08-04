@@ -2,15 +2,7 @@ package apuestas;
 
 import org.apache.log4j.Logger;
 
-import casino.Casino;
-import casino.Jugador;
-import casino.msg.TipoJugada;
-
-import craps.ApuestaCraps;
 import craps.CrapsException;
-import craps.ManejadorDeApuestas;
-import craps.ResultadoCraps;
-import craps.msg.TipoApuestaCraps;
 
 public class TestPagarApuestas {
 
@@ -28,14 +20,14 @@ public class TestPagarApuestas {
 	
 	public static void pagarApuestas() throws CrapsException
 	{
-		ManejadorDeApuestas man = new ManejadorDeApuestas();
+		/*ManejadorDeApuestas man = new ManejadorDeApuestas();
 		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);
 		
 		Jugador pepe = new Jugador();
 		ApuestaCraps ap1 = new ApuestaCraps(pepe, 8, TipoApuestaCraps.pase, 8);
 		man.getApuestas().add(ap1);
 		Casino.getInstance().setPozoFeliz(1100);
-		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);
+		man.pagarApuestas(TipoJugada.feliz, new ResultadoCraps(4, 4), true);*/
 	}
 
 }

@@ -1,12 +1,12 @@
 package casino;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.Logger;
 
 import casino.msg.IMSGJuego;
 import casino.msg.MSGAbrirCasino;
@@ -285,53 +285,41 @@ public class ManejadorCasino implements IServiciosCasino {
 		}
 	}
 
-	public boolean validarFichas(List<Integer> fichas){  
-		
-		int i = 0;
-		boolean fichaValida = true;
-		Casino cas = Casino.getInstance();
-		Map<Integer, Integer> valores = cas.getValores();
-		while (i < fichas.size() && fichaValida == true){
-			int vf = fichas.get(i);
-			if(valores.containsKey(vf)){//chequeo si es una ficha valida
-				
-				i++;
-			}else{
-			  	fichaValida = false;
-  					
-			}
-		}
-		return fichaValida;
-		
+	/**
+	 * validarFichas, valida si las fichas existen en el casino.
+	 * 
+	 * @param fichas conjunto de fichas a apostar
+	 * @return si las fichas existen en el casino.
+	 */
+	public boolean validarFichas(List<ItemApuesta> itemsApuestas)
+	{
+		Set<Integer> fichas = new HashSet<Integer>();
+		for(ItemApuesta ia : itemsApuestas)
+			fichas.add(ia.getFicha());
+		return Casino.getInstance().getValores().keySet().containsAll(fichas);
 	}
 	
-		
-	public int calcularMontoAApostar(List<Integer> fichas, List<Integer> cantidades){ //List<MSGValorFicha> fichas
-		
-		int i = 0;
+	/**
+	 * calcularMontoAApostar.
+	 * Pre: la lista debe ser de apuestas validas.
+	 * 
+	 * @param itemsApuestas lista de itemapuesta a calcular
+	 * @return monto total de la apuesta
+	 */
+	public int calcularMontoAApostar(List<ItemApuesta> itemsApuestas)
+	{
 		int calculoAApostar = 0;
 		Casino cas = Casino.getInstance();
-		Map<Integer, Integer> valores = cas.getValores();
-		
-		while (i < fichas.size() ){
-						
-			int vf = fichas.get(i);
-			int cantFicha = cantidades.get(i);
-			if(valores.containsKey(vf)){//chequeo si es una ficha valida
-				//obtengo el significado de esa clave
-				int valor = valores.get(vf);
-				calculoAApostar = calculoAApostar + (cantFicha* valor);
-				i++;
-					
-			}
+		for (ItemApuesta ia : itemsApuestas)
+		{
+			calculoAApostar += cas.getValores().get(ia.getFicha()) * ia.getCantidad();
 		}
-		
 		return calculoAApostar;
-	
 	}
 	
-	public MSGReporteRankingJugadores reporteRanking(){
-		
+	public MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores msg)
+	{	
+		//TODO
 		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
 		List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
@@ -340,8 +328,6 @@ public class ManejadorCasino implements IServiciosCasino {
 		//paso de un set a un array
 		int p = 0;
 		for(IJugador jug : jugadores){
-			
-			
 			jugadoresAux[p] = jug;
 			p++;
 		}

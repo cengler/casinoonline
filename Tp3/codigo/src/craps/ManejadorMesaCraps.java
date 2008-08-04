@@ -272,8 +272,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 		if (jug == null) {
 			unMSG.setAceptado(MSGTiroCraps.NO);
-			unMSG.setDescripcion("El jugador no esta registrado como jugador en dicha terminal virtual");
-			logger.info("El jugador no esta registrado como jugador en dicha terminal virtual");
+			unMSG.setDescripcion("El jugador no esta loggeado como jugador en dicha terminal virtual");
+			logger.info("El jugador no esta loggeado como jugador en dicha terminal virtual");
 		} else // EL JUGADOR ESTA LOGEADO
 		{
 			int mesa = unMSG.getMesa();

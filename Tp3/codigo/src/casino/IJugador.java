@@ -45,7 +45,7 @@ public interface IJugador extends ICliente{
 	 * 
 	 * @return el saldo del jugador
 	 */
-	int getSaldo();
+	float getSaldo();
 
-	int getSaldoInicial();
+	float getSaldoInicial();
 }

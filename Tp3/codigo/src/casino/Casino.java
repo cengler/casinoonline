@@ -15,10 +15,10 @@ public final class Casino implements ICasino {
 	private static Casino instance;
 	private boolean modoNormal;
 	private int pozoFeliz;
-	private long saldo;
+	private float saldo;
 	
-	private int minPozoFeliz;
-	private int porcentajePozoFeliz;
+	private float minPozoFeliz;
+	private float porcentajePozoFeliz;
 	
 	private Map<Integer, Integer> valores;
 
@@ -120,7 +120,7 @@ public final class Casino implements ICasino {
 	/**
 	 * {@inheritDoc}
 	 */
-	public long getSaldo() {
+	public float getSaldo() {
 		return saldo;
 	}
 
@@ -129,23 +129,23 @@ public final class Casino implements ICasino {
 	 * 
 	 * @param saldo el saldo a setear al casino
 	 */
-	public void setSaldo(long saldo) {
+	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
 
-	public int getMinPozoFeliz() {
+	public float getMinPozoFeliz() {
 		return minPozoFeliz;
 	}
 
-	public void setMinPozoFeliz(int minPozoFeliz) {
+	public void setMinPozoFeliz(float minPozoFeliz) {
 		this.minPozoFeliz = minPozoFeliz;
 	}
 
-	public int getPorcentajePozoFeliz() {
+	public float getPorcentajePozoFeliz() {
 		return porcentajePozoFeliz;
 	}
 
-	public void setPorcentajePozoFeliz(int porcentajePozoFeliz) {
+	public void setPorcentajePozoFeliz(float porcentajePozoFeliz) {
 		this.porcentajePozoFeliz = porcentajePozoFeliz;
 	}
 

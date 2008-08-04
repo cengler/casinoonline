@@ -229,6 +229,7 @@ public class ManejadorCasino implements IServiciosCasino {
 			Jugador jc = new Jugador();
 			jc.setNombre(j.getNombre());
 			jc.setSaldo(j.getSaldo());
+			jc.setSaldoInicial(j.getSaldo());
 			jc.setVip(j.isVip());
 			mj.getJugadores().add(jc);
 			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());

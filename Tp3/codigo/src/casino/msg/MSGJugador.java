@@ -3,7 +3,7 @@ package casino.msg;
 public class MSGJugador {
 
 	private String jugador;
-	private int saldo;
+	private float saldo;
 	
 	
 	public String getJugador() {
@@ -12,10 +12,10 @@ public class MSGJugador {
 	public void setJugador(String jugador) {
 		this.jugador = jugador;
 	}
-	public int getSaldo() {
+	public float getSaldo() {
 		return saldo;
 	}
-	public void setSaldo(int saldo) {
+	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
 		

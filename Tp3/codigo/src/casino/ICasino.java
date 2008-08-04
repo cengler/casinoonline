@@ -35,7 +35,7 @@ public interface ICasino
 	 * 
 	 * @return el saldo del casino.
 	 */
-	long getSaldo();
+	float getSaldo();
 	
 }
 

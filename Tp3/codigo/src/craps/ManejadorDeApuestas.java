@@ -159,8 +159,8 @@ public class ManejadorDeApuestas {
 			}
 		}
 		
-		int pozoFeliz = casino.getPozoFeliz();
-		int porcentajeTP = casino.getPorcentajePozoFeliz();
+		float pozoFeliz = casino.getPozoFeliz();
+		float porcentajeTP = casino.getPorcentajePozoFeliz();
 		
 		logger.debug("ajusto ganancia segun tipo de jugada y pago..." );
 		// AJUSTO LA LA GANANCIA SEGUN LAS MODIFICACIONES DE CADA TIPO DE JUGADA
@@ -177,7 +177,7 @@ public class ManejadorDeApuestas {
 			for (ApuestaCraps apuesta : apuestasAPagar)
 			{
 				// ACTUALIZA LA GANANCIA DE LA APUESTA
-				int porcentajePozoFeliz = (apuesta.getGananciaBruta() / gananciaTotal) * pozoFeliz;
+				float porcentajePozoFeliz = (apuesta.getGananciaBruta() / gananciaTotal) * pozoFeliz;
 				apuesta.setMontoPremioJugadaFeliz(porcentajePozoFeliz);
 			}
 			// SE RESETEA EL POZO FELIZ

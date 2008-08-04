@@ -261,12 +261,10 @@ public class MesaCraps extends Observable implements IMesa, IFotografiable {
 						
 						premio.setApostador(jug.getNombre());
 					}
-					//montoPremioJugada -> FALTA;TODO a quien pedir
-					//premio.setMontoPremioJugada(montoPremioJugada);
-					//montoPremioJugadaFeliz-> FALTA;TODO a quien pedir
-					//premio.setMontoPremioJugadaFeliz(montoPremioJugadaFeliz);
-					//montoRetenidoJugadaTodosPonen -> FALTA;TODO a quien pedir
-					//premio.setMontoRetenidoJugadaTodosPonen(montoRetenidoJugadaTodosPonen);
+					
+					premio.setMontoPremioJugada(ap.getGananciaBruta());
+					premio.setMontoPremioJugadaFeliz(ap.getMontoPremioJugadaFeliz());
+					premio.setMontoRetenidoJugadaTodosPonen(ap.getMontoRetenidoJugadaTodosPonen());
 					premios.add(premio);
 				}
 				

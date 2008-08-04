@@ -3,9 +3,9 @@ package craps.msg;
 public class MSGPremio {
 
 	private String apostador;
-	private int montoPremioJugada;
-	private int montoPremioJugadaFeliz;
-	private int montoRetenidoJugadaTodosPonen;
+	private float montoPremioJugada;
+	private float montoPremioJugadaFeliz;
+	private float montoRetenidoJugadaTodosPonen;
 	
 	public String getApostador() {
 		return apostador;
@@ -13,24 +13,25 @@ public class MSGPremio {
 	public void setApostador(String apostador) {
 		this.apostador = apostador;
 	}
-	public int getMontoPremioJugada() {
+	public float getMontoPremioJugada() {
 		return montoPremioJugada;
 	}
-	public void setMontoPremioJugada(int montoPremioJugada) {
+	public void setMontoPremioJugada(float montoPremioJugada) {
 		this.montoPremioJugada = montoPremioJugada;
 	}
-	public int getMontoPremioJugadaFeliz() {
+	public float getMontoPremioJugadaFeliz() {
 		return montoPremioJugadaFeliz;
 	}
-	public void setMontoPremioJugadaFeliz(int montoPremioJugadaFeliz) {
+	public void setMontoPremioJugadaFeliz(float montoPremioJugadaFeliz) {
 		this.montoPremioJugadaFeliz = montoPremioJugadaFeliz;
 	}
-	public int getMontoRetenidoJugadaTodosPonen() {
+	public float getMontoRetenidoJugadaTodosPonen() {
 		return montoRetenidoJugadaTodosPonen;
 	}
-	public void setMontoRetenidoJugadaTodosPonen(int montoRetenidoJugadaTodosPonen) {
+	public void setMontoRetenidoJugadaTodosPonen(float montoRetenidoJugadaTodosPonen) {
 		this.montoRetenidoJugadaTodosPonen = montoRetenidoJugadaTodosPonen;
 	}
+	
 	
 	
 }

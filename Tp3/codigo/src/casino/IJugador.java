@@ -47,4 +47,5 @@ public interface IJugador extends ICliente{
 	 */
 	int getSaldo();
 
+	int getSaldoInicial();
 }

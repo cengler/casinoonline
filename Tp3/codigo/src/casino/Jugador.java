@@ -17,6 +17,7 @@ public class Jugador implements IJugador {
 	private boolean modoObservador;
 	private String nombre;
 	private int saldo;
+	private int saldoInicial; //TODO hay q setearlo.
 	
 	private Logger logger = Logger.getLogger(Jugador.class);
 
@@ -105,6 +106,14 @@ public class Jugador implements IJugador {
 	@Override
 	public String toString() {
 		return "[J: "+nombre+" saldo: "+saldo+" ]";
+	}
+
+	public int getSaldoInicial() {
+		return saldoInicial;
+	}
+
+	public void setSaldoInicial(int saldoInicial) {
+		this.saldoInicial = saldoInicial;
 	}
 	
 	

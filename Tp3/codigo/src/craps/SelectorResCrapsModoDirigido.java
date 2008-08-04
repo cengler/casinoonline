@@ -99,6 +99,7 @@ public class SelectorResCrapsModoDirigido implements ISelectorResCraps, ISeteado
 
 	public void borrarResultadosSeteados() {
 		resultados.clear();
+		resActual = 0;
 	}
 
 }

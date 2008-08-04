@@ -3,7 +3,11 @@
 	<resultados>
 		<resultadosCraps>
 			<resultados>
-				<resultadoCraps dado1="3" dado2="2"/>
+				<resultadoCraps dado1="4" dado2="5"/>
+				<resultadoCraps dado1="1" dado2="1"/>
+				<resultadoCraps dado1="1" dado2="2"/>
+				<resultadoCraps dado1="4" dado2="5"/>
+				<resultadoCraps dado1="6" dado2="1"/>
 			</resultados>
 		</resultadosCraps>
 	</resultados>

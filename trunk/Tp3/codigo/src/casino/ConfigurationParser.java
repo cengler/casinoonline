@@ -42,8 +42,8 @@ public class ConfigurationParser {
 		xstream.aliasAttribute(LSTJugador.class, "saldo", "saldo");
 		xstream.aliasAttribute(LSTJugador.class, "vip", "vip");
 		xstream.aliasAttribute(LSTJugador.class, "nombre", "nombre");
-		xstream.aliasAttribute(LSTJugador.class, "ficha", "ficha");
-		xstream.aliasAttribute(LSTJugador.class, "cantidad", "cantidad");
+		xstream.aliasAttribute(ItemApuesta.class, "ficha", "ficha");
+		xstream.aliasAttribute(ItemApuesta.class, "cantidad", "cantidad");
 	}
 	
 	public static ConfigurationParser getInstance()

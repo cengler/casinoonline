@@ -2,8 +2,8 @@ package craps.msg;
 
 public abstract class MSGCraps {
 
-	public static String SI = "SI";
-	public static String NO = "NO";
+	public static String SI = "Si";
+	public static String NO = "No";
 	
 	private String vTerm;
 	private String usuario;

@@ -10,6 +10,7 @@ import core.IMessage;
 import craps.msg.MSGApostarCraps;
 import craps.msg.MSGCraps;
 import craps.msg.MSGEntradaCraps;
+import craps.msg.MSGEstadoCraps;
 import craps.msg.MSGOpcionApuesta;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
@@ -42,11 +43,13 @@ public class ParserCraps extends Parser {
 		xstream.aliasAttribute(MSGApostarCraps.class, "valorApuesta", "valorApuesta");
 		xstream.alias("valorFicha", MSGValorFicha.class);
 		xstream.alias("opcionApuesta", MSGOpcionApuesta.class);
-		
-		
+
 		// TIRO CRAPS
 		xstream.alias("tiroCraps", MSGTiroCraps.class);
 		
+		
+		// PARSER CRAPS
+		xstream.alias("estadoCraps", MSGEstadoCraps.class);
 		
 		/*
 		TODO ver todo estadoCraps

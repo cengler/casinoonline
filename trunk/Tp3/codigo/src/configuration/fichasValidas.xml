@@ -1,3 +1,4 @@
+<!-- No repetir items de ficha -->
 <list>
 	<itemApuesta ficha="5" cantidad="5" />
 	<itemApuesta ficha="10" cantidad="10" />

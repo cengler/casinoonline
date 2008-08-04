@@ -23,8 +23,9 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class ConfigurationParser {
 
 	private XStream xstream;
-	private static String LISTA_JUG = "configuration/listaJugadores.xml" ;
-	private static String GENERAL_CONFIG_PROPERTIES = "configuration/generalConfig.properties" ;
+	private static String LISTA_JUG = "configuration/listaJugadores.xml";
+	private static String LISTA_FICHAS = "configuration/fichasValidas.xml" ;
+	private static String GENERAL_CONFIG_PROPERTIES = "configuration/generalConfig.properties";
 	private static Logger logger = Logger.getLogger(ConfigurationParser.class);
 	private static ConfigurationParser instance; 
 	
@@ -37,9 +38,12 @@ public class ConfigurationParser {
 		xstream = new XStream(new DomDriver()); 
 		xstream.alias("jugador", LSTJugador.class);
 		xstream.alias("jugadores", ArrayList.class);
-		xstream.aliasAttribute(LSTJugador.class, "nombre", "nombre");
+		xstream.alias("itemApuesta", ItemApuesta.class);
 		xstream.aliasAttribute(LSTJugador.class, "saldo", "saldo");
 		xstream.aliasAttribute(LSTJugador.class, "vip", "vip");
+		xstream.aliasAttribute(LSTJugador.class, "nombre", "nombre");
+		xstream.aliasAttribute(LSTJugador.class, "ficha", "ficha");
+		xstream.aliasAttribute(LSTJugador.class, "cantidad", "cantidad");
 	}
 	
 	public static ConfigurationParser getInstance()
@@ -72,6 +76,24 @@ public class ConfigurationParser {
 			throw new CasinoException("No se pudo cagar correctamente la lista de jugadores", e);
 		}
 		List<LSTJugador> l = (List<LSTJugador>)lista;
+		return l;
+	}
+	
+	public List<ItemApuesta> cargarFichasValidas() throws CasinoException
+	{
+		Object lista = null;
+		try 
+		{
+			InputStream is = new FileInputStream(LISTA_FICHAS);
+			lista = xstream.fromXML(is);
+			is.close();
+		} 
+		catch (IOException e) 
+		{
+			logger.error("No se pudo cagar correctamente la lista de fichas validas de: " + LISTA_FICHAS);
+			throw new CasinoException("No se pudo cagar correctamente la lista de fichas validas", e);
+		}
+		List<ItemApuesta> l = (List<ItemApuesta>)lista;
 		return l;
 	}
 		

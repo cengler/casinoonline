@@ -1,6 +1,7 @@
 package casino;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import casino.msg.MSGCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGEstadoCasino;
 import casino.msg.MSGEstadoJugador;
+import casino.msg.MSGJugador;
 import casino.msg.MSGObservador;
 import casino.msg.MSGPozo;
 import casino.msg.MSGReporteRankingJugadores;
@@ -342,73 +344,30 @@ public class ManejadorCasino implements IServiciosCasino {
 	public MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores msg)
 	{	
 		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
-		/*List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
+		List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		
-		// OBTENER LOS JUGADORES
-		Set<IJugador> jugadores = manJug.getJugadores();
 		List<Jugador> jugadoresParaOrdenar = new ArrayList<Jugador>();
 		
 		// ORDENAR LOS JUGADORES
-		for(IJugador jug : jugadores){
+		for(IJugador jug : manJug.getJugadores()){
 			jugadoresParaOrdenar.add((Jugador)jug);
 		}
 		Collections.sort(jugadoresParaOrdenar);
 		
-		
-		
-		*/
-		return ranking;
-		
-		
-		/*//TODO
-		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
-		List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
-		ManejadorJugador manJug = ManejadorJugador.getInstance();
-		Set<IJugador> jugadores = manJug.getJugadores();
-		IJugador[] jugadoresAux = new IJugador[jugadores.size()];
-		//paso de un set a un array
-		int p = 0;
-		for(IJugador jug : jugadores){
-			jugadoresAux[p] = jug;
-			p++;
+		for(IJugador j : jugadoresParaOrdenar)
+		{
+			MSGJugador jmsg = new MSGJugador();
+			jmsg.setJugador(j.getNombre());
+			jmsg.setSaldo(j.getSaldo());
+			jugadoresOrdenados.add(jmsg);
 		}
 		
-		// ordenar el array de mayor a menor segun la ganancia 
-		int i = 0;
-		int j = 1;
-		while ( j < jugadoresAux.length ){
-			IJugador jug2 = jugadoresAux[j];
-			float ganJug2 = jug2.getSaldo() - jug2.getSaldoInicial();
-			while(j > i){
-				IJugador jug1 = jugadoresAux[i];
-				float ganJug1 = jug1.getSaldo() - jug1.getSaldoInicial();
-						
-				if (ganJug1 < ganJug2){
-				
-					jugadoresAux[i] = jug2;
-					jugadoresAux[j] = jug1;
-				
-				}
-					i++;
-			}	
-			j++;
-			i = 0;
-		}
-		//recorro el array ordenado y agrego a jugadores ordenados
-		int q = 0;
-		while(q < jugadoresAux.length){
-			
-			MSGJugador msgJug = new MSGJugador();
-			IJugador jugador = jugadoresAux[q];
-			msgJug.setJugador(jugador.getNombre());
-			msgJug.setSaldo(jugador.getSaldo());
-			jugadoresOrdenados.add(msgJug);
-			q++;
-			
-		}
+		ranking.setAceptado(true);
+		ranking.setDescripcion("El reporte del casino es:");
 		ranking.setJugadores(jugadoresOrdenados);
-		return ranking;*/
+		
+		return ranking;
 	}
 	
 

@@ -138,7 +138,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				// LO AGREGO COMO OBSERVADOR
 				manejadorObs.agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), mesa);
 				logger.info("Notificando: " + mesa.countObservers() + " observadores");
-				mesa.notifyObservers(mesa);
+				mesa.notifyObservers(new FotografiableCraps(mesa));
 
 				
 				// SETEO RESPUESTA
@@ -162,7 +162,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 						// LO AGREGO COMO OBSERVADOR
 						manejadorObs.agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), (MesaCraps)mesa);
-						((MesaCraps)mesa).notifyObservers(mesa);
+						((MesaCraps)mesa).notifyObservers(new FotografiableCraps((MesaCraps)mesa));
 						
 						// SETEO RESPUESTA
 						mensaje.setAceptado(MSGEntradaCraps.SI);
@@ -253,7 +253,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			manJug.debitarMonto(jug, montoAp);
 
 			// NOTIFICO A TODOS LOS OBSERVADORES
-			mesa.notifyObservers(mesa);
+			mesa.notifyObservers(new FotografiableCraps(mesa));
 			
 			mensaje.setAceptado(MSGApostarCraps.SI);
 			mensaje.setDescripcion("El jugador ha realizado una apuesta de tipo: " + tipoApu.name() + " y ha apostado:" + montoAp);
@@ -366,7 +366,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						}
 
 						// NOTIFICO A TODOS LOS OBSERVADORES
-						laMesa.notifyObservers(laMesa);
+						laMesa.notifyObservers(new FotografiableCraps(laMesa));
 						
 						// SETEO MENSAJE DE RTA
 						unMSG.setAceptado(MSGTiroCraps.SI);
@@ -442,7 +442,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 			// QUITO AL JUGADOR COMO OBSERVADOR
 			manejadorObs.quitarObservador(mensaje.getUsuario(), (MesaCraps)mesa);
-			mesa.notifyObservers(mesa);
+			mesa.notifyObservers(new FotografiableCraps(mesa));
 			
 			// SETEO RESPUESTA
 			mensaje.setAceptado(MSGSalidaCraps.SI);

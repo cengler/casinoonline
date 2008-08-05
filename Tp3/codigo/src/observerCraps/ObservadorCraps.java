@@ -5,7 +5,7 @@ import java.util.Observer;
 
 import org.apache.log4j.Logger;
 
-import craps.IFotografiable;
+import craps.FotografiableCraps;
 import craps.msg.MSGEstadoCraps;
 
 /**
@@ -36,10 +36,10 @@ public class ObservadorCraps implements Observer {
 	{
 		//logger.info("Recibida notificacion de cambio para el jugador: " + idJugador + " " + obj + " " + obj.getClass() );
 		
-		if(obj instanceof IFotografiable)
+		if(obj instanceof FotografiableCraps)
 		{
 			logger.info("Recibida notificacion de cambio para el jugador: " + idJugador);
-			MSGEstadoCraps mensaje = ((IFotografiable)obj).sacarFoto();
+			MSGEstadoCraps mensaje = ((FotografiableCraps)obj).sacarFoto();
 			mensaje.setUsuario(getIdJugador());
 			mensaje.setVTerm(getIdTVirt());
 			InterpretadorCrapsSalida.getInstance().interpretar(mensaje);

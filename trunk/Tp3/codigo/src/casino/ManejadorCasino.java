@@ -1,6 +1,7 @@
 package casino;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -342,7 +343,27 @@ public class ManejadorCasino implements IServiciosCasino {
 	
 	public MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores msg)
 	{	
-		//TODO
+		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
+		/*List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		
+		// OBTENER LOS JUGADORES
+		Set<IJugador> jugadores = manJug.getJugadores();
+		List<Jugador> jugadoresParaOrdenar = new ArrayList<Jugador>();
+		
+		// ORDENAR LOS JUGADORES
+		for(IJugador jug : jugadores){
+			jugadoresParaOrdenar.add((Jugador)jug);
+		}
+		Collections.sort(jugadoresParaOrdenar);
+		
+		
+		
+		*/
+		return ranking;
+		
+		
+		/*//TODO
 		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
 		List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
@@ -389,7 +410,7 @@ public class ManejadorCasino implements IServiciosCasino {
 			
 		}
 		ranking.setJugadores(jugadoresOrdenados);
-		return ranking;
+		return ranking;*/
 	}
 	
 

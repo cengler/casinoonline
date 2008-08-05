@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
  * @author Grupo2
  *
  */
-public class Jugador implements IJugador {
+public class Jugador implements IJugador, Comparable<Jugador> {
 
 	private String IdVirt;
 	private boolean logeado;
@@ -114,6 +114,17 @@ public class Jugador implements IJugador {
 
 	public void setSaldoInicial(float saldoInicial) {
 		this.saldoInicial = saldoInicial;
+	}
+
+	/**
+	 * Dev 1 -1 o 0.
+	 */
+	public int compareTo(Jugador jug) {
+		
+		float gananciaThis = saldo - saldoInicial;
+		float gananciaJug = jug.getSaldo() - jug.getSaldoInicial();
+		
+		return new Float(gananciaThis).compareTo(new Float(gananciaJug));
 	}
 	
 	

@@ -231,7 +231,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			logger.info("La apuesta no es valida para el momento del juego");
 
 		}
-		else if ( manCas.validarFichas(fichasAp) )
+		else if ( !manCas.validarFichas(fichasAp) )
 		{
 			mensaje.setAceptado(MSGApostarCraps.NO);
 			mensaje.setDescripcion("Las fichas a apostar no corresponden a fichas validas");

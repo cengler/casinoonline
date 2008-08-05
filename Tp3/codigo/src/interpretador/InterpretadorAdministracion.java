@@ -9,6 +9,7 @@ import servicios.SrvAdministracion;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGAdministracion;
 import casino.msg.MSGCerrarCasino;
+import casino.msg.MSGReporteRankingJugadores;
 import casino.msg.MSGSetJugada;
 import casino.msg.MSGSetModo;
 import core.IMessage;
@@ -65,6 +66,8 @@ public class InterpretadorAdministracion implements IInterpretadorCasino {
 			rta = SrvAdministracion.setearJugada((MSGSetJugada)mensajeObj);
 		else if(mensajeObj instanceof MSGSetModo)
 			rta = SrvAdministracion.setModoDirigido((MSGSetModo)mensajeObj);
+		else if(mensajeObj instanceof MSGReporteRankingJugadores)
+			rta = SrvAdministracion.reporteRanking((MSGReporteRankingJugadores)mensajeObj);
 		
 
 			

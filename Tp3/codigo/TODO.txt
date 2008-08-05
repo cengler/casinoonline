@@ -4,7 +4,6 @@ revisar...
 
 - validar que no es pueda unir un jugador desde la misma terminal que otro
 - ver reporte en servicios
-- cargar valores de fichas validas
 - estado casino parser... no veo saldo de casino
 
 
@@ -13,7 +12,7 @@ revisar...
 - si no fuera por el ImplementionFact ManejadordeObservers 
 haria un ciclo en la instanciacion
 - dependencias de SERVER
-
+- validacion sobre ID de terminal virtual
 
 // PIORIDAD BAJA --------------------------------------------
 - descripcion task ant

@@ -255,10 +255,14 @@ public class ManejadorDeApuestas {
 	
 	public boolean correspondePagar(ApuestaCraps a, ResultadoCraps r, boolean puck)
 	{
-		String pck = Boolean.toString(puck);
-		ResultadoApuestaCraps res = new ResultadoApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje());
-		logger.debug("Corresponde pagar a: " + res + " --> "+ pagos.containsKey( res ));
-		return pagos.containsKey( res );
+		if(a.isActiva())
+		{
+			String pck = Boolean.toString(puck);
+			ResultadoApuestaCraps res = new ResultadoApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje());
+			logger.debug("Corresponde pagar a: " + res + " --> "+ pagos.containsKey( res ));
+			return pagos.containsKey( res );
+		}
+		return false;
     }
 	
 	public void modificarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
@@ -276,12 +280,16 @@ public class ManejadorDeApuestas {
 		}
 	}
 
-	private boolean correspondeModificar(ApuestaCraps a, ResultadoCraps r, boolean puck) {
-		
-		String pck = Boolean.toString(puck);
-		ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2());
-		logger.debug("Corresponde pagar a: " + res + " --> "+ modificaciones.containsKey( res ));
-		return modificaciones.containsKey( res );
+	private boolean correspondeModificar(ApuestaCraps a, ResultadoCraps r, boolean puck)
+	{
+		if(a.isActiva())
+		{
+			String pck = Boolean.toString(puck);
+			ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2());
+			logger.debug("Corresponde pagar a: " + res + " --> "+ modificaciones.containsKey( res ));
+			return modificaciones.containsKey( res );
+		}
+		return false;
 	}
 
 	private int obtenerModificacion(ApuestaCraps a, ResultadoCraps r, boolean puck) 

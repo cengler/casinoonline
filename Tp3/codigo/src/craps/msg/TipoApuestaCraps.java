@@ -12,7 +12,6 @@ public enum TipoApuestaCraps {
 	venir,
 	novenir,
 	campo,
-	sitio,
 	ganar,
 	encontra,
 }

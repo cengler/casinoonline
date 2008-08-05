@@ -1,7 +1,6 @@
 package casino;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +15,6 @@ import casino.msg.MSGCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGEstadoCasino;
 import casino.msg.MSGEstadoJugador;
-import casino.msg.MSGJugador;
 import casino.msg.MSGObservador;
 import casino.msg.MSGPozo;
 import casino.msg.MSGReporteRankingJugadores;

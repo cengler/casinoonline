@@ -5,6 +5,7 @@ revisar...
 - validar que no es pueda unir un jugador desde la misma terminal que otro
 - ver reporte en servicios
 - estado casino parser... no veo saldo de casino
+validar que no haya jugadores logeados ni invitados en el casino
 
 
 // PREG -----------------------------------------------------

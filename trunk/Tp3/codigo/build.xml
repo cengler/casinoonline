@@ -154,7 +154,7 @@
 	<path id="uml.source.path">
           <pathelement path="${dir.src}"/>
 	</path>
-	<javadoc sourcepathref="uml.source.path" packagenames="*" package="true">
+	<javadoc sourcepathref="uml.source.path" packagenames="core.*" package="true">
 		<doclet name="org.umlgraph.doclet.UmlGraph" path="${dir.lib}/UMLGraph.jar">
 			<!--param name="-d" value="${dir.uml}"/-->
 		</doclet>

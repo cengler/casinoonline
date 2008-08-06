@@ -249,7 +249,10 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
 			int puntaje = opAp.getPuntajeApostado();
 			ManejadorDeApuestas manApCr = mesa.getPagador();
-			manApCr.crearNuevaApuesta(jug, puntaje, tipoApu, montoAp, fichasAp);
+			if(tipoApu.equals(TipoApuestaCraps.ganar) || tipoApu.equals(TipoApuestaCraps.encontra) )
+				manApCr.crearNuevaApuesta(jug, puntaje, tipoApu, montoAp, fichasAp);
+			else
+				manApCr.crearNuevaApuesta(jug, 0, tipoApu, montoAp, fichasAp);
 			
 			ManejadorDeSaldo.getInstance().transferirJugadorACasino(jug, montoAp);
 

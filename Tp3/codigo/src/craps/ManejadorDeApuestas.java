@@ -138,7 +138,7 @@ public class ManejadorDeApuestas {
 	 */
 	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
 	{
-		logger.debug("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
+		logger.info("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
 		
 		int gananciaTotal = 0;
 		Casino casino = Casino.getInstance();
@@ -173,7 +173,7 @@ public class ManejadorDeApuestas {
 				apuesta.setMontoRetenidoJugadaTodosPonen(apuesta.getGananciaBruta() * porcentajeTP / 100);
 			}
 		}
-		else if (jugada.equals(TipoJugada.feliz) && casino.getMinPozoFeliz() > pozoFeliz )
+		else if (jugada.equals(TipoJugada.feliz) && casino.getMinPozoFeliz() <= pozoFeliz )
 		{
 			for (ApuestaCraps apuesta : apuestasAPagar)
 			{

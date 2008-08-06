@@ -33,7 +33,7 @@ public class ManejadorDeSaldo {
 
 	public void transferirCasinoAJugador(IJugador jug, float monto)
 	{
-		logger.info("TRAFERENCIA: casino --> jugador: " + monto);
+		logger.info("TRAFERENCIA: casino --> "+jug.getNombre()+": " + monto);
 		Casino casino = Casino.getInstance();
 		casino.setSaldo(casino.getSaldo()-monto);
 		((Jugador)jug).setSaldo(jug.getSaldo()+monto);
@@ -41,7 +41,7 @@ public class ManejadorDeSaldo {
 	
 	public void transferirPozoFelizAJugador(IJugador jug, float monto)
 	{
-		logger.info("TRAFERENCIA: pozoFeliz --> jugador: " + monto);
+		logger.info("TRAFERENCIA: pozoFeliz --> "+jug.getNombre()+": " + monto);
 		Casino casino = Casino.getInstance();
 		casino.setPozoFeliz(casino.getPozoFeliz()-monto);
 		((Jugador)jug).setSaldo(jug.getSaldo()+monto);
@@ -49,7 +49,7 @@ public class ManejadorDeSaldo {
 	
 	public void transferirJugadorAPozoFeliz(IJugador jug, float monto)
 	{
-		logger.info("TRAFERENCIA: jugador --> pozoFeliz: " + monto);
+		logger.info("TRAFERENCIA: "+jug.getNombre()+" --> pozoFeliz: " + monto);
 		Casino casino = Casino.getInstance();
 		casino.setPozoFeliz(casino.getPozoFeliz()+monto);
 		((Jugador)jug).setSaldo(jug.getSaldo()-monto);
@@ -57,7 +57,7 @@ public class ManejadorDeSaldo {
 	
 	public void transferirJugadorACasino(IJugador jug, float monto)
 	{
-		logger.info("TRAFERENCIA: jugador --> casino: " + monto);
+		logger.info("TRAFERENCIA: "+jug.getNombre()+" --> casino: " + monto);
 		Casino casino = Casino.getInstance();
 		casino.setSaldo(casino.getSaldo()+monto);
 		((Jugador)jug).setSaldo(jug.getSaldo()-monto);

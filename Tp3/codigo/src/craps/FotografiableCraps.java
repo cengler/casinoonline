@@ -77,22 +77,22 @@ public class FotografiableCraps {
 		MSGApuestasVigentes apVigentes = new MSGApuestasVigentes();
 		List<MSGApuesta> apuestas = new ArrayList<MSGApuesta>();
 		// seteo a apVigentes los MSGApuesta
-		for (ApuestaCraps apc : mesa.getPagador().getApuestas()){
-
-			MSGApuesta ap = new MSGApuesta();
-			ap.setApostador(apc.getApostador().getNombre());
-			// MSGOpcionApuesta
-			MSGOpcionApuesta opAp = new MSGOpcionApuesta();
-			opAp.setTipoApuesta(apc.getTipo());
-			opAp.setPuntajeApostado(apc.getPuntaje());
-			ap.setOpcionApuesta(opAp);
-			// valorApuesta
-			List<MSGValorFicha> valorFichas = new ArrayList<MSGValorFicha>();
-			// TODO necesito las fichas apostadas y sus cantidades
-			ap.setValorApuesta(valorFichas);
-
-			apuestas.add(ap);
-
+		for (ApuestaCraps apc : mesa.getPagador().getApuestas())
+		{
+			if(apc.isActiva())
+			{
+				MSGApuesta ap = new MSGApuesta();
+				ap.setApostador(apc.getApostador().getNombre());
+				// MSGOpcionApuesta
+				MSGOpcionApuesta opAp = new MSGOpcionApuesta();
+				opAp.setTipoApuesta(apc.getTipo());
+				opAp.setPuntajeApostado(apc.getPuntaje());
+				ap.setOpcionApuesta(opAp);
+				// valorApuesta
+				List<MSGValorFicha> valorFichas = new ArrayList<MSGValorFicha>();
+				ap.setValorApuesta(valorFichas);
+				apuestas.add(ap);
+			}
 		}
 		apVigentes.setApuestas(apuestas);
 		msgEstCraps.setApuestasVigentes(apVigentes);

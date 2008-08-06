@@ -124,7 +124,7 @@ public class Jugador implements IJugador, Comparable<Jugador> {
 		float gananciaThis = saldo - saldoInicial;
 		float gananciaJug = jug.getSaldo() - jug.getSaldoInicial();
 		
-		return new Float(gananciaThis).compareTo(new Float(gananciaJug));
+		return new Float(gananciaJug).compareTo(new Float(gananciaThis));
 	}
 	
 	

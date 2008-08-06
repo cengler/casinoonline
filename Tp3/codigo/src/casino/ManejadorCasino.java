@@ -20,6 +20,7 @@ import casino.msg.MSGJugador;
 import casino.msg.MSGObservador;
 import casino.msg.MSGPozo;
 import casino.msg.MSGReporteRankingJugadores;
+import casino.msg.MSGReporteEstadoActual;
 
 public class ManejadorCasino implements IServiciosCasino {
 
@@ -348,5 +349,27 @@ public class ManejadorCasino implements IServiciosCasino {
 		return ranking;
 	}
 	
-
+	public MSGReporteEstadoActual reporteEstadoActual(MSGReporteEstadoActual msg){
+		
+		MSGReporteEstadoActual estadoActual = new MSGReporteEstadoActual();
+		List<MSGJugador> jugadores = new ArrayList<MSGJugador>();
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		for(IJugador jug : manJug.getJugadores()){
+			
+			MSGJugador jugad = new MSGJugador();
+			jugad.setJugador(jug.getNombre());
+			jugad.setSaldo(jugad.getSaldo());
+			jugadores.add(jugad);
+			
+		}
+		estadoActual.setJugadores(jugadores);
+		Casino cas = Casino.getInstance();
+		MSGPozo pozo = new MSGPozo();
+		pozo.setPozoFeliz(cas.getPozoFeliz());
+		estadoActual.setPozo(pozo);
+		estadoActual.setSaldoCasino(cas.getSaldo());
+		
+		return estadoActual;
+	}
+	
 }

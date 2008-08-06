@@ -336,8 +336,10 @@ public class ManejadorCasino implements IServiciosCasino {
 			List<Jugador> jugadoresParaOrdenar = new ArrayList<Jugador>();
 			
 			// ORDENAR LOS JUGADORES
-			for(IJugador jug : manJug.getJugadores()){
-				jugadoresParaOrdenar.add((Jugador)jug);
+			for(IJugador jug : manJug.getJugadores())
+			{
+				if(jug.isLogeado())
+					jugadoresParaOrdenar.add((Jugador)jug);
 			}
 			Collections.sort(jugadoresParaOrdenar);
 			
@@ -345,7 +347,7 @@ public class ManejadorCasino implements IServiciosCasino {
 			{
 				MSGJugador jmsg = new MSGJugador();
 				jmsg.setNombre(j.getNombre());
-				jmsg.setSaldo(j.getSaldo());
+				jmsg.setSaldo(j.getSaldo()-j.getSaldoInicial());
 				jugadoresOrdenados.add(jmsg);
 			}
 			

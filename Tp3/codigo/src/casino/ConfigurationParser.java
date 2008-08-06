@@ -26,6 +26,7 @@ public class ConfigurationParser {
 	private static String LISTA_JUG = "configuration/listaJugadores.xml";
 	private static String LISTA_FICHAS = "configuration/fichasValidas.xml" ;
 	private static String GENERAL_CONFIG_PROPERTIES = "configuration/generalConfig.properties";
+	private static String SALDOS_FILE = "configuration/CFGSaldo.xml";
 	private static Logger logger = Logger.getLogger(ConfigurationParser.class);
 	private static ConfigurationParser instance; 
 	
@@ -36,12 +37,13 @@ public class ConfigurationParser {
 	private ConfigurationParser()
 	{
 		xstream = new XStream(new DomDriver()); 
-		xstream.alias("jugador", LSTJugador.class);
+		xstream.alias("jugador", CFGJugador.class);
 		xstream.alias("jugadores", ArrayList.class);
 		xstream.alias("itemApuesta", ItemApuesta.class);
-		xstream.aliasAttribute(LSTJugador.class, "saldo", "saldo");
-		xstream.aliasAttribute(LSTJugador.class, "vip", "vip");
-		xstream.aliasAttribute(LSTJugador.class, "nombre", "nombre");
+		xstream.alias("saldos", CFGSaldo.class);
+		xstream.aliasAttribute(CFGJugador.class, "saldo", "saldo");
+		xstream.aliasAttribute(CFGJugador.class, "vip", "vip");
+		xstream.aliasAttribute(CFGJugador.class, "nombre", "nombre");
 		xstream.aliasAttribute(ItemApuesta.class, "ficha", "ficha");
 		xstream.aliasAttribute(ItemApuesta.class, "cantidad", "cantidad");
 	}
@@ -61,7 +63,7 @@ public class ConfigurationParser {
 	 * @throws FileNotFoundException si no esta el archivo de configuracion: ListaDeJugadores
 	 * @throws CasinoException 
 	 */
-	public List<LSTJugador> cargarListaJugadores() throws CasinoException
+	public List<CFGJugador> cargarListaJugadores() throws CasinoException
 	{
 		Object lista = null;
 		try 
@@ -75,7 +77,7 @@ public class ConfigurationParser {
 			logger.error("No se pudo cagar correctamente la lista de jugadores de: " + LISTA_JUG);
 			throw new CasinoException("No se pudo cagar correctamente la lista de jugadores", e);
 		}
-		List<LSTJugador> l = (List<LSTJugador>)lista;
+		List<CFGJugador> l = (List<CFGJugador>)lista;
 		return l;
 	}
 	
@@ -104,7 +106,7 @@ public class ConfigurationParser {
 	 * @param lista lista de jugadores que es encuentran en el casino.
 	 * @throws FileNotFoundException si no esta el archivo de configuracion: ListaDeJugadores
 	 */
-	public void guardarListaJugadores(List<LSTJugador> lista) throws CasinoException
+	public void guardarListaJugadores(List<CFGJugador> lista) throws CasinoException
 	{
 		try {
 			xstream.toXML(lista, new FileOutputStream(LISTA_JUG));
@@ -144,6 +146,34 @@ public class ConfigurationParser {
 			}
 		}
 		return properties;
+	}
+
+	public void guardararSaldosCasino(CFGSaldo saldos) throws CasinoException
+	{
+		try {
+			xstream.toXML(saldos, new FileOutputStream(SALDOS_FILE));
+		} catch (FileNotFoundException e) {
+			logger.error("El archivo: " + SALDOS_FILE + " no se encuentra.");
+			throw new CasinoException(e);
+		}
+	}
+
+	public CFGSaldo cargarSaldosCasino() throws CasinoException
+	{
+		Object saldos = null;
+		try 
+		{
+			InputStream is = new FileInputStream(SALDOS_FILE);
+			saldos = xstream.fromXML(is);
+			is.close();
+		} 
+		catch (IOException e) 
+		{
+			logger.error("No se pudo cagar correctamente los saldos del casino de: " + SALDOS_FILE);
+			throw new CasinoException("No se pudo cagar correctamente los saldos del casino", e);
+		}
+		CFGSaldo l = (CFGSaldo)saldos;
+		return l;
 	}
 	
 }

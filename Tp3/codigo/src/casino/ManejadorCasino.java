@@ -71,7 +71,8 @@ public class ManejadorCasino implements IServiciosCasino {
 				// guardo saldos de los jugadores
 				try 
 				{
-					guardarListaJugadores();
+					ManejadorJugador.getInstance().guardarListaJugadores();
+					guardararSaldosCasino();
 				} 
 				catch (CasinoException e)
 				{
@@ -190,6 +191,7 @@ public class ManejadorCasino implements IServiciosCasino {
 				ManejadorJugador.getInstance().cargarListaJugadores();
 				cargarGeneralidades();
 				cargarFichasValidas();
+				cargarSaldosCasino();
 				
 				casino.setAbierto(true);
 				mensaje.setAceptado(true);
@@ -230,6 +232,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	
 	private void cargarGeneralidades() throws CasinoException
 	{
+		// CARGA DE MINIMO POZO Y PORCENTAJE DE DESCUENTO FELIZ ------------------
 		Properties prop = ConfigurationParser.getInstance().cargarGeneralidades();
 		
 		String minimoMontoPozoFeliz = prop.getProperty("minimoMontoPozoFeliz");
@@ -248,35 +251,42 @@ public class ManejadorCasino implements IServiciosCasino {
 			
 	}
 	
-	/**
-	 * guardarListaJugadores.
-	 * 
-	 * @throws CasinoException 
-	 *  
-	 */
-	private void guardarListaJugadores() throws CasinoException
+	private void cargarSaldosCasino() throws CasinoException
 	{
-		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		logger.info("Cargando saldos...");
 		
-		List<LSTJugador> listajug = new ArrayList<LSTJugador>();
-		
-		for( IJugador j : manJug.getJugadores() )
+		CFGSaldo saldos;
+		try 
 		{
-			LSTJugador jl = new LSTJugador();
-			jl.setNombre(j.getNombre());
-			jl.setSaldo(j.getSaldo());
-			jl.setVip(j.isVip());
-			logger.debug("Preparando para almacenamiento jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
-			listajug.add(jl);
-		}
-		try {
-			ConfigurationParser.getInstance().guardarListaJugadores(listajug);
-		} catch (CasinoException e) {
+			saldos = ConfigurationParser.getInstance().cargarSaldosCasino();
+		} 
+		catch (CasinoException e) 
+		{
 			logger.error(e.getMessage());
-			throw e;
+			throw new CasinoException(e);
 		}
+		
+		Casino.getInstance().setSaldo(saldos.getSaldoCasino());
+		Casino.getInstance().setPozoFeliz(saldos.getSaldoPozoFeliz());
 	}
-
+	
+	private void guardararSaldosCasino() throws CasinoException
+	{
+		logger.info("Cargando saldos...");
+		CFGSaldo saldos = new CFGSaldo(Casino.getInstance().getSaldo(), Casino.getInstance().getPozoFeliz());
+		try 
+		{
+			ConfigurationParser.getInstance().guardararSaldosCasino(saldos);
+		} 
+		catch (CasinoException e) 
+		{
+			logger.error(e.getMessage());
+			throw new CasinoException(e);
+		}
+		
+	
+	}
+	
 	/**
 	 * validarFichas, valida si las fichas existen en el casino.
 	 * 

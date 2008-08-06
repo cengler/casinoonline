@@ -322,6 +322,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	
 	public MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores msg)
 	{	
+		//TODO NO ORDENA
 		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
 		List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
@@ -349,30 +350,38 @@ public class ManejadorCasino implements IServiciosCasino {
 		return ranking;
 	}
 	
-	public MSGReporteEstadoActual reporteEstadoActual(MSGReporteEstadoActual msg){
-		
-		MSGReporteEstadoActual estadoActual = new MSGReporteEstadoActual();
-		List<MSGJugador> jugadores = new ArrayList<MSGJugador>();
-		ManejadorJugador manJug = ManejadorJugador.getInstance();
-		for(IJugador jug : manJug.getJugadores()){
-			
-			MSGJugador jugad = new MSGJugador();
-			jugad.setNombre(jug.getNombre());
-			jugad.setSaldo(jugad.getSaldo());
-			jugadores.add(jugad);
-			
+	public MSGReporteEstadoActual reporteEstadoActual(MSGReporteEstadoActual msg)
+	{
+		if(!Casino.getInstance().isAbierto())
+		{
+			msg.setAceptado(false);
+			msg.setDescripcion("El casino no esta abierto y no se han cargado los datos");
 		}
-		estadoActual.setJugadores(jugadores);
-		Casino cas = Casino.getInstance();
-		MSGPozo pozo = new MSGPozo();
-		pozo.setPozoFeliz(cas.getPozoFeliz());
-		estadoActual.setPozosCasino(pozo);
-		estadoActual.setSaldoCasino(cas.getSaldo());
-		
-		estadoActual.setAceptado(true);
-		estadoActual.setDescripcion("El estado actual del casino es:");
-		
-		return estadoActual;
+		else
+		{
+			List<MSGJugador> jugadores = new ArrayList<MSGJugador>();
+			ManejadorJugador manJug = ManejadorJugador.getInstance();
+			for(IJugador jug : manJug.getJugadores())
+			{
+				if(jug.isLogeado())
+				{
+					MSGJugador jugad = new MSGJugador();
+					jugad.setNombre(jug.getNombre());
+					jugad.setSaldo(jug.getSaldo());
+					jugadores.add(jugad);
+				}
+			}
+			msg.setJugadores(jugadores);
+			Casino cas = Casino.getInstance();
+			MSGPozo pozo = new MSGPozo();
+			pozo.setPozoFeliz(cas.getPozoFeliz());
+			msg.setPozosCasino(pozo);
+			msg.setSaldoCasino(cas.getSaldo());
+			
+			msg.setAceptado(true);
+			msg.setDescripcion("El estado actual del casino es:");
+		}
+		return msg;
 	}
 	
 }

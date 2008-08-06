@@ -246,19 +246,6 @@ public class ManejadorJugador implements IServiciosJugador {
 		return null;
 	}
 
-	/**
-	 * Debita el monto indicado de la cuenta del jugador.
-	 * NOTA: no verifica que al jugador le sea posible.
-	 * (verificar antes si el jugador es VIP)
-	 * 
-	 * @param jugador jugador al que debitará el monto
-	 * @param a monto a debitar.
-	 */
-	public void debitarMonto(IJugador jugador, int a)
-	{
-		((Jugador)jugador).setSaldo(jugador.getSaldo() - a);
-	}
-
 	public boolean estaJugando(IJugador jugador)
 	{
 		boolean estaJugando = false;
@@ -337,12 +324,36 @@ public class ManejadorJugador implements IServiciosJugador {
 		}
 		return null;
 	}
-
-	public void acreditarMonto(IJugador apostador, int monto) 
-	{
-		((Jugador)apostador).setSaldo(apostador.getSaldo() + monto);
-		
-	}
-
 	
+	/**
+	 * cargarListaJugadores.
+	 * 
+	 * @throws CasinoException 
+	 * 
+	 */
+	public void cargarListaJugadores() throws CasinoException
+	{
+		logger.info("Cargando jugadores...");
+		
+		List<LSTJugador> jugadores;
+		try {
+			jugadores = ConfigurationParser.getInstance().cargarListaJugadores();
+		} catch (CasinoException e) {
+			logger.error(e.getMessage());
+			throw new CasinoException(e);
+		}
+		
+		ManejadorJugador mj = ManejadorJugador.getInstance();
+		
+		for( LSTJugador j : jugadores)
+		{
+			Jugador jc = new Jugador();
+			jc.setNombre(j.getNombre());
+			jc.setSaldo(j.getSaldo());
+			jc.setSaldoInicial(j.getSaldo());
+			jc.setVip(j.isVip());
+			mj.getJugadores().add(jc);
+			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
+		}
+	}
 }

@@ -2,13 +2,13 @@ package casino.msg;
 
 public class MSGPozo {
 
-	private int pozoFeliz;
+	private float pozoFeliz;
 
-	public int getPozoFeliz() {
+	public float getPozoFeliz() {
 		return pozoFeliz;
 	}
 
-	public void setPozoFeliz(int pozoFeliz) {
+	public void setPozoFeliz(float pozoFeliz) {
 		this.pozoFeliz = pozoFeliz;
 	}
 	

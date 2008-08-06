@@ -30,7 +30,6 @@ public class FotografiableCraps {
 		// seteo los jugadores de la mesa
 		for (IJugador j : mesa.getJugadores())
 		{
-
 			MSGJugadorCraps msgJug = new MSGJugadorCraps(); 
 			msgJug.setJugador(j.getNombre());
 			lsJugC.add(msgJug);
@@ -98,7 +97,8 @@ public class FotografiableCraps {
 		apVigentes.setApuestas(apuestas);
 		msgEstCraps.setApuestasVigentes(apVigentes);
 
-
+		msgEstCraps.setMesa(mesa.getId());
+		
 		return msgEstCraps;
 	}
 }

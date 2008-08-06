@@ -28,7 +28,7 @@ public interface ICasino
 	 * 
 	 * @return el monto del pozo feliz.
 	 */
-	int getPozoFeliz();
+	float getPozoFeliz();
 	
 	/**
 	 * Geter del saldo del casino.

@@ -13,7 +13,7 @@ import au.com.bytecode.opencsv.CSVReader;
 import casino.Casino;
 import casino.IJugador;
 import casino.ItemApuesta;
-import casino.ManejadorJugador;
+import casino.ManejadorDeSaldo;
 import casino.msg.TipoJugada;
 import craps.msg.TipoApuestaCraps;
 
@@ -181,8 +181,6 @@ public class ManejadorDeApuestas {
 				float porcentajePozoFeliz = (apuesta.getGananciaBruta() / gananciaTotal) * pozoFeliz;
 				apuesta.setMontoPremioJugadaFeliz(porcentajePozoFeliz);
 			}
-			// SE RESETEA EL POZO FELIZ
-			casino.setPozoFeliz(0);
 		}
 		else // JUGADA NORMAL o EL MONTO FELIZ NO ALCANZABA EL MINIMO
 		{
@@ -197,20 +195,20 @@ public class ManejadorDeApuestas {
 		logger.debug("Fin de pagar apuestas. Se han pagado del saldo del casino: " + gananciaTotal + " pesos");
 	}
 
-	private void pagarApuesta(ApuestaCraps apuesta) {
+	private void pagarApuesta(ApuestaCraps a) {
 		
-		int aJugador = 0;
-		int aCasino = 0;
-		int aPozoFeliz = 0;
+		ManejadorDeSaldo manSaldo = ManejadorDeSaldo.getInstance();
 		
-		aJugador += apuesta.getGananciaBruta();
-		aCasino -= apuesta.getGananciaBruta();
-		aJugador += apuesta.getMontoPremioJugadaFeliz();
-		aPozoFeliz += apuesta.getMontoRetenidoJugadaTodosPonen();
+		manSaldo.transferirCasinoAJugador(a.getApostador(), a.getGananciaBruta());
 		
-		ManejadorJugador.getInstance().acreditarMonto(apuesta.getApostador(), aJugador);
-		Casino.getInstance().setSaldo(Casino.getInstance().getSaldo() + aCasino);
-		Casino.getInstance().setPozoFeliz(Casino.getInstance().getPozoFeliz() + aPozoFeliz);
+		manSaldo.transferirPozoFelizAJugador(a.getApostador(), a.getMontoPremioJugadaFeliz());
+		
+		manSaldo.transferirJugadorAPozoFeliz(a.getApostador(), a.getMontoRetenidoJugadaTodosPonen());
+
+		
+		//ManejadorJugador.getInstance().acreditarMonto(apuesta.getApostador(), aJugador);
+		//Casino.getInstance().setSaldo(Casino.getInstance().getSaldo() + aCasino);
+		//Casino.getInstance().setPozoFeliz(Casino.getInstance().getPozoFeliz() + aPozoFeliz);
 		
 	}
 

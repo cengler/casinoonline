@@ -12,6 +12,7 @@ import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
 import casino.ItemApuesta;
 import casino.ManejadorCasino;
+import casino.ManejadorDeSaldo;
 import casino.ManejadorJugador;
 import casino.ManejadorMesa;
 import casino.SeleccionadorTipoJugadaPorModo;
@@ -250,7 +251,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			int puntaje = opAp.getPuntajeApostado();
 			ManejadorDeApuestas manApCr = mesa.getPagador();
 			manApCr.crearNuevaApuesta(jug, puntaje, tipoApu, montoAp, fichasAp);
-			manJug.debitarMonto(jug, montoAp);
+			
+			ManejadorDeSaldo.getInstance().transferirCasinoAJugador(jug, montoAp);
 
 			// NOTIFICO A TODOS LOS OBSERVADORES
 			mesa.notifyObservers(new FotografiableCraps(mesa));
@@ -437,6 +439,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			if (mesa.getJugadores().size() == 1) {
 				// SE DEBE CERRAR LA MESA
 				mesa.setAbierta(false);
+			}
+			if(mesa.getTirador().equals(jug))
+			{
+				ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
+				IJugador proxTirador = selTir.getProxTirador(mesa);
+				mesa.setTirador(proxTirador);
 			}
 			mesa.getJugadores().remove(jug);
 

@@ -187,7 +187,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		{
 			try 
 			{
-				cargarListaJugadores();
+				ManejadorJugador.getInstance().cargarListaJugadores();
 				cargarGeneralidades();
 				cargarFichasValidas();
 				
@@ -226,38 +226,6 @@ public class ManejadorCasino implements IServiciosCasino {
 		
 		for (ItemApuesta ia : fichas)
 			valoresValidos.put(ia.getFicha(), ia.getCantidad());
-	}
-
-	/**
-	 * cargarListaJugadores.
-	 * 
-	 * @throws CasinoException 
-	 * 
-	 */
-	private void cargarListaJugadores() throws CasinoException
-	{
-		logger.info("Cargando jugadores...");
-		
-		List<LSTJugador> jugadores;
-		try {
-			jugadores = ConfigurationParser.getInstance().cargarListaJugadores();
-		} catch (CasinoException e) {
-			logger.error(e.getMessage());
-			throw new CasinoException(e);
-		}
-		
-		ManejadorJugador mj = ManejadorJugador.getInstance();
-		
-		for( LSTJugador j : jugadores)
-		{
-			Jugador jc = new Jugador();
-			jc.setNombre(j.getNombre());
-			jc.setSaldo(j.getSaldo());
-			jc.setSaldoInicial(j.getSaldo());
-			jc.setVip(j.isVip());
-			mj.getJugadores().add(jc);
-			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
-		}
 	}
 	
 	private void cargarGeneralidades() throws CasinoException

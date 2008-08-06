@@ -14,7 +14,7 @@ public final class Casino implements ICasino {
 	private boolean abierto;
 	private static Casino instance;
 	private boolean modoNormal;
-	private int pozoFeliz;
+	private float pozoFeliz;
 	private float saldo;
 	
 	private float minPozoFeliz;
@@ -100,7 +100,7 @@ public final class Casino implements ICasino {
 	/**
 	 * {@inheritDoc}
 	 */
-	public int getPozoFeliz() {
+	public float getPozoFeliz() {
 		return pozoFeliz;
 	}
 
@@ -109,7 +109,8 @@ public final class Casino implements ICasino {
 	 * 
 	 * @param pozoFeliz el monto a setear al pozo feliz
 	 */
-	public void setPozoFeliz(int pozoFeliz) {
+	@Deprecated
+	public void setPozoFeliz(float pozoFeliz) {
 		this.pozoFeliz = pozoFeliz;
 	}
 
@@ -125,6 +126,7 @@ public final class Casino implements ICasino {
 	 * 
 	 * @param saldo el saldo a setear al casino
 	 */
+	@Deprecated
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}

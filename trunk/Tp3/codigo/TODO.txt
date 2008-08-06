@@ -7,6 +7,10 @@ revisar...
 - estado casino parser... no veo saldo de casino
 validar que no haya jugadores logeados ni invitados en el casino
 
+-SALDO DE CASINO
+-POZO FELIZ
+-ver si actualiza proximo y anterior jugador
+
 
 // PREG -----------------------------------------------------
 - ver tema apuesta de sitio

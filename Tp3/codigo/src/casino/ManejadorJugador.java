@@ -353,7 +353,7 @@ public class ManejadorJugador implements IServiciosJugador {
 			jc.setSaldoInicial(j.getSaldo());
 			jc.setVip(j.isVip());
 			mj.getJugadores().add(jc);
-			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
+			logger.info("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
 		}
 	}
 	

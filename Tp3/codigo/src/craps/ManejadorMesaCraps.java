@@ -138,7 +138,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 				// LO AGREGO COMO OBSERVADOR
 				manejadorObs.agregarObservador(mensaje.getUsuario(), mensaje.getVTerm(), mesa);
-				logger.info("Notificando: " + mesa.countObservers() + " observadores");
 				mesa.notifyObservers(new FotografiableCraps(mesa));
 
 				

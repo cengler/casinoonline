@@ -70,7 +70,6 @@ public class Jugador implements IJugador, Comparable<Jugador> {
 	 * 
 	 * @param saldo saldo a setear al jugador
 	 */
-	@Deprecated
 	public void setSaldo(float saldo) {
 		if(!isVip())
 			if(saldo<0)

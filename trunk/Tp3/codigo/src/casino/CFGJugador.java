@@ -1,6 +1,6 @@
 package casino;
 
-public class LSTJugador {
+public class CFGJugador {
 
 	private String nombre;
 	private float saldo;

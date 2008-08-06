@@ -109,7 +109,6 @@ public final class Casino implements ICasino {
 	 * 
 	 * @param pozoFeliz el monto a setear al pozo feliz
 	 */
-	@Deprecated
 	public void setPozoFeliz(float pozoFeliz) {
 		this.pozoFeliz = pozoFeliz;
 	}
@@ -126,7 +125,6 @@ public final class Casino implements ICasino {
 	 * 
 	 * @param saldo el saldo a setear al casino
 	 */
-	@Deprecated
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}

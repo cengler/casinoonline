@@ -335,7 +335,7 @@ public class ManejadorJugador implements IServiciosJugador {
 	{
 		logger.info("Cargando jugadores...");
 		
-		List<LSTJugador> jugadores;
+		List<CFGJugador> jugadores;
 		try {
 			jugadores = ConfigurationParser.getInstance().cargarListaJugadores();
 		} catch (CasinoException e) {
@@ -345,7 +345,7 @@ public class ManejadorJugador implements IServiciosJugador {
 		
 		ManejadorJugador mj = ManejadorJugador.getInstance();
 		
-		for( LSTJugador j : jugadores)
+		for( CFGJugador j : jugadores)
 		{
 			Jugador jc = new Jugador();
 			jc.setNombre(j.getNombre());
@@ -354,6 +354,35 @@ public class ManejadorJugador implements IServiciosJugador {
 			jc.setVip(j.isVip());
 			mj.getJugadores().add(jc);
 			logger.debug("Cargando jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
+		}
+	}
+	
+	/**
+	 * guardarListaJugadores.
+	 * 
+	 * @throws CasinoException 
+	 *  
+	 */
+	public void guardarListaJugadores() throws CasinoException
+	{
+		ManejadorJugador manJug = ManejadorJugador.getInstance();
+		
+		List<CFGJugador> listajug = new ArrayList<CFGJugador>();
+		
+		for( IJugador j : manJug.getJugadores() )
+		{
+			CFGJugador jl = new CFGJugador();
+			jl.setNombre(j.getNombre());
+			jl.setSaldo(j.getSaldo());
+			jl.setVip(j.isVip());
+			logger.debug("Preparando para almacenamiento jugador: " + j.getNombre() + " Saldo: " + j.getSaldo() + " Vip: " + j.isVip());
+			listajug.add(jl);
+		}
+		try {
+			ConfigurationParser.getInstance().guardarListaJugadores(listajug);
+		} catch (CasinoException e) {
+			logger.error(e.getMessage());
+			throw e;
 		}
 	}
 }

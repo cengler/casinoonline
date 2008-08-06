@@ -8,7 +8,7 @@ public class MSGReporteEstadoActual extends MSGAdministracion{
 		
 		private List<MSGJugador> jugadores;
 		private float saldoCasino;
-		private MSGPozo pozo;
+		private MSGPozo pozosCasino;
 
 		public List<MSGJugador> getJugadores() {
 			return jugadores;
@@ -17,14 +17,13 @@ public class MSGReporteEstadoActual extends MSGAdministracion{
 		public void setJugadores(List<MSGJugador> jugadores) {
 			this.jugadores = jugadores;
 		}
-
-				
-		public MSGPozo getPozo() {
-			return pozo;
+		
+		public MSGPozo getPozosCasino() {
+			return pozosCasino;
 		}
 
-		public void setPozo(MSGPozo pozo) {
-			this.pozo = pozo;
+		public void setPozosCasino(MSGPozo pozosCasino) {
+			this.pozosCasino = pozosCasino;
 		}
 
 		public float getSaldoCasino() {

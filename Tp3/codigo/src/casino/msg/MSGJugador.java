@@ -2,15 +2,15 @@ package casino.msg;
 
 public class MSGJugador {
 
-	private String jugador;
+	private String nombre;
 	private float saldo;
 	
 	
-	public String getJugador() {
-		return jugador;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setJugador(String jugador) {
-		this.jugador = jugador;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	public float getSaldo() {
 		return saldo;

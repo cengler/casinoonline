@@ -337,7 +337,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		for(IJugador j : jugadoresParaOrdenar)
 		{
 			MSGJugador jmsg = new MSGJugador();
-			jmsg.setJugador(j.getNombre());
+			jmsg.setNombre(j.getNombre());
 			jmsg.setSaldo(j.getSaldo());
 			jugadoresOrdenados.add(jmsg);
 		}
@@ -357,7 +357,7 @@ public class ManejadorCasino implements IServiciosCasino {
 		for(IJugador jug : manJug.getJugadores()){
 			
 			MSGJugador jugad = new MSGJugador();
-			jugad.setJugador(jug.getNombre());
+			jugad.setNombre(jug.getNombre());
 			jugad.setSaldo(jugad.getSaldo());
 			jugadores.add(jugad);
 			
@@ -366,8 +366,11 @@ public class ManejadorCasino implements IServiciosCasino {
 		Casino cas = Casino.getInstance();
 		MSGPozo pozo = new MSGPozo();
 		pozo.setPozoFeliz(cas.getPozoFeliz());
-		estadoActual.setPozo(pozo);
+		estadoActual.setPozosCasino(pozo);
 		estadoActual.setSaldoCasino(cas.getSaldo());
+		
+		estadoActual.setAceptado(true);
+		estadoActual.setDescripcion("El estado actual del casino es:");
 		
 		return estadoActual;
 	}

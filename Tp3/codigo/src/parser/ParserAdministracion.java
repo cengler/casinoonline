@@ -5,6 +5,8 @@ import org.apache.log4j.Logger;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGJugador;
+import casino.msg.MSGPozo;
+import casino.msg.MSGReporteEstadoActual;
 import casino.msg.MSGReporteRankingJugadores;
 import casino.msg.MSGResultadoCrapsModo;
 import casino.msg.MSGResultadosCrapsModo;
@@ -49,8 +51,12 @@ public class ParserAdministracion extends Parser{
 		// REPORTE
 		xstream.alias("reporteRanking", MSGReporteRankingJugadores.class);
 		xstream.alias("jugador", MSGJugador.class);
-		xstream.aliasAttribute(MSGJugador.class, "jugador", "jugador");
-		xstream.aliasAttribute(MSGJugador.class, "saldo", "saldo");	
+		xstream.aliasAttribute(MSGJugador.class, "nombre", "nombre");
+		xstream.aliasAttribute(MSGJugador.class, "saldo", "saldo");
+		
+		xstream.alias("reporteEstadoActual", MSGReporteEstadoActual.class);
+		xstream.alias("pozosCasino", MSGPozo.class);
+		
 	}
 	
 	public static ParserAdministracion getInstance()

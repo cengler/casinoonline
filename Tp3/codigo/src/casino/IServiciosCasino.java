@@ -3,6 +3,7 @@ package casino;
 import casino.msg.MSGAbrirCasino;
 import casino.msg.MSGCerrarCasino;
 import casino.msg.MSGEstadoCasino;
+import casino.msg.MSGReporteEstadoActual;
 import casino.msg.MSGReporteRankingJugadores;
 
 /**
@@ -41,4 +42,12 @@ public interface IServiciosCasino {
 	 * @return
 	 */	
 	MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores msg);
+	
+	/**
+	 * 
+	 * @param msg
+	 * @return
+	 */
+	MSGReporteEstadoActual reporteEstadoActual(MSGReporteEstadoActual msg);
+		
 }

@@ -322,32 +322,40 @@ public class ManejadorCasino implements IServiciosCasino {
 	
 	public MSGReporteRankingJugadores reporteRanking(MSGReporteRankingJugadores msg)
 	{	
-		//TODO NO ORDENA
-		MSGReporteRankingJugadores ranking = new MSGReporteRankingJugadores();
-		List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
-		ManejadorJugador manJug = ManejadorJugador.getInstance();
-		
-		List<Jugador> jugadoresParaOrdenar = new ArrayList<Jugador>();
-		
-		// ORDENAR LOS JUGADORES
-		for(IJugador jug : manJug.getJugadores()){
-			jugadoresParaOrdenar.add((Jugador)jug);
-		}
-		Collections.sort(jugadoresParaOrdenar);
-		
-		for(IJugador j : jugadoresParaOrdenar)
+		if(!Casino.getInstance().isAbierto())
 		{
-			MSGJugador jmsg = new MSGJugador();
-			jmsg.setNombre(j.getNombre());
-			jmsg.setSaldo(j.getSaldo());
-			jugadoresOrdenados.add(jmsg);
+			msg.setAceptado(false);
+			msg.setDescripcion("El casino no esta abierto y no se han cargado los datos");
 		}
+		else
+		{
+			//TODO NO ORDENA
+			List<MSGJugador> jugadoresOrdenados = new ArrayList<MSGJugador>();
+			ManejadorJugador manJug = ManejadorJugador.getInstance();
+			
+			List<Jugador> jugadoresParaOrdenar = new ArrayList<Jugador>();
+			
+			// ORDENAR LOS JUGADORES
+			for(IJugador jug : manJug.getJugadores()){
+				jugadoresParaOrdenar.add((Jugador)jug);
+			}
+			Collections.sort(jugadoresParaOrdenar);
+			
+			for(IJugador j : jugadoresParaOrdenar)
+			{
+				MSGJugador jmsg = new MSGJugador();
+				jmsg.setNombre(j.getNombre());
+				jmsg.setSaldo(j.getSaldo());
+				jugadoresOrdenados.add(jmsg);
+			}
+			
+			msg.setAceptado(true);
+			msg.setDescripcion("El reporte del casino es:");
+			msg.setJugadores(jugadoresOrdenados);
+			
+		}
+		return msg;
 		
-		ranking.setAceptado(true);
-		ranking.setDescripcion("El reporte del casino es:");
-		ranking.setJugadores(jugadoresOrdenados);
-		
-		return ranking;
 	}
 	
 	public MSGReporteEstadoActual reporteEstadoActual(MSGReporteEstadoActual msg)

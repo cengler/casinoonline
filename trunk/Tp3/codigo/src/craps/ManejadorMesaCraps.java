@@ -252,7 +252,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			ManejadorDeApuestas manApCr = mesa.getPagador();
 			manApCr.crearNuevaApuesta(jug, puntaje, tipoApu, montoAp, fichasAp);
 			
-			ManejadorDeSaldo.getInstance().transferirCasinoAJugador(jug, montoAp);
+			ManejadorDeSaldo.getInstance().transferirJugadorACasino(jug, montoAp);
 
 			// NOTIFICO A TODOS LOS OBSERVADORES
 			mesa.notifyObservers(new FotografiableCraps(mesa));

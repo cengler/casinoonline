@@ -39,7 +39,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -57,7 +57,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -75,7 +75,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -93,7 +93,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -111,7 +111,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -129,7 +129,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -147,7 +147,7 @@ public class SrvAdministracion {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(false);
 			mensaje.setDescripcion(e.getMessage());
 		}

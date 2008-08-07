@@ -1,0 +1,113 @@
+\documentclass[a4paper, 10pt, notitlepage]{article}
+ 
+\usepackage[pdftex]{graphicx}
+\usepackage{moreverb} %para importar codigo
+%\usepackage{pepotina} %paquete personal para la caratula del DC
+\usepackage[spanish,activeacute]{babel}
+\usepackage{babel} %paquete de idioma
+\usepackage[latin1]{inputenc}
+%\usepackage{color}
+\usepackage{hyperref}
+%\usepackage{caeycaeING}
+\usepackage{fancyhdr} %linea sup con comentarios
+\usepackage{lscape} %para hoja apaisada
+\usepackage{framed} %para crear cajas de texto
+\usepackage{lastpage} %ultima pagina
+
+\usepackage{listings}
+%\lstset{
+%  breaklines=true,          % line wrapping on
+%  language=ocl,
+%  frame=ltrb,
+%  framesep=5pt,
+%  basicstyle=\normalsize,
+%  keywordstyle=\ttfamily\color{OliveGreen},
+%  identifierstyle=\ttfamily\color{CadetBlue}\bfseries,
+%  commentstyle=\color{Brown},
+%  stringstyle=\ttfamily,
+%  showstringspaces=ture
+%}
+ 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\addtolength{\topmargin}{-50pt} 
+\addtolength{\textwidth}{105pt}
+\addtolength{\textheight}{120pt}
+\addtolength{\oddsidemargin}{-50pt}
+
+\usepackage{fancyhdr} %linea sup con comentarios
+\pagestyle{fancy}
+\fancyhead[LO]{Ingenieria del Software I}
+\fancyhead[C]{}
+\fancyhead[RO]{P\'agina \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+ 
+\begin{document}
+
+%\setcounter{section}{1} 
+ 
+\input{./caratula.tex}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduccion}
+
+\section{Cambios con respecto al diseño}
+
+\section{Testing}
+
+\subsection{Abrir Casino}
+\subsubsection{Elecciones}
+\subsubsection{Resultados}
+\subsubsection{Casos de Test}
+
+\subsection{Tirar Craps}
+\subsubsection{Elecciones}
+\subsubsection{Resultados}
+\subsubsection{Casos de Test}
+
+\section{Organizacion del Codigo}
+\label{sec:OrganizacionDelCodigo}
+
+El la carpeta codigo se encuentra todo el codigo y archivos necesarios para la ejecucion y compilacion de dicho codigo.
+
+
+\begin{itemize}
+	\item /doc - documentacion autogenerada (no  completa)
+	\item /etc - Archivos necesarios para ciertos chequeos de codigo
+	\item /jar - codigo compilado
+	\item /lib - librerias necesarias para la compilacion
+	\item /report - varios reporte de calidad de codigo
+	\item /src - codigo java
+		\subitem /casino - paquete casino
+		\subitem /configuracion - archivos de configuracion
+			\subsubitem CFGSaldo.xml - configuracion del saldo de los pozos
+			\subsubitem fichasValidas.xml - configuracion de fichas validas
+			\subsubitem generalConfig.properties - configuracion de minimo pozo feliz y descuento todos ponen
+			\subsubitem listaJugadores.xml - lista de jugadores y sus saldos
+			\subsubitem mensajeroConfig.properties - filtros de los mensajeros y mailbox
+			\subsubitem modificaciones.csv - especifica para cada apuesta de craps cierta accion
+			\subsubitem pagos.csv - especifica en que relacion y cuando se deben pagar las apuestas
+		\subitem /core - paquete core
+		\subitem /craps - paquete craps
+		\subitem /interpretador - paquete interpretador
+		\subitem /mensajero - paquete mensajero
+		\subitem /observerCraps - paquete observador de craps
+		\subitem /parser - paquete con los parsers del casino
+		\subitem /server - paquete con el iniciador del casino
+		\subitem /servicios - paquete servicios
+		\subitem log4j.properties - archivo de configuracion de loggeo
+	\item /xml - xml de ejemplo
+	\item build.xml - archivo ant para la compilacion del proyecto
+\end{itemize}
+
+
+
+
+\end{document}
+
+

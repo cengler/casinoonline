@@ -245,10 +245,32 @@ public class ManejadorDeApuestas {
 		return valor + (valor * pago.getFichas() / pago.getPago()); 
 	}
 	
-	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor, List<ItemApuesta> fichas)
+	public void crearNuevaApuesta(IJugador jug, int puntaje, TipoApuestaCraps tipoAp, int valor, List<ItemApuesta> fichas) throws CrapsException
 	{
-		ApuestaCraps apc = new ApuestaCraps( jug,  puntaje, tipoAp, valor, fichas);
+		ApuestaCraps apc = null;
+		if(tipoAp.equals(TipoApuestaCraps.ganar) || tipoAp.equals(TipoApuestaCraps.encontra) )
+			if(puntajeValidoParaSitio(puntaje))
+				apc = new ApuestaCraps( jug,  puntaje, tipoAp, valor, fichas);
+			else
+				throw new CrapsException("No se puede hacer una apuesta para sitio con puntaje: " + puntaje + " solo con 4, 5, 6, 8, 9 o 10");
+		else
+			apc = new ApuestaCraps( jug,  0, tipoAp, valor, fichas);
+		
 		this.getApuestas().add(apc);
+	}
+	
+	/**
+	 * Devuelve true si se puede hacer una apuesta para sitio con ese puntaje.
+	 * 
+	 * @param puntaje
+	 * @return si se puede hacer una apuesta para sitio con ese puntaje
+	 */
+	private boolean puntajeValidoParaSitio(int p)
+	{
+		if (p == 4 || p == 5 || p == 6 || p == 8 || p==9 || p==10)
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean correspondePagar(ApuestaCraps a, ResultadoCraps r, boolean puck)

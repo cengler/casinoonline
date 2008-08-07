@@ -77,7 +77,7 @@ public class ManejadorDeApuestas {
 		    	ResultadoApuestaCraps res = new ResultadoApuestaCraps(line[0].trim(), line[1].trim(), 
 		    			Integer.parseInt(line[2].trim()), Integer.parseInt(line[3].trim()));
 		    	
-		    	PagoApuesta pago = new PagoApuesta(Integer.parseInt(line[4].trim()), Integer.parseInt(line[4].trim()));
+		    	PagoApuesta pago = new PagoApuesta(Integer.parseInt(line[4].trim()), Integer.parseInt(line[5].trim()));
 		    	
 		    	pagos.put(res, pago);
 		    }

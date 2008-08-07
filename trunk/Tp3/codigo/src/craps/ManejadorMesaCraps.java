@@ -538,7 +538,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 	{
 		boolean res = true;
 		if(puck)
-			res = !tipoApu.equals(TipoApuestaCraps.pase) && tipoApu.equals(TipoApuestaCraps.nopase);
+			res = !tipoApu.equals(TipoApuestaCraps.pase) && !tipoApu.equals(TipoApuestaCraps.nopase);
 		else
 			res = !tipoApu.equals(TipoApuestaCraps.venir) && !tipoApu.equals(TipoApuestaCraps.novenir);
 		return res;

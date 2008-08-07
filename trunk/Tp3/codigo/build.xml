@@ -48,6 +48,11 @@
 
 <target name="make" depends="makedir" description="Compila el proyecto">
 	<echo>Compilando Proyecto: .................................. </echo>
+	<copy todir="${dir.bin}">
+		<fileset dir="${dir.src}">
+			<exclude name="**/*.java"/>
+		</fileset>
+	</copy>
     <javac srcdir="${dir.src}" destdir="${dir.bin}" classpathref="classpath" />
 </target>
 
@@ -69,7 +74,17 @@
 
 <target name="zip" depends="make" description="Crea el jar">
 	<echo>Creando Jars: .......................................... </echo>
-    <jar jarfile="${dir.jar}/${name.jar}" basedir="${dir.bin}" />
+	<copy todir="${dir.jar}">
+		<fileset dir="${dir.bin}">
+			<exclude name="**/*.class"/>
+		</fileset>
+	</copy>
+    <jar jarfile="${dir.jar}/${name.jar}" basedir="${dir.bin}">
+		<manifest>
+			<attribute name="Main-Class" value="server.Start"/>
+		</manifest>
+	</jar>
+	
 </target>
 
 <target name="jdepend" depends="zip" description="Genera reporte de dependencias">
@@ -175,6 +190,15 @@ http://www.mekwin.com/mekwin/software/developers.html-->
    
 <target name="all" depends="javadoc" description="Realiza todo.">
 	<echo>All Actions: ..................................... </echo>
+</target>
+
+<target name="run"  description="Ejecuta el casino.">
+	<java fork="true" classname="server.Start" dir="${dir.jar}">
+		<classpath>
+			<path refid="classpath"/>
+			<path location="${dir.jar}/${name.jar}"/>
+		</classpath>				
+	</java>
 </target>
 
 

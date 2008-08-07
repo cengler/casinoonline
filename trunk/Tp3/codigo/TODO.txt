@@ -10,6 +10,7 @@ validar que no haya jugadores logeados ni invitados en el casino
 -SALDO DE CASINO
 -POZO FELIZ
 -ver si actualiza proximo y anterior jugador
+-FALLA apostar luego de abrir
 
 
 // PREG -----------------------------------------------------

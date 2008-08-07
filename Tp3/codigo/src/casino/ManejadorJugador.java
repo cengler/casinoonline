@@ -309,8 +309,10 @@ public class ManejadorJugador implements IServiciosJugador {
 		return null;
 	}
 
-	public boolean montoValidoPara(IJugador jugador, int monto){
-		
+	public boolean montoValidoPara(IJugador jugador, int monto)
+	{
+		if(jugador.isVip())
+			return true;
 		return (jugador.getSaldo() >= monto);
 				
 	}

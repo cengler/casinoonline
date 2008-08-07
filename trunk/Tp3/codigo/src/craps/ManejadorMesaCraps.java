@@ -132,7 +132,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 				mesa.getJugadores().add(jug);
 				// SET TIRADOR
 				mesa.setTirador(jug);
-				mesa.setTiradorAnterior(jug);
 				// ME GUARDO LA MESA PARA MANEJARLA
 				mesas.add(mesa);
 
@@ -191,7 +190,9 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 		MesaCraps mesa = getMesa(mensaje.getMesa());
-		boolean puck = mesa.isPuck();
+		boolean puck = false;
+		if(mesa != null)
+			mesa.isPuck();
 		TipoApuestaCraps tipoApu = mensaje.getOpcionApuesta().getTipoApuesta();
 		MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
 		int puntaje = opAp.getPuntajeApostado();
@@ -450,6 +451,7 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			if(mesa.getTirador().equals(jug))
 			{
 				ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
+				mesa.setTiradorAnterior(mesa.getTirador());
 				IJugador proxTirador = selTir.getProxTirador(mesa);
 				mesa.setTirador(proxTirador);
 			}

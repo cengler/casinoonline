@@ -41,7 +41,7 @@ public class SrvCraps {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGCraps.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -62,7 +62,7 @@ public class SrvCraps {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGCraps.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -83,7 +83,7 @@ public class SrvCraps {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGCraps.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -104,7 +104,7 @@ public class SrvCraps {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGCraps.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}

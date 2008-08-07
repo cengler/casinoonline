@@ -35,7 +35,7 @@ public class SrvCasino {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGEntradaCasino.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -53,7 +53,7 @@ public class SrvCasino {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGEntradaCasino.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}
@@ -71,7 +71,7 @@ public class SrvCasino {
 		} 
 		catch (Exception e) 
 		{
-			logger.error(e);
+			logger.error("ERROR: ", e);
 			mensaje.setAceptado(MSGEntradaCasino.NO);
 			mensaje.setDescripcion(e.getMessage());
 		}

@@ -1,1 +1,0 @@
-E:\apache-ant-1.7.0\bin\ant checkstyle -buildfile L:\TPINGE\TPPP\Tp3\CasinoOnline\build.xml

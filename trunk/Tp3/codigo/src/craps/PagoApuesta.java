@@ -30,4 +30,10 @@ public final class PagoApuesta {
 	public void setPago(int pago) {
 		this.pago = pago;
 	}
+
+	@Override
+	public String toString() {
+		return fichas + ":" + pago;
+	}
+	
 }

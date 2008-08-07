@@ -1,10 +1,2 @@
 <reporteEstadoActual>
-	<jugadores> 
-		<jugador nombre="pepe" saldo="34"></jugador>
-		<jugador nombre="ana" saldo="20"></jugador>  
-	</jugadores>
-	<saldoCasino>10000000</saldoCasino>
-	<pozosCasino> 
-		<pozoFeliz>50000</pozoFeliz> 
-	</pozosCasino>
 </reporteEstadoActual>

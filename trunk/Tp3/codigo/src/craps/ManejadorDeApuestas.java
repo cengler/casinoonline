@@ -226,6 +226,7 @@ public class ManejadorDeApuestas {
 	{
 		String pck = Boolean.toString(puck);
 		ResultadoApuestaCraps res = new ResultadoApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2(), a.getPuntaje());
+		logger.info("la apuesta" + a + "le correponde el valo" + pagos.get(res));
 		return getPago(pagos.get( res ), a.getValor());
 	}
 	

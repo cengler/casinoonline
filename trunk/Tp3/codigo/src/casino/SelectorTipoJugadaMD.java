@@ -45,7 +45,7 @@ public class SelectorTipoJugadaMD implements ISelectorTipoJugada {
 	{
 		TipoJugada tj = jugadasSeteadas.get(mesa);
 		
-		logger.info("Jugada es: " + tj.name() );
+		//logger.info("Jugada es: " + tj.name() );
 
 		if(tj == null)
 			tj = TipoJugada.normal;

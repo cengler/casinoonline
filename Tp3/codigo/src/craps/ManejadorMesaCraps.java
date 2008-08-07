@@ -193,6 +193,8 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		MesaCraps mesa = getMesa(mensaje.getMesa());
 		boolean puck = mesa.isPuck();
 		TipoApuestaCraps tipoApu = mensaje.getOpcionApuesta().getTipoApuesta();
+		MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
+		int puntaje = opAp.getPuntajeApostado();
 		
 		// LISTA DE VALORES DE FICHA APOSTADOS
 		List<ItemApuesta> fichasAp = new ArrayList<ItemApuesta>();
@@ -246,13 +248,16 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		else
 		{
 			int montoAp = manCas.calcularMontoAApostar(fichasAp);
-			MSGOpcionApuesta opAp = mensaje.getOpcionApuesta();
-			int puntaje = opAp.getPuntajeApostado();
 			ManejadorDeApuestas manApCr = mesa.getPagador();
-			if(tipoApu.equals(TipoApuestaCraps.ganar) || tipoApu.equals(TipoApuestaCraps.encontra) )
+			
+			try {
 				manApCr.crearNuevaApuesta(jug, puntaje, tipoApu, montoAp, fichasAp);
-			else
-				manApCr.crearNuevaApuesta(jug, 0, tipoApu, montoAp, fichasAp);
+			} catch (CrapsException e) {
+				logger.error(e.getMessage());
+				mensaje.setAceptado(MSGApostarCraps.NO);
+				mensaje.setDescripcion(e.getMessage());
+				return mensaje;
+			}
 			
 			ManejadorDeSaldo.getInstance().transferirJugadorACasino(jug, montoAp);
 

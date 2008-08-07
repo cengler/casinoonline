@@ -1,6 +1,0 @@
-Casos de prueba - tirar craps
-
-1- El que intenta tirar no esta logueado en el casino
-2- se quiere tirar en una mesa cerrada
-3- El jugador q quiere tirar no esta en la mesa
-4- El jugador q quiere tirar esta en la mesa pero no le correponde tirar.

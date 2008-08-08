@@ -1,26 +1,45 @@
-si uno une a una persona a una mesa de craps
-e intenta tirar en otra mesa TIRA: no esta jugando en el juego....
-revisar...
 
-- validar que no es pueda unir un jugador desde la misma terminal que otro
-- ver reporte en servicios
-- estado casino parser... no veo saldo de casino
-validar que no haya jugadores logeados ni invitados en el casino
-
--SALDO DE CASINO
--POZO FELIZ
--ver si actualiza proximo y anterior jugador
--FALLA apostar luego de abrir
+- validar que no haya jugadores logeados ni invitados en el casino al cerrar?
 
 
-// PREG -----------------------------------------------------
-- ver tema apuesta de sitio
-- si no fuera por el ImplementionFact ManejadordeObservers 
-haria un ciclo en la instanciacion
-- dependencias de SERVER
-- validacion sobre ID de terminal virtual
-
-// PIORIDAD BAJA --------------------------------------------
-- descripcion task ant
+// PIORIDAD MUY BAJA --------------------------------------------
+-validar que no es pueda unir un jugador desde la misma terminal que otro
 - checkstyle
-- ver tirar de craps
+- ver mover MSGCrapsEstado?
+
+NO SE ENTIENDE
+-otro tema respecto a la apuesta venir, es si se guarda el puntaje venir (o si es noVenir el puntaje noVenir)
+esto es para ver si gana o no la apuesta venir/novenir
+
+
+
+
+
+
+
+
+PEGUNTAR
+---------------------------------------------------------------------------------
+-respecto a la distribucion del pozo feliz, podriamos decir q esta bien
+lo unico es q dio un poco diferente a las cuentas que hice yo
+pero supongo que es por rendondeos al calcular los porcentajes DIFERENCIAS DE 1$
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+JUAN TIENE 1000$
+JUAN APUESTA 100$ a PASE y GANA
+ES JUGADA TODOS PONEN CON 10%
+
+JUAN TERMINA CON 1090$  ===   1000$ - 100$ + (100$ + 100$ * 90% )
+o CON 1080$ === 1000$ - 100$ + ((100$ + 100$) * 90%)
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+dependencias de SERVER
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+REPORTE DE DETALLE DE MOVIMIENTOS
+---------------------------------------------------------------------------------

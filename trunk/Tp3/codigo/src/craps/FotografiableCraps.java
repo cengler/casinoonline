@@ -50,9 +50,13 @@ public class FotografiableCraps {
 
 
 		// seteo ultimo tiro (MSGUltimoTiro)
-		MSGUltimoTiro ultTiro = new MSGUltimoTiro();
-		ultTiro.setTirador(mesa.getTiradorAnterior().getNombre());
-		ultTiro.setResultado(mesa.getUltimoResultado());
+		if(mesa.getTiradorAnterior() != null)
+		{
+			MSGUltimoTiro ultTiro = new MSGUltimoTiro();
+			ultTiro.setTirador(mesa.getTiradorAnterior().getNombre());
+			ultTiro.setResultado(mesa.getUltimoResultado());
+			msgEstCraps.setUltimoTiro(ultTiro);
+		}
 		List<MSGPremio> premios = new ArrayList<MSGPremio>();
 		// premios...
 		for (IJugador jug : mesa.getJugadores()){

@@ -1,17 +1,19 @@
 package craps;
 
+import craps.msg.TipoApuestaCraps;
+
 public class ModificacionApuestaCraps {
 
 	public static String TRUE = "true";
 	public static String FALSE = "false";
 	public static String BOTTOM = "bottom";
-	private String tipo;
+	private TipoApuestaCraps tipo;
 	private String puck;
 	private int resultado;
 	
 
 	
-	public ModificacionApuestaCraps(String tipo, String puck, int resultado) {
+	public ModificacionApuestaCraps(TipoApuestaCraps tipo, String puck, int resultado) {
 		super();
 		this.tipo = tipo;
 		this.puck = puck;
@@ -30,10 +32,10 @@ public class ModificacionApuestaCraps {
 	public void setResultado(int resultado) {
 		this.resultado = resultado;
 	}
-	public String getTipo() {
+	public TipoApuestaCraps getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(TipoApuestaCraps tipo) {
 		this.tipo = tipo;
 	}
 	
@@ -45,9 +47,9 @@ public class ModificacionApuestaCraps {
 	{
 		boolean igual = true;
 		
-		if (res instanceof ResultadoApuestaCraps)
+		if (res instanceof ModificacionApuestaCraps)
 		{
-			ResultadoApuestaCraps resC = (ResultadoApuestaCraps)res;
+			ModificacionApuestaCraps resC = (ModificacionApuestaCraps)res;
 			
 			igual = igual && tipo.equals( resC.getTipo());
 			igual = igual && (resultado == resC.getResultado());

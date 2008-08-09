@@ -16,6 +16,7 @@ public class MesaCraps extends Observable implements IMesa {
 	public static String PUCK_APAGADO = "Si";
 	public static String PUCK_PRENDIDO = "No";
 		
+	private int idJugada;
 	private boolean abierta;
 	private int id;
 	private List<IJugador> jugadores;
@@ -201,6 +202,22 @@ public class MesaCraps extends Observable implements IMesa {
 		this.ultimoResultado = ultimoResultado;
 		setChanged();
 	}
+
+	public int getIdJugada() {
+		return idJugada;
+	}
+
+	public void setIdJugada(int idJugada)
+	{
+		setChanged();
+		this.idJugada = idJugada;
+	}
+	
+	public void sigJugada()
+	{
+		setIdJugada(getIdJugada() + 1);
+	}
+	
 	
 
 //	este metodo lo va a llamar un jugador desde una mesa.

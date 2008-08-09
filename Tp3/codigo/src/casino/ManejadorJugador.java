@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import casino.msg.MSGCasino;
 import casino.msg.MSGEntradaCasino;
 import casino.msg.MSGSalidaCasino;
+import casino.msg.MSGValorFichaCasino;
 
 /**
  * ManejadorJugador.
@@ -82,6 +83,14 @@ public class ManejadorJugador implements IServiciosJugador {
 					jugadorImpl.setModoObservador(false);
 					jugadorImpl.setIdVirt(mensaje.getVTerm());
 					
+					List<MSGValorFichaCasino> fichaH = new ArrayList<MSGValorFichaCasino>();
+					for (Integer i : Casino.getInstance().getValores().keySet())
+					{		MSGValorFichaCasino f = new MSGValorFichaCasino();
+							f.setValor(i);
+							fichaH.add(f);
+					}
+					mensaje.setFichasHabilitadas(fichaH);
+					
 					mensaje.setAceptado(MSGCasino.SI);
 					mensaje.setDescripcion("El jugador ha sido logeado");
 					mensaje.setSaldo(jugadorImpl.getSaldo());
@@ -100,6 +109,8 @@ public class ManejadorJugador implements IServiciosJugador {
 						inv.setIdVirt(mensaje.getVTerm());
 						inv.setNombre(mensaje.getUsuario());
 						invitados.add(inv);
+						mensaje.setAceptado(MSGCasino.SI);
+						mensaje.setDescripcion("El cliente ha sido loggeado como invitado");
 					}
 					else
 					{

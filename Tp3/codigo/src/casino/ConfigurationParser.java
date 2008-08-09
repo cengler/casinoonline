@@ -39,13 +39,13 @@ public class ConfigurationParser {
 		xstream = new XStream(new DomDriver()); 
 		xstream.alias("jugador", CFGJugador.class);
 		xstream.alias("jugadores", ArrayList.class);
-		xstream.alias("itemApuesta", ItemApuesta.class);
+		xstream.alias("valorFicha", CFGValorFicha.class);
 		xstream.alias("saldos", CFGSaldo.class);
 		xstream.aliasAttribute(CFGJugador.class, "saldo", "saldo");
 		xstream.aliasAttribute(CFGJugador.class, "vip", "vip");
 		xstream.aliasAttribute(CFGJugador.class, "nombre", "nombre");
-		xstream.aliasAttribute(ItemApuesta.class, "ficha", "ficha");
-		xstream.aliasAttribute(ItemApuesta.class, "cantidad", "cantidad");
+		xstream.aliasAttribute(CFGValorFicha.class, "ficha", "ficha");
+		xstream.aliasAttribute(CFGValorFicha.class, "valor", "valor");
 	}
 	
 	public static ConfigurationParser getInstance()
@@ -81,7 +81,7 @@ public class ConfigurationParser {
 		return l;
 	}
 	
-	public List<ItemApuesta> cargarFichasValidas() throws CasinoException
+	public List<CFGValorFicha> cargarFichasValidas() throws CasinoException
 	{
 		Object lista = null;
 		try 
@@ -95,7 +95,7 @@ public class ConfigurationParser {
 			logger.error("No se pudo cagar correctamente la lista de fichas validas de: " + LISTA_FICHAS);
 			throw new CasinoException("No se pudo cagar correctamente la lista de fichas validas", e);
 		}
-		List<ItemApuesta> l = (List<ItemApuesta>)lista;
+		List<CFGValorFicha> l = (List<CFGValorFicha>)lista;
 		return l;
 	}
 		

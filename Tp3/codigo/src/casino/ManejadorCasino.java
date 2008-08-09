@@ -214,7 +214,7 @@ public class ManejadorCasino implements IServiciosCasino {
 	{
 		logger.info("Cargando fichas validas...");
 		
-		List<ItemApuesta> fichas;
+		List<CFGValorFicha> fichas;
 		try 
 		{
 			fichas = ConfigurationParser.getInstance().cargarFichasValidas();
@@ -227,8 +227,8 @@ public class ManejadorCasino implements IServiciosCasino {
 		
 		Map<Integer, Integer> valoresValidos = Casino.getInstance().getValores();
 		
-		for (ItemApuesta ia : fichas)
-			valoresValidos.put(ia.getFicha(), ia.getCantidad());
+		for (CFGValorFicha ia : fichas)
+			valoresValidos.put(ia.getFicha(), ia.getValor());
 	}
 	
 	private void cargarGeneralidades() throws CasinoException

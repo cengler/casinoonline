@@ -100,7 +100,7 @@ public class ManejadorDeApuestas {
 		    String [] line;
 		    while ((line = reader.readNext()) != null)
 		    {
-		    	ModificacionApuestaCraps res = new ModificacionApuestaCraps(line[0].trim(), line[1].trim(), Integer.parseInt(line[2].trim()) );
+		    	ModificacionApuestaCraps res = new ModificacionApuestaCraps(TipoApuestaCraps.valueOf(line[0].trim()), line[1].trim(), Integer.parseInt(line[2].trim()) );
 		    	modificaciones.put(res, Integer.parseInt(line[3].trim()));
 		    }
 		} catch (Exception e) {
@@ -136,7 +136,7 @@ public class ManejadorDeApuestas {
 	 * @param resultado resultado que salieron en los dados
 	 * @param puck estado del puck antes de computar el tiro
 	 */
-	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
+	public void pagarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck, int pagadaEn)
 	{
 		logger.info("pagarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
 		
@@ -156,6 +156,7 @@ public class ManejadorDeApuestas {
 				apuesta.setGananciaBruta(ganancia);
 				gananciaTotal += ganancia;
 				apuesta.setActiva(false);
+				apuesta.setPagadaEn(pagadaEn);
 				apuestasAPagar.add(apuesta);
 			}
 		}
@@ -286,15 +287,15 @@ public class ManejadorDeApuestas {
 		return false;
     }
 	
-	public void modificarApuestas(TipoJugada jugada, ResultadoCraps resultado, boolean puck)
+	public void modificarApuestas(ResultadoCraps resultado, boolean puck)
 	{
-		logger.debug("modificarApuestas( TJ: " +jugada + " RC: " +resultado+ " puck: " +puck+")" );
+		logger.info("modificarApuestas( RC: " +resultado+ " puck: " +puck+")" );
 
 		for (ApuestaCraps apuesta : apuestas)
 		{
 			if( correspondeModificar(apuesta, resultado, puck) )
 			{
-				logger.info("Termina la apuesta " + apuesta);
+				logger.info("Modifico la apuesta " + apuesta);
 				int modif = obtenerModificacion(apuesta, resultado, puck);
 				apuesta.setPuntaje(modif);
 			}
@@ -306,8 +307,10 @@ public class ManejadorDeApuestas {
 		if(a.isActiva())
 		{
 			String pck = Boolean.toString(puck);
-			ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2());
+			ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo(), pck, r.getDado1()+r.getDado2());
 			logger.debug("Corresponde pagar a: " + res + " --> "+ modificaciones.containsKey( res ));
+			logger.info("Hay " + modificaciones.keySet().size() + " modificaciones y son: " + modificaciones.keySet());
+			logger.info("Contiene " + modificaciones.containsKey(new ModificacionApuestaCraps(TipoApuestaCraps.pase, ModificacionApuestaCraps.FALSE, 8)));
 			return modificaciones.containsKey( res );
 		}
 		return false;
@@ -316,7 +319,7 @@ public class ManejadorDeApuestas {
 	private int obtenerModificacion(ApuestaCraps a, ResultadoCraps r, boolean puck) 
 	{
 		String pck = Boolean.toString(puck);
-		ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo().name(), pck, r.getDado1()+r.getDado2());
+		ModificacionApuestaCraps res = new ModificacionApuestaCraps( a.getTipo(), pck, r.getDado1()+r.getDado2());
 		return modificaciones.get(res);
 	}
 }

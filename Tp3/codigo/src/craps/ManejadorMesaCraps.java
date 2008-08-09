@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 import core.ImplementationFactory;
 
+import casino.Casino;
 import casino.IJugador;
 import casino.IMesa;
 import casino.ISeleccionadorTipoJugada;
@@ -113,7 +114,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 
-		if (jug == null) {
+		if (!Casino.getInstance().isAbierto()) 
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El no esta abierto");
+		} 
+		else if (jug == null) {
 			mensaje.setAceptado(MSGEntradaCraps.NO);
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
 			logger.info("El jugador no esta registrado como jugando en dicha terminal virtual");
@@ -203,7 +209,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 			fichasAp.add(new ItemApuesta(vf.getValor(), vf.getCantidad()));
 		}
 
-		if (jug == null) 
+		if (!Casino.getInstance().isAbierto()) 
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El no esta abierto");
+		} 
+		else if (jug == null) 
 		{
 			mensaje.setAceptado(MSGApostarCraps.NO);
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");
@@ -280,7 +291,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		ManejadorJugador manJug = ManejadorJugador.getInstance();
 		IJugador jug = manJug.getJugadorLoggeado(unMSG.getUsuario(), unMSG.getVTerm());
 
-		if (jug == null) {
+		if (!Casino.getInstance().isAbierto()) 
+		{
+			unMSG.setAceptado(MSGSalidaCraps.NO);
+			unMSG.setDescripcion("El no esta abierto");
+		} 
+		else if (jug == null) {
 			unMSG.setAceptado(MSGTiroCraps.NO);
 			unMSG.setDescripcion("El jugador no esta loggeado como jugador en dicha terminal virtual");
 			logger.info("El jugador no esta loggeado como jugador en dicha terminal virtual");
@@ -312,6 +328,9 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						logger.info("El jugador no el el tirador asignado, lo es: " + laMesa.getTirador().getNombre());
 					} else // EL JUGADOR ES EL TIRADOR DE LA MESA
 					{
+						laMesa.setTiradorAnterior(jug);
+						laMesa.sigJugada();
+						
 						// BUSCO TIPO DE JUGADA
 						ISeleccionadorTipoJugada s = SeleccionadorTipoJugadaPorModo.getInstance();
 						TipoJugada jugada = s.getTipoJugada(laMesa);
@@ -319,10 +338,11 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 						// BUSCO RESULTADO
 						ISeleccionadorResCraps src = SeleccionadorResCrapsPorModo.getInstance();
 						ResultadoCraps resultado = src.getResult();
+						laMesa.setUltimoResultado(resultado.getDado1()+resultado.getDado2());
 
 						// PAGO APUESTAS
-						laMesa.getPagador().pagarApuestas(jugada, resultado, laMesa.isPuck());
-						laMesa.getPagador().modificarApuestas(jugada, resultado, laMesa.isPuck());
+						laMesa.getPagador().pagarApuestas(jugada, resultado, laMesa.isPuck(), laMesa.getIdJugada());
+						laMesa.getPagador().modificarApuestas(resultado, laMesa.isPuck());
 
 						// DEFINO DESITNO DE JUGADOR Y SELECCIONO PROXIMO
 						// TIRADOR Y MODIFICO PUCK
@@ -337,7 +357,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 								IJugador proxTirador = selTir.getProxTirador(laMesa);
 								laMesa.setTirador(proxTirador);
-								laMesa.setTiradorAnterior(jug);
 								sigueTirando = false;
 							} else // NO PERDIO!
 							{
@@ -358,7 +377,6 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 								ISeleccionadorDeTirador selTir = SeleccionadorDeTiradorEnOrden.getInstance();
 								IJugador proxTirador = selTir.getProxTirador(laMesa);
 								laMesa.setTirador(proxTirador);
-								laMesa.setTiradorAnterior(jug);
 								laMesa.setPuck(false);
 								sigueTirando = false;
 								laMesa.setPunto(0);
@@ -414,7 +432,12 @@ public class ManejadorMesaCraps extends ManejadorMesa implements IServiciosCraps
 		IJugador jug = manJug.getJugadorLoggeado(mensaje.getUsuario(), mensaje.getVTerm());
 		MesaCraps mesa = getMesa(mensaje.getMesa());
 
-		if (jug == null) 
+		if (!Casino.getInstance().isAbierto()) 
+		{
+			mensaje.setAceptado(MSGSalidaCraps.NO);
+			mensaje.setDescripcion("El no esta abierto");
+		} 
+		else if (jug == null) 
 		{
 			mensaje.setAceptado(MSGSalidaCraps.NO);
 			mensaje.setDescripcion("El jugador no esta registrado como jugando en dicha terminal virtual");

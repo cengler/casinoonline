@@ -35,12 +35,18 @@ El la carpeta codigo se encuentra todo el codigo y archivos necesarios para la e
 	\item build.xml - archivo ant para la compilacion del proyecto
 \end{itemize}
 
+\newpage
+
 \subsection{Configuracion}
 \label{sec:Configuracion}
 
 \subsubsection{Saldos Generales}
 \label{sec:SaldosGenerales}
-CFGSaldo.xml
+
+\large{\textit{CFGSalgo.xml}}\\[0.5cm]
+En este archivo se configuran los saldos del casino, tento el saldo coneral como el saldo de los pozos de peremios.\\
+Este archivo se carga en el momento de abrir el casino y se actualiza en el momento de cerrarlo (con los valores actualizados luego de los movimientos de saldo).
+
 \begin{framed}
 \begin{verbatim}
 <saldos>
@@ -50,25 +56,32 @@ CFGSaldo.xml
 \end{verbatim}
 \end{framed}
 
+
 \subsubsection{Fichas Validas}
 \label{sec:FichasValidas}
-fichasValidas.xml
+
+\large{\textit{fichasValidas.xml}}\\[0.5cm]
+En este archivos se configuran las fichas validas del casino, el primer valor represnta el id de la ficha y el segundo el valor de la ficha. Los clientes apuestan por id de ficha (esto para tener indireccion con el valor real de las fichas).
+
 \begin{framed}
 \begin{verbatim}
 <list>
-	<itemApuesta ficha="5" cantidad="5" />
-	<itemApuesta ficha="10" cantidad="10" />
-	<itemApuesta ficha="25" cantidad="25" />
-	<itemApuesta ficha="50" cantidad="50" />
-	<itemApuesta ficha="75" cantidad="75" />
-	<itemApuesta ficha="100" cantidad="100" />
+	<valorFicha ficha="5" valor="5" />
+	<valorFicha ficha="10" valor="10" />
+	<valorFicha ficha="25" valor="25" />
+	<valorFicha ficha="50" valor="50" />
+	<valorFicha ficha="75" valor="75" />
+	<valorFicha ficha="100" valor="100" />
 </list>
 \end{verbatim}
 \end{framed}
 
 \subsubsection{Reglas y porcentajes pozos}
 \label{sec:ReglasYPorcentajesPozos}
-generalConfig.properties
+
+\large{\textit{generalConfig.properties}}\\[0.5cm]
+Configuracon de propiedades generales del casino, de esta manera se puede configurar el porecentaje de descuento del pozo feliz y el monto minimo para que se entregue el este pozo.
+
 \begin{framed}
 \begin{verbatim}
 porcentajePozoFeliz=50
@@ -76,9 +89,14 @@ minimoMontoPozoFeliz=1000
 \end{verbatim}
 \end{framed}
 
+\newpage
+
 \subsubsection{Lista de Jugadores}
 \label{sec:ListaDeJugadores}
-listaJugadores.xml
+
+\large{\textit{listaJugadores.xml}}\\[0.5cm]
+Lista de los jugadores registrados con sus saldos y propiedades. Se carga en el momento de abrir el casino y se persiste en el momento de cerrarlo. Las unicas modificaciones que hace el casino sobre esta archivo es el monto de los saldos que poseen los jugadores.
+
 \begin{framed}
 \begin{verbatim}
 <list>
@@ -95,7 +113,12 @@ listaJugadores.xml
 
 \subsubsection{Configuracion de Mensajeros}
 \label{sec:ConfiguracionDeMensajeros}
-mensajeroConfig.properties
+
+\large{\textit{mensajeroConfig.properties}}\\[0.5cm]
+Configuracion de los mensajeros. Cada puerto de acceso al sistema puede trabajar en una carpeta diferente.\\
+Por otro lado cada mensajero debe encargarse de los archivos que le son propios, los filtros que estan configurados en este archivo, son expresiones regulares que deben machear con los nombres de los archivos a procesar.\\
+Es importente que las expresiones regulares no macheen con las respuestas del casino, pues los archivos de salida se entregan en la misma carpeta.
+
 \begin{framed}
 \begin{lstlisting}[breaklines=true]
 dirMensajeroCraps=D:/casino/messageBox
@@ -109,5 +132,59 @@ fittroMensajeroCrapsSalida=NOFILE
 \end{lstlisting}
 \end{framed}
 
+\newpage
+
 \subsection{Uso del programa}
 \label{sec:UsoDelPrograma}
+
+\subsubsection{compilacion}
+\label{sec:compilacion}
+
+Utilizamos la heramienta \textsl{ant}\footnote{Ant es una herramienta Open-Source utilizada en la compilación y creación de programas Java. http://ant.apache.org/} para realizar la compilacion del proyecto.\\
+
+\begin{verbatim}
+Main targets:
+
+ all      Realiza todo.
+ check    Genera reporte de violaciones de convenciones de codigo.
+ clear    Borra para un recompilacion completa
+ dot      Genera grafo de dependencias.
+ javadoc  Genera reporte de violaciones de convenciones de codigo.
+ jdepend  Genera reporte de dependencias
+ make     Compila el proyecto
+ makedir  Crea los directorios
+ run      Ejecuta el casino.
+ zip      Crea el jar
+Default target: zip
+\end{verbatim}
+
+Para compilar el proyecto sera necesario situarse en /codigo y ejecutar el comando \verb|ant|. Que ejecuta en target \textit{zip} (esta target incluye \textit{clear}, \textit{makedir}, \textit{make} y \textit{zip}).\\
+De esta manera en el directorio /codigo/jar se copiaran todos los archivos necesarios para la ejecucion.
+
+\subsubsection{ejecucion}
+\label{sec:ejecucion}
+
+\large{\textit{Por linea de comandos.}}
+
+\begin{verbatim}
+\casino\codigo\jar\java -cp ..\lib\log4j.jar;..\lib\opencsv-1.8.jar;
+       ..\lib\xstream-1.3.jar;casino.jar server.Start
+\end{verbatim}
+
+\vskip1cm
+
+\large{\textit{Con ant.}}
+\begin{verbatim}
+\casino\codigo\jar\ant run
+\end{verbatim}
+
+\vskip1cm
+
+\large{\textit{RECUERDE:}}
+
+
+\vskip0.3cm
+
+La configuracion del directorio de trabajo de los mensajeros se configura en: \\ \verb|/configuration/mensajeroConfig.properties|\\
+En el caso de correr el trabajo desde el directorio jar el archivos de encontrará en: \\
+\verb|/casino/codigo/jar/configuration/mensajeroConfig.properties|\\

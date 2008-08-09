@@ -15,7 +15,7 @@
 \usepackage{lastpage} %ultima pagina
 
 %\usepackage{multirow}
-%\usepackage{listings}
+\usepackage{listings}
 \usepackage{tabularx}
 %\lstset{
 %  breaklines=true,          % line wrapping on
@@ -49,28 +49,30 @@
 
 \begin{document}
  
-	%\input{./caratula.tex}
+	\input{./caratula.tex}
 	
-	%\tableofcontents
+	\tableofcontents
 	
-	%\newpage
+	\newpage
 	
-	%\input{./introduccion.tex}
+	\input{./introduccion.tex}
 	
-	%\newpage
+	\newpage
 	
-	%\input{./cambiosDisenio.tex}
+	\input{./cambiosDisenio.tex}
 	
-	%\newpage
+	\newpage
 	
-	%\input{./implementacion.tex}
+	\input{./implementacion.tex}
 	
-	%\newpage
+	\newpage
 	
-%	\section{Testing Funcional}
-%	\label{sec:TestingFuncional}
-%		\input{./testEntrar.tex}
-%		\newpage
+	\section{Testing Funcional}
+	\label{sec:TestingFuncional}
+
+		\input{./testEntrar.tex}
+		
+			\newpage
 \begin{landscape}
 
 \begin{tabularx}{1.6\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
@@ -137,8 +139,9 @@ id	&	casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & ju
 \end{landscape}
 
 \input{./testTirar.tex}
-	%\newpage
+
+	\newpage
 	
-	%\input{./concluciones.tex}
+	\input{./concluciones.tex}
 
 \end{document}

@@ -25,12 +25,15 @@ Cliente & Modo de ingreso & Observador & \\
  &  & Jugador & [PROP jug]\\
  &  & Otro & [ERROR]\\
 \hline
- & loggeado & si & \\
- &  & no & \\
+ & loggeado & loggeado & \\
+ &  & no loggeado & \\
+\hline
+ & idVirt & en uso & [ERROR]\\
+ &  & no en uso & \\
 \hline
 \hline
-Jugador & Registrado & Si & \\
- &  & No & [IF jug][ERROR]\\
+Jugador & Registrado & registrado & \\
+ &  & no registrado & [IF jug][ERROR]\\
 \hline
 \hline
 \end{tabularx}
@@ -53,29 +56,41 @@ Jugador & Registrado & Si & \\
 %%\end{tabular}
 
 
-
-
 \subsubsection{Casos de Test}
 \label{sec:CasosDeTest}
 
-%\begin{tabular}{|l|l|l|l|p{6cm}|} % p{7m} // maximo ancho col -> luego baja
-%\hline
-%Casino & Jugador & Modo de & Pertenece a & Resultado \\
-%Abierto & Logueado & ingreso & jugadores del casino & Esperado \\
-%\hline
-%No & - & - & - & ERROR, el casino no esta abierto \\
-%\hline
-%Si & Si & - & - & ERROR, el jugador ya esta logueado \\
-%\hline
-%Si & No & jugador & No & ERROR, el jugador no pertenece a los jugadores del casino \\
-%\hline
-%Si & No & jugador & Si & OK, El jugador a ingresado al casino desde su ID TV en modo Jugador \\
-%\hline
-%Si & No & observador & No & OK, el invitado ha ingresado al casino desde su ID TV en modo observador \\
-%\hline
-%Si & No & observador & Si & OK, el jugador ha ingresado al casino desde su ID TV en modo observador \\
-%\hline
-%\end{tabular}
 
-\subsubsection{Instanciacion}
-\label{sec:Instanciacion}
+
+
+\begin{tabularx}{\textwidth}{|p{0.45cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{1.5cm}|X|}
+\hline
+\multicolumn{7}{|c|}{\textsc{Casos De Test}} \\
+\hline
+caso & casino estado & modo de ingreso & jugador registrado & cliente loggeado & idVirt & Resultado\\
+\hline
+01 & cerrado & - & - & - & - & ERROR: El cliente no puede ingresar, pues el casino esta cerrado\\
+\hline
+02 & abierto & otro & - & - & - & ERROR: El valor ingresado para modo de ingreso no es valido\\
+\hline
+03 & abierto & jugador & no registrado & - & - & ERROR: El cliente no esta registrado en el casino.\\
+\hline
+04 & abierto & jugador & registrado & loggeado & - & ERROR: El jugador ya esta loggeado en el casino\\
+\hline
+05 & abierto & jugador & registrado & no loggeado & en uso & ERROR: La idVirtual ya esta siendo usada por otro jugador\\
+\hline
+06 & abierto & jugador & registrado & no loggeado & no en uso & OK: El cliente se loggeo en el casino como jugador\\
+\hline
+07 & abierto & observador & no registrado & loggeado & - & ERROR: El cliente ya esta loggeado\\
+\hline
+08 & abierto & observador & no registrado & no loggeado & no en uso & OK: El cliente se loggeo como invitado\\
+\hline
+09 & abierto & observador & registrado & loggeado & - & ERROR: El cliente ya esta loggeado\\
+\hline
+10 & abierto & observador & registrado & no loggeado & no en uso & OK: El cliente se loggeo como observador\\
+\hline
+\end{tabularx}
+
+
+
+\subsubsection{Datos de prueba}
+\label{sec:DatosDePrueba}

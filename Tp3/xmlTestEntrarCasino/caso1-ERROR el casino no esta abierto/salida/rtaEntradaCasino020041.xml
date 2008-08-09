@@ -1,6 +1,0 @@
-<entradaCasino vTerm="0041" usuario="Isis">
-  <descripcion>El casino no esta abierto</descripcion>
-  <aceptado>No</aceptado>
-  <modoAcceso>jugador</modoAcceso>
-  <saldo>0.0</saldo>
-</entradaCasino>

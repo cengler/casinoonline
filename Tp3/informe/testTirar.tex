@@ -1,89 +1,89 @@
-\subsection{Unidad funcional: tirarCraps}
-\label{sec:UnidadFuncionalTirarCraps}
+%\subsection{Unidad funcional: tirarCraps}
+%\label{sec:UnidadFuncionalTirarCraps}
+%
+%\subsubsection{Descripcion}
+%\label{sec:Descripciontc}
+%
+%Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. el jugador debe estar logueado y dentro de la mesa en la qu quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
+%
+%\subsubsection{Factores Categorias y Elecciones}
+%\label{sec:FactoresCategoriasYEleccionestc}
+%
+%\begin{tabular}{||l|l|l|l||}
+%\hline
+%\hline
+%\multicolumn{4}{||c||}{\textsc{Funcionalidad: Tirar Casino}} \\ % c = center
+%\hline
+%\textbf{Factor} & \textbf{Categoria} & \textbf{Eleccion} & \textbf{Clasificación} \\
+%\hline
+%\hline
+%Casino & Abierto & Si & \\
+% &  & No & [ERROR]\\
+%\hline
+%\hline
+%Jugador & Logueado? & Si & \\
+% &  & No & [ERROR]\\
+%\hline
+% & Es invitado? & Si & [ERROR]\\
+% &  & No & \\
+%\hline
+%\hline
+%Mesa & Existe? & Si & \\
+% &  & No & [ERROR]\\
+%\hline
+% & Puck & Apagado & [PROP tiroDeSalida] \\
+% &  & Prendido & [PROP puntoEstablecido]\\
+%\hline
+% & Punto & 4,5,6,9,10 & [IF puntoEstablecido]\\
+% &  & 8 & [IF puntoEstablecido][PROP ocho]\\
+%\hline
+% & Abierta & Si & \\
+% &  & No & [ERROR]\\
+%\hline
+%\hline
+%Jugador/Mesa & pertenece? & Si & \\
+% &  & No & [ERROR]\\
+%\hline
+% & Es tirador en? & Si & \\
+% &  & No & [ERROR]\\
+%\hline
+%\hline
+%Jugada Seteada & Seteada & Si & [PROP seteada]\\
+% &  & No & \\
+%\hline
+% & Tipo & Normal & [IF seteada][UNICO]\\
+% &  & Feliz & [IF seteada][PROP JugFeliz]\\
+% &  & TodosPonen & [IF seteada][UNICO]\\
+%\hline
+%\hline
+%Pozo Feliz & Supero el minimo & Si & [IF Jugfeliz][UNICO]\\
+% &  & No & [IF Jugfeliz][UNICO]\\
+%\hline
+%\hline
+%Valor Dirigido & Suma dados & 2,3 & [IF ocho OR tiroDeSalida]\\
+% &  & 4,5,6,9,10 & [IF ocho OR tiroDeSalida]\\
+% &  & 7 & [IF ocho OR tiroDeSalida]\\
+% &  & 8 & [IF ocho OR tiroDeSalida]\\
+% &  & 11 & [IF ocho OR tiroDeSalida]\\
+% &  & 12 & [IF ocho OR tiroDeSalida]\\
+%\hline
+%\hline
+%Apuesta & Vigente & Si & [PROP hayApuesta]\\
+% &  & No & [UNICO]\\
+%\hline
+% & Tipo de apuesta & Línea de Pase & [IF hayApuesta]\\
+% &  & Barra No Pase & [IF hayApuesta]\\
+% &  & Otras & [IF hayApuesta][UNICO]\\
+%\hline
+%\hline
+%\end{tabular}
+%
+%\subsubsection{Casos de Test}
+%\label{sec:CasosDeTesttc}
 
-\subsubsection{Descripcion}
-\label{sec:Descripciontc}
-
-Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. el jugador debe estar logueado y dentro de la mesa en la qu quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
-
-\subsubsection{Factores Categorias y Elecciones}
-\label{sec:FactoresCategoriasYEleccionestc}
-
-\begin{tabular}{||l|l|l|l||}
-\hline
-\hline
-\multicolumn{4}{||c||}{\textsc{Funcionalidad: Tirar Casino}} \\ % c = center
-\hline
-\textbf{Factor} & \textbf{Categoria} & \textbf{Eleccion} & \textbf{Clasificación} \\
-\hline
-\hline
-Casino & Abierto & Si & \\
- &  & No & [ERROR]\\
-\hline
-\hline
-Jugador & Logueado? & Si & \\
- &  & No & [ERROR]\\
-\hline
- & Es invitado? & Si & [ERROR]\\
- &  & No & \\
-\hline
-\hline
-Mesa & Existe? & Si & \\
- &  & No & [ERROR]\\
-\hline
- & Puck & Apagado & [PROP tiroDeSalida] \\
- &  & Prendido & [PROP puntoEstablecido]\\
-\hline
- & Punto & 4,5,6,9,10 & [IF puntoEstablecido]\\
- &  & 8 & [IF puntoEstablecido][PROP ocho]\\
-\hline
- & Abierta & Si & \\
- &  & No & [ERROR]\\
-\hline
-\hline
-Jugador/Mesa & pertenece? & Si & \\
- &  & No & [ERROR]\\
-\hline
- & Es tirador en? & Si & \\
- &  & No & [ERROR]\\
-\hline
-\hline
-Jugada Seteada & Seteada & Si & [PROP seteada]\\
- &  & No & \\
-\hline
- & Tipo & Normal & [IF seteada][UNICO]\\
- &  & Feliz & [IF seteada][PROP JugFeliz][UNICO]\\
- &  & TodosPonen & [IF seteada][UNICO]\\
-\hline
-\hline
-Pozo Feliz & Supero el minimo & Si & [IF Jugfeliz]\\
- &  & No & [IF Jugfeliz][UNICO]\\
-\hline
-\hline
-Valor Dirigido & Suma dados & 2,3 & [IF ocho OR tiroDeSalida]\\
- &  & 4,5,6,9,10 & [IF ocho OR tiroDeSalida]\\
- &  & 7 & [IF ocho OR tiroDeSalida]\\
- &  & 8 & [IF ocho OR tiroDeSalida]\\
- &  & 12 & [IF ocho OR tiroDeSalida]\\
-\hline
-\hline
-Apuesta & Vigente & Si & [PROP hayApuesta]\\
- &  & No & [UNICO]\\
-\hline
- & Tipo de apuesta & Línea de Pase & [IF hayApuesta]\\
- &  & Barra No Pase & [IF hayApuesta]\\
- &  & Otras & [IF hayApuesta][UNICO]\\
-\hline
-\hline
-\end{tabular}
-
-\subsubsection{Casos de Test}
-\label{sec:CasosDeTesttc}
 
 
-
-
-\subsubsection{Instanciacion}
-\label{sec:Instanciaciontc}
+%\subsubsection{Datos de prueba}
+%\label{sec:DatosDePruebac}
 
 

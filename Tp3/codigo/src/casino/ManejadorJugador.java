@@ -60,7 +60,12 @@ public class ManejadorJugador implements IServiciosJugador {
 			{
 				IJugador jugador = getJugador(mensaje.getUsuario());
 				
-				if(jugador == null)
+				if(terminalVirtualEnUso((mensaje.getVTerm())))
+				{
+					mensaje.setAceptado(MSGCasino.NO);
+					mensaje.setDescripcion("Dicha terminal virtual ya esa en uso");
+				}
+				else if(jugador == null)
 				{
 					mensaje.setAceptado(MSGCasino.NO);
 					mensaje.setDescripcion("El jugador no esta registrado en el casino");
@@ -360,6 +365,20 @@ public class ManejadorJugador implements IServiciosJugador {
 	}
 	
 	/**
+	 * terminalVirtualEnUso.
+	 * 
+	 * @param tvirt terminal a preguntar si ya esta siendo usada
+	 * @return si algun cliente esta usando la terminal virtual pasada como parametro
+	 */
+	public boolean terminalVirtualEnUso(String tvirt)
+	{
+		for ( ICliente cliente : getClientesLoggeados() )
+			if( cliente.getIdVirt().equals(tvirt) )
+				return true;
+		return false;
+	}
+	
+	/**
 	 * guardarListaJugadores.
 	 * 
 	 * @throws CasinoException 
@@ -386,5 +405,25 @@ public class ManejadorJugador implements IServiciosJugador {
 			logger.error(e.getMessage());
 			throw e;
 		}
+	}
+	
+	/**
+	 * Obtiene los clientes logeados del casino, 
+	 * tanto los logados como los no logeados.
+	 * 
+	 * @return los clientes logeados del casino
+	 */
+	public List<ICliente> getClientesLoggeados()
+	{
+		List<ICliente> clientes = new ArrayList<ICliente>();
+		
+		for( IJugador jugador : getJugadores() )
+			if( jugador.isLogeado() )
+				clientes.add(jugador);
+		
+		for( ICliente cliente : getInvitados() )
+			clientes.add(cliente);
+		
+		return clientes;
 	}
 }

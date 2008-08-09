@@ -2,8 +2,8 @@ package casino;
 
 public class CFGSaldo {
 
-	float saldoCasino;
-	float saldoPozoFeliz;
+	private float saldoCasino;
+	private float saldoPozoFeliz;
 
 	public CFGSaldo(float saldoCasino, float saldoPozoFeliz) {
 		super();

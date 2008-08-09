@@ -10,6 +10,7 @@ import casino.msg.MSGEstadoJugador;
 import casino.msg.MSGMesaCraps;
 import casino.msg.MSGObservador;
 import casino.msg.MSGSalidaCasino;
+import casino.msg.MSGValorFichaCasino;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -36,6 +37,8 @@ public class ParserCasino extends Parser {
 
 		// ENTRADA CASINO  TODO FALTAN PARTES
 		xstream.alias("entradaCasino", MSGEntradaCasino.class);
+		xstream.alias("valorFicha", MSGValorFichaCasino.class);
+		xstream.aliasAttribute(MSGValorFichaCasino.class, "valor", "valor");
 
 		// ESTADO CASINO
 		xstream.alias("estadoCasino", MSGEstadoCasino.class);

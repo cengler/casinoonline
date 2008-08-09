@@ -25,13 +25,13 @@ public class ApuestaCraps {
 	private Date fechaCierre;
 	private float montoPremioJugadaFeliz;
 	private float montoRetenidoJugadaTodosPonen;
+	private int pagadaEn;
 	private List<ItemApuesta> fichas;
 		
 	/**
 	 * Constructor sin parametros.
 	 *
 	 */
-	@Deprecated
 	public ApuestaCraps(){}
 
 	/**
@@ -151,4 +151,14 @@ public class ApuestaCraps {
 	public void setFichas(List<ItemApuesta> fichas) {
 		this.fichas = fichas;
 	}
+
+	public int getPagadaEn() {
+		return pagadaEn;
+	}
+
+	public void setPagadaEn(int pagadaEn) {
+		this.pagadaEn = pagadaEn;
+	}
+
+	
 }

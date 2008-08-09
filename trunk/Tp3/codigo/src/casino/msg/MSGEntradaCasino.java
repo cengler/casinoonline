@@ -1,5 +1,7 @@
 package casino.msg;
 
+import java.util.List;
+
 
 public class MSGEntradaCasino extends MSGCasino {
 
@@ -8,7 +10,7 @@ public class MSGEntradaCasino extends MSGCasino {
 	private String modoAcceso;
 	private float saldo;
 	private static String NAME = "EntradaCasino";
-
+	private List<MSGValorFichaCasino> fichasHabilitadas;
 	public String getName() {
 		return NAME;
 	}
@@ -28,4 +30,14 @@ public class MSGEntradaCasino extends MSGCasino {
 	public void setModoAcceso(String modoAcceso) {
 		this.modoAcceso = modoAcceso;
 	}
+
+	public List<MSGValorFichaCasino> getFichasHabilitadas() {
+		return fichasHabilitadas;
+	}
+
+	public void setFichasHabilitadas(List<MSGValorFichaCasino> fichasHabilitadas) {
+		this.fichasHabilitadas = fichasHabilitadas;
+	}
+	
+	
 }

@@ -36,7 +36,6 @@ public final class Casino implements ICasino {
 	 * 
 	 * @return las fichas permitidas y sus valores definidos.
 	 */
-	
 	public Map<Integer, Integer> getValores() {
 		return valores;
 	}

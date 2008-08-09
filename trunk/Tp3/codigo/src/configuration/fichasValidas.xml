@@ -1,9 +1,8 @@
-<!-- No repetir items de ficha -->
 <list>
-	<itemApuesta ficha="5" cantidad="5" />
-	<itemApuesta ficha="10" cantidad="10" />
-	<itemApuesta ficha="25" cantidad="25" />
-	<itemApuesta ficha="50" cantidad="50" />
-	<itemApuesta ficha="75" cantidad="75" />
-	<itemApuesta ficha="100" cantidad="100" />
+	<valorFicha ficha="5" valor="5" />
+	<valorFicha ficha="10" valor="10" />
+	<valorFicha ficha="25" valor="25" />
+	<valorFicha ficha="50" valor="50" />
+	<valorFicha ficha="75" valor="75" />
+	<valorFicha ficha="100" valor="100" />
 </list>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
-<entradaCasino vTerm="id terminal virtual " usuario="nombre del usuario">
-	<modoAcceso>"jugador" | "observador"</modoAcceso>
-</entradaCasino>

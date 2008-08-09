@@ -14,8 +14,8 @@
 \usepackage{framed} %para crear cajas de texto
 \usepackage{lastpage} %ultima pagina
 
-\usepackage{multirow}
-\usepackage{listings}
+%\usepackage{multirow}
+%\usepackage{listings}
 \usepackage{tabularx}
 %\lstset{
 %  breaklines=true,          % line wrapping on
@@ -49,87 +49,96 @@
 
 \begin{document}
  
-	\input{./caratula.tex}
+	%\input{./caratula.tex}
 	
-	\tableofcontents
+	%\tableofcontents
 	
-	\newpage
+	%\newpage
 	
-	\input{./introduccion.tex}
+	%\input{./introduccion.tex}
 	
-	\newpage
+	%\newpage
 	
-	\input{./cambiosDisenio.tex}
+	%\input{./cambiosDisenio.tex}
 	
-	\newpage
+	%\newpage
 	
-	\input{./implementacion.tex}
+	%\input{./implementacion.tex}
 	
-	\newpage
+	%\newpage
 	
-	\section{Testing Funcional}
-	\label{sec:TestingFuncional}
-		\input{./testEntrar.tex}
-		\newpage
-%\begin{landscape}
-%
-%\begin{tabularx}{1.5\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
-%id	&	casino abierto	&	jugador loggeado	&	jugador invitado	&	existe mesa	&	mesa abierta	&	mesa puck prendido	&	mesa punto	&	jugador pertenece a mesa	&	jugador es tirador en mesa	&	jugada seteada	&	jugada seteada tipo	&	pozo feliz supera min	&	suma dados
-%valor dirigido	&	apuesta vigente	&	tipo de apuesta\\
-%1	&	no	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-\\
-%2	&	si	&	no	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-\\
-%3	&	si	&	si	&	si	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-\\
-%4	&	si	&	si	&	no	&	no	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-\\
-%5	&	si	&	si	&	no	&	si	&	no	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-	&	-\\
-%6	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	no	&	-	&	-	&	-	&	-	&	-	&	-	&	-\\
-%7	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	no	&	-	&	-	&	-	&	-	&	-	&	-\\
-%8	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	feliz	&	si\footnote{unico para limitar el test}	&	-	&	-	&	-\\
-%9	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	feliz	&	no\footnote{unico para limitar el test}	&	-	&	-	&	-\\
-%10	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	todosP\footnote{unico para limitar el test}	&	-	&	-	&	-	&	-\\
-%11	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	normal\footnote{unico para limitar el test (cuando el casino no tiene jugada seteada es jugada normal, no tiene mucho interes setear jugada normal)}	&	-	&	-	&	-	&	-\\
-%12	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	si	&	no	&	-	&	-	&	-	&	no\footnote{unico (lo unico que se podria ver en este caso es el pase de los dados, esto se vera tambien en el caso en que existan apuestas)}	&	-\\
-%13	&	si	&	si	&	no	&	si	&	si	&	-	&	-	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	otras\footnote{unico (este caso no es de interes pues es el test de apuesta pase o no pase)}\\
-%14	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	pase\\
-%15	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	pase\\
-%16	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	pase\\
-%17	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	pase\\
-%18	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	pase\\
-%19	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	pase\\
-%20	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	nopase\\
-%\end{tabularx}
-%\vskip1cm
-%\end{landscape}
-%
-%\begin{landscape}
-%\begin{tabularx}{1.5\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
-%id	&	casino abierto	&	jugador loggeado	&	jugador invitado	&	existe mesa	&	mesa abierta	&	mesa puck prendido	&	mesa punto	&	jugador pertenece a mesa	&	jugador es tirador en mesa	&	jugada seteada	&	jugada seteada tipo	&	pozo feliz supera min	&	suma dados
-%valor dirigido	&	apuesta vigente	&	tipo de apuesta\\	
-%21	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	nopase\\
-%22	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	nopase\\
-%23	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	nopase\\
-%24	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	nopase\\
-%25	&	si	&	si	&	no	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	nopase\\
-%26	&	si	&	si	&	no	&	si	&	si	&	si	&	4,5,6,9,10\footnote{unico (el comportamiento general de la apuesta pase sera estudiado en el caso particular 8)}	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	pase\\
-%27	&	si	&	si	&	no	&	si	&	si	&	si	&	4,5,6,9,10\footnote{unico (el comportamiento general de la apuesta no pase sera estudiado en el caso particular 8)}	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	nopase\\
-%28	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	pase\\
-%29	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	pase\\
-%30	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	pase\\
-%31	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	pase\\
-%32	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	pase\\
-%33	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	pase\\
-%34	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	nopase\\
-%35	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	nopase\\
-%36	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	nopase\\
-%37	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	nopase\\
-%38	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	nopase\\
-%39	&	si	&	si	&	no	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	nopase\\
-%\end{tabularx}
-%\vskip3cm
+%	\section{Testing Funcional}
+%	\label{sec:TestingFuncional}
+%		\input{./testEntrar.tex}
+%		\newpage
+\begin{landscape}
 
-	\input{./testTirar.tex}
-%\end{landscape}
-	\newpage
+\begin{tabularx}{1.6\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
+\hline
+id	&	casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & jugando craps &	existe mesa	&	mesa abierta	&	mesa puck prendido	&	mesa punto	&	jugador pertenece a mesa	&	jugador es tirador en mesa	&	jugada seteada	&	jugada seteada tipo	&	pozo feliz supera min	&	suma dados valor dirigido	&	apuesta vigente	&	tipo de apuesta\\
+\hline
+1	&	no	&	-	  &	-   &-	  &	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	- & -\\
+2	&	si	&	no	&	-   & -	  &	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+3	&	si	&	si	& no  & -  	&	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+4 &	si	&	si	&	si	&	si	&	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+5	&	si	&	si	&	si	&	no	&	no	&	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+6	&	si	&	si	&	si	&	no	&	si  &	no	&	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	- & -\\
+7	&	si	&	si	&	si	&	no	&	si	&	si  &	no	&	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+8	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	no	&	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+9	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	no	&	-	&	-	&	-	&	-	&	-	&	-\\
+10&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	feliz	&	si\footnote{unico para limitar el test}	&	-	&	-	&	-\\
+11	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	feliz	&	no\footnote{unico para limitar el test}	&	-	&	-	&	-\\
+12	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	todosP\footnote{unico para limitar el test}	&	-	&	-	&	-	&	-\\
+13	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	normal\footnote{unico para limitar el test (cuando el casino no tiene jugada seteada es jugada normal, no tiene mucho interes setear jugada normal)}	&	-	&	-	&	-	&	-\\
+14	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	no	&	-	&	-	&	-	&	no\footnote{unico (lo unico que se podria ver en este caso es el pase de los dados, esto se vera tambien en el caso en que existan apuestas)}	&	-\\
+15	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	otras\footnote{unico (este caso no es de interes pues es el test de apuesta pase o no pase)}\\
+16	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	pase\\
+17	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	pase\\
+18	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	pase\\
+19	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	pase\\
+20	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	pase\\
+21	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	pase\\
+22	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	nopase\\
+\hline
+\end{tabularx}
+\vskip1cm
+\end{landscape}
+
+\begin{landscape}
+
+\begin{tabularx}{1.6\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
+\hline
+id	&	casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & jugando craps &	existe mesa	&	mesa abierta	&	mesa puck prendido	&	mesa punto	&	jugador pertenece a mesa	&	jugador es tirador en mesa	&	jugada seteada	&	jugada seteada tipo	&	pozo feliz supera min	&	suma dados valor dirigido	&	apuesta vigente	&	tipo de apuesta\\
+\hline	
+23	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	nopase\\
+24	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	nopase\\
+25	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	nopase\\
+26	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	nopase\\
+27	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	nopase\\
+28	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	4,5,6,9,10\footnote{unico (el comportamiento general de la apuesta pase sera estudiado en el caso particular 8)}	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	pase\\
+29	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	4,5,6,9,10\footnote{unico (el comportamiento general de la apuesta no pase sera estudiado en el caso particular 8)}	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	nopase\\
+30	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	pase\\
+31	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	pase\\
+32	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	pase\\
+33	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	pase\\
+34	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	pase\\
+35	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	pase\\
+36	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	nopase\\
+37	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	nopase\\
+38	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	nopase\\
+39	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	nopase\\
+40	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	nopase\\
+41	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	nopase\\
+\hline	
+\end{tabularx}
+\vskip3cm
+
+
+\end{landscape}
+
+\input{./testTirar.tex}
+	%\newpage
 	
-	\input{./concluciones.tex}
+	%\input{./concluciones.tex}
 
 \end{document}

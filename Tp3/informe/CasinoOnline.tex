@@ -14,7 +14,9 @@
 \usepackage{framed} %para crear cajas de texto
 \usepackage{lastpage} %ultima pagina
 
+\usepackage{multirow}
 \usepackage{listings}
+\usepackage{tabularx}
 %\lstset{
 %  breaklines=true,          % line wrapping on
 %  language=ocl,
@@ -43,232 +45,36 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \fancyfoot{}
 
- 
-\begin{document}
-
 %\setcounter{section}{1} 
+
+\begin{document}
  
-\input{./caratula.tex}
-
-\tableofcontents
-
-\newpage
-
-\section{Introduccion}
-
-\section{Cambios con respecto al diseno}
-\label{sec:CambiosConRespectoAlDiseno}
-
-\section{Implementacion}
-\label{sec:Implementacion}
-
-\subsection{Organizacion del Codigo}
-\label{sec:OrganizacionDelCodigo}
-
-El la carpeta codigo se encuentra todo el codigo y archivos necesarios para la ejecucion y compilacion de dicho codigo.
-
-\begin{itemize}
-	\item /doc - documentacion autogenerada (no  completa)
-	\item /etc - Archivos necesarios para ciertos chequeos de codigo
-	\item /jar - codigo compilado
-	\item /lib - librerias necesarias para la compilacion
-	\item /report - varios reporte de calidad de codigo
-	\item /src - codigo java
-		\subitem /casino - paquete casino
-		\subitem /configuracion - archivos de configuracion
-			\subsubitem CFGSaldo.xml - configuracion del saldo de los pozos
-			\subsubitem fichasValidas.xml - configuracion de fichas validas
-			\subsubitem generalConfig.properties - configuracion de minimo pozo feliz y descuento todos ponen
-			\subsubitem listaJugadores.xml - lista de jugadores y sus saldos
-			\subsubitem mensajeroConfig.properties - filtros de los mensajeros y mailbox
-			\subsubitem modificaciones.csv - especifica para cada apuesta de craps cierta accion
-			\subsubitem pagos.csv - especifica en que relacion y cuando se deben pagar las apuestas
-		\subitem /core - paquete core
-		\subitem /craps - paquete craps
-		\subitem /interpretador - paquete interpretador
-		\subitem /mensajero - paquete mensajero
-		\subitem /observerCraps - paquete observador de craps
-		\subitem /parser - paquete con los parsers del casino
-		\subitem /server - paquete con el iniciador del casino
-		\subitem /servicios - paquete servicios
-		\subitem log4j.properties - archivo de configuracion de loggeo
-	\item /xml - xml de ejemplo
-	\item build.xml - archivo ant para la compilacion del proyecto
-\end{itemize}
-
-\subsection{Configuracion}
-\label{sec:Configuracion}
-
-\subsubsection{Saldos Generales}
-\label{sec:SaldosGenerales}
-CFGSaldo.xml
-\begin{framed}
-\begin{verbatim}
-<saldos>
-	<saldoCasino>1000</saldoCasino>
-	<saldoPozoFeliz>1020</saldoPozoFeliz>
-</saldos>
-\end{verbatim}
-\end{framed}
-
-\subsubsection{Fichas Validas}
-\label{sec:FichasValidas}
-fichasValidas.xml
-\begin{framed}
-\begin{verbatim}
-<list>
-	<itemApuesta ficha="5" cantidad="5" />
-	<itemApuesta ficha="10" cantidad="10" />
-	<itemApuesta ficha="25" cantidad="25" />
-	<itemApuesta ficha="50" cantidad="50" />
-	<itemApuesta ficha="75" cantidad="75" />
-	<itemApuesta ficha="100" cantidad="100" />
-</list>
-\end{verbatim}
-\end{framed}
-
-\subsubsection{Reglas y porcentajes pozos}
-\label{sec:ReglasYPorcentajesPozos}
-generalConfig.properties
-\begin{framed}
-\begin{verbatim}
-porcentajePozoFeliz=50
-minimoMontoPozoFeliz=1000
-\end{verbatim}
-\end{framed}
-
-\subsubsection{Lista de Jugadores}
-\label{sec:ListaDeJugadores}
-listaJugadores.xml
-\begin{framed}
-\begin{verbatim}
-<list>
-	<jugador nombre="Pablo" saldo="1.234567" vip="false"/>
-	<jugador nombre="Miguel" saldo="10000.0" vip="true"/>
-	<jugador nombre="Martin" saldo="4648.0" vip="true"/>
-	<jugador nombre="Pepe" saldo="100.0" vip="true"/>
-	<jugador nombre="Ignacio" saldo="10000.0" vip="false"/>
-	<jugador nombre="Andres" saldo="1550.0" vip="false"/>
-	<jugador nombre="Juan" saldo="200.1" vip="false"/>
-</list>
-\end{verbatim}
-\end{framed}
-
-\subsubsection{Configuracion de Mensajeros}
-\label{sec:ConfiguracionDeMensajeros}
-mensajeroConfig.properties
-\begin{framed}
-\begin{lstlisting}[breaklines=true]
-dirMensajeroCraps=D:/casino/messageBox
-dirMensajeroCrapsSalida=D:/casino/messageBox
-dirMensajeroCasino=D:/casino/messageBox
-dirMensajeroAdministracion=D:/casino/messageBox
-filtroMensajeroAdministracion=abrirCasino02.*|cerrarCasino02.*|setModo02.*|setJugada02.*|reporteRankingJugadores02.*|reporteEstadoActual02.*
-filtroMensajeroCasino=entradaCasino02.*|salidaCasino02.*|estadoCasino02.*
-filtroMensajeroCraps=entradaCraps02.*|salidaCraps02.*|tirarCraps02.*|apostarCraps02.*
-fittroMensajeroCrapsSalida=NOFILE
-\end{lstlisting}
-\end{framed}
-
-\subsection{Uso del programa}
-\label{sec:UsoDelPrograma}
-
-\section{Testing Funcional}
-\label{sec:TestingFuncional}
-
-\subsection{Unidad funcional: entrarCasino}
-\label{sec:UnidadFuncionalEntrarCasino}
-
-\subsubsection{Descripcion}
-\label{sec:Descripcion}
-
-Este testing evalua una entrada correcta de un cliente al casino, ya sea en modo observador o como un jugador que este registrado del casino. Se valida la terminal virtual, que no se loguee si ya lo estaba antes y que no se pueda loguear un jugador o observador si hay otro con el mismo nombre(lo toma como ya logueado).
-
-\subsubsection{Factores Categorias y Elecciones}
-\label{sec:FactoresCategoriasYElecciones}
-
-\subsubsection{Casos de Test}
-\label{sec:CasosDeTest}
-
-\subsubsection{Instanciacion}
-\label{sec:Instanciacion}
-
-
-\subsection{Unidad funcional: tirarCraps}
-\label{sec:UnidadFuncionalTirarCraps}
-
-\subsubsection{Descripcion}
-\label{sec:Descripciontc}
-
-Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. el jugador debe estar logueado y dentro de la mesa en la qu quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
-
-\subsubsection{Factores Categorias y Elecciones}
-\label{sec:FactoresCategoriasYEleccionestc}
-
-\begin{tabular}{||l|l|l|l||} % l = left
-\hline
-\multicolumn{4}{||c||}{Funcionalidad: EntrarCasino} \\ % c = center
-\hline
-Factor & Categoria & Eleccion & Clasificación \\
-\hline
-estadoCasino & Abierto & Si & \\
-\hline
- &  & No & [ERROR] \\
-\hline
-\hline
-Ingreso & Modo de ingreso & Observador & \\
-\hline
- &  & Jugador & [PROP jug]\\
-\hline
-\hline
-Jugador/Jugadores & Pertenece a & Si & \\
-\hline
-del Casino &  & No & [IF jug][ERROR]\\
-\hline
-Cliente & Ya logueado & Si & [ERROR]\\
-\hline
- &  & No & \\
-\hline
-\end{tabular}
-
-
-\subsubsection{Casos de Test}
-\label{sec:CasosDeTesttc}
-
-
-
-\begin{tabular}{|l|l|l|l|p{7cm}|} % p{7m} // maximo ancho col -> luego baja
-\hline
-Casino & Jugador & Modo de & Pertenece a & Resultado \\
-Abierto & Logueado & ingreso & jugadores del casino & Esperado \\
-\hline
-No & - & - & - & ERROR, el casino no esta abierto \\
-\hline
-Si & Si & - & - & ERROR, el jugador ya esta logueado \\
-\hline
-Si & No & jugador & No & ERROR, el jugador no pertenece a los jugadores del casino \\
-\hline
-Si & No & jugador & Si & OK, El jugador a ingresado al casino desde su ID TV en modo Jugador \\
-\hline
-Si & No & observador & No & OK, el invitado ha ingresado al casino desde su ID TV en modo observador \\
-\hline
-Si & No & observador & Si & OK, el jugador ha ingresado al casino desde su ID TV en modo observador \\
-\hline
-\end{tabular}
-
-\subsubsection{Instanciacion}
-\label{sec:Instanciaciontc}
-
-\subsubsection{Elecciones}
-\subsubsection{Resultados}
-\subsubsection{Casos de Test}
-
-
-
-\section{Conclusiones}
-\label{sec:Conclusiones}
-
-Una de las conclusiones obtenidas de este trabajo es que se hizo muy útil tener un diseño a la hora de implementar ya que ofrecía un panorama general del proyecto, sus módulos y la relación entre ellos. Además permitía detectar ciclos de dependencia entre clases que si no hubiésemos tenido un diseño detallado de lo que debe ser implementado hubiera sido muy dificil detectarlo y, por supuesto hubiera complicado el testeo y futuras modificaciones al diseño y/o implementación.
-Los diagramas de secuencias nos fueron d suma utilidad en la implementación,que tuvo ciertos aspectos sencillos en cuanto a complejidad de los métodos y las clases implementadas las cuales terminaron siendo simples (cada método por si mismo) y en consecuencia fáciles de entender y seguir. 
+	%\input{./caratula.tex}
+	
+	%\tableofcontents
+	
+	%\newpage
+	
+	%\input{./introduccion.tex}
+	
+	%\newpage
+	
+	%\input{./cambiosDisenio.tex}
+	
+	%\newpage
+	
+	%\input{./implementacion.tex}
+	
+	%\newpage
+	
+	\section{Testing Funcional}
+	\label{sec:TestingFuncional}
+		\input{./testEntrar.tex}
+		%\newpage
+		%\input{./testTirar.tex}
+	
+	%\newpage
+	
+	%\input{./concluciones.tex}
 
 \end{document}

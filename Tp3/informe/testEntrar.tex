@@ -1,0 +1,81 @@
+\subsection{Unidad funcional: entrarCasino}
+\label{sec:UnidadFuncionalEntrarCasino}
+
+\subsubsection{Descripcion}
+\label{sec:Descripcion}
+
+Este testing evalua una entrada correcta de un cliente al casino, ya sea en modo observador o como un jugador que este registrado del casino. Se valida la terminal virtual, que no se loguee si ya lo estaba antes y que no se pueda loguear un jugador o observador si hay otro con el mismo nombre(lo toma como ya logueado).
+
+\subsubsection{Factores Categorias y Elecciones}
+\label{sec:FactoresCategoriasYElecciones}
+
+\begin{tabularx}{\textwidth}{||X|X|X|X||} % l = left
+\hline
+\hline
+\multicolumn{4}{||c||}{\textsc{Funcionalidad: Tirar Casino}} \\ % c = center
+\hline
+\textbf{Factor} & \textbf{Categoria} & \textbf{Eleccion} & \textbf{Clasificación} \\
+\hline
+\hline
+Casino & Estado & Abierto & \\
+ &  & Cerrado & [ERROR]\\
+\hline
+\hline
+Cliente & Modo de ingreso & Observador & \\
+ &  & Jugador & [PROP jug]\\
+ &  & Otro & [ERROR]\\
+\hline
+ & loggeado & si & \\
+ &  & no & \\
+\hline
+\hline
+Jugador & Registrado & Si & \\
+ &  & No & [IF jug][ERROR]\\
+\hline
+\hline
+\end{tabularx}
+
+
+
+
+%%%%EJEMPLO
+%%\begin{tabular}{|l||l|l||l|l|}
+%%\hline
+%% &\multicolumn{2}{l|}{Singular}&\multicolumn{2}{l|}{Plural}\\
+%%\cline{2-5}
+%% &English&\textbf{Gaeilge}&English&\textbf{Gaeilge}\\
+%%\hline\hline
+%%1st Person&at me&\textbf{agam}&at us&\textbf{againn}\\
+%%2nd Person&at you&\textbf{agat}&at you&\textbf{agaibh}\\
+%%3rd Person&at him&\textbf{aige}&at them&\textbf{acu}\\
+%% &at her&\textbf{aici}& & \\
+%%\hline
+%%\end{tabular}
+
+
+
+
+\subsubsection{Casos de Test}
+\label{sec:CasosDeTest}
+
+%\begin{tabular}{|l|l|l|l|p{6cm}|} % p{7m} // maximo ancho col -> luego baja
+%\hline
+%Casino & Jugador & Modo de & Pertenece a & Resultado \\
+%Abierto & Logueado & ingreso & jugadores del casino & Esperado \\
+%\hline
+%No & - & - & - & ERROR, el casino no esta abierto \\
+%\hline
+%Si & Si & - & - & ERROR, el jugador ya esta logueado \\
+%\hline
+%Si & No & jugador & No & ERROR, el jugador no pertenece a los jugadores del casino \\
+%\hline
+%Si & No & jugador & Si & OK, El jugador a ingresado al casino desde su ID TV en modo Jugador \\
+%\hline
+%Si & No & observador & No & OK, el invitado ha ingresado al casino desde su ID TV en modo observador \\
+%\hline
+%Si & No & observador & Si & OK, el jugador ha ingresado al casino desde su ID TV en modo observador \\
+%\hline
+%\end{tabular}
+
+\subsubsection{Instanciacion}
+\label{sec:Instanciacion}

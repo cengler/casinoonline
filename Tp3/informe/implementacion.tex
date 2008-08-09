@@ -1,0 +1,113 @@
+\section{Implementacion}
+\label{sec:Implementacion}
+
+\subsection{Organizacion del Codigo}
+\label{sec:OrganizacionDelCodigo}
+
+El la carpeta codigo se encuentra todo el codigo y archivos necesarios para la ejecucion y compilacion de dicho codigo.
+
+\begin{itemize}
+	\item /doc - documentacion autogenerada (no  completa)
+	\item /etc - Archivos necesarios para ciertos chequeos de codigo
+	\item /jar - codigo compilado
+	\item /lib - librerias necesarias para la compilacion
+	\item /report - varios reporte de calidad de codigo
+	\item /src - codigo java
+		\subitem /casino - paquete casino
+		\subitem /configuracion - archivos de configuracion
+			\subsubitem CFGSaldo.xml - configuracion del saldo de los pozos
+			\subsubitem fichasValidas.xml - configuracion de fichas validas
+			\subsubitem generalConfig.properties - configuracion de minimo pozo feliz y descuento todos ponen
+			\subsubitem listaJugadores.xml - lista de jugadores y sus saldos
+			\subsubitem mensajeroConfig.properties - filtros de los mensajeros y mailbox
+			\subsubitem modificaciones.csv - especifica para cada apuesta de craps cierta accion
+			\subsubitem pagos.csv - especifica en que relacion y cuando se deben pagar las apuestas
+		\subitem /core - paquete core
+		\subitem /craps - paquete craps
+		\subitem /interpretador - paquete interpretador
+		\subitem /mensajero - paquete mensajero
+		\subitem /observerCraps - paquete observador de craps
+		\subitem /parser - paquete con los parsers del casino
+		\subitem /server - paquete con el iniciador del casino
+		\subitem /servicios - paquete servicios
+		\subitem log4j.properties - archivo de configuracion de loggeo
+	\item /xml - xml de ejemplo
+	\item build.xml - archivo ant para la compilacion del proyecto
+\end{itemize}
+
+\subsection{Configuracion}
+\label{sec:Configuracion}
+
+\subsubsection{Saldos Generales}
+\label{sec:SaldosGenerales}
+CFGSaldo.xml
+\begin{framed}
+\begin{verbatim}
+<saldos>
+	<saldoCasino>1000</saldoCasino>
+	<saldoPozoFeliz>1020</saldoPozoFeliz>
+</saldos>
+\end{verbatim}
+\end{framed}
+
+\subsubsection{Fichas Validas}
+\label{sec:FichasValidas}
+fichasValidas.xml
+\begin{framed}
+\begin{verbatim}
+<list>
+	<itemApuesta ficha="5" cantidad="5" />
+	<itemApuesta ficha="10" cantidad="10" />
+	<itemApuesta ficha="25" cantidad="25" />
+	<itemApuesta ficha="50" cantidad="50" />
+	<itemApuesta ficha="75" cantidad="75" />
+	<itemApuesta ficha="100" cantidad="100" />
+</list>
+\end{verbatim}
+\end{framed}
+
+\subsubsection{Reglas y porcentajes pozos}
+\label{sec:ReglasYPorcentajesPozos}
+generalConfig.properties
+\begin{framed}
+\begin{verbatim}
+porcentajePozoFeliz=50
+minimoMontoPozoFeliz=1000
+\end{verbatim}
+\end{framed}
+
+\subsubsection{Lista de Jugadores}
+\label{sec:ListaDeJugadores}
+listaJugadores.xml
+\begin{framed}
+\begin{verbatim}
+<list>
+	<jugador nombre="Pablo" saldo="1.234567" vip="false"/>
+	<jugador nombre="Miguel" saldo="10000.0" vip="true"/>
+	<jugador nombre="Martin" saldo="4648.0" vip="true"/>
+	<jugador nombre="Pepe" saldo="100.0" vip="true"/>
+	<jugador nombre="Ignacio" saldo="10000.0" vip="false"/>
+	<jugador nombre="Andres" saldo="1550.0" vip="false"/>
+	<jugador nombre="Juan" saldo="200.1" vip="false"/>
+</list>
+\end{verbatim}
+\end{framed}
+
+\subsubsection{Configuracion de Mensajeros}
+\label{sec:ConfiguracionDeMensajeros}
+mensajeroConfig.properties
+\begin{framed}
+\begin{lstlisting}[breaklines=true]
+dirMensajeroCraps=D:/casino/messageBox
+dirMensajeroCrapsSalida=D:/casino/messageBox
+dirMensajeroCasino=D:/casino/messageBox
+dirMensajeroAdministracion=D:/casino/messageBox
+filtroMensajeroAdministracion=abrirCasino02.*|cerrarCasino02.*|setModo02.*|setJugada02.*|reporteRankingJugadores02.*|reporteEstadoActual02.*
+filtroMensajeroCasino=entradaCasino02.*|salidaCasino02.*|estadoCasino02.*
+filtroMensajeroCraps=entradaCraps02.*|salidaCraps02.*|tirarCraps02.*|apostarCraps02.*
+fittroMensajeroCrapsSalida=NOFILE
+\end{lstlisting}
+\end{framed}
+
+\subsection{Uso del programa}
+\label{sec:UsoDelPrograma}

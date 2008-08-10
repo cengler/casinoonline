@@ -10,20 +10,6 @@
     <punto>0</punto>
   </proximoTiro>
   <apuestasVigentes>
-    <apuestas>
-      <apuesta>
-        <apostador>Ignacio</apostador>
-        <opcionApuesta>
-          <tipoApuesta>nopase</tipoApuesta>
-          <puntajeApostado>0</puntajeApostado>
-        </opcionApuesta>
-        <valorApuesta>
-          <valorFicha>
-            <cantidad>3</cantidad>
-            <valor>25</valor>
-          </valorFicha>
-        </valorApuesta>
-      </apuesta>
-    </apuestas>
+    <apuestas/>
   </apuestasVigentes>
 </estadoCraps>

@@ -188,3 +188,31 @@ De esta manera en el directorio /codigo/jar se copiaran todos los archivos neces
 La configuracion del directorio de trabajo de los mensajeros se configura en: \\ \verb|/configuration/mensajeroConfig.properties|\\
 En el caso de correr el trabajo desde el directorio jar el archivos de encontrará en: \\
 \verb|/casino/codigo/jar/configuration/mensajeroConfig.properties|\\
+
+\newpage
+
+\subsection{Loggeo}
+\label{sec:Loggeo}
+
+Para administrar el loggeo de la aplicacion utilizamos log4j\footnote{log4j es una biblioteca open source que permite a los desarrolladores de software elegir la salida y el nivel de granularidad de los mensajes o ``logs'' (logging) a tiempo de ejecución.} \\
+De esta manera la configuración de salida y granularidad de los mensajes es realizada a tiempo de ejecución mediante el uso de un archivo: \verb|log4j.properties|\\
+
+Las dos ultimas lineas contienen el nivel de loggeo que se desea obtener. Este pude ser TRACE, DEBUG, INFO, ERROR y FATAL.\\
+Tambien se configura en este archivo la salida por la cual deberan mostrarse los mensajes de loggeo.
+El loggeo general del sistema esta direccionado a la cosola de ejecucion y a un archivo de log \verb|server.log|\\
+El loggeo de mensajeria esta dirreccionada tambien a la consola de ejecicion y al archivo \verb|messages.log| (Este logger sirve para ver los xml que van llegando y saliendo del servidor).
+
+\begin{verbatim}
+log4j.rootLogger=info, stdout, logfile 
+log4j.logger.MessageParser=debug, stdout, msgfile
+\end{verbatim}
+
+\subsection{Reportes}
+\label{sec:Reportes}
+
+Hay varios reportes generados a partir del codigo\footnote{los reportes se encuentran en la carpeta /codigo/report, si no se encuentran o no se encuentra la carpeta, se debera ejecutar el commando \textsc{ant all}}. El mas interesante es un grafo de dependencias que se genera a partir del codigo cuando se ejecuta el commando \verb|ant dot|. Es una forma grafica de estudiar las dependencias del codigo.
+
+\vskip1cm
+
+Tambien estan dos reportes mas, uno generado con el jdepend que lista las dependencias entre paquetes y uno generado por el checkstyle para evaluar el cumplimiento de convenciones de codificacion.
+

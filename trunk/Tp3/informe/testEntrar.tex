@@ -31,6 +31,10 @@ Cliente & Modo de ingreso & Observador & \\
  & idVirt & en uso & [ERROR]\\
  &  & no en uso & \\
 \hline
+ & nombre & vacio & [ERROR]\\
+ & & con espacios & [UNICO]\footnote{DPTO: un unico caso ya que es solo para ver si lo soporta}\\
+ & & sin espacios &\\
+\hline
 \hline
 Jugador & Registrado & registrado & \\
  &  & no registrado & [IF jug][ERROR]\\
@@ -62,31 +66,35 @@ Jugador & Registrado & registrado & \\
 
 
 
-\begin{tabularx}{\textwidth}{|p{0.45cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{1.5cm}|X|}
+\begin{tabularx}{\textwidth}{|p{0.45cm}|p{1.5cm}|p{1.7cm}|p{1.5cm}|p{1.6cm}|p{1.5cm}|p{0.9cm}|X|}
 \hline
-\multicolumn{7}{|c|}{\textsc{Casos De Test}} \\
+\multicolumn{8}{|c|}{\textsc{Casos De Test}} \\
 \hline
-caso & casino estado & modo de ingreso & jugador registrado & cliente loggeado & idVirt & Resultado\\
+caso & casino estado & modo de ingreso & nombre & jugador registrado & cliente loggeado & idVirt & Resultado\\
 \hline
-01 & cerrado & - & - & - & - & ERROR: El cliente no puede ingresar, pues el casino esta cerrado\\
+01 & cerrado & - & - & - & - & - & ERROR: El cliente no puede ingresar, pues el casino esta cerrado\\
 \hline
-02 & abierto & otro & - & - & - & ERROR: El valor ingresado para modo de ingreso no es valido\\
+02 & abierto & otro & - & - & - & - & ERROR: El valor ingresado para modo de ingreso no es valido\\
 \hline
-03 & abierto & jugador & no registrado & - & - & ERROR: El cliente no esta registrado en el casino.\\
+11\footnote{Desordenados para no cambiar lo ya realizado} & abierto & jugador & vacio & - & - & - & ERROR: El cliente vacio no se permite.\\
 \hline
-04 & abierto & jugador & registrado & loggeado & - & ERROR: El jugador ya esta loggeado en el casino\\
+12 & abierto & observador & con espacios & no registrado & no loggeado & no en uso & OK: El cliente es registrado como invitado en en casino con el nombre con espacios.\\
 \hline
-05 & abierto & jugador & registrado & no loggeado & en uso & ERROR: La idVirtual ya esta siendo usada por otro jugador\\
+03 & abierto & jugador & sin espacios & no registrado & - & - & ERROR: El cliente no esta registrado en el casino.\\
 \hline
-06 & abierto & jugador & registrado & no loggeado & no en uso & OK: El cliente se loggeo en el casino como jugador\\
+04 & abierto & jugador & sin espacios & registrado & loggeado & - & ERROR: El jugador ya esta loggeado en el casino\\
 \hline
-07 & abierto & observador & no registrado & loggeado & - & ERROR: El cliente ya esta loggeado\\
+05 & abierto & jugador & sin espacios & registrado & no loggeado & en uso & ERROR: La idVirtual ya esta siendo usada por otro jugador\\
 \hline
-08 & abierto & observador & no registrado & no loggeado & no en uso & OK: El cliente se loggeo como invitado\\
+06 & abierto & jugador & sin espacios & registrado & no loggeado & no en uso & OK: El cliente se loggeo en el casino como jugador\\
 \hline
-09 & abierto & observador & registrado & loggeado & - & ERROR: El cliente ya esta loggeado\\
+07 & abierto & observador & sin espacios & no registrado & loggeado & - & ERROR: El cliente ya esta loggeado\\
 \hline
-10 & abierto & observador & registrado & no loggeado & no en uso & OK: El cliente se loggeo como observador\\
+08 & abierto & observador & sin espacios & no registrado & no loggeado & no en uso & OK: El cliente se loggeo como invitado\\
+\hline
+09 & abierto & observador & sin espacios & registrado & loggeado & - & ERROR: El cliente ya esta loggeado\\
+\hline
+10 & abierto & observador & sin espacios & registrado & no loggeado & no en uso & OK: El cliente se loggeo como observador\\
 \hline
 \end{tabularx}
 
@@ -94,3 +102,11 @@ caso & casino estado & modo de ingreso & jugador registrado & cliente loggeado &
 
 \subsubsection{Datos de prueba}
 \label{sec:DatosDePrueba}
+
+Los datos de prueba estan en la carpeta /test/entrarCasino. En dicha carpeta existe una carpeta para cada caso, donde se encuentran la entrada (mensjes del cliente) y la respuesta (mensajes de respuesta del servidor). Tambien existe un archivo casoXX.txt que explica la secuencia de mensajes entre al cliente y servidor\\
+Estos test fueron corridos en DEBUG para observar los cambios de estado en el casino, Ademas de observar el estado del casino observamos que los archivos de respuesta le dieran la informacion correcta al cliente.\\
+Los test de entrar casino nos ayudaron a darnos cuenta algunos errorres como:
+\begin{itemize}
+	\item nos dimos cuenta que faltaba una validacion sobre la repeticion de loggeo en la misma terminal virtual.
+\end{itemize}
+Al finalizar los testeos logramos que todos los test a entrar casino fueron extosos.

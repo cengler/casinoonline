@@ -4,23 +4,20 @@
 \subsubsection{Descripcion}
 \label{sec:Descripciontc}
 
-Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. el jugador debe estar logueado y dentro de la mesa en la qu quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
+Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. el jugador debe estar logueado y dentro de la mesa en la que quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
 
 \subsubsection{Factores Categorias y Elecciones}
 \label{sec:FactoresCategoriasYEleccionestc}
 
 \begin{tabular}{||l|l|l|l||}
-\hline
-\hline
+\hline\hline
 \multicolumn{4}{||c||}{\textsc{Funcionalidad: Tirar Casino}} \\ % c = center
 \hline
 \textbf{Factor} & \textbf{Categoria} & \textbf{Eleccion} & \textbf{Clasificación} \\
-\hline
-\hline
+\hline\hline
 Casino & Abierto & Si & \\
  &  & No & [ERROR]\\
-\hline
-\hline
+\hline\hline
 Jugador & Logueado? & Si & \\
  &  & No & [ERROR]\\
 \hline
@@ -32,64 +29,173 @@ Jugador & Logueado? & Si & \\
 \hline
  & Esta jugando Craps? & Si & \\
  &  & No & [ERROR]\\
-\hline
-\hline
+\hline\hline
 Mesa & Existe? & Si & \\
  &  & No & [ERROR]\\
 \hline
  & Puck & Apagado & [PROP tiroDeSalida] \\
- &  & Prendido & [PROP puntoEstablecido]\\
+ &  & Prendido & [PROP punto]\\
 \hline
- & Punto & 4,5,6,9,10 & [IF puntoEstablecido]\\
- &  & 8 & [IF puntoEstablecido][PROP ocho]\\
+ & Punto & 4,5,6,9,10 & [IF punto]\\
+ &  & 8 & [IF punto][PROP ocho]\\
 \hline
  & Abierta & Si & \\
  &  & No & [ERROR]\\
-\hline
-\hline
+\hline\hline
 Jugador/Mesa & pertenece? & Si & \\
  &  & No & [ERROR]\\
 \hline
  & Es tirador en? & Si & \\
  &  & No & [ERROR]\\
-\hline
-\hline
+\hline\hline
 Jugada Seteada & Seteada & Si & [PROP seteada]\\
  &  & No & \\
 \hline
  & Tipo & Normal & [IF seteada][UNICO]\\
  &  & Feliz & [IF seteada][PROP JugFeliz]\\
  &  & TodosPonen & [IF seteada][UNICO]\\
-\hline
-\hline
+\hline\hline
 Pozo Feliz & Supero el minimo & Si & [IF Jugfeliz][UNICO]\\
  &  & No & [IF Jugfeliz][UNICO]\\
-\hline
-\hline
+\hline\hline
 Valor Dirigido & Suma dados & 2,3 & [IF ocho OR tiroDeSalida]\\
  &  & 4,5,6,9,10 & [IF ocho OR tiroDeSalida]\\
  &  & 7 & [IF ocho OR tiroDeSalida]\\
  &  & 8 & [IF ocho OR tiroDeSalida]\\
  &  & 11 & [IF ocho OR tiroDeSalida]\\
  &  & 12 & [IF ocho OR tiroDeSalida]\\
-\hline
-\hline
+\hline\hline
 Apuesta & Vigente & Si & [PROP hayApuesta]\\
  &  & No & [UNICO]\\
 \hline
  & Tipo de apuesta & Línea de Pase & [IF hayApuesta]\\
  &  & Barra No Pase & [IF hayApuesta]\\
  &  & Otras & [IF hayApuesta][UNICO]\\
-\hline
-\hline
+\hline\hline
 \end{tabular}
 
 \subsubsection{Casos de Test}
 \label{sec:CasosDeTesttc}
 
+%{\rotatebox{90}{id}}
+
+\begin{landscape}
+\begin{tabularx}{1.6\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
+\hline
+id & casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & jugando craps &	existe mesa	&	mesa abierta	&	mesa puck prendido	&	mesa punto	&	jugador pertenece a mesa	&	jugador es tirador en mesa	&	jugada seteada	&	jugada seteada tipo	&	pozo feliz supera min	&	suma dados valor dirigido	&	apuesta vigente	&	tipo de apuesta\\
+\hline
+1	&	no	&	-	  &	-   &-	  &	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	- & -\\
+2	&	si	&	no	&	-   & -	  &	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+3	&	si	&	si	& no  & -  	&	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+4 &	si	&	si	&	si	&	si	&	-	  &	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+5	&	si	&	si	&	si	&	no	&	no	&	-	  &	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+6	&	si	&	si	&	si	&	no	&	si  &	no	&	-	  &	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	- & -\\
+7	&	si	&	si	&	si	&	no	&	si	&	si  &	no	&	-	&	-	&	-	  &	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+8	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	no	&	-	  &	-	&	-	&	-	&	-	&	-	&	-\\
+9	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	no	&	-	&	-	&	-	&	-	&	-	&	-\\
+10&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	feliz	&	si\footnote{unico para limitar el test}	&	-	&	-	&	-\\
+11	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	feliz	&	no\footnote{unico para limitar el test}	&	-	&	-	&	-\\
+12	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	todosP\footnote{unico para limitar el test}	&	-	&	-	&	-	&	-\\
+13	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	si	&	normal\footnote{unico para limitar el test (cuando el casino no tiene jugada seteada es jugada normal, no tiene mucho interes setear jugada normal)}	&	-	&	-	&	-	&	-\\
+14	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	no	&	-	&	-	&	-	&	no\footnote{unico (lo unico que se podria ver en este caso es el pase de los dados, esto se vera tambien en el caso en que existan apuestas)}	&	-\\
+15	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	-	&	-	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	otras\footnote{unico (este caso no es de interes pues es el test de apuesta pase o no pase)}\\
+16	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	pase\\
+17	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	pase\\
+18	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	pase\\
+19	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	pase\\
+20	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	pase\\
+21	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	pase\\
+22	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	nopase\\
+\hline
+\end{tabularx}
+\vskip1cm
+\end{landscape}
+
+\begin{landscape}
+\begin{tabularx}{1.6\textheight}{|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|}
+\hline
+id	&	casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & jugando craps &	existe mesa	&	mesa abierta	&	mesa puck prendido	&	mesa punto	&	jugador pertenece a mesa	&	jugador es tirador en mesa	&	jugada seteada	&	jugada seteada tipo	&	pozo feliz supera min	&	suma dados valor dirigido	&	apuesta vigente	&	tipo de apuesta\\
+\hline	
+23	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	nopase\\
+24	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	nopase\\
+25	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	nopase\\
+26	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	nopase\\
+27	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	no	&	-	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	nopase\\
+28	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	4,5,6,9,10\footnote{unico (el comportamiento general de la apuesta pase sera estudiado en el caso particular 8)}	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	pase\\
+29	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	4,5,6,9,10\footnote{unico (el comportamiento general de la apuesta no pase sera estudiado en el caso particular 8)}	&	si	&	si	&	no	&	-	&	-	&	-	&	si	&	nopase\\
+30	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	pase\\
+31	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	pase\\
+32	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	pase\\
+33	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	pase\\
+34	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	pase\\
+35	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	pase\\
+36	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	2,3	&	si	&	nopase\\
+37	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	4,5,6,9,10	&	si	&	nopase\\
+38	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	7	&	si	&	nopase\\
+39	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	8	&	si	&	nopase\\
+40	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	12	&	si	&	nopase\\
+41	&	si	&	si	&	si	&	no	&	si	&	si	&	si	&	si	&	8	&	si	&	si	&	no	&	-	&	-	&	11	&	si	&	nopase\\
+\hline	
+\end{tabularx}
+\vskip3cm
+\end{landscape}
+
+\begin{tabularx}{1\textwidth}{|p{1cm}|X|}
+\hline
+1	&	ERROR: No se podran lanzar los dados, pues el casino esta cerrado\\
+2	&	ERROR: No se podran lanzar los dados, pues el jugador no esta loggeado en el casino\\
+3	&	ERROR: No se podran lanzar los dados, pues el jugador no es un cliente del casino\\
+4	&	ERROR: No se podran lanzar los dados, el cliente no esta registrado en la mesa\\
+5	&	ERROR: No se podran lanzar los dados, el jugador no esta jugando en juego craps.\\
+6	&	ERROR: La mesa sobre la que se quieren lanzar los dados no exite\\
+7	&	ERROR: No se pueden lanzar los dados en una mesa cerrada\\
+8	&	ERROR: El lanzador no pertenece a los jugadores de la mesa\\
+9	&	ERROR: No se podran lanzar los dados, no le correspode tirar\\
+10	&	OK, La jugada seteada es de tipo Feliz, el total del pozo feliz se acreditara a el jugador\\
+11	&	OK, La jugada seteada es de tipo Feliz pero como el pozo no supero el minimo no podrá ser entregado, el valor del pozo permanecera igual. Se incrementara el saldo del jugador según el valor del pago de la apuesta y la misma suma se disminuirá del saldo del casino\\
+12	&	OK, La jugada seteada es de tipo TodosPonen por lo que a la ganacia obtenida en la apuesta se le descontara el porcentaje correspondiente a este tipo de jugada, ese porcentaje será agregado al valor total acumulao del pozo Feliz, el saldo del casino disminuira en el valor del pago de la apuesta.\\
+13	&	OK, La jugada setetada es de tipo Normal, por lo que el pago de apuestas se realizara normalmente sin agregar ni quitar nada a las ganancias de las apuestas de los jugadores ganadores\\
+14	&	UNICO, el tiro se ha efectuado satisfactoriamente, no hay apuesta para pagar ni jugadas seteadas\\
+15	&	UNICO, este caso no puede desarrollarse en este test puesto que este se basa en apuestas pase o no pase\\
+16	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, el jugador ha perdido la apuesta Pase, por lo que ya no esta vigente,. El monto apostado quedara en el saldo del casino. Ha finalizado la ronda y el jugador pasará los dados\\
+17	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
+18	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 7. El jugador ha ganado la apuesta Pase, por lo que ya no esta vigente,, que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. La ronda ha terminado y el jugador pasa los dados\\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{1\textwidth}{|p{1cm}|X|}
+\hline
+19	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido: 8, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
+20	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido: 12, un craps, el jugador ha perdido la apuesta Pase, por lo que ya no esta vigente,. El monto apostado quedara en el saldo del casino. Ha finalizado la ronda y el jugador pasará los dados\\
+21	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 11. El jugador ha ganado la apuesta Pase, por lo que ya no esta vigente, que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. La ronda ha terminado y el jugador pasa los dados\\
+22	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, El jugador ha ganado la apuesta No Pase que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. Ha finalizado la ronda y el jugador pasará los dados\\
+23	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
+24	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 7. el jugador ha perdido la apuesta No Pase. El monto apostado quedara en el saldo del casino. La ronda ha terminado y el jugador pasa los dados\\
+25	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido: 8, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
+26	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, El jugador ha empatado la apuesta No Pase que se pagara normalmente. La apuesta pagara el mismo valor del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. Ha finalizado la ronda y el jugador pasará los dados\\
+27	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 11. el jugador ha perdido la apuesta No Pase. El monto apostado quedara en el saldo del casino. La ronda ha terminado y el jugador pasa los dados\\
+28	&	UNICO, el comportamiento general de la apuesta pase sera estudiado en el caso particular 8\\
+29	&	UNICO, el comportamiento general de la apuesta no pase sera estudiado en el caso particular 8\\
+30	&	OK, el tiro ha sido satisfactorio, no se ha acertado el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{1\textwidth}{|p{1cm}|X|}
+\hline
+31	&	OK, el tiro ha sido satisfactorio, no se ha acertado el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+32	&	OK, el tiro ha sido satisfactorio, el resultado es el valor dirigido: 7. No se ha acertado el punto, ha salido un "Seven Out". El jugador ha perdido la apuesta Pase, por lo que ya no esta vigente,. El monto apostado quedara en el saldo del casino. La ronda ha terminado, el puck ha sido apagado y el jugador pasa los dados\\
+33	&	OK, el tiro ha sido satisfactorio, el resultado es el valor dirigido: 8. Se ha acertado el punto. El jugador ha ganado la apuesta Pase, por lo que ya no esta vigente,. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. La ronda ha terminado, el puck ha sido apagado y el jugador pasa los dados\\
+34	&	OK, el tiro ha sido satisfactorio, no se ha establecido el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+35	&	OK, el tiro ha sido satisfactorio, no se ha establecido el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+36	&	OK, el tiro ha sido satisfactorio, no se ha establecido el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+37	&	OK, el tiro ha sido satisfactorio, no se ha establecido el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+38	&	OK, el tiro ha sido satisfactorio, el resultado es el valor dirigido: 7. No se ha acertado el punto, ha salido un "Seven Out". El jugador ha ganado la apuesta No pase. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador.  La ronda ha terminado, el puck ha sido apagado y el jugador pasa los dados\\
+39	&	OK, el tiro ha sido satisfactorio, el resultado es el valor dirigido: 8. Se ha acertado el punto. El jugador ha perdido la apuesta No Pase .El monto apostado quedara en el saldo del casino. La ronda ha terminado, el puck ha sido apagado y el jugador pasa los dados\\
+40	&	OK, el tiro ha sido satisfactorio, no se ha establecido el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+41	&	OK, el tiro ha sido satisfactorio, no se ha establecido el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
+\hline
+\end{tabularx}
 
 
 \subsubsection{Datos de prueba}
 \label{sec:DatosDePruebac}
-
-

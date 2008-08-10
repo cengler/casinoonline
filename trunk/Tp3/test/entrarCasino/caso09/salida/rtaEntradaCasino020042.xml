@@ -1,0 +1,6 @@
+<entradaCasino vTerm="0042" usuario="Ignacio">
+  <descripcion>El jugador ya esta logeado en el casino</descripcion>
+  <aceptado>No</aceptado>
+  <modoAcceso>observador</modoAcceso>
+  <saldo>0.0</saldo>
+</entradaCasino>

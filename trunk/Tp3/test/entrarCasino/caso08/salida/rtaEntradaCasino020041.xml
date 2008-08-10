@@ -1,6 +1,6 @@
-<entradaCasino vTerm="0041" usuario="Ignacio">
-  <descripcion>El jugador ha sido logeado como observaror</descripcion>
+<entradaCasino vTerm="0041" usuario="No Registrado">
+  <descripcion>El cliente ha sido loggeado como invitado</descripcion>
   <aceptado>Si</aceptado>
   <modoAcceso>observador</modoAcceso>
-  <saldo>10000.0</saldo>
+  <saldo>0.0</saldo>
 </entradaCasino>

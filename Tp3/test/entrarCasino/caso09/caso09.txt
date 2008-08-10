@@ -1,0 +1,6 @@
+abrirCasino02.xml	
+	rtaAbrirCasino02.xml
+entradaCasino020041.xml	
+	rtaEntradaCasino020041.xml
+entradaCasino020042.xml	
+	rtaEntradaCasino020042.xml

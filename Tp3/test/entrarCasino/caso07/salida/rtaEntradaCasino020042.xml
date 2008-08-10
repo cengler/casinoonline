@@ -1,4 +1,4 @@
-<entradaCasino vTerm="0042" usuario="No Registrado">
+<entradaCasino vTerm="0042" usuario="NoRegistrado">
   <descripcion>El cliente ya se encuentra logeado como invitado</descripcion>
   <aceptado>No</aceptado>
   <modoAcceso>observador</modoAcceso>

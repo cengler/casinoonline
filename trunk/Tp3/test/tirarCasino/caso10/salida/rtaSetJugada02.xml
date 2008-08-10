@@ -1,0 +1,7 @@
+<setJugada>
+  <aceptado>true</aceptado>
+  <descripcion>El seteo de la jugada se completo corectamente</descripcion>
+  <tipo>feliz</tipo>
+  <juego>craps</juego>
+  <mesa>1</mesa>
+</setJugada>

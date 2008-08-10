@@ -1,0 +1,6 @@
+<entradaCasino vTerm="0041" usuario="Pepe">
+  <descripcion>Dicha terminal virtual ya esa en uso</descripcion>
+  <aceptado>No</aceptado>
+  <modoAcceso>jugador</modoAcceso>
+  <saldo>0.0</saldo>
+</entradaCasino>

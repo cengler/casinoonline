@@ -10,9 +10,9 @@ Este testing evalua la validez del tiro de un jugador, asi como el resultado del
 \label{sec:FactoresCategoriasYEleccionestc}
 
 \begin{tabular}{||l|l|l|l||}
+%\hline\hline
+%\multicolumn{4}{||c||}{\textsc{Funcionalidad: Tirar Casino}} \\ % c = center
 \hline\hline
-\multicolumn{4}{||c||}{\textsc{Funcionalidad: Tirar Casino}} \\ % c = center
-\hline
 \textbf{Factor} & \textbf{Categoria} & \textbf{Eleccion} & \textbf{Clasificación} \\
 \hline\hline
 Casino & Abierto & Si & \\
@@ -196,6 +196,16 @@ id	&	casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & ju
 \hline
 \end{tabularx}
 
+\newpage
 
 \subsubsection{Datos de prueba}
 \label{sec:DatosDePruebac}
+
+Los datos de prueba estan en la carpeta /test/tirarCraps. En dicha carpeta existe una carpeta para cada caso, donde se encuentran la entrada (mensjes del cliente) y la respuesta (mensajes de respuesta del servidor). Tambien existe un archivo casoXX.txt que explica la secuencia de mensajes entre al cliente y servidor\\
+Estos test fueron corridos en DEBUG para observar los cambios de estado en el casino, Ademas de observar el estado del casino observamos que los archivos de respuesta le dieran la informacion correcta al cliente.\\
+Los test de entrar casino nos ayudaron a darnos cuenta algunos errorres como:
+\begin{itemize}
+	\item en el comienzo descublimos que por un error en el parseo de los pagos, nunca se pagaba al casino, sino que siempre se ganaba.
+	\item nos dimos cuenta de un error en el pago de la jugada de empate, que dada la forma que se hacie el calculo, y los datos de configuracion, derivaba en una division por 0.
+\end{itemize}
+Al finalizar los testeos logramos que todos los test a tirar casino fueron extosos.

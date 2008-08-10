@@ -14,6 +14,7 @@ import craps.msg.MSGEntradaCraps;
 import craps.msg.MSGEstadoCraps;
 import craps.msg.MSGJugadorCraps;
 import craps.msg.MSGOpcionApuesta;
+import craps.msg.MSGPremio;
 import craps.msg.MSGSalidaCraps;
 import craps.msg.MSGTiroCraps;
 import craps.msg.MSGValorFicha;
@@ -53,7 +54,7 @@ public class ParserCraps extends Parser {
 		// PARSER CRAPS
 		xstream.alias("estadoCraps", MSGEstadoCraps.class);
 		xstream.alias("jugador", MSGJugadorCraps.class);
-		
+		xstream.alias("premio", MSGPremio.class);
 		
 		xstream.alias("apuesta", MSGApuesta.class);
 		

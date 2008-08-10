@@ -11,7 +11,7 @@ NO SE ENTIENDE
 -otro tema respecto a la apuesta venir, es si se guarda el puntaje venir (o si es noVenir el puntaje noVenir)
 esto es para ver si gana o no la apuesta venir/novenir
 
-
+-- explicar log4j
 
 
 

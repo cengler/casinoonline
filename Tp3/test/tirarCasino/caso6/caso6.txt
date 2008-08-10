@@ -6,5 +6,5 @@ entradaCraps020041.xml
 	rtaEntradaCraps020041.xml
 	rtaEstadoCraps020041.xml
 tirarCraps020041.xml
-	rtaEstadoCraps020041(1).xml
 	rtaTiroCraps020041.xml
+ 

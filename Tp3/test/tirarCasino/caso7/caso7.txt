@@ -9,5 +9,4 @@ salidaCraps020041.xml
 	rtaSalidaCraps020041.xml
 	rtaEstadoCraps020041(1).xml
 tirarCraps020041.xml
-	rtaEstadoCraps020041(2).xml
 	rtaTiroCraps020041.xml

@@ -1,0 +1,9 @@
+<tiroCraps vTerm="0041" usuario="Ignacio" mesa="1">
+  <aceptado>Si</aceptado>
+  <descripcion>El jugador ha tirado los dados y sigue tirando</descripcion>
+  <tipoJugada>normal</tipoJugada>
+  <resultado>
+    <dado1>1</dado1>
+    <dado2>1</dado2>
+  </resultado>
+</tiroCraps>

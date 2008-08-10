@@ -1,10 +1,15 @@
 caso6:
-
 Si un jugador esta jugando en una mesa, no puede tirar en otra que no exita 
 en el casino. La respuesta deberia ser esta, sin embrago nuestro codigo
-dice que el jugador no esta jugando en el juego lo cual no es cierto.
+dice que el jugador no esta jugando en el juego lo cual no es cierto...
 
 caso7:
-
 El jugador desea tirar en una mesa cerrada. La respuesta deberia ser esta, sin embrago nuestro codigo
-dice que el jugador no esta jugando en el juego.
+dice que el jugador no esta jugando en el juego...
+
+caso8:
+Un jugador intenta tirar en una mesa en la que no esta y le contesta 
+que no esta jugando en el juego...
+
+
+

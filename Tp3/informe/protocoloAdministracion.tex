@@ -1,0 +1,154 @@
+\section{Protocolo Administracion}
+\label{sec:ProtocoloAdministracion}
+
+Especificaremos aqui todos los xmls de nuestra creacion, necesarios para la administracion y manipulacion del casino.
+
+
+\subsection{AbrirCasino}
+\label{sec:AbrirCasino}
+
+\begin{itemize}
+	\item Nombre del archivo: abrirCasino02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+			<abrirCasino>
+			</abrirCasino>
+		\end{verbatim}
+\end{itemize}
+
+\subsection{AbrirCasino Respuesta}
+\label{sec:AbrirCasinoRespuesta}
+
+\begin{itemize}
+	\item Nombre del archivo: rtaAbrirCasino02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+<abrirCasino>
+    <aceptado>true | false</aceptado>			
+    <descripcion>"descripcion"</descripcion>
+</abrirCasino>
+		\end{verbatim}
+\end{itemize}
+
+\subsection{CerrarCasino}
+\label{sec:CerrarCasino}
+
+\begin{itemize}
+	\item Nombre del archivo: cerrarCasino02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+			<cerrarCasino>
+			</cerrarCasino>
+		\end{verbatim}
+\end{itemize}
+
+\subsection{CerrarCasino Respuesta}
+\label{sec:CerrarCasinoRespuesta}
+
+\begin{itemize}
+	\item Nombre del archivo: rtaCerrarCasino02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+<cerrarCasino>
+    <aceptado>true | false</aceptado>			
+    <descripcion>"descripcion"</descripcion>
+</cerrarCasino>
+		\end{verbatim}
+\end{itemize}
+
+\subsection{SetModo}
+\label{sec:SetModo}
+
+\begin{itemize}
+	\item Nombre del archivo: setModo02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+<setModo>
+    <modo>dirigido | normal</modo>
+    <resultados>
+        <resultadosCraps>
+            <resultados>
+                <resultadoCraps dado1="4" dado2="5"/>
+                ...
+                <resultadoCraps dado1="1" dado2="2"/>
+            </resultados>
+       </resultadosCraps>
+       <resultadosTraga>
+           <resultados>
+                <resultadoTraga rollo1="dino" rollo2="dino" rollo3="dino" />
+                ...
+                <resultadoTraga rollo1="dino" rollo2="dino" rollo3="dino" />
+           </resultados>
+       </resultadosTraga>
+    </resultados>
+</setModo>
+\end{verbatim}
+\end{itemize}
+
+
+\subsection{SetModo}
+\label{sec:SetModo}
+
+\begin{itemize}
+	\item Nombre del archivo: resSetModo02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+<setModo>
+    <modo>dirigido | normal</modo>
+    <resultados>
+        <resultadosCraps>
+            <resultados>
+                <resultadoCraps dado1="4" dado2="5"/>
+                ...
+                <resultadoCraps dado1="1" dado2="2"/>
+            </resultados>
+       </resultadosCraps>
+       <resultadosTraga>
+           <resultados>
+                <resultadoTraga rollo1="dino" rollo2="dino" rollo3="dino" />
+                ...
+                <resultadoTraga rollo1="dino" rollo2="dino" rollo3="dino" />
+           </resultados>
+       </resultadosTraga>
+    </resultados>
+    <aceptado>true | false</aceptado>
+    <descripcion>"descripcion"</descripcion>
+</setModo>
+\end{verbatim}
+\end{itemize}
+
+
+\subsection{SetJugada}
+\label{sec:SetJugada}
+
+\begin{itemize}
+	\item Nombre del archivo: setJugada02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+<setJugada>
+    <tipo>normal</tipo>
+    <juego>craps</juego>
+    <mesa>1</mesa>
+</setJugada>
+\end{verbatim}
+\end{itemize}
+
+\subsection{SetJugada Respuesta}
+\label{sec:SetJugadaRespuesta}
+
+\begin{itemize}
+	\item Nombre del archivo: rtaSetJugada02.xml
+	\item Descripcion del xml:
+		\begin{verbatim}
+<setJugada>
+    <tipo>normal</tipo>
+    <juego>craps</juego>
+    <mesa>1</mesa>
+    <aceptado>true | false</aceptado>			
+    <descripcion>"descripcion"</descripcion>
+</setJugada>
+\end{verbatim}
+\end{itemize}
+
+
+

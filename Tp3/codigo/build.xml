@@ -2,7 +2,6 @@
 <project name="Casino Online" default="zip">
 
 <property name="dir.lib" value="lib" />
-<property name="dir.uml" value="uml" />
 <property name="dir.doc" value="doc" />
 <property name="dir.api" value="${dir.doc}/api" />
 <property name="dir.bin" value="bin" />
@@ -32,7 +31,6 @@
     <delete dir="${dir.jar}" />
 	<delete dir="${dir.rep}" />
 	<delete dir="${dir.doc}" />
-	<delete dir="${dir.uml}" />	
 </target>
 
 <target name="makedir" depends="clear" description="Crea los directorios">
@@ -43,7 +41,6 @@
 	<mkdir dir="${dir.rep}" />
 	<mkdir dir="${dir.doc}" />
 	<mkdir dir="${dir.api}" />
-	<mkdir dir="${dir.uml}" />
 </target>
 
 <target name="make" depends="makedir" description="Compila el proyecto">
@@ -55,22 +52,6 @@
 	</copy>
     <javac srcdir="${dir.src}" destdir="${dir.bin}" classpathref="classpath" />
 </target>
-
-<!--manifest file="MANIFEST.MF">
-    <attribute name="Built-By" value="${user.name}"/>
-    <section name="common">
-      <attribute name="Specification-Title" value="Example"/>
-      <attribute name="Specification-Version" value="${version}"/>
-      <attribute name="Specification-Vendor" value="Example Organization"/>
-      <attribute name="Implementation-Title" value="common"/>
-      <attribute name="Implementation-Version" value="${version} ${TODAY}"/> 
-      <attribute name="Implementation-Vendor" value="Example Corp."/>
-    </section>
-	<section name="common/class1.class">
-		<attribute name="Sealed" value="false"/>
-	</section>
-</manifest-->
-
 
 <target name="zip" depends="make" description="Crea el jar">
 	<echo>Creando Jars: .......................................... </echo>
@@ -140,7 +121,7 @@
 	</xslt>
 </target>
 
-<target name="javadoc" depends="check" description="Genera reporte de violaciones de convenciones de codigo.">
+<target name="javadoc" depends="check" description="Genera javadoc.">
 	<echo>Generando JavaDoc: ..................................... </echo>
 	<javadoc
 		destdir="${dir.api}"
@@ -151,42 +132,16 @@
 
 	    <packageset dir="${dir.src}" defaultexcludes="yes">
 	      <include name="**"/>
-	      <!--exclude name="com/dummy/test/doc-files/**"/-->
 	    </packageset>
 
 	    <doctitle><![CDATA[<h1>Test</h1>]]></doctitle>
 	    <bottom><![CDATA[<i>Copyright &#169; 2008 Grupo2. Derechos Reservados.</i>]]></bottom>
 	    <tag name="todo" scope="all" description="To do:"/>
 	    <group title="Group 1 Packages" packages="*"/>
-	    <!--group title="Group 2 Packages" packages="com.dummy.test.b*:com.dummy.test.c*"/-->
 	    <link offline="true" href="http://java.sun.com/j2se/1.5.0/docs/api/" packagelistLoc="C:\tmp"/>
 	    <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
 	</javadoc>
 </target>
-
-<!--depends="javadoc"-->
-<target name="uml">
-	<path id="uml.source.path">
-          <pathelement path="${dir.src}"/>
-	</path>
-	<javadoc sourcepathref="uml.source.path" packagenames="core.*" package="true">
-		<doclet name="org.umlgraph.doclet.UmlGraph" path="${dir.lib}/UMLGraph.jar">
-			<!--param name="-d" value="${dir.uml}"/-->
-		</doclet>
-	</javadoc>
-	<!--apply executable="dot" dest="${dir.uml}" parallel="false">
-		<arg value="-Tpng"/>
-		<arg value="-o"/>
-		<targetfile/>
-		<srcfile/>
-		<fileset dir="${dir.uml}" includes="*.dot"/>
-		<mapper type="glob" from="*.dot" to="*.png"/>
-	</apply-->
-</target>
-
-
-<!--http://www.umlgraph.org/doc/ant.html
-http://www.mekwin.com/mekwin/software/developers.html-->
    
 <target name="all" depends="javadoc" description="Realiza todo.">
 	<echo>All Actions: ..................................... </echo>

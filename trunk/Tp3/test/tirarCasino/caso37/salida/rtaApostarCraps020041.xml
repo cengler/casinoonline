@@ -1,0 +1,14 @@
+<apostarCraps vTerm="0041" usuario="Ignacio" mesa="1">
+  <aceptado>Si</aceptado>
+  <descripcion>El jugador ha realizado una apuesta de tipo: nopase y ha apostado:75</descripcion>
+  <opcionApuesta>
+    <tipoApuesta>nopase</tipoApuesta>
+    <puntajeApostado>0</puntajeApostado>
+  </opcionApuesta>
+  <valorApuesta>
+    <valorFicha>
+      <cantidad>3</cantidad>
+      <valor>25</valor>
+    </valorFicha>
+  </valorApuesta>
+</apostarCraps>

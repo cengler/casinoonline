@@ -1,0 +1,20 @@
+<estadoCraps vTerm="0041" usuario="Ignacio" mesa="1">
+  <jugadores>
+    <jugador>
+      <jugador>Ignacio</jugador>
+    </jugador>
+  </jugadores>
+  <proximoTiro>
+    <tirador>Ignacio</tirador>
+    <tiroSalida>No</tiroSalida>
+    <punto>6</punto>
+  </proximoTiro>
+  <ultimoTiro>
+    <tirador>Ignacio</tirador>
+    <resultado>6</resultado>
+    <premios/>
+  </ultimoTiro>
+  <apuestasVigentes>
+    <apuestas/>
+  </apuestasVigentes>
+</estadoCraps>

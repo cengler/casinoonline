@@ -1,0 +1,11 @@
+<reporteEstadoActual>
+  <aceptado>true</aceptado>
+  <descripcion>El estado actual del casino es:</descripcion>
+  <jugadores>
+    <jugador nombre="Ignacio" saldo="10075.0"/>
+  </jugadores>
+  <saldoCasino>925.0</saldoCasino>
+  <pozosCasino>
+    <pozoFeliz>1020.0</pozoFeliz>
+  </pozosCasino>
+</reporteEstadoActual>

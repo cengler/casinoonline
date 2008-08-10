@@ -1,0 +1,9 @@
+<list>
+  <jugador nombre="Pablo" saldo="1.234567" vip="false"/>
+  <jugador nombre="Miguel" saldo="10000.0" vip="true"/>
+  <jugador nombre="Martin" saldo="4648.0" vip="true"/>
+  <jugador nombre="Pepe" saldo="100.0" vip="true"/>
+  <jugador nombre="Ignacio" saldo="10000.0" vip="false"/>
+  <jugador nombre="Andres" saldo="1550.0" vip="false"/>
+  <jugador nombre="Juan" saldo="200.1" vip="false"/>
+</list>

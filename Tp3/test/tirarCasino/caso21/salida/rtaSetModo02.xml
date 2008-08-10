@@ -1,0 +1,12 @@
+<setModo>
+  <aceptado>true</aceptado>
+  <descripcion>El casino seteo al casino en modo: dirigido</descripcion>
+  <modo>dirigido</modo>
+  <resultados>
+    <resultadosCraps>
+      <resultados>
+        <resultadoCraps dado1="5" dado2="6"/>
+      </resultados>
+    </resultadosCraps>
+  </resultados>
+</setModo>

@@ -1,0 +1,6 @@
+caso6:
+
+Si un jugador esta jugando en una mesa, no puede tirar en otra que no exita 
+en el casino. La respuesta deberia ser esta, sin embrago nuestro codigo
+dice que el jugador no esta jugando en el juego lo cual no es cierto.
+

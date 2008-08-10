@@ -1,0 +1,14 @@
+abrirCasino02.xml	
+	rtaAbrirCasino02.xml
+entradaCasino020041.xml	
+	rtaEntradaCasino020041.xml
+entradaCraps020041.xml	
+	rtaEstadoCraps020041(1).xml
+	rtaEntradaCraps020041.xml
+setModo02.xml	
+	rtaSetModo02.xml
+setJugada02.xml
+	setJugada02.xml
+tirarCraps020041.xml	
+	rtaEstadoCraps020041(2).xml
+	rtaTiroCraps020041.xml

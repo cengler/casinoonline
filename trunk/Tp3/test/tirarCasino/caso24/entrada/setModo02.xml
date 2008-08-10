@@ -1,0 +1,12 @@
+<setModo>
+	<modo>dirigido</modo>
+	<resultados>
+		<resultadosCraps>
+			<resultados>
+				<resultadoCraps dado1="1" dado2="6"/>
+			</resultados>
+		</resultadosCraps>
+	</resultados>
+	<aceptado></aceptado>
+	<descripcion></descripcion>
+</setModo>

@@ -1,21 +1,11 @@
-- validar que no haya jugadores logeados ni invitados en el casino al cerrar?
-
-// PIORIDAD MUY BAJA --------------------------------------------
-- checkstyle
-- ver mover MSGCrapsEstado?
-
--- explicar log4j
----------------------------------------------------------------------------------
--respecto a la distribucion del pozo feliz, podriamos decir q esta bien
-lo unico es q dio un poco diferente a las cuentas que hice yo
-pero supongo que es por rendondeos al calcular los porcentajes DIFERENCIAS DE 1$
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
 dependencias de SERVER
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
+
 REPORTE DE DETALLE DE MOVIMIENTOS
----------------------------------------------------------------------------------
+
+
+http://www.umlgraph.org/doc/ant.html
+
+http://www.mekwin.com/mekwin/software/developers.html
 
 
 

@@ -1,0 +1,6 @@
+<entradaCasino vTerm="0050" usuario="Maria">
+  <descripcion>El cliente ha sido loggeado como invitado</descripcion>
+  <aceptado>Si</aceptado>
+  <modoAcceso>observador</modoAcceso>
+  <saldo>0.0</saldo>
+</entradaCasino>

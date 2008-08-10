@@ -19,7 +19,7 @@ nopase, false, 2, 0, 1, 1
 nopase, false, 3, 0, 1, 1
 nopase, false, 7, 0, 1, -1
 nopase, false, 11, 0, 1, -1
-nopase, false, 12, 0, 1, 0
+nopase, false, 12, 0, 0, 1
 nopase, true, 4, 4, 1, -1
 nopase, true, 5, 5, 1, -1
 nopase, true, 6, 6, 1, -1

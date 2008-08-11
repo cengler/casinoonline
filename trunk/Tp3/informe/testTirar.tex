@@ -4,7 +4,7 @@
 \subsubsection{Descripcion}
 \label{sec:Descripciontc}
 
-Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. el jugador debe estar logueado y dentro de la mesa en la que quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
+Este testing evalua la validez del tiro de un jugador, asi como el resultado del mismo. El jugador debe estar logueado y dentro de la mesa en la que quiere tirar, ademas debe ser el tirador de la misma. El tirador puede ganar o perder el tiro segun el resultado, y segun este ultimo como tambien el tipo de jugada que sea se haran los pagos, descuentos y movimiento de pozos corrspondientes.
 
 \subsubsection{Factores Categorias y Elecciones}
 \label{sec:FactoresCategoriasYEleccionestc}
@@ -205,7 +205,7 @@ Los datos de prueba estan en la carpeta /test/tirarCraps. En dicha carpeta exist
 Estos test fueron corridos en DEBUG para observar los cambios de estado en el casino, Ademas de observar el estado del casino observamos que los archivos de respuesta le dieran la informacion correcta al cliente.\\
 Los test de entrar casino nos ayudaron a darnos cuenta algunos errorres como:
 \begin{itemize}
-	\item en el comienzo descublimos que por un error en el parseo de los pagos, nunca se pagaba al casino, sino que siempre se ganaba.
-	\item nos dimos cuenta de un error en el pago de la jugada de empate, que dada la forma que se hacie el calculo, y los datos de configuracion, derivaba en una division por 0.
+	\item En el comienzo descubrimos que por un error en el parseo de los pagos, nunca se pagaba al casino, sino que siempre se ganaba.
+	\item Nos dimos cuenta de un error en el pago de la jugada de empate, que dada la forma que se hacia el calculo, y los datos de configuracion, derivaba en una division por 0.
 \end{itemize}
-Al finalizar los testeos logramos que todos los test a tirar casino fueron extosos.
+Al finalizar los testeos logramos que todos los test a tirar casino fueran exitosos.

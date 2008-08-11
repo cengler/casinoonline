@@ -151,31 +151,31 @@ id	&	casino abierto	&	jugador loggeado	& jugador es cliente &	es observador & ju
 7	&	ERROR: No se pueden lanzar los dados en una mesa cerrada\\
 8	&	ERROR: El lanzador no pertenece a los jugadores de la mesa\\
 9	&	ERROR: No se podran lanzar los dados, no le correspode tirar\\
-10	&	OK, La jugada seteada es de tipo Feliz, el total del pozo feliz se acreditara a el jugador\\
-11	&	OK, La jugada seteada es de tipo Feliz pero como el pozo no supero el minimo no podrá ser entregado, el valor del pozo permanecera igual. Se incrementara el saldo del jugador según el valor del pago de la apuesta y la misma suma se disminuirá del saldo del casino\\
+10	&	OK, La jugada seteada es de tipo Feliz, en caso de ganar la apuesta el total del pozo feliz se acreditara a el jugador\\
+11	&	OK, La jugada seteada es de tipo Feliz pero incluso en el caso de ganar, como el pozo no supero el minimo no podrá ser entregado, el valor del pozo permanecera igual. En caso de ganarse la apuesta se incrementara el saldo del jugador según el valor del pago de la apuesta y la misma suma se disminuirá del saldo del casino\\
 12	&	OK, La jugada seteada es de tipo TodosPonen por lo que a la ganacia obtenida en la apuesta se le descontara el porcentaje correspondiente a este tipo de jugada, ese porcentaje será agregado al valor total acumulao del pozo Feliz, el saldo del casino disminuira en el valor del pago de la apuesta.\\
 13	&	OK, La jugada setetada es de tipo Normal, por lo que el pago de apuestas se realizara normalmente sin agregar ni quitar nada a las ganancias de las apuestas de los jugadores ganadores\\
-14	&	UNICO, el tiro se ha efectuado satisfactoriamente, no hay apuesta para pagar ni jugadas seteadas\\
-15	&	UNICO, este caso no puede desarrollarse en este test puesto que este se basa en apuestas pase o no pase\\
-16	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, el jugador ha perdido la apuesta Pase, por lo que ya no esta vigente,. El monto apostado quedara en el saldo del casino. Ha finalizado la ronda y el jugador pasará los dados\\
+14	&	OK, El tiro se ha efectuado satisfactoriamente, no hay apuesta para pagar ni jugadas seteadas\\
+15	&	OK, El tiro se ha efectuado satisfactoriamente, este caso no puede desarrollarse en este test puesto que este se basa en apuestas pase o no pase\\
+16	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, el jugador ha perdido la apuesta Pase, por lo que ya no esta vigente,. El casino no deberá pagar nada. Ha finalizado la ronda y el jugador pasará los dados\\
 17	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
-18	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 7. El jugador ha ganado la apuesta Pase, por lo que ya no esta vigente,, que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. La ronda ha terminado y el jugador pasa los dados\\
+18	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 7. El jugador ha ganado la apuesta Pase, por lo que ya no esta vigente, que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. La ronda ha terminado y el jugador pasa los dados\\
 \hline
 \end{tabularx}
 
 \begin{tabularx}{1\textwidth}{|p{1cm}|X|}
 \hline
 19	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido: 8, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
-20	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido: 12, un craps, el jugador ha perdido la apuesta Pase, por lo que ya no esta vigente,. El monto apostado quedara en el saldo del casino. Ha finalizado la ronda y el jugador pasará los dados\\
+20	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido: 12, un craps, el jugador ha perdido la apuesta Pase, por lo que ya no esta vigente. Ha finalizado la ronda y el jugador pasará los dados\\
 21	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 11. El jugador ha ganado la apuesta Pase, por lo que ya no esta vigente, que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. La ronda ha terminado y el jugador pasa los dados\\
 22	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, El jugador ha ganado la apuesta No Pase que se pagara normalmente. La apuesta pagara el doble del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. Ha finalizado la ronda y el jugador pasará los dados\\
 23	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
 24	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 7. el jugador ha perdido la apuesta No Pase. El monto apostado quedara en el saldo del casino. La ronda ha terminado y el jugador pasa los dados\\
 25	&	OK, el tiro de salida ha sido satisfactorio, se ha establecido el punto con el valor dirigido: 8, el puck ha sido encendido. La apuesta no se ha resuelto, continuara vigente. La ronda continua y el jugador continuara tirando\\
 26	&	OK, el tiro de salida ha sido satisfactorio, ha salido el valor dirigido, un craps, El jugador ha empatado la apuesta No Pase que se pagara normalmente. La apuesta pagara el mismo valor del monto apostado, descontando este valor del saldo del casino y acreditandolo en el del jugador. Ha finalizado la ronda y el jugador pasará los dados\\
-27	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 11. el jugador ha perdido la apuesta No Pase. El monto apostado quedara en el saldo del casino. La ronda ha terminado y el jugador pasa los dados\\
-28	&	UNICO, el comportamiento general de la apuesta pase sera estudiado en el caso particular 8\\
-29	&	UNICO, el comportamiento general de la apuesta no pase sera estudiado en el caso particular 8\\
+27	&	OK, el tiro de salida ha sido satisfactorio, el resultado es el valor dirigido: 11. el jugador ha perdido la apuesta No Pase. El tirador continua tirando\\
+28	&	OK, el tiro no es de salida, si se repite el punto la apuesta se pagara\\
+29	&	OK, el tiro no es de salida, si no se repite el punto la apuesta se pagara\\
 30	&	OK, el tiro ha sido satisfactorio, no se ha acertado el punto con el valor dirigido, el puck continua encendido. La apuesta no se ha resuelto, continua vigente. La ronda continua y el jugador continuara tirando\\
 \hline
 \end{tabularx}

@@ -157,5 +157,22 @@
 </target>
 
 
+
+
+<target name="dot_fwk" depends="" description="Genera grafo de dependencias.">
+	<echo>Generando grafo de dependencias (dot): ..................... </echo>
+	<xslt basedir="${dir.rep}" destdir="${dir.rep}"
+		style="${dir.etc}/jdepend2dot.xsl" >
+	 	<mapper type="glob" from="fwk-jdepend-output.xml" to="fwk-jdepend-output.dot"/>
+	</xslt>
+	
+	<exec executable="dot">
+		<arg value="-Tpng"/>	
+		<arg value="-o"/>
+		<arg value="${dir.rep}/fwk-jdepend-output.png"/>
+		<arg value="${dir.rep}/fwk-jdepend-output.dot"/>
+	</exec>
+</target>
+
 </project>
 

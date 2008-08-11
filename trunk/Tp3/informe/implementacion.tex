@@ -50,8 +50,8 @@ Este archivo se carga en el momento de abrir el casino y se actualiza en el mome
 \begin{framed}
 \begin{verbatim}
 <saldos>
-	<saldoCasino>1000</saldoCasino>
-	<saldoPozoFeliz>1020</saldoPozoFeliz>
+    <saldoCasino>1000</saldoCasino>
+    <saldoPozoFeliz>1020</saldoPozoFeliz>
 </saldos>
 \end{verbatim}
 \end{framed}
@@ -66,12 +66,12 @@ En este archivos se configuran las fichas validas del casino, el primer valor re
 \begin{framed}
 \begin{verbatim}
 <list>
-	<valorFicha ficha="5" valor="5" />
-	<valorFicha ficha="10" valor="10" />
-	<valorFicha ficha="25" valor="25" />
-	<valorFicha ficha="50" valor="50" />
-	<valorFicha ficha="75" valor="75" />
-	<valorFicha ficha="100" valor="100" />
+    <valorFicha ficha="5" valor="5" />
+    <valorFicha ficha="10" valor="10" />
+    <valorFicha ficha="25" valor="25" />
+    <valorFicha ficha="50" valor="50" />
+    <valorFicha ficha="75" valor="75" />
+    <valorFicha ficha="100" valor="100" />
 </list>
 \end{verbatim}
 \end{framed}
@@ -100,13 +100,13 @@ Lista de los jugadores registrados con sus saldos y propiedades. Se carga en el 
 \begin{framed}
 \begin{verbatim}
 <list>
-	<jugador nombre="Pablo" saldo="1.234567" vip="false"/>
-	<jugador nombre="Miguel" saldo="10000.0" vip="true"/>
-	<jugador nombre="Martin" saldo="4648.0" vip="true"/>
-	<jugador nombre="Pepe" saldo="100.0" vip="true"/>
-	<jugador nombre="Ignacio" saldo="10000.0" vip="false"/>
-	<jugador nombre="Andres" saldo="1550.0" vip="false"/>
-	<jugador nombre="Juan" saldo="200.1" vip="false"/>
+    <jugador nombre="Pablo" saldo="1.234567" vip="false"/>
+    <jugador nombre="Miguel" saldo="10000.0" vip="true"/>
+    <jugador nombre="Martin" saldo="4648.0" vip="true"/>
+    <jugador nombre="Pepe" saldo="100.0" vip="true"/>
+    <jugador nombre="Ignacio" saldo="10000.0" vip="false"/>
+    <jugador nombre="Andres" saldo="1550.0" vip="false"/>
+    <jugador nombre="Juan" saldo="200.1" vip="false"/>
 </list>
 \end{verbatim}
 \end{framed}
@@ -117,7 +117,7 @@ Lista de los jugadores registrados con sus saldos y propiedades. Se carga en el 
 \large{\textit{mensajeroConfig.properties}}\\[0.5cm]
 Configuracion de los mensajeros. Cada puerto de acceso al sistema puede trabajar en una carpeta diferente.\\
 Por otro lado cada mensajero debe encargarse de los archivos que le son propios, los filtros que estan configurados en este archivo, son expresiones regulares que deben machear con los nombres de los archivos a procesar.\\
-Es importente que las expresiones regulares no macheen con las respuestas del casino, pues los archivos de salida se entregan en la misma carpeta.
+Es importante que las expresiones regulares no macheen con las respuestas del casino, pues los archivos de salida se entregan en la misma carpeta.
 
 \begin{framed}
 \begin{lstlisting}[breaklines=true]
@@ -147,7 +147,7 @@ Main targets:
 
  all      Realiza todo.
  check    Genera reporte de violaciones de convenciones de codigo.
- clear    Borra para un recompilacion completa
+ clear    Borra los archivos generado por la compilacion anterior.
  dot      Genera grafo de dependencias.
  javadoc  Genera javadoc.
  jdepend  Genera reporte de dependencias
@@ -175,7 +175,7 @@ De esta manera en el directorio /codigo/jar se copiaran todos los archivos neces
 
 \large{\textit{Con ant.}}
 \begin{verbatim}
-\casino\codigo\jar\ant run
+\casino\codigo\ant run
 \end{verbatim}
 
 \vskip1cm
@@ -185,9 +185,12 @@ De esta manera en el directorio /codigo/jar se copiaran todos los archivos neces
 
 \vskip0.3cm
 
-La configuracion del directorio de trabajo de los mensajeros se configura en: \\ \verb|/configuration/mensajeroConfig.properties|\\
-En el caso de correr el trabajo desde el directorio jar el archivos de encontrará en: \\
-\verb|/casino/codigo/jar/configuration/mensajeroConfig.properties|\\
+La configuracion del directorio de trabajo de los mensajeros se configura en: \\ \verb|casino/codigo/jar/configuration/mensajeroConfig.properties|\\
+Si recompila el proyecto, este se reemplazara nuevamente por el que se encuentra en:\\
+\verb|casino/codigo/src/configuration/mensajeroConfig.properties|\\
+\large{\textit{NOTA:}}\\
+Respete el sentido de los barras de los directorios, de otra manera dira que el directorio es invalido.
+
 
 \newpage
 
@@ -198,19 +201,43 @@ Para administrar el loggeo de la aplicacion utilizamos log4j\footnote{log4j es u
 De esta manera la configuración de salida y granularidad de los mensajes es realizada a tiempo de ejecución mediante el uso de un archivo: \verb|log4j.properties|\\
 
 Las dos ultimas lineas contienen el nivel de loggeo que se desea obtener. Este pude ser TRACE, DEBUG, INFO, ERROR y FATAL.\\
-Tambien se configura en este archivo la salida por la cual deberan mostrarse los mensajes de loggeo.
-El loggeo general del sistema esta direccionado a la cosola de ejecucion y a un archivo de log \verb|server.log|\\
+Tambien se configura en este archivo la salida por la cual deberan mostrarse los mensajes de loggeo.\\
+El loggeo general del sistema esta direccionado a la consola de ejecucion y a un archivo de log \verb|server.log|\\
 El loggeo de mensajeria esta dirreccionada tambien a la consola de ejecicion y al archivo \verb|messages.log| (Este logger sirve para ver los xml que van llegando y saliendo del servidor).
 
 \begin{verbatim}
+# APPENDER POR CONSOLA
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%t -CASINO ONLINE> %d{ABSOLUTE}. %5p %c{1}:%L - %m%n
+
+# APENDER POR ARCHIVO DE CASINO
+log4j.appender.logfile=org.apache.log4j.FileAppender
+log4j.appender.logfile.file=server.log
+log4j.appender.logfile.append=false
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logfile.layout.ConversionPattern=CASINO|%d{HH:mm:ss,SSS}|%m%n
+
+# APENDER POR ARCHIVO DE MENSAJERIA
+log4j.appender.msgfile=org.apache.log4j.FileAppender
+log4j.appender.msgfile.file=server.log
+log4j.appender.msgfile.append=false
+log4j.appender.msgfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.msgfile.layout.ConversionPattern=MESSAGE|%d{HH:mm:ss,SSS}|%m%n
+
+## LOGGERS
+
+# CASINO 
 log4j.rootLogger=info, stdout, logfile 
+# MENSAJERIA
 log4j.logger.MessageParser=debug, stdout, msgfile
 \end{verbatim}
 
 \subsection{Reportes}
 \label{sec:Reportes}
 
-Hay varios reportes generados a partir del codigo\footnote{los reportes se encuentran en la carpeta /codigo/report, si no se encuentran o no se encuentra la carpeta, se debera ejecutar el commando \textsc{ant all}}. El mas interesante es un grafo de dependencias que se genera a partir del codigo cuando se ejecuta el commando \verb|ant dot|. Es una forma grafica de estudiar las dependencias del codigo.
+Hay varios reportes generados a partir del codigo\footnote{los reportes se encuentran en la carpeta /codigo/report, si no se encuentran o no se encuentra la carpeta, se debera ejecutar el commando \textsc{ant all}}. El mas interesante es un grafo de dependencias que se genera a partir del codigo cuando se ejecuta el commando \verb|ant dot|. Es una forma grafica de descubir las dependencias del codigo.
 
 \vskip1cm
 
